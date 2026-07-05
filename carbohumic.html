@@ -3,11 +3,110 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Carbohort — CARBOHUMIC, próchnica w płynie</title>
-<meta name="description" content="CARBOHUMIC — płynny ekstrakt kwasów humusowych z lignitu i leonardytu. Doglebowo buduje strukturę i odblokowuje składniki; nalistnie biostymuluje roślinę. Dwa warianty: niefiltrowany doglebowy i filtrowany do fertygacji oraz oprysku.">
+<title>CARBOHUMIC – próchnica w płynie · propozycja V2 | Carbohort</title>
+<meta name="description" content="Propozycja V2 strony CARBOHUMIC: pełnoekranowe hero, pięć wariantów w trzech rolach, sekcja naukowa, gama produktów i siatka cyklu życia. Płynny ekstrakt z lignitu i leonardytu.">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="wireframe.css">
 <link rel="stylesheet" href="cw.css">
+<style>
+/* ===== CARBOMAT V2 – style eksperymentalne (tylko ta strona, wyłącznie tony neutralne + tokeny) ===== */
+.cw2-hero{position:relative;display:flex;align-items:flex-end;min-height:calc(100svh - 72px);overflow:hidden;background:var(--w-surface-inverse);}
+.cw2-hero__bg{position:absolute;inset:0;}
+.cw2-hero__bg .wf-ph{position:absolute;inset:0;height:100%;width:100%;border-radius:0;}
+.cw2-hero__bg .wf-ph__label{position:absolute;right:var(--w-space-4);bottom:var(--w-space-4);left:auto;top:auto;max-width:44ch;text-align:right;opacity:.7;}
+.cw2-hero__shade{position:absolute;inset:0;background:linear-gradient(180deg, rgb(0 0 0 / 0.20) 0%, rgb(0 0 0 / 0.36) 52%, rgb(0 0 0 / 0.78) 100%);}
+.cw2-hero__crumb{position:absolute;top:var(--w-space-5);left:0;right:0;z-index:2;}
+.cw2-hero__crumb .wf-link--quiet,.cw2-hero__crumb li,.cw2-hero__crumb .wf-breadcrumb__sep{color:var(--w-text-inverse);}
+.cw2-hero__content{position:relative;z-index:1;width:100%;padding-top:var(--w-space-24);padding-bottom:var(--w-space-16);}
+.cw2-btn-solid-inverse{background:var(--w-surface-page);border-color:var(--w-surface-page);color:var(--w-text-primary);}
+.cw2-btn-solid-inverse:hover{background:var(--w-gray-100);border-color:var(--w-gray-100);}
+.cw2-btn-outline-inverse{background:transparent;border:1px solid var(--w-border-inverse);color:var(--w-text-inverse);}
+.cw2-btn-outline-inverse:hover{background:rgb(255 255 255 / 0.14);}
+.cw2-scrollcue{position:absolute;left:50%;bottom:var(--w-space-4);z-index:2;color:var(--w-text-inverse);opacity:.85;animation:cw2bounce 2.2s infinite;}
+@keyframes cw2bounce{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
+/* Pionowa specyfikacja produktu (etykieta po lewej, wartość po prawej) */
+.cw2-spec{margin:0;display:flex;flex-direction:column;}
+.cw2-spec__row{display:grid;grid-template-columns:minmax(7rem,36%) 1fr;gap:var(--w-space-3);padding:var(--w-space-3) 0;border-top:1px solid var(--w-border-subtle);}
+.cw2-spec dt{font-size:var(--w-font-small);color:var(--w-text-tertiary);}
+.cw2-spec dd{margin:0;font-size:var(--w-font-small);color:var(--w-text-primary);}
+/* Kafle statystyk */
+.cw2-stat{border:1px solid var(--w-border-default);border-radius:var(--w-radius-md);padding:var(--w-space-6);display:flex;flex-direction:column;gap:var(--w-space-2);background:var(--w-surface-page);}
+.cw2-stat__num{font-size:var(--w-font-h1);line-height:1.05;font-weight:var(--w-weight-bold);letter-spacing:-0.02em;}
+/* Pozioma oś sezonu */
+.cw2-tl{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--w-space-6);}
+.cw2-tl::before{content:"";position:absolute;top:7px;left:calc(100%/6);right:calc(100%/6);height:2px;background:var(--w-border-strong);}
+.cw2-tl__node{position:relative;display:flex;flex-direction:column;gap:var(--w-space-3);}
+.cw2-tl__dot{width:16px;height:16px;border-radius:var(--w-radius-circle);background:var(--w-surface-page);border:3px solid var(--w-gray-900);position:relative;z-index:1;margin:0 auto;}
+.cw2-tl__node>*:not(.cw2-tl__dot){text-align:center;}
+.cw2-tl__ph{width:min(11rem,100%);margin:0 auto;}
+@media (max-width:767px){
+  .cw2-hero h1{font-size:var(--w-font-h1-size);line-height:var(--w-font-h1-lh);}
+  .cw2-hero .wf-lead{font-size:var(--w-font-body-size);}
+  .cw2-hero__content{padding-top:var(--w-space-16);padding-bottom:var(--w-space-12);}
+  .cw2-tl{grid-template-columns:1fr;}
+  .cw2-tl::before{left:7px;right:auto;top:8px;bottom:8px;width:2px;height:auto;}
+  .cw2-tl__node{padding-left:var(--w-space-8);}
+  .cw2-tl__dot{margin:0;position:absolute;left:0;top:2px;}
+  .cw2-tl__node>*:not(.cw2-tl__dot){text-align:left;}
+  .cw2-tl__ph{margin:0;}
+}
+/* ===== Scrollytelling „Czym jest" ===== */
+.cw2-story{display:grid;grid-template-columns:5fr 7fr;gap:var(--w-space-10);align-items:start;}
+.cw2-story__visual{position:sticky;top:calc(72px + var(--w-space-6));}
+.cw2-story__frame{position:relative;}
+.cw2-story__frame .wf-ph{aspect-ratio:4/4.6;width:100%;}
+.cw2-story__frame .wf-ph__label{display:none;}
+.cw2-story__frame[data-stage="1"] .wf-ph__label[data-for="1"],
+.cw2-story__frame[data-stage="2"] .wf-ph__label[data-for="2"],
+.cw2-story__frame[data-stage="3"] .wf-ph__label[data-for="3"],
+.cw2-story__frame[data-stage="4"] .wf-ph__label[data-for="4"]{display:block;}
+.cw2-story__meta{display:flex;align-items:center;gap:var(--w-space-4);margin-top:var(--w-space-4);}
+.cw2-story__count{font-variant-numeric:tabular-nums;white-space:nowrap;}
+.cw2-story__track{flex:1;height:2px;background:var(--w-border-subtle);border-radius:var(--w-radius-pill);overflow:hidden;}
+.cw2-story__bar{height:100%;width:25%;background:var(--w-gray-900);transition:width .4s ease;}
+.cw2-step{border-top:1px solid var(--w-border-subtle);padding-top:var(--w-space-6);display:flex;gap:var(--w-space-6);}
+.cw2-step__no{font-size:var(--w-font-h3-size);font-weight:var(--w-weight-bold);color:var(--w-text-disabled);font-variant-numeric:tabular-nums;line-height:1;transition:color .3s ease;}
+.cw2-step--active .cw2-step__no{color:var(--w-text-primary);}
+.cw2-step__body{display:flex;flex-direction:column;gap:var(--w-space-3);flex:1;}
+/* Wykres słupkowy – struktura danych w szarościach */
+.cw2-barchart{display:flex;flex-direction:column;gap:var(--w-space-3);}
+.cw2-bar{display:grid;grid-template-columns:minmax(6rem,28%) 1fr auto;gap:var(--w-space-3);align-items:center;}
+.cw2-bar__track{height:14px;background:var(--w-gray-100);border:1px solid var(--w-border-subtle);border-radius:var(--w-radius-pill);overflow:hidden;}
+.cw2-bar__fill{height:100%;background:var(--w-gray-900);border-radius:var(--w-radius-pill);width:var(--bw);}
+@media (max-width:899px){
+  .cw2-story{grid-template-columns:1fr;}
+  .cw2-story__visual{position:static;}
+  .cw2-story__frame .wf-ph{aspect-ratio:16/9;}
+}
+/* ===== Siatka „Kiedy stosować" – cykl życia rośliny × momenty aplikacji ===== */
+.cw2-chart{min-width:640px;display:grid;grid-template-columns:minmax(7.5rem,20%) repeat(5,1fr);}
+.cw2-chart__cell{border-top:1px solid var(--w-border-subtle);min-height:52px;display:flex;align-items:center;justify-content:center;gap:var(--w-space-2);padding:var(--w-space-2);}
+.cw2-chart__cell--head{border-top:0;min-height:0;align-items:flex-end;}
+.cw2-chart__cell--label{justify-content:flex-start;}
+.cw2-dot{width:12px;height:12px;border-radius:var(--w-radius-pill);background:var(--w-gray-500);transition:opacity .25s ease,transform .25s ease;}
+.cw2-dot--niefiltr{width:14px;height:14px;background:var(--w-gray-900);}
+.cw2-dot--filtr{background:var(--w-surface-page);border:2px solid var(--w-gray-900);}
+.cw2-dot--maxi{background:var(--w-gray-500);}
+.cw2-dot--calbor{border-radius:2px;transform:rotate(45deg);background:var(--w-gray-900);width:11px;height:11px;}
+.cw2-chart--focus .cw2-dot{opacity:.12;}
+.cw2-chart--focus .cw2-dot.is-hl{opacity:1;transform:scale(1.35);}
+.cw2-chart--focus .cw2-dot--calbor.is-hl{transform:rotate(45deg) scale(1.35);}
+.cw2-legend{display:flex;flex-wrap:wrap;gap:var(--w-space-5) var(--w-space-6);align-items:center;}
+.cw2-legend__item{display:inline-flex;align-items:center;gap:var(--w-space-2);}
+.cw2-tl__node[data-prod-node]{cursor:pointer;border-radius:var(--w-radius-md);transition:opacity .25s ease;}
+.cw2-tl--focus .cw2-tl__node[data-prod-node]:not(.is-active):not(:hover){opacity:.45;}
+/* Reveal on scroll – ukrywanie tylko przy działającym JS (klasa cw2-js na <html>) */
+.cw2-js .cw2-reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+.cw2-js .cw2-reveal.cw2-in{opacity:1;transform:none;}
+/* Dok dr Jurka – ukryty do czasu przewinięcia poza hero */
+.cw-jurek{transition:opacity .3s ease,visibility .3s ease;}
+.cw-jurek.cw2-dockhide{opacity:0;visibility:hidden;pointer-events:none;}
+@media (prefers-reduced-motion: reduce){
+  .cw2-js .cw2-reveal{opacity:1;transform:none;transition:none;}
+  .cw2-scrollcue{animation:none;}
+  .cw-jurek{transition:none;}
+}
+</style>
 </head>
 <body>
 <a class="wf-sr-only" href="#main">Przejdź do treści</a>
@@ -15,18 +114,87 @@
 <!-- ===== Tabler icon sprite (paste once per kit rule) ===== -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true" id="wf-icon-sprite">
 <symbol id="ti-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6l6 -6" /></symbol>
+<symbol id="ti-chevron-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6 -6l6 6" /></symbol>
+<symbol id="ti-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6l6 6" /></symbol>
 <symbol id="ti-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6l-6 6" /></symbol>
-<symbol id="ti-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></symbol>
-<symbol id="ti-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></symbol>
+<symbol id="ti-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0" />
+  <path d="M13 18l6 -6" />
+  <path d="M13 6l6 6" /></symbol>
+<symbol id="ti-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0" />
+  <path d="M5 12l6 6" />
+  <path d="M5 12l6 -6" /></symbol>
+<symbol id="ti-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14" />
+  <path d="M18 11l-6 -6" />
+  <path d="M6 11l6 -6" /></symbol>
+<symbol id="ti-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14" />
+  <path d="M18 13l-6 6" />
+  <path d="M6 13l6 6" /></symbol>
+<symbol id="ti-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12" />
+  <path d="M6 6l12 12" /></symbol>
 <symbol id="ti-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10" /></symbol>
-<symbol id="ti-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></symbol>
-<symbol id="ti-menu-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></symbol>
-<symbol id="ti-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></symbol>
-<symbol id="ti-shopping-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M15 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></symbol>
-<symbol id="ti-info-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 9h.01" /><path d="M11 12h1v4h1" /></symbol>
-<symbol id="ti-message-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9h8" /><path d="M8 13h6" /><path d="M9 18h-3a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-3l-3 3l-3 -3" /></symbol>
-<symbol id="ti-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14l11 -11" /><path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" /></symbol>
-<symbol id="ti-external-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" /><path d="M11 13l9 -9" /><path d="M15 4h5v5" /></symbol>
+<symbol id="ti-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14" />
+  <path d="M5 12l14 0" /></symbol>
+<symbol id="ti-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0" /></symbol>
+<symbol id="ti-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+  <path d="M21 21l-6 -6" /></symbol>
+<symbol id="ti-menu-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l16 0" />
+  <path d="M4 12l16 0" />
+  <path d="M4 18l16 0" /></symbol>
+<symbol id="ti-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v7l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227" /></symbol>
+<symbol id="ti-arrows-sort" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l4 -4l4 4m-4 -4v14" />
+  <path d="M21 15l-4 4l-4 -4m4 4v-14" /></symbol>
+<symbol id="ti-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></symbol>
+<symbol id="ti-shopping-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+  <path d="M15 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+  <path d="M17 17h-11v-14h-2" />
+  <path d="M6 5l14 1l-1 7h-13" /></symbol>
+<symbol id="ti-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065" />
+  <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /></symbol>
+<symbol id="ti-info-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+  <path d="M12 9h.01" />
+  <path d="M11 12h1v4h1" /></symbol>
+<symbol id="ti-alert-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4" />
+  <path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0" />
+  <path d="M12 16h.01" /></symbol>
+<symbol id="ti-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6" />
+  <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
+  <path d="M8 11v-4a4 4 0 1 1 8 0v4" /></symbol>
+<symbol id="ti-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a5 5 0 0 1 7 0a5 5 0 0 0 7 0v9a5 5 0 0 1 -7 0a5 5 0 0 0 -7 0v-9" />
+  <path d="M5 21v-7" /></symbol>
+<symbol id="ti-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" />
+  <path d="M3 7l9 6l9 -6" /></symbol>
+<symbol id="ti-message-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9h8" />
+  <path d="M8 13h6" />
+  <path d="M9 18h-3a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-3l-3 3l-3 -3" /></symbol>
+<symbol id="ti-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14l11 -11" />
+  <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" /></symbol>
+<symbol id="ti-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+  <path d="M13.5 6.5l4 4" /></symbol>
+<symbol id="ti-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l16 0" />
+  <path d="M10 11l0 6" />
+  <path d="M14 11l0 6" />
+  <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
+  <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></symbol>
+<symbol id="ti-external-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
+  <path d="M11 13l9 -9" />
+  <path d="M15 4h5v5" /></symbol>
+<symbol id="ti-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+  <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></symbol>
+<symbol id="ti-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12" />
+  <path d="M16 3v4" />
+  <path d="M8 3v4" />
+  <path d="M4 11h16" />
+  <path d="M11 15h1" />
+  <path d="M12 15v3" /></symbol>
+<symbol id="ti-dots" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+  <path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+  <path d="M18 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></symbol>
+<symbol id="ti-stack-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l-8 4l8 4l8 -4l-8 -4" /><path d="M4 12l8 4l8 -4" /><path d="M4 16l8 4l8 -4" /></symbol>
+<symbol id="ti-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l6 0" /><path d="M10 9l4 0" /><path d="M10 3v6l-4.5 8a1.5 1.5 0 0 0 1.3 2.5h10.4a1.5 1.5 0 0 0 1.3 -2.5l-4.5 -8v-6" /></symbol>
+<symbol id="ti-magnet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v-8a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v8a3 3 0 0 0 6 0v-8a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v8a7 7 0 0 1 -14 0" /><path d="M4 8l5 0" /><path d="M15 8l4 0" /></symbol>
+<symbol id="ti-droplet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M7.502 19.423c2.602 2.105 6.395 2.105 8.996 0c2.602 -2.105 3.262 -5.708 1.566 -8.546l-4.89 -7.26c-.42 -.625 -1.287 -.803 -1.936 -.397a1.376 1.376 0 0 0 -.41 .397l-4.893 7.26c-1.695 2.838 -1.035 6.441 1.567 8.546z" /></symbol>
+<symbol id="ti-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21c.5 -4.5 2.5 -8 7 -10" /><path d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3z" /></symbol>
 </svg>
 
 <!-- ===== NAVBAR ===== -->
@@ -47,13 +215,13 @@
             <div class="cw-prodbox">
               <span class="wf-overline wf-t-tertiary">Płynne · doglebowe i nalistne</span>
               <a class="wf-link--quiet" href="carbohumic.html"><span class="wf-h5">CARBOHUMIC</span></a>
-              <p class="wf-small wf-t-secondary">„Próchnica w płynie" — kondycjonuje glebę i biostymuluje roślinę.</p>
+              <p class="wf-small wf-t-secondary">„Próchnica w płynie" – kondycjonuje glebę i biostymuluje roślinę.</p>
               <a class="wf-btn wf-btn--secondary wf-btn--sm" href="carbohumic.html">Poznaj rodzinę</a>
             </div>
             <div class="cw-prodbox">
               <span class="wf-overline wf-t-tertiary">Węgiel aktywowany · 3 w 1</span>
               <a class="wf-link--quiet" href="carbomat-humic.html"><span class="wf-h5">CARBOMAT HUMIC</span></a>
-              <p class="wf-small wf-t-secondary">Kondycjoner + potas + biostymulator; podnosi pH zakwaszonych pól.</p>
+              <p class="wf-small wf-t-secondary">Kondycjoner + potas + biostymulator; podnosi pH zakwaszonej gleby – do ogrodu i domu.</p>
               <a class="wf-btn wf-btn--secondary wf-btn--sm" href="carbomat-humic.html">Poznaj rodzinę</a>
             </div>
             <div class="cw-mega__needs">
@@ -105,7 +273,14 @@
           </div>
         </div>
       </div>
-      <a class="wf-navbar__link" href="prochnica-plus.html">Programy</a>
+      <div class="cw-haspopup">
+        <button class="cw-nav-trigger" data-mega-trigger aria-haspopup="true" aria-expanded="false" aria-controls="mega-programy">Programy i badania <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg></button>
+        <div class="cw-mega cw-mega--narrow" id="mega-programy" data-open="false" role="region" aria-label="Programy i badania">
+          <div class="cw-mega__list">
+            <a class="wf-link--quiet" href="prochnica-plus.html">Program Próchnica+</a>
+          </div>
+        </div>
+      </div>
       <a class="wf-navbar__link" href="centrum-wiedzy.html">Centrum wiedzy</a>
       <a class="wf-navbar__link" href="o-firmie.html">O nas</a>
       <a class="wf-navbar__link" href="kontakt.html">Kontakt</a>
@@ -119,9 +294,9 @@
     </div>
   </div>
   <nav class="cw-mobilenav wf-container" id="mobilenav" data-open="false" aria-label="Menu mobilne">
-    <a class="wf-navitem" href="produkty.html">Nasze produkty</a>
+    <a class="wf-navitem wf-w-semibold" href="produkty.html" aria-current="page">Nasze produkty</a>
     <a class="wf-navitem" href="uprawy.html">Rodzaje upraw</a>
-    <a class="wf-navitem" href="prochnica-plus.html">Programy</a>
+    <a class="wf-navitem" href="prochnica-plus.html">Programy i badania</a>
     <a class="wf-navitem" href="centrum-wiedzy.html">Centrum wiedzy</a>
     <a class="wf-navitem" href="o-firmie.html">O nas</a>
     <a class="wf-navitem" href="kontakt.html">Kontakt</a>
@@ -133,553 +308,608 @@
 
 <main id="main">
 
-  <!-- ===== BREADCRUMB ===== -->
-  <nav class="wf-breadcrumb wf-container" aria-label="Okruszki">
-    <ol class="wf-cluster wf-items-center">
-      <li><a class="wf-link--quiet" href="home.html">Strona główna</a></li>
-      <li><span class="wf-breadcrumb__sep" aria-hidden="true">/</span></li>
-      <li><a class="wf-link--quiet" href="produkty.html">Nasze produkty</a></li>
-      <li><span class="wf-breadcrumb__sep" aria-hidden="true">/</span></li>
-      <li aria-current="page">CARBOHUMIC</li>
-    </ol>
-  </nav>
-
-  <!-- ===== 1. HERO ===== -->
-  <section class="wf-section wf-section--lg">
-    <div class="wf-container wf-grid wf-grid--2 wf-items-center" style="--wf-grid-min: 22rem;">
-      <div class="wf-stack wf-stack--6">
-        <span class="wf-overline">Rodzina CARBOHUMIC · płynne</span>
-        <h1 class="wf-display">Próchnica w płynie. Naprawia glebę, wzmacnia roślinę.</h1>
-        <p class="wf-lead wf-prose">Płynny ekstrakt z <strong>lignitu i leonardytu</strong> — najbogatszej w kwasy humusowe formy węgla brunatnego. <strong>Doglebowo</strong> buduje strukturę i odblokowuje zatrzymane składniki. <strong>Nalistnie</strong> biostymuluje roślinę w fazach krytycznych. Jeden surowiec, dwie różne role — i pilnujemy, żeby ich nie mylić.</p>
+  <!-- ===== 1. HERO – pełny ekran ze zdjęciem w tle ===== -->
+  <section class="cw2-hero" id="hero">
+    <div class="cw2-hero__bg" aria-hidden="true">
+      <div class="wf-ph"><span class="wf-ph__label">FOTO PEŁNOEKRANOWE: strumień ciemnego płynu CARBOHUMIC lany z konewki na glebę, w tle grządka i krople na liściach</span></div>
+      <div class="cw2-hero__shade"></div>
+    </div>
+    <nav class="cw2-hero__crumb wf-breadcrumb wf-container" aria-label="Okruszki">
+      <ol class="wf-cluster wf-items-center">
+        <li><a class="wf-link--quiet" href="home.html">Strona główna</a></li>
+        <li><span class="wf-breadcrumb__sep" aria-hidden="true">/</span></li>
+        <li><a class="wf-link--quiet" href="produkty.html">Nasze produkty</a></li>
+        <li><span class="wf-breadcrumb__sep" aria-hidden="true">/</span></li>
+        <li aria-current="page">CARBOHUMIC</li>
+      </ol>
+    </nav>
+    <div class="cw2-hero__content">
+      <div class="wf-container wf-stack wf-stack--6">
+        <span class="wf-overline wf-t-inverse">Rodzina CARBOHUMIC · płynne · doglebowo i nalistnie</span>
+        <h1 class="wf-display wf-t-inverse" style="max-width:640px;">Próchnica w płynie. Pięć wariantów, jeden prosty wybór.</h1>
+        <p class="wf-lead wf-t-inverse" style="max-width:560px;">Ekstrakt z lignitu i leonardytu. Doglebowo buduje glebę, nalistnie wzmacnia roślinę w sezonie – i pilnujemy, żeby tych ról nie mylić: najpierw gleba, potem roślina.</p>
         <div class="wf-cluster wf-gap-3">
-          <a class="wf-btn wf-btn--primary wf-btn--lg" href="sklep.html?grupa=carbohumic">Zobacz produkty w sklepie</a>
-          <a class="wf-btn wf-btn--secondary wf-btn--lg" href="konfigurator.html">Dobierz w konfiguratorze</a>
+          <a class="wf-btn wf-btn--lg cw2-btn-solid-inverse" href="konfigurator.html">Dobierz właściwy produkt</a>
+          <a class="wf-btn wf-btn--lg cw2-btn-outline-inverse" href="sklep.html?grupa=carbohumic">Kup produkty CARBOHUMIC</a>
         </div>
         <div class="wf-cluster wf-gap-4">
-          <span class="wf-small wf-t-tertiary">Kwasy humusowe 50–60% (filtrowany)</span>
-          <span class="wf-small wf-t-tertiary">Fertygacja · oprysk · podlewanie</span>
-          <span class="wf-small wf-t-tertiary">Certyfikat ekologiczny IUNG · FiBL · SKAAL</span>
+          <span class="wf-small wf-t-inverse" style="opacity:.8;">Kwasy humusowe 50–60% w produkcie filtrowanym (wg karty)</span>
+          <span class="wf-small wf-t-inverse" style="opacity:.8;">Certyfikat eko: filtrowany, niefiltrowany, MAXI PLUS</span>
+          <span class="wf-small wf-t-inverse" style="opacity:.8;">Polski surowiec: lignit + leonardyt</span>
         </div>
       </div>
-      <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Makro: kropla ekstraktu humusowego przy korzeniu</span></div>
+    </div>
+    <svg class="wf-icon wf-icon--lg cw2-scrollcue" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+  </section>
+
+  <!-- ===== 2. KTÓRY DLA MNIE – trzy pasma ról ===== -->
+  <section class="wf-section" id="ktory-dla-mnie">
+    <div class="wf-container wf-stack wf-stack--8">
+      <div class="wf-stack wf-stack--3" style="max-width:680px;">
+        <span class="wf-overline">Który dla mnie?</span>
+        <h2 class="wf-h2">Najpierw rola, potem wariant.</h2>
+        <p class="wf-lead wf-t-secondary">Wszystkie pięć wariantów dzieli się na trzy role: baza do gleby, wygodna linia do ogrodu i wzmocnienie nalistne na sezon. Wybierz pasmo, które opisuje Twoją potrzebę.</p>
+      </div>
+
+      <div class="wf-grid wf-grid--3" style="--wf-grid-min: 18rem;">
+        <!-- Pasmo 1: Baza doglebowa -->
+        <article class="wf-card wf-card--flush cw2-reveal">
+          <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">DUŻE FOTO: kanistry 5 l CARBOHUMIC niefiltrowany i filtrowany</span></div>
+          <div class="wf-card__body wf-stack wf-stack--4">
+            <div class="wf-cluster wf-cluster--between">
+              <h3 class="wf-h4">Baza doglebowa</h3>
+              <span class="wf-badge wf-badge--outline">baza</span>
+            </div>
+            <p class="wf-small wf-t-secondary">Buduje glebę. Dwa warianty zależnie od sprzętu.</p>
+            <dl class="cw2-spec">
+              <div class="cw2-spec__row"><dt>Warianty</dt><dd>niefiltrowany · filtrowany</dd></div>
+              <div class="cw2-spec__row"><dt>Rola</dt><dd>kondycjonowanie i trwała próchnica (niefiltrowany); biostymulacja (filtrowany)</dd></div>
+              <div class="cw2-spec__row"><dt>Aplikacja</dt><dd>polewanie z beczki lub konewki (niefiltrowany, nie do fertygacji) · fertygacja i oprysk (filtrowany, 187 mesh)</dd></div>
+              <div class="cw2-spec__row"><dt>Kwasy humusowe</dt><dd>~50% (niefiltrowany) · 50–60% (filtrowany)</dd></div>
+              <div class="cw2-spec__row"><dt>Dla kogo</dt><dd>gospodarstwo, sad, ogród</dd></div>
+              <div class="cw2-spec__row"><dt>Opakowanie / cena</dt><dd>kanister 5 l i większe · <span class="wf-w-semibold">od 149 zł</span> · eko: tak</dd></div>
+            </dl>
+            <div class="wf-mt-auto"><a class="wf-btn wf-btn--primary wf-btn--sm wf-inline" href="sklep.html?grupa=carbohumic">Kup w sklepie <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
+          </div>
+        </article>
+
+        <!-- Pasmo 2: Twój ogród -->
+        <article class="wf-card wf-card--flush cw2-reveal">
+          <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">DUŻE FOTO: butelki 1 l linii OGRÓD / FLORA / SAD przy konewce</span></div>
+          <div class="wf-card__body wf-stack wf-stack--4">
+            <div class="wf-cluster wf-cluster--between">
+              <h3 class="wf-h4">Twój ogród</h3>
+              <span class="wf-badge wf-badge--outline">baza</span>
+            </div>
+            <p class="wf-small wf-t-secondary">Ten sam płyn w wygodnych opakowaniach do konewki.</p>
+            <dl class="cw2-spec">
+              <div class="cw2-spec__row"><dt>Wariant</dt><dd>linia OGRÓD / FLORA / SAD</dd></div>
+              <div class="cw2-spec__row"><dt>Rola</dt><dd>baza – podlewanie ogrodu, karmi glebę przy okazji</dd></div>
+              <div class="cw2-spec__row"><dt>Aplikacja</dt><dd>konewka, podlewanie</dd></div>
+              <div class="cw2-spec__row"><dt>Dla kogo</dt><dd>ogród, działka, balkon</dd></div>
+              <div class="cw2-spec__row"><dt>Opakowanie / cena</dt><dd>butelka 1 l / kanister 5 l · cena w sklepie · eko: tak</dd></div>
+            </dl>
+            <div class="wf-mt-auto"><a class="wf-btn wf-btn--primary wf-btn--sm wf-inline" href="sklep.html?grupa=carbohumic">Kup w sklepie <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
+          </div>
+        </article>
+
+        <!-- Pasmo 3: Wzmocnienie nalistne -->
+        <article class="wf-card wf-card--flush cw2-reveal">
+          <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">DUŻE FOTO: butelki 1 l MAXI PLUS i CALBOR</span></div>
+          <div class="wf-card__body wf-stack wf-stack--4">
+            <div class="wf-cluster wf-cluster--between">
+              <h3 class="wf-h4">Wzmocnienie nalistne</h3>
+              <span class="wf-badge wf-badge--outline">wzmocnienie</span>
+            </div>
+            <p class="wf-small wf-t-secondary">Sekwencja sezonu. Wspiera roślinę, nie zatrzymuje wody.</p>
+            <dl class="cw2-spec">
+              <div class="cw2-spec__row"><dt>Warianty</dt><dd>MAXI PLUS · CALBOR</dd></div>
+              <div class="cw2-spec__row"><dt>Rola</dt><dd>początkowe fazy wzrostu (MAXI PLUS); jakość i trwałość owocu (CALBOR)</dd></div>
+              <div class="cw2-spec__row"><dt>Aplikacja</dt><dd>nalistnie (zalecenia producenta)</dd></div>
+              <div class="cw2-spec__row"><dt>Dla kogo</dt><dd>wzrost, wiosna (MAXI PLUS) · wyłącznie sadownictwo (CALBOR)</dd></div>
+              <div class="cw2-spec__row"><dt>Opakowanie / cena</dt><dd>butelka 1 l · od 49 zł (MAXI PLUS) / od 69 zł (CALBOR) · eko: tak / – (CALBOR)</dd></div>
+            </dl>
+            <div class="wf-mt-auto"><a class="wf-btn wf-btn--primary wf-btn--sm wf-inline" href="sklep.html?grupa=carbohumic">Kup w sklepie <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="wf-alert">
+        <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
+        <div><span class="wf-alert__title">Niefiltrowany nie do fertygacji.</span> <span class="wf-small wf-t-secondary">Niefiltrowany (gęsta pulpa) zapcha kroplowniki i filtry. Do fertygacji i opryskiwaczy służy wyłącznie filtrowany (187 mesh). Oszczędzamy Ci zapchanej instalacji.</span></div>
+      </div>
+
+      <p><a class="wf-btn wf-btn--link" href="konfigurator.html">Nie wiesz, filtrowany czy niefiltrowany? Dobierz właściwy produkt</a></p>
     </div>
   </section>
 
-  <!-- ===== 2. CZYM JEST TA RODZINA ===== -->
+  <!-- ===== 3. CZYM JEST – scrollytelling ===== -->
   <section class="wf-section wf-section--subtle" id="czym-jest">
-    <div class="wf-container wf-stack wf-stack--8">
+    <div class="wf-container wf-stack wf-stack--10">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Czym jest CARBOHUMIC</span>
-        <h2 class="wf-h2">Ten sam humus co w glebie — tylko płynny, gotowy do podania</h2>
-        <p class="wf-lead wf-t-secondary">CARBOHUMIC to wodny ekstrakt kwasów humusowych i fulwowych pozyskany z <strong>leonardytu</strong> (silnie utlenionej odmiany lignitu o najwyższej zawartości kwasów humusowych) oraz lignitu. Te związki są chemicznie tożsame z tymi w glebowej próchnicy — dlatego mówimy „próchnica w płynie".</p>
+        <span class="wf-overline">Czym jest</span>
+        <h2 class="wf-h2">Ten sam humus co w glebie – tylko płynny.</h2>
+        <p class="wf-lead wf-t-secondary">Przewiń – cztery rzeczy, które trzeba wiedzieć o tym ekstrakcie. Wszystkie liczby z kart produktów i doświadczeń producenta.</p>
       </div>
 
-      <div class="wf-grid wf-grid--2 wf-items-start" style="--wf-grid-min: 20rem;">
-        <div class="wf-stack wf-stack--4 wf-prose">
-          <p class="wf-body">Forma płynna ma jedną przewagę nad sypkim lignitem: <strong>działa szybko i precyzyjnie</strong>. Podasz ją przez kroplownik (fertygacja), oprysk albo zwykłe podlewanie — tam, gdzie jest potrzebna, w fazie, w której jest potrzebna. To narzędzie „w sezonie", uzupełniające doglebową bazę z surowego lignitu (CARBOMAT).</p>
-          <p class="wf-body">Najważniejsze, żeby pamiętać o jednym rozdziale: <strong>doglebowo</strong> CARBOHUMIC kondycjonuje glebę (struktura, retencja, odblokowanie składników), <strong>nalistnie</strong> biostymuluje roślinę (transport mikroelementów, odporność). To dwie różne role tego samego surowca — i nie wolno ich mylić.</p>
-          <div class="wf-alert">
-            <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
-            <div><span class="wf-alert__title">To nie nawóz — to kondycjoner i biostymulator.</span> <span class="wf-small wf-t-secondary">CARBOHUMIC nie zastępuje NPK. Sprawia, że nawożenie, które już stosujesz, pracuje lepiej: odblokowuje zatrzymany fosfor, ogranicza wypłukiwanie azotu, wspiera mikrobiom. Najpierw zdrowa gleba, potem nawóz.</span></div>
+      <div class="cw2-story" data-story>
+        <div class="cw2-story__visual">
+          <div class="wf-card wf-card--flush cw2-story__frame" data-stage="1">
+            <div class="wf-ph" aria-hidden="true">
+              <span class="wf-ph__label" data-for="1">MAKRO: kropla ciemnego ekstraktu CARBOHUMIC na tle bryły lignitu i leonardytu</span>
+              <span class="wf-ph__label" data-for="2">SCHEMAT: korzeń (kwas abscysynowy, gospodarka wodą) i liść (kwas jasmonowy, odporność) – dwie różne role</span>
+              <span class="wf-ph__label" data-for="3">ILUSTRACJA: słoik surowca „95%" obok kanistra produktu „50–60%" – parametr surowca vs produktu</span>
+              <span class="wf-ph__label" data-for="4">WYKRES: słupki wilgotności gleby po nasyceniu – kontrola vs CARBOHUMIC wymieszany</span>
+            </div>
           </div>
-          <p class="wf-small wf-t-secondary">Po pełną wiedzę o lignicie, próchnicy i progu termicznym 300°C zajrzyj do filara: <a class="wf-link" href="produkty.html#jak-dzialaja">jak działają poprawiacze gleby z lignitu</a>.</p>
+          <div class="cw2-story__meta">
+            <span class="wf-small wf-t-tertiary cw2-story__count"><span data-story-num>01</span> / 04</span>
+            <div class="cw2-story__track" aria-hidden="true"><div class="cw2-story__bar" data-story-bar></div></div>
+            <span class="wf-small wf-t-secondary" data-story-title>Pochodzenie</span>
+          </div>
         </div>
-        <div class="wf-stack wf-stack--3">
-          <div class="wf-card wf-card--flush">
-            <div class="wf-card__body"><h3 class="wf-h5">Kwasy humusowe — porównanie form</h3><p class="wf-caption wf-t-secondary">Zawartość kwasów humusowych i trwałość w glebie.</p></div>
-            <table class="wf-table">
-              <thead><tr><th scope="col">Materiał</th><th scope="col" style="text-align:right;">Kwasy humusowe</th><th scope="col">Trwałość w glebie</th></tr></thead>
-              <tbody>
-                <tr><td>Biohumus / kompost</td><td style="text-align:right;">1–5%</td><td>nietrwały</td></tr>
-                <tr><td>Torf niski przetworzony</td><td style="text-align:right;">15–30%</td><td>kilka lat</td></tr>
-                <tr><td>Lignosulfoniany (drewno)</td><td style="text-align:right;">—</td><td>imitują, brak</td></tr>
-                <tr><td><strong>CARBOHUMIC (filtrowany)</strong></td><td style="text-align:right;">50–60%</td><td>kondycjonuje w sezonie</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="wf-alert">
-            <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
-            <div><span class="wf-alert__title">„95%" to parametr surowca, nie produktu.</span> <span class="wf-small wf-t-secondary">Zawartość w produkcie: filtrowany 50–60%, niefiltrowany ~50%. Wartość „95% kwasów humusowych" dotyczy leonardytu jako surowca — nie używamy jej jako parametru CARBOHUMIC.</span></div>
-          </div>
+
+        <div class="wf-stack wf-stack--10">
+          <article class="cw2-step cw2-step--active" data-step="1" data-title="Pochodzenie">
+            <span class="cw2-step__no" aria-hidden="true">01</span>
+            <div class="cw2-step__body">
+              <h3 class="wf-h4">Płynny ekstrakt, nie nawóz.</h3>
+              <p class="wf-body wf-t-secondary wf-prose">CARBOHUMIC to płynny ekstrakt kwasów humusowych z lignitu i leonardytu. To nie nawóz, lecz kondycjoner i biostymulator: najpierw zdrowa gleba, potem nawóz.</p>
+            </div>
+          </article>
+
+          <article class="cw2-step" data-step="2" data-title="Dwie role">
+            <span class="cw2-step__no" aria-hidden="true">02</span>
+            <div class="cw2-step__body">
+              <h3 class="wf-h4">Dwie role, dwa hormony – nie mylimy ich.</h3>
+              <p class="wf-body wf-t-secondary wf-prose">Kwasy humusowe podane doglebowo podnoszą w korzeniach poziom kwasu abscysynowego (ABA), regulującego gospodarkę wodną, dlatego działanie retencyjne występuje tylko przy aplikacji doglebowej; podane nalistnie podnoszą poziom kwasu jasmonowego i działają jak „szczepionka" odpornościowa, ale nie zatrzymują wody (opracowanie producenta na bazie literatury).</p>
+              <div class="wf-grid wf-grid--2" style="--wf-grid-min: 11rem;">
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-droplet"></use></svg></span>
+                  <p class="wf-small"><span class="wf-w-semibold">Doglebowo</span> <span class="wf-t-secondary">– gospodarka wodą (ABA), retencja</span></p>
+                </div>
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-leaf"></use></svg></span>
+                  <p class="wf-small"><span class="wf-w-semibold">Nalistnie</span> <span class="wf-t-secondary">– odporność (jasmonowy), zero retencji</span></p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="cw2-step" data-step="3" data-title="Zawartość">
+            <span class="cw2-step__no" aria-hidden="true">03</span>
+            <div class="cw2-step__body">
+              <h3 class="wf-h4">„95%" to parametr surowca, nie produktu.</h3>
+              <p class="wf-body wf-t-secondary wf-prose">Wartość 95% dotyczy leonardytu, nie gotowego produktu. W naszych płynach kwasów humusowych jest 50–60% (filtrowany) i około 50% (niefiltrowany) – tak podają karty.</p>
+              <div class="cw2-barchart cw2-reveal" role="img" aria-label="Zawartość kwasów humusowych: surowiec leonardyt do 95 procent, CARBOHUMIC filtrowany 50 do 60 procent, CARBOHUMIC niefiltrowany około 50 procent">
+                <div class="cw2-bar"><span class="wf-small">Surowiec (leonardyt)</span><div class="cw2-bar__track"><div class="cw2-bar__fill" style="--bw:95%;"></div></div><span class="wf-small wf-t-secondary">do ~95%</span></div>
+                <div class="cw2-bar"><span class="wf-small wf-w-semibold">Filtrowany</span><div class="cw2-bar__track"><div class="cw2-bar__fill" style="--bw:58%;"></div></div><span class="wf-small wf-t-secondary">50–60%</span></div>
+                <div class="cw2-bar"><span class="wf-small wf-w-semibold">Niefiltrowany</span><div class="cw2-bar__track"><div class="cw2-bar__fill" style="--bw:50%;"></div></div><span class="wf-small wf-t-secondary">~50%</span></div>
+              </div>
+              <p class="wf-caption wf-t-tertiary">Zawartość kwasów humusowych wg kart produktów; „95%" = parametr surowca, nie produktu.</p>
+            </div>
+          </article>
+
+          <article class="cw2-step" data-step="4" data-title="Co daje">
+            <span class="cw2-step__no" aria-hidden="true">04</span>
+            <div class="cw2-step__body">
+              <h3 class="wf-h4">Doglebowo poprawia gospodarkę wodą.</h3>
+              <p class="wf-body wf-t-secondary wf-prose">W naszym doświadczeniu (wyniki wstępne) CARBOHUMIC wymieszany z glebą podniósł wilgotność po nasyceniu z 11,9% do 21,7% – wynik zależy od gleby i sposobu aplikacji.</p>
+              <div class="wf-grid wf-grid--2" style="--wf-grid-min: 11rem;">
+                <div class="cw2-stat">
+                  <span class="cw2-stat__num">11,9%</span>
+                  <span class="wf-small wf-t-secondary">kontrola – sama gleba (wilgotność po nasyceniu)</span>
+                </div>
+                <div class="cw2-stat">
+                  <span class="cw2-stat__num">21,7%</span>
+                  <span class="wf-small wf-t-secondary">gleba z wymieszanym CARBOHUMIC – wynik wstępny</span>
+                </div>
+              </div>
+              <p class="wf-small"><a class="wf-link" href="produkty.html#dowod">Pełny dowód i metoda</a> · <a class="wf-link" href="produkty.html#jak-dzialaja">jak lignit buduje próchnicę i glebę</a></p>
+            </div>
+          </article>
         </div>
       </div>
-
-      <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">Makro 20×: okruch leonardytu obok powstałego z niego ekstraktu płynnego</span></div>
     </div>
   </section>
 
-  <!-- ===== 3. JAK DZIAŁA ===== -->
-  <section class="wf-section" id="jak-dziala">
+  <!-- ===== 4. JAK STOSOWAĆ – dwie role, dwie aplikacje ===== -->
+  <section class="wf-section" id="jak-stosowac">
     <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Jak działa</span>
-        <h2 class="wf-h2">Dwie role, dwa hormony — rozdzielone świadomie</h2>
-        <p class="wf-lead wf-t-secondary">CARBOHUMIC działa inaczej w glebie, a inaczej na liściu. To nie marketing — to różne frakcje kwasów humusowych i różne szlaki w roślinie. Najważniejsza zasada uczciwości tej rodziny: <strong>nalistnie nie zatrzymuje wody</strong>.</p>
-      </div>
-
-      <div class="wf-grid wf-grid--2" style="--wf-grid-min: 18rem;">
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <div class="wf-ph wf-ph--icon" aria-hidden="true"><span class="wf-ph__label">◻</span></div>
-          <h3 class="wf-h5">Doglebowo: struktura i woda</h3>
-          <p class="wf-small wf-t-secondary">Frakcje kwasów humusowych spinają cząstki gleby w gruzełki, poprawiają strukturę i kompleks sorpcyjny (CEC). Doglebowo indukują też <strong>kwas abscysynowy (ABA)</strong> — hormon gospodarki wodnej i odporności na suszę.</p>
-          <p class="wf-small wf-t-secondary"><strong>Uczciwie o retencji:</strong> ile wody realnie trafi do rośliny — to zależy od gleby i dawki. Rozróżniamy wodę zatrzymaną od dostępnej dla rośliny i nie liczymy litrów na kalkulatorze.</p>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <div class="wf-ph wf-ph--icon" aria-hidden="true"><span class="wf-ph__label">◻</span></div>
-          <h3 class="wf-h5">Nalistnie: biostymulacja</h3>
-          <p class="wf-small wf-t-secondary">Na liściu uruchamia się inny szlak: <strong>kwas jasmonowy</strong> (odporność systemiczna — „szczepionka") i sprawniejszy transport mikroelementów do tkanek. To wsparcie w fazach krytycznych: kwitnienie, zawiązywanie, stres.</p>
-          <p class="wf-small wf-t-secondary"><strong>Zero retencji.</strong> Nalistnie CARBOHUMIC, MAXI PLUS i CALBOR nie zatrzymują wody — to jakość i biostymulacja, nigdy polisa na suszę.</p>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <div class="wf-ph wf-ph--icon" aria-hidden="true"><span class="wf-ph__label">◻</span></div>
-          <h3 class="wf-h5">Chelatacja składników</h3>
-          <p class="wf-small wf-t-secondary">Kwasy humusowe i fulwowe odblokowują zatrzymany w glebie fosfor (rozbijają wiązania z Ca/Fe/Al) i udostępniają mikroelementy. Jednocześnie immobilizują nadmiar glinu i izolują sód.</p>
-          <p class="wf-small wf-t-secondary">W badaniach wyraźnie poprawia się dostępność fosforu dla rośliny (mechanizm z literatury, bez nazwanej publikacji).</p>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <div class="wf-ph wf-ph--icon" aria-hidden="true"><span class="wf-ph__label">◻</span></div>
-          <h3 class="wf-h5">Mikrobiom i regeneracja</h3>
-          <p class="wf-small wf-t-secondary">Kwasy humusowe to partner pożytecznych mikroorganizmów (<em>Azotobacter</em>, <em>Bacillus</em>, <em>Trichoderma</em>). Wariant <strong>niefiltrowany</strong> ma dodatkowo funkcję kondycjonowania i remediacji — wiąże zanieczyszczenia i buduje trwalszą próchnicę.</p>
-          <p class="wf-small wf-t-secondary">Remediację komunikujemy jakościowo, bez twardych liczb.</p>
-        </div></article>
-      </div>
-
-      <div class="wf-alert">
-        <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
-        <div><span class="wf-alert__title">Skąd ten podział?</span> <span class="wf-small wf-t-secondary">Kwasy humusowe to nie jedna substancja, lecz frakcje o różnej masie (huminy, kwasy huminowe, kwasy fulwowe). Cięższe budują strukturę w glebie; lżejsze, niskocząsteczkowe, transportują składniki i wnikają do tkanek. Filtracja (187 mesh vs 20 mesh) decyduje, do której roli produkt jest dopasowany.</span></div>
-      </div>
-
-      <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">Schemat dwóch szlaków: gleba (ciężkie frakcje, ABA) vs liść (lekkie frakcje, kwas jasmonowy); rozwidlenie z surowca, podpisy 187 mesh / 20 mesh</span></div>
-    </div>
-  </section>
-
-  <!-- ===== 4. WARIANTY / POD-MARKI ===== -->
-  <section class="wf-section wf-section--subtle" id="warianty">
-    <div class="wf-container wf-stack wf-stack--8">
-      <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Warianty i pod-marki</span>
-        <h2 class="wf-h2">Jedna rodzina, pięć ról: od fertygacji po jakość owocu</h2>
-        <p class="wf-lead wf-t-secondary">CARBOHUMIC to dwa warianty bazowe (filtrowany i niefiltrowany), linie do ogrodu i domu oraz dwie nalistne pod-marki. Pierwszy podział, który warto zapamiętać: <strong>filtrowany</strong> idzie w kroplownik i na liść, <strong>niefiltrowany</strong> wchodzi doglebowo, w regenerację gleby.</p>
-      </div>
-
-      <div class="wf-card wf-card--flush">
-        <table class="wf-table">
-          <thead>
-            <tr><th scope="col">Wariant</th><th scope="col">Rola</th><th scope="col" style="text-align:right;">pH</th><th scope="col">Aplikacja</th><th scope="col">Opakowania</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>CARBOHUMIC filtrowany</strong> (187 mesh)</td>
-              <td>Biostymulacja, fertygacja, oprysk</td>
-              <td style="text-align:right;">9–11</td>
-              <td>doglebowo <strong>i</strong> nalistnie</td>
-              <td>1 / 5 / 20 / 1000 L</td>
-            </tr>
-            <tr>
-              <td><strong>CARBOHUMIC niefiltrowany</strong> (20 mesh)</td>
-              <td>Kondycjonowanie, remediacja, trwała próchnica</td>
-              <td style="text-align:right;">5–12</td>
-              <td>doglebowo</td>
-              <td>20 / 1000 L</td>
-            </tr>
-            <tr>
-              <td>OGRÓD / FLORA / SAD</td>
-              <td>Linie konsumenckie — „próchnica w płynie" do podlewania</td>
-              <td style="text-align:right;">—</td>
-              <td>doglebowo</td>
-              <td>1 / 5 / 20 L</td>
-            </tr>
-            <tr>
-              <td>MAXI PLUS <span class="wf-t-tertiary">(nalistna)</span></td>
-              <td>Masa zielona; adiuwant/chelat; najtańsze „wejście" na hektar</td>
-              <td style="text-align:right;">—</td>
-              <td><strong>nalistnie</strong></td>
-              <td>1 / 5 L</td>
-            </tr>
-            <tr>
-              <td>CALBOR <span class="wf-t-tertiary">(nalistna)</span></td>
-              <td>Wapń + bor; jakość i trwałość owocu; premium</td>
-              <td style="text-align:right;">—</td>
-              <td><strong>nalistnie</strong></td>
-              <td>1 / 5 L</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="wf-alert">
-        <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
-        <div><span class="wf-alert__title">MAXI PLUS i CALBOR to pod-marki nalistne CARBOHUMIC.</span> <span class="wf-small wf-t-secondary">Nie luźny cross-sell. Certyfikat ekologiczny mają filtrowany, niefiltrowany i MAXI PLUS — CALBOR go nie posiada.</span></div>
+        <span class="wf-overline">Jak stosować</span>
+        <h2 class="wf-h2">Dwie role, dwie aplikacje.</h2>
+        <p class="wf-lead wf-t-secondary">Skrót dawek wg instrukcji i kart – pełne zalecenia dla Twojej uprawy znajdziesz w jednym miejscu.</p>
       </div>
 
       <div class="wf-grid wf-grid--2" style="--wf-grid-min: 20rem;">
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2">
-          <h3 class="wf-h5">MAXI PLUS — tani test mechanizmu</h3>
-          <p class="wf-small wf-t-secondary">Najtańsze wejście na hektar (~1 l/ha), „łączy się ze wszystkim", działa jak adiuwant i chelat. To produkt, którym sceptyk może <strong>sprawdzić mechanizm na własnym polu</strong> małym kosztem — zanim zdecyduje o doglebowej bazie. Nie obiecuje retencji — wodę dowozi produkt doglebowy.</p>
+        <article class="wf-card cw2-reveal"><div class="wf-card__body wf-stack wf-stack--4">
+          <h3 class="wf-h4">Doglebowo – polewaj</h3>
+          <div class="wf-stack wf-stack--3">
+            <div class="wf-cluster wf-gap-3 wf-items-center">
+              <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-droplet"></use></svg></span>
+              <p class="wf-body">Baza doglebowa (niefiltrowany): 100–500 l/ha rocznie w co najmniej 2 zabiegach.</p>
+            </div>
+            <div class="wf-cluster wf-gap-3 wf-items-center">
+              <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-flask"></use></svg></span>
+              <p class="wf-body">W ogrodzie: podlewanie roztworem 1% (100 ml na 10 l wody) co 10–14 dni.</p>
+            </div>
+          </div>
+          <p class="wf-small wf-t-secondary">Polewasz z beczki lub konewki. Niefiltrowany nie nadaje się do fertygacji – zapcha filtry.</p>
         </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2">
-          <h3 class="wf-h5">CALBOR — jakość owocu (Ca + B)</h3>
-          <p class="wf-small wf-t-secondary">Wapń i bor poprawiają jędrność i trwałość przechowalniczą owocu, kwasy humusowe wspierają biostymulację w fazach krytycznych. To warstwa premium dla sadownika — jakość robimy <strong>nalistnie</strong>, a bazę glebową budujemy osobno.</p>
+
+        <article class="wf-card cw2-reveal"><div class="wf-card__body wf-stack wf-stack--4">
+          <h3 class="wf-h4">Fertygacja i oprysk – filtrowany</h3>
+          <div class="wf-stack wf-stack--3">
+            <div class="wf-cluster wf-gap-3 wf-items-center">
+              <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-check"></use></svg></span>
+              <p class="wf-body">Przez kroplowniki i opryskiwacz używaj wyłącznie filtrowanego (187 mesh).</p>
+            </div>
+            <div class="wf-cluster wf-gap-3 wf-items-center">
+              <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-stack-2"></use></svg></span>
+              <p class="wf-body">Zaprawianie nasion 0,5–1%, moczenie korzeni 1%.</p>
+            </div>
+          </div>
+          <p class="wf-small wf-t-secondary">Doglebowo polewaj, nalistnie opryskuj – wariant dobierz wg sprzętu i roli.</p>
         </div></article>
       </div>
+
+      <div class="wf-alert">
+        <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
+        <div><span class="wf-alert__title">Niefiltrowany tylko z beczki lub konewki.</span> <span class="wf-small wf-t-secondary">Niefiltrowany nie nadaje się do fertygacji – zapcha filtry. Do fertygacji wybierz filtrowany (187 mesh).</span></div>
+      </div>
+
+      <p class="wf-body"><a class="wf-link" href="zalecenia.html#dawki">Pełne dawki i zalecenia</a></p>
     </div>
   </section>
 
-  <!-- ===== 4b. PRODUKTY W TEJ RODZINIE ===== -->
-  <section class="wf-section" id="produkty-rodziny">
+  <!-- ===== 5. GAMA PRODUKTÓW CARBOHUMIC (taby) ===== -->
+  <section class="wf-section wf-section--subtle" id="gama">
+    <span id="produkty-rodziny" class="cw-anchor-alias" aria-hidden="true" style="display:block;height:0;scroll-margin-top:calc(72px + var(--w-space-4));"></span>
     <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Produkty w tej rodzinie</span>
-        <h2 class="wf-h2">Konkretne produkty CARBOHUMIC — i wprost do sklepu</h2>
-        <p class="wf-lead wf-t-secondary">Wybierz wariant i opakowanie, albo przejdź do sklepu po pełną listę i koszyk. <span class="wf-t-tertiary">Ceny orientacyjne — do potwierdzenia.</span></p>
+        <span class="wf-overline">Gama</span>
+        <h2 class="wf-h2">Gama produktów CARBOHUMIC.</h2>
+        <p class="wf-lead wf-t-secondary">Konkretne produkty z ceną i kartą – tak, jak zobaczysz je w sklepie. Z każdej karty trafisz wprost na zakup.</p>
       </div>
 
-      <div class="wf-grid wf-grid--3" style="--wf-grid-min: 16rem;">
-        <article class="wf-card wf-card--flush">
-          <div class="wf-ph wf-ph--1x1" aria-hidden="true"><span class="wf-ph__label">CARBOHUMIC filtrowany — kanister 187 mesh</span></div>
-          <div class="wf-card__body wf-stack wf-stack--2">
-            <h3 class="wf-h5">CARBOHUMIC filtrowany (187 mesh)</h3>
-            <p class="wf-small wf-t-secondary">Wariant biostymulacyjny do fertygacji i oprysku — doglebowo i nalistnie.</p>
-            <p class="wf-caption wf-t-secondary">Opakowania: 1 / 5 / 20 / 1000 L</p>
-            <p class="wf-body"><span class="wf-small wf-t-tertiary">od</span> <strong>21,60 zł</strong></p>
-            <a class="wf-link--quiet wf-inline wf-small" href="sklep.html?grupa=carbohumic">Zobacz w sklepie <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a>
-          </div>
-        </article>
-        <article class="wf-card wf-card--flush">
-          <div class="wf-ph wf-ph--1x1" aria-hidden="true"><span class="wf-ph__label">CARBOHUMIC niefiltrowany — kanister 20 mesh</span></div>
-          <div class="wf-card__body wf-stack wf-stack--2">
-            <h3 class="wf-h5">CARBOHUMIC niefiltrowany (20 mesh)</h3>
-            <p class="wf-small wf-t-secondary">Doglebowy: kondycjonowanie, remediacja, budowa trwałej próchnicy.</p>
-            <p class="wf-caption wf-t-secondary">Opakowania: 20 / 1000 L</p>
-            <p class="wf-body"><span class="wf-small wf-t-tertiary">od</span> <strong>149 zł</strong></p>
-            <a class="wf-link--quiet wf-inline wf-small" href="sklep.html?grupa=carbohumic">Zobacz w sklepie <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a>
-          </div>
-        </article>
-        <article class="wf-card wf-card--flush">
-          <div class="wf-ph wf-ph--1x1" aria-hidden="true"><span class="wf-ph__label">Linia konsumencka OGRÓD / FLORA / SAD — butelki</span></div>
-          <div class="wf-card__body wf-stack wf-stack--2">
-            <h3 class="wf-h5">CARBOHUMIC do ogrodu (OGRÓD / FLORA / SAD)</h3>
-            <p class="wf-small wf-t-secondary">„Próchnica w płynie" do podlewania — grządki, rabaty, rośliny doniczkowe.</p>
-            <p class="wf-caption wf-t-secondary">Opakowania: 1 / 5 / 20 L</p>
-            <p class="wf-body"><span class="wf-small wf-t-tertiary">od</span> <strong>17 zł</strong></p>
-            <a class="wf-link--quiet wf-inline wf-small" href="sklep.html?grupa=carbohumic">Zobacz w sklepie <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a>
-          </div>
-        </article>
-        <article class="wf-card wf-card--flush">
-          <div class="wf-ph wf-ph--1x1" aria-hidden="true"><span class="wf-ph__label">MAXI PLUS — pod-marka nalistna, butelka</span></div>
-          <div class="wf-card__body wf-stack wf-stack--2">
-            <h3 class="wf-h5">MAXI PLUS</h3>
-            <p class="wf-small wf-t-secondary">Nalistny: masa zielona, adiuwant i chelat — tani test mechanizmu na hektar.</p>
-            <p class="wf-caption wf-t-secondary">Opakowania: 1 / 5 L</p>
-            <p class="wf-body"><span class="wf-small wf-t-tertiary">od</span> <strong>116 zł</strong></p>
-            <a class="wf-link--quiet wf-inline wf-small" href="sklep.html?grupa=carbohumic">Zobacz w sklepie <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a>
-          </div>
-        </article>
-        <article class="wf-card wf-card--flush">
-          <div class="wf-ph wf-ph--1x1" aria-hidden="true"><span class="wf-ph__label">CALBOR — pod-marka nalistna premium, butelka</span></div>
-          <div class="wf-card__body wf-stack wf-stack--2">
-            <h3 class="wf-h5">CALBOR</h3>
-            <p class="wf-small wf-t-secondary">Nalistny premium (wapń + bor): jędrność i trwałość przechowalnicza owocu.</p>
-            <p class="wf-caption wf-t-secondary">Opakowania: 1 / 5 L</p>
-            <p class="wf-body"><span class="wf-small wf-t-tertiary">od</span> <strong>131 zł</strong></p>
-            <a class="wf-link--quiet wf-inline wf-small" href="sklep.html?grupa=carbohumic">Zobacz w sklepie <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a>
-          </div>
-        </article>
-        <article class="wf-card">
-          <div class="wf-card__body wf-stack wf-stack--3">
-            <h3 class="wf-h5">Nie wiesz, które opakowanie?</h3>
-            <p class="wf-small wf-t-secondary">Konfigurator dobierze wariant, formę aplikacji i ilość pod Twoją uprawę i sprzęt.</p>
-            <a class="wf-btn wf-btn--secondary wf-btn--sm" href="konfigurator.html">Dobierz w Konfiguratorze</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 5. CO DAJE ===== -->
-  <section class="wf-section wf-section--subtle" id="co-daje">
-    <div class="wf-container wf-stack wf-stack--8">
-      <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Co daje</span>
-        <h2 class="wf-h2">Korzyść dla gleby i rośliny — z uczciwym horyzontem czasu</h2>
-        <p class="wf-lead wf-t-secondary">CARBOHUMIC działa szybciej niż sypki lignit, ale część efektów wciąż buduje się przez sezony. Mówimy to wprost i rozdzielamy, co zobaczysz w dni, a co przez lata.</p>
-      </div>
-
-      <div class="wf-grid wf-grid--3" style="--wf-grid-min: 16rem;">
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <h3 class="wf-h5">Glebie (doglebowo)</h3>
-          <ul class="wf-list wf-small wf-t-secondary">
-            <li>Lepsza struktura i kompleks sorpcyjny (CEC)</li>
-            <li>Wyższa pojemność wodna (retencja — „to zależy")</li>
-            <li>Odblokowanie fosforu i mikroelementów</li>
-            <li>Odbudowa życia mikrobiologicznego</li>
-            <li>Kondycjonowanie i remediacja (niefiltrowany)</li>
-          </ul>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <h3 class="wf-h5">Roślinie (nalistnie)</h3>
-          <ul class="wf-list wf-small wf-t-secondary">
-            <li>Biostymulacja w fazach krytycznych</li>
-            <li>Większa odporność systemiczna na stres</li>
-            <li>Sprawniejszy transport mikroelementów</li>
-            <li>Jakość i trwałość owocu (CALBOR: Ca+B)</li>
-            <li>Lepszy start i ukorzenianie (fertygacja, MAXI PLUS)</li>
-          </ul>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <h3 class="wf-h5">Tobie</h3>
-          <ul class="wf-list wf-small wf-t-secondary">
-            <li>Lepsze wykorzystanie poniesionych kosztów nawożenia</li>
-            <li>Precyzja: podajesz tam i wtedy, gdzie trzeba</li>
-            <li>Tani test mechanizmu (MAXI PLUS na ha)</li>
-            <li>Czysty, certyfikowany surowiec (eko: filtr./niefiltr./MAXI PLUS)</li>
-            <li>Zgodność z kierunkiem UE (redukcja nawozów)</li>
-          </ul>
-        </div></article>
-      </div>
-
-      <div class="wf-stack wf-stack--4">
-        <h3 class="wf-h4">Kiedy zobaczysz efekt</h3>
-        <div class="wf-grid wf-grid--4" style="--wf-grid-min: 13rem;">
-          <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2"><span class="wf-overline wf-t-tertiary">Dni</span><h4 class="wf-h5">Nalistnie</h4><p class="wf-small wf-t-secondary">Biostymulacja (oprysk filtrowanym, MAXI PLUS, CALBOR). Efekt doraźny — nie zatrzymuje wody.</p></div></article>
-          <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2"><span class="wf-overline wf-t-tertiary">1. sezon</span><h4 class="wf-h5">Gleba rusza</h4><p class="wf-small wf-t-secondary">Fertygacja filtrowanym: lepszy start, ukorzenianie, odblokowane składniki, wstępna struktura.</p></div></article>
-          <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2"><span class="wf-overline wf-t-tertiary">2–5 lat</span><h4 class="wf-h5">Próchnica rośnie</h4><p class="wf-small wf-t-secondary">Niefiltrowany doglebowo buduje trwałą materię organiczną i kondycjonuje glebę.</p></div></article>
-          <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2"><span class="wf-overline wf-t-tertiary">Długi horyzont</span><h4 class="wf-h5">Baza z lignitu</h4><p class="wf-small wf-t-secondary">Trwały fundament (kilkanaście–20+ lat) dowozi sypki CARBOMAT — CARBOHUMIC go uzupełnia.</p></div></article>
-        </div>
-      </div>
-
-      <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">Wykres narastania: krzywa „efekt nalistny" (szybki pik, opada) vs krzywa „budowa próchnicy" (rośnie 2–5 lat i utrzymuje się)</span></div>
-    </div>
-  </section>
-
-  <!-- ===== 6. GDZIE PRACUJE (TABY) ===== -->
-  <section class="wf-section" id="gdzie-pracuje">
-    <div class="wf-container wf-stack wf-stack--8">
-      <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Gdzie pracuje</span>
-        <h2 class="wf-h2">Od doniczki na parapecie po sad i pole pod kroplownikiem</h2>
-        <p class="wf-lead wf-t-secondary">Forma płynna pasuje wszędzie tam, gdzie liczy się precyzja podania. Oto cztery typowe konteksty zastosowań — co stosujesz, jak i po co.</p>
-      </div>
-
-      <div class="wf-stack wf-stack--5">
-        <div class="wf-tabs" role="tablist" data-tabs="ogrod" aria-label="Konteksty zastosowań">
-          <button class="wf-tab wf-w-semibold" role="tab" data-tab="ogrod" aria-selected="true" aria-controls="panel-ogrod" id="tab-ogrod">Ogród i dom</button>
-          <button class="wf-tab" role="tab" data-tab="sad" aria-selected="false" aria-controls="panel-sad" id="tab-sad">Sad i jagodniki</button>
-          <button class="wf-tab" role="tab" data-tab="pole" aria-selected="false" aria-controls="panel-pole" id="tab-pole">Pole i fertygacja</button>
-          <button class="wf-tab" role="tab" data-tab="szkolki" aria-selected="false" aria-controls="panel-szkolki" id="tab-szkolki">Szkółki i rozsada</button>
+      <div class="wf-stack wf-stack--5" data-tabs="baza">
+        <div class="wf-tabs" role="tablist" aria-label="Gama produktów CARBOHUMIC">
+          <button class="wf-tab" role="tab" id="tab-baza" data-tab="baza" aria-selected="true" aria-controls="panel-baza">Baza doglebowa</button>
+          <button class="wf-tab" role="tab" id="tab-ogrod" data-tab="ogrod" aria-selected="false" aria-controls="panel-ogrod">Twój ogród</button>
+          <button class="wf-tab" role="tab" id="tab-nalistne" data-tab="nalistne" aria-selected="false" aria-controls="panel-nalistne">Wzmocnienie nalistne</button>
         </div>
 
-        <div role="tabpanel" data-panel="ogrod" id="panel-ogrod" aria-labelledby="tab-ogrod">
-          <p class="wf-body wf-prose"><strong>Linie OGRÓD / FLORA / SAD</strong> to „próchnica w płynie" do podlewania — grządki, rabaty, rośliny doniczkowe. Prosto: nie da się przedawkować. Dolewasz do konewki, podlewasz jak zwykle; gleba dostaje kwasy humusowe, roślina lepszy start i odporność. Dla miłośnika roślin: szybka, czysta alternatywa dla obornika i „cudownych" odżywek.</p>
+        <div id="panel-baza" role="tabpanel" data-panel="baza" aria-labelledby="tab-baza">
+          <div class="wf-grid wf-grid--2" style="--wf-grid-min: 18rem;">
+            <article class="wf-card wf-card--flush">
+              <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Kanister 5 l CARBOHUMIC niefiltrowany</span></div>
+              <div class="wf-card__body wf-stack wf-stack--3">
+                <div class="wf-cluster wf-cluster--between"><h3 class="wf-h5">CARBOHUMIC niefiltrowany</h3><span class="wf-badge wf-badge--outline">baza</span></div>
+                <p class="wf-small wf-t-secondary">Kondycjonowanie i trwała próchnica (2–5 lat); ~50% kwasów humusowych. Polewanie z beczki lub konewki.</p>
+                <p class="wf-body"><span class="wf-h5 wf-w-bold">od 149 zł</span> <span class="wf-small wf-t-tertiary">· kanister 5 l</span></p>
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <a class="wf-btn wf-btn--primary wf-btn--sm" href="sklep.html?grupa=carbohumic">Kup w sklepie</a>
+                  <a class="wf-link--quiet wf-small" href="centrum-wiedzy.html#magazyn">Karta i poradnik (PDF)</a>
+                </div>
+              </div>
+            </article>
+            <article class="wf-card wf-card--flush">
+              <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Kanister 5 l CARBOHUMIC filtrowany</span></div>
+              <div class="wf-card__body wf-stack wf-stack--3">
+                <div class="wf-cluster wf-cluster--between"><h3 class="wf-h5">CARBOHUMIC filtrowany</h3><span class="wf-badge wf-badge--outline">baza + wzmocnienie</span></div>
+                <p class="wf-small wf-t-secondary">Biostymulacja i bieżące dożywianie; 50–60% kwasów humusowych. Fertygacja, oprysk doglebowy i nalistny.</p>
+                <p class="wf-body"><span class="wf-h5 wf-w-bold">od 149 zł</span> <span class="wf-small wf-t-tertiary">· kanister 5 l</span></p>
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <a class="wf-btn wf-btn--primary wf-btn--sm" href="sklep.html?grupa=carbohumic">Kup w sklepie</a>
+                  <a class="wf-link--quiet wf-small" href="centrum-wiedzy.html#magazyn">Karta i poradnik (PDF)</a>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
-        <div role="tabpanel" data-panel="sad" id="panel-sad" aria-labelledby="tab-sad" hidden>
-          <p class="wf-body wf-prose">W sadzie i jagodnikach pracują dwie warstwy. Doglebowo <strong>niefiltrowany</strong> regeneruje glebę między rzędami i buduje próchnicę (długi horyzont). Nalistnie, w fazach krytycznych, <strong>CALBOR (Ca+B)</strong> poprawia jędrność i trwałość przechowalniczą owocu, a oprysk <strong>filtrowanym</strong> biostymuluje. Format pracy sadownika: faza BBCH → problem → produkt → dawka → liczba zabiegów → cel.</p>
+
+        <div id="panel-ogrod" role="tabpanel" data-panel="ogrod" aria-labelledby="tab-ogrod" hidden>
+          <div class="wf-grid wf-grid--2" style="--wf-grid-min: 18rem;">
+            <article class="wf-card wf-card--flush">
+              <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Butelki 1 l linii OGRÓD / FLORA / SAD</span></div>
+              <div class="wf-card__body wf-stack wf-stack--3">
+                <div class="wf-cluster wf-cluster--between"><h3 class="wf-h5">Linia OGRÓD / FLORA / SAD</h3><span class="wf-badge wf-badge--outline">baza</span></div>
+                <p class="wf-small wf-t-secondary">Ten sam płyn w wygodnych opakowaniach do konewki. Podlewasz i karmisz glebę przy okazji.</p>
+                <p class="wf-body"><span class="wf-w-semibold">butelka 1 l / kanister 5 l</span> <span class="wf-small wf-t-tertiary">· cena w sklepie</span></p>
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <a class="wf-btn wf-btn--primary wf-btn--sm" href="sklep.html?grupa=carbohumic">Kup w sklepie</a>
+                  <a class="wf-link--quiet wf-small" href="centrum-wiedzy.html#magazyn">Poradnik ogrodowy (PDF)</a>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
-        <div role="tabpanel" data-panel="pole" id="panel-pole" aria-labelledby="tab-pole" hidden>
-          <p class="wf-body wf-prose">W uprawach polowych <strong>filtrowany (187 mesh)</strong> wchodzi przez kroplownik (fertygacja) lub w opryskach — odblokowuje fosfor, wspiera pobieranie składników i ukorzenianie. <strong>MAXI PLUS</strong> to tani „bilet wejścia" (~1 l/ha): pozwala sprawdzić mechanizm na pasie pola, zanim zdecydujesz o doglebowej bazie. Ścieżka doboru PRO: problem → sprzęt → budżet.</p>
-        </div>
-        <div role="tabpanel" data-panel="szkolki" id="panel-szkolki" aria-labelledby="tab-szkolki" hidden>
-          <p class="wf-body wf-prose">W szkółkach i przy produkcji rozsady <strong>filtrowany</strong> służy do zaprawiania nasion (0,5–1%) i moczenia korzeni czy bryły frigo (1%) — lepsza przeżywalność i start. To naturalne uzupełnienie podłoży bez torfu, w które wchodzi sypki CARBOMAT jako następca torfu.</p>
+
+        <div id="panel-nalistne" role="tabpanel" data-panel="nalistne" aria-labelledby="tab-nalistne" hidden>
+          <div class="wf-grid wf-grid--2" style="--wf-grid-min: 18rem;">
+            <article class="wf-card wf-card--flush">
+              <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Butelka 1 l MAXI PLUS</span></div>
+              <div class="wf-card__body wf-stack wf-stack--3">
+                <div class="wf-cluster wf-cluster--between"><h3 class="wf-h5">MAXI PLUS</h3><span class="wf-badge wf-badge--outline">wzmocnienie</span></div>
+                <p class="wf-small wf-t-secondary">Wzmocnienie w początkowych fazach wzrostu; mikroelementy i kwasy fulwowe. Łączy się z nawozami dolistnymi.</p>
+                <p class="wf-caption wf-t-tertiary">rejestr: doglebowy środek pod ogólną instrukcją CARBOHUMIC · program nalistny: zalecenia producenta (poradnik)</p>
+                <p class="wf-body"><span class="wf-h5 wf-w-bold">od 49 zł</span> <span class="wf-small wf-t-tertiary">· butelka 1 l</span></p>
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <a class="wf-btn wf-btn--primary wf-btn--sm" href="sklep.html?grupa=carbohumic">Kup w sklepie</a>
+                  <a class="wf-link--quiet wf-small" href="centrum-wiedzy.html#magazyn">Poradnik (PDF)</a>
+                </div>
+              </div>
+            </article>
+            <article class="wf-card wf-card--flush">
+              <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Butelka 1 l CALBOR</span></div>
+              <div class="wf-card__body wf-stack wf-stack--3">
+                <div class="wf-cluster wf-cluster--between"><h3 class="wf-h5">CALBOR</h3><span class="wf-badge wf-badge--outline">wzmocnienie · sady</span></div>
+                <p class="wf-small wf-t-secondary">Wapń i bor na jakość i trwałość owocu. Wyłącznie sadownictwo. Bez certyfikatu eko.</p>
+                <p class="wf-caption wf-t-tertiary">rejestr: doglebowy środek poprawiający właściwości gleby (decyzja G-1733/25, uprawy sadownicze) · program nalistny: zalecenia producenta (poradnik)</p>
+                <p class="wf-body"><span class="wf-h5 wf-w-bold">od 69 zł</span> <span class="wf-small wf-t-tertiary">· butelka 1 l</span></p>
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <a class="wf-btn wf-btn--primary wf-btn--sm" href="sklep.html?grupa=carbohumic">Kup w sklepie</a>
+                  <a class="wf-link--quiet wf-small" href="centrum-wiedzy.html#magazyn">Poradnik (PDF)</a>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
 
       <div class="wf-alert">
         <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
-        <div><span class="wf-alert__title">Dawki podajemy orientacyjnie.</span> <span class="wf-small wf-t-secondary">Stężenia dolistne i dawki niefiltrowanego zależą od uprawy, gleby i sprzętu (niefiltrowany to tabela uprawa × gleba × dawka, nie jedna liczba). Twarde dawki zawsze z konfiguratora lub karty produktu.</span></div>
+        <div><span class="wf-alert__title">Linie ogrodowe i MAXI PLUS to różne narzędzia.</span> <span class="wf-small wf-t-secondary">Linie ogrodowe karmią glebę przy podlewaniu. MAXI PLUS to skoncentrowany produkt nalistny z leonardytu – inny proces produkcji i inne dawkowanie (litry vs mililitry na tę samą powierzchnię). Dlatego pełnią różne role i nie porównuje się ich ceną za litr.</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 7. DOWÓD ===== -->
-  <section class="wf-section wf-section--subtle" id="dowod">
+  <!-- ===== 6. GDZIE NAJLEPIEJ STOSOWAĆ – fiszki z przyciskami ===== -->
+  <section class="wf-section" id="gdzie-stosowac">
     <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Dowód</span>
-        <h2 class="wf-h2">Sprawdź, nie wierz na słowo</h2>
-        <p class="wf-lead wf-t-secondary">Oddzielamy to, co <strong>wiemy</strong> (certyfikaty, skład, mechanizm z literaturą), od tego, co <strong>badamy</strong> u klienta w programie Próchnica+. Bez ściemy.</p>
+        <span class="wf-overline">Zastosowania</span>
+        <h2 class="wf-h2">Gdzie najlepiej stosować CARBOHUMIC.</h2>
+        <p class="wf-lead wf-t-secondary">Cztery najczęstsze konteksty – i który wariant tam pracuje. Po kliknięciu przejdziesz do strony uprawy.</p>
+      </div>
+
+      <div class="wf-grid wf-grid--3" style="--wf-grid-min: 15rem;">
+        <article class="wf-card wf-card--flush cw2-reveal">
+          <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">FOTO: podlewanie grządki warzywnej z konewki</span></div>
+          <div class="wf-card__body wf-stack wf-stack--3">
+            <h3 class="wf-h5">Warzywnik i ogród</h3>
+            <p class="wf-small wf-t-secondary">Podlewaj płynem z linii OGRÓD – roztwór 1% co 10–14 dni. Karmi roślinę i buduje glebę przy okazji. Bez mesh, bez fertygacji – wystarczy konewka.</p>
+            <div class="wf-mt-auto"><a class="wf-btn wf-btn--secondary wf-btn--sm wf-inline" href="ogrod.html">Ogród i działka <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
+          </div>
+        </article>
+        <article class="wf-card wf-card--flush cw2-reveal">
+          <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">FOTO: sad w rzędach, aplikacja doglebowa między drzewami</span></div>
+          <div class="wf-card__body wf-stack wf-stack--3">
+            <h3 class="wf-h5">Sad i plantacja</h3>
+            <p class="wf-small wf-t-secondary">Niefiltrowany buduje glebę między rzędami, a nalistnie w sezonie wchodzi sekwencja MAXI PLUS → CALBOR. Ze środkami ochrony roślin nie łączymy.</p>
+            <div class="wf-mt-auto"><a class="wf-btn wf-btn--secondary wf-btn--sm wf-inline" href="sadownicze.html">Uprawy sadownicze <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
+          </div>
+        </article>
+        <article class="wf-card wf-card--flush cw2-reveal">
+          <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">FOTO: rośliny ozdobne i doniczki na balkonie</span></div>
+          <div class="wf-card__body wf-stack wf-stack--3">
+            <h3 class="wf-h5">Rośliny ozdobne i balkon</h3>
+            <p class="wf-small wf-t-secondary">Rośliny ozdobne i doniczkowe podlewaj rozcieńczonym roztworem z linii OGRÓD / FLORA. Wspiera korzenie i odporność na stres.</p>
+            <div class="wf-mt-auto"><a class="wf-btn wf-btn--secondary wf-btn--sm wf-inline" href="krzewy.html">Krzewy i tuje <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
+          </div>
+        </article>
+        <article class="wf-card wf-card--flush cw2-reveal">
+          <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">FOTO: szkółka, taśma kroplująca, fertygacja</span></div>
+          <div class="wf-card__body wf-stack wf-stack--3">
+            <h3 class="wf-h5">Szkółka i fertygacja</h3>
+            <p class="wf-small wf-t-secondary">W fertygacji i przez opryskiwacz używaj wyłącznie filtrowanego (187 mesh). Do zaprawiania nasion 0,5–1%, do moczenia korzeni 1%.</p>
+            <div class="wf-mt-auto"><a class="wf-btn wf-btn--secondary wf-btn--sm wf-inline" href="szkolki.html">Szkółki i podłoża <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
+          </div>
+        </article>
       </div>
 
       <div class="wf-cluster wf-gap-3">
-        <span class="wf-inline wf-small wf-t-secondary"><span class="wf-ph wf-ph--logo" aria-hidden="true"><span class="wf-ph__label">IUNG</span></span> Certyfikat ekologiczny IUNG</span>
-        <span class="wf-inline wf-small wf-t-secondary"><span class="wf-ph wf-ph--logo" aria-hidden="true"><span class="wf-ph__label">FiBL</span></span> FiBL</span>
-        <span class="wf-inline wf-small wf-t-secondary"><span class="wf-ph wf-ph--logo" aria-hidden="true"><span class="wf-ph__label">SKAAL</span></span> SKAAL</span>
-        <span class="wf-inline wf-small wf-t-secondary"><span class="wf-ph wf-ph--logo" aria-hidden="true"><span class="wf-ph__label">MRiRW</span></span> Rejestracja MRiRW</span>
-      </div>
-
-      <div class="wf-grid wf-grid--3" style="--wf-grid-min: 16rem;">
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2">
-          <h3 class="wf-h5">Czysty skład, znana zawartość</h3>
-          <p class="wf-small wf-t-secondary">Kwasy humusowe 50–60% (filtrowany) / ~50% (niefiltrowany), naturalny surowiec, niskie metale ciężkie (Hg &lt; 0,005 mg/kg). „Próchnica w płynie", nie roztwór z deklaracją na etykiecie.</p>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2">
-          <h3 class="wf-h5">Mechanizm w literaturze</h3>
-          <p class="wf-small wf-t-secondary">Rola kwasów humusowych — chelatacja fosforu, frakcje wg dr. Pettita, biostymulacja nalistna — ma oparcie w badaniach. Cytujemy z atrybucją, a tam, gdzie brak nazwanej publikacji, oznaczamy to wprost.</p>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2">
-          <h3 class="wf-h5">Dowód u Ciebie — Próchnica+</h3>
-          <p class="wf-small wf-t-secondary">Nie prosimy o wiarę. Zakładamy pas kontrolny z produktem obok poletka bez niego i mierzymy próchnicę, retencję i plon. Pełne wyniki polowe — jesień 2026.</p>
-        </div></article>
-      </div>
-
-      <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">Ujęcie z drona, pole Próchnica+: pas z CARBOHUMIC obok pasa bez produktu, widoczna różnica kondycji uprawy</span></div>
-    </div>
-  </section>
-
-  <!-- ===== 8. UCZCIWOŚĆ ===== -->
-  <section class="wf-section" id="uczciwosc">
-    <div class="wf-container wf-stack wf-stack--8">
-      <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Uczciwość</span>
-        <h2 class="wf-h2">Czego NIE obiecujemy w tej rodzinie — i dlaczego to atut</h2>
-        <p class="wf-lead wf-t-secondary">CARBOHUMIC bywa mylony z „cudownymi odżywkami dolistnymi". Dlatego granice uczciwości pilnujemy tu szczególnie ostro.</p>
-      </div>
-
-      <ul class="wf-list wf-stack wf-stack--3">
-        <li><strong>Nalistne nie zatrzymują wody.</strong> Oprysk CARBOHUMIC, MAXI PLUS i CALBOR to jakość i biostymulacja — nigdy polisa na suszę. Wodę „dowozi" produkt doglebowy (niefiltrowany lub sypki lignit).</li>
-        <li><strong>Retencja „to zależy".</strong> Efekt wodny — tylko doglebowo — zależy od gleby i dawki. Nie liczymy litrów na kalkulatorze i rozróżniamy wodę zatrzymaną od dostępnej dla rośliny. „Wodny Stoper +50%" podajemy z ramą i atrybucją „poradnik".</li>
-        <li><strong>„95%" to surowiec, nie produkt.</strong> 95% kwasów humusowych dotyczy leonardytu jako surowca. W gotowym CARBOHUMIC zawartość to 50–60% (filtrowany) / ~50% (niefiltrowany) — i tak ją komunikujemy.</li>
-        <li><strong>Rozdzielamy horyzont.</strong> Co działa w dni (nalistne), w sezonie (fertygacja), a co buduje się latami (próchnica, baza lignitowa) — mówimy osobno. Żadnego „+X% plonu w rok" bez ramy.</li>
-      </ul>
-
-      <div class="wf-grid wf-grid--2" style="--wf-grid-min: 20rem;">
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <h3 class="wf-inline wf-h5"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Co wiemy</h3>
-          <ul class="wf-list wf-small wf-t-secondary">
-            <li>Zawartość kwasów humusowych: filtr. 50–60% / niefiltr. ~50%</li>
-            <li>Certyfikaty IUNG / FiBL / SKAAL (filtr., niefiltr., MAXI PLUS)</li>
-            <li>Rozdział ról: doglebowo (ABA) vs nalistnie (jasmonowy)</li>
-            <li>Funkcja remediacyjna niefiltrowanego (jakościowo)</li>
-          </ul>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <h3 class="wf-inline wf-h5"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg> Co badamy / ujednolicamy</h3>
-          <ul class="wf-list wf-small wf-t-secondary">
-            <li>Własne wyniki polowe (Próchnica+, jesień 2026)</li>
-            <li>K2O niefiltr. 17% vs filtr. 2% — do ujednolicenia</li>
-            <li>Trwałość filtrowanego: 3 lata (karta) vs 5 lat (etykieta)</li>
-            <li>Dokładne dawki i stężenia (uprawa × gleba × sprzęt)</li>
-          </ul>
-        </div></article>
+        <a class="wf-btn wf-btn--secondary" href="konfigurator.html">Nie widzisz swojej uprawy? Dobierz właściwy produkt</a>
+        <a class="wf-btn wf-btn--link" href="uprawy.html">Wszystkie rodzaje upraw</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== 9. CROSS-SELL / PROGRAM ===== -->
-  <section class="wf-section wf-section--subtle" id="program">
+  <!-- ===== 7. KIEDY STOSOWAĆ – siatka cyklu życia + oś sekwencji ===== -->
+  <section class="wf-section wf-section--subtle" id="sezon">
+    <span id="program" class="cw-anchor-alias" aria-hidden="true" style="display:block;height:0;scroll-margin-top:calc(72px + var(--w-space-4));"></span>
     <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Baza + uzupełnienia</span>
-        <h2 class="wf-h2">CARBOHUMIC najlepiej działa w programie, nie w pojedynkę</h2>
-        <p class="wf-lead wf-t-secondary">Płynny ekstrakt to znakomite uzupełnienie — ale trwały fundament żyzności buduje sypki lignit. Najmocniejszy efekt daje połączenie: baza w glebie + nalistne wzmocnienie rośliny.</p>
+        <span class="wf-overline">Kiedy stosować</span>
+        <h2 class="wf-h2">Nalistne to sekwencja w kalendarzu, nie zestaw do koszyka.</h2>
+        <p class="wf-lead wf-t-secondary">Pozioma oś to cykl życia rośliny, kropki to momenty aplikacji. Najedź na produkt poniżej, a podświetlimy jego miejsca na siatce.</p>
+      </div>
+
+      <div class="wf-card wf-card--flush cw2-reveal">
+        <div class="cw-scrollx" tabindex="0">
+          <div class="cw2-chart" data-usechart aria-label="Siatka momentów aplikacji: wiersze to przykładowe uprawy (sad, plantacja jagodowa, warzywnik), kolumny to fazy cyklu życia rośliny, kropki to momenty stosowania wariantów CARBOHUMIC">
+            <div class="cw2-chart__cell cw2-chart__cell--head cw2-chart__cell--label"><span class="wf-caption wf-t-tertiary">Przykładowa uprawa</span></div>
+            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">Przygotowanie gleby</span></div>
+            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">Sadzenie i start</span></div>
+            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">Wzrost</span></div>
+            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">Owocowanie</span></div>
+            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">Po sezonie</span></div>
+
+            <div class="cw2-chart__cell cw2-chart__cell--label"><span class="wf-small wf-w-semibold">Sad</span></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--niefiltr" data-prod="niefiltr" title="CARBOHUMIC niefiltrowany – buduje glebę między rzędami"></span></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--filtr" data-prod="filtr" title="CARBOHUMIC filtrowany – start, fertygacja"></span></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--maxi" data-prod="maxi" title="MAXI PLUS – nalistnie w fazie wzrostu"></span></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--calbor" data-prod="calbor" title="CALBOR – jakość owocu (wyłącznie sady)"></span></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--niefiltr" data-prod="niefiltr" title="CARBOHUMIC niefiltrowany – po sezonie"></span></div>
+
+            <div class="cw2-chart__cell cw2-chart__cell--label"><span class="wf-small wf-w-semibold">Plantacja jagodowa</span></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--niefiltr" data-prod="niefiltr" title="CARBOHUMIC niefiltrowany – przygotowanie gleby"></span></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--filtr" data-prod="filtr" title="CARBOHUMIC filtrowany – fertygacja, start"></span></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--maxi" data-prod="maxi" title="MAXI PLUS – nalistnie w fazie wzrostu"></span></div>
+            <div class="cw2-chart__cell"></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--niefiltr" data-prod="niefiltr" title="CARBOHUMIC niefiltrowany – po zbiorach"></span></div>
+
+            <div class="cw2-chart__cell cw2-chart__cell--label"><span class="wf-small wf-w-semibold">Warzywnik</span></div>
+            <div class="cw2-chart__cell"></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--filtr" data-prod="filtr" title="CARBOHUMIC filtrowany – start, fertygacja"></span></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--maxi" data-prod="maxi" title="MAXI PLUS – nalistnie w fazie wzrostu"></span></div>
+            <div class="cw2-chart__cell"></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--niefiltr" data-prod="niefiltr" title="CARBOHUMIC niefiltrowany – po zbiorach"></span></div>
+          </div>
+        </div>
+        <div class="wf-card__body">
+          <div class="cw2-legend">
+            <span class="cw2-legend__item wf-small wf-t-secondary"><span class="cw2-dot cw2-dot--niefiltr" aria-hidden="true"></span> Niefiltrowany (baza doglebowa)</span>
+            <span class="cw2-legend__item wf-small wf-t-secondary"><span class="cw2-dot cw2-dot--filtr" aria-hidden="true"></span> Filtrowany (fertygacja, oprysk)</span>
+            <span class="cw2-legend__item wf-small wf-t-secondary"><span class="cw2-dot cw2-dot--maxi" aria-hidden="true"></span> MAXI PLUS (nalistnie)</span>
+            <span class="cw2-legend__item wf-small wf-t-secondary"><span class="cw2-dot cw2-dot--calbor" aria-hidden="true"></span> CALBOR (wyłącznie sady)</span>
+          </div>
+          <p class="wf-caption wf-t-tertiary" style="margin-top:var(--w-space-3);">Układ poglądowy – momenty przykładowe. Dokładne terminy i dawki: <a class="wf-link--muted" href="zalecenia.html#dawki">zalecenia dla uprawy</a>.</p>
+        </div>
+      </div>
+
+      <div class="cw2-tl">
+        <div class="cw2-tl__node cw2-reveal" data-prod-node="niefiltr filtr" tabindex="0">
+          <span class="cw2-tl__dot" aria-hidden="true"></span>
+          <div class="wf-ph wf-ph--1x1 cw2-tl__ph" aria-hidden="true"><span class="wf-ph__label">Kanistry CARBOHUMIC niefiltrowany i filtrowany</span></div>
+          <span class="wf-overline wf-t-tertiary">Przez sezon · doglebowo</span>
+          <h3 class="wf-h5">Baza doglebowa – buduje glebę</h3>
+          <p class="wf-small wf-t-secondary">Niefiltrowany polewasz z beczki lub konewki, filtrowany podajesz przez fertygację i oprysk. Zabiegi doglebowe można powtarzać w sezonie.</p>
+        </div>
+        <div class="cw2-tl__node cw2-reveal" data-prod-node="maxi" tabindex="0">
+          <span class="cw2-tl__dot" aria-hidden="true"></span>
+          <div class="wf-ph wf-ph--1x1 cw2-tl__ph" aria-hidden="true"><span class="wf-ph__label">Butelka MAXI PLUS</span></div>
+          <span class="wf-overline wf-t-tertiary">Wiosna · wzrost</span>
+          <h3 class="wf-h5">MAXI PLUS – wzmocnienie nalistne</h3>
+          <p class="wf-small wf-t-secondary">Mikroelementy i kwasy fulwowe w początkowych fazach; wspiera skuteczność nawozów dolistnych. Aplikacja nalistna wg zaleceń producenta.</p>
+        </div>
+        <div class="cw2-tl__node cw2-reveal" data-prod-node="calbor" tabindex="0">
+          <span class="cw2-tl__dot" aria-hidden="true"></span>
+          <div class="wf-ph wf-ph--1x1 cw2-tl__ph" aria-hidden="true"><span class="wf-ph__label">Butelka CALBOR</span></div>
+          <span class="wf-overline wf-t-tertiary">Lato · owocowanie</span>
+          <h3 class="wf-h5">CALBOR – jakość owocu (wyłącznie sady)</h3>
+          <p class="wf-small wf-t-secondary">Wapń i bor na jakość i trwałość owocu, wyłącznie w sadzie. Rejestr: doglebowy środek poprawiający właściwości gleby (decyzja G-1733/25); program nalistny – zalecenia producenta (poradnik).</p>
+        </div>
       </div>
 
       <div class="wf-card">
-        <div class="wf-card__body wf-stack wf-stack--3">
-          <h3 class="wf-h4">Typowy program z CARBOHUMIC w roli głównej i wspierającej</h3>
-          <ul class="wf-list">
-            <li><strong>Baza glebowa:</strong> <a class="wf-link" href="carbomat.html">CARBOMAT</a> (surowy lignit) na trwały wkład 15–20+ lat — albo CARBOHUMIC <strong>niefiltrowany</strong> doglebowo, gdy potrzebna szybka regeneracja.</li>
-            <li><strong>W sezonie:</strong> CARBOHUMIC <strong>filtrowany</strong> przez fertygację/oprysk — start, ukorzenianie, odblokowanie składników.</li>
-            <li><strong>Wzmocnienie rośliny:</strong> <strong>MAXI PLUS</strong> (masa zielona, tani test) i <strong>CALBOR</strong> (jakość owocu, Ca+B) — nalistnie.</li>
-            <li><strong>Korekta pH zakwaszonych pól:</strong> <a class="wf-link" href="carbomat-humic.html">CARBOMAT HUMIC</a> (potas + podniesienie pH).</li>
-          </ul>
+        <div class="wf-card__body">
+          <p class="wf-body wf-prose">Pod sekwencją nalistną zawsze pracuje baza doglebowa: sypki <a class="wf-link" href="carbomat.html">CARBOMAT</a> i płynny CARBOHUMIC niefiltrowany.</p>
         </div>
+      </div>
+
+      <div class="wf-alert">
+        <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
+        <div><span class="wf-alert__title">Nalistne nie zatrzymują wody.</span> <span class="wf-small wf-t-secondary">MAXI PLUS i CALBOR nie zatrzymują wody – retencję buduje baza doglebowa.</span></div>
       </div>
 
       <div class="wf-cluster wf-gap-3">
-        <a class="wf-btn wf-btn--primary wf-btn--lg" href="konfigurator.html">Złóż program w Konfiguratorze</a>
-        <a class="wf-btn wf-btn--secondary" href="sklep.html?grupa=carbohumic">Zobacz w sklepie</a>
-        <a class="wf-btn wf-btn--link" href="prochnica-plus.html">Zobacz program Próchnica+</a>
+        <a class="wf-btn wf-btn--secondary" href="konfigurator.html">Dobierz właściwy produkt</a>
+        <a class="wf-btn wf-btn--link" href="carbomat.html">Rodzina CARBOMAT</a>
+        <a class="wf-btn wf-btn--link" href="prochnica-plus.html#jak-dziala">Program Próchnica+</a>
       </div>
     </div>
   </section>
 
-  <!-- ===== 10. FAQ ===== -->
-  <section class="wf-section" id="faq">
-    <div class="wf-container wf-stack wf-stack--8">
-      <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Najczęstsze pytania</span>
-        <h2 class="wf-h2">Konkretne obiekcje, konkretne odpowiedzi</h2>
-        <p class="wf-lead wf-t-secondary">Pytania, które najczęściej padają o płynne kwasy humusowe — bez owijania.</p>
-      </div>
-
-      <div class="wf-stack" style="max-width:760px;">
-        <div class="wf-accordion__item">
-          <button class="wf-accordion__trigger" aria-expanded="true" aria-controls="faq1" id="faqh1">Czym CARBOHUMIC różni się od CARBOMAT HUMIC? Mylą mi się te nazwy. <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg></button>
-          <div class="wf-accordion__panel" id="faq1" role="region" aria-labelledby="faqh1">
-            <p class="wf-body wf-prose">To dwie różne rodziny. <strong>CARBOHUMIC</strong> to płynny ekstrakt kwasów humusowych (ta strona) — fertygacja, oprysk, podlewanie. <strong>CARBOMAT HUMIC</strong> to aktywowany węgiel brunatny „3 w 1" (kondycjoner + potas + biostymulator), który dodatkowo podnosi pH zakwaszonych pól. Wiemy, że nazwy są podobne — dlatego świadomie pilnujemy ich w komunikacji pełnym zapisem.</p>
-          </div>
-        </div>
-        <div class="wf-accordion__item">
-          <button class="wf-accordion__trigger" aria-expanded="false" aria-controls="faq2" id="faqh2">Czy CARBOHUMIC nalistnie pomoże mi przejść suszę? <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg></button>
-          <div class="wf-accordion__panel" id="faq2" role="region" aria-labelledby="faqh2" hidden>
-            <p class="wf-body wf-prose">Nie — i mówimy to wprost. Nalistnie (oprysk, MAXI PLUS, CALBOR) to biostymulacja i jakość, <strong>nie</strong> zatrzymywanie wody. Bufor suszowy daje wyłącznie aplikacja <strong>doglebowa</strong> (niefiltrowany lub sypki lignit), i to z ramą „to zależy" od gleby i dawki. Nalistne nigdy nie jest polisą na suszę.</p>
-          </div>
-        </div>
-        <div class="wf-accordion__item">
-          <button class="wf-accordion__trigger" aria-expanded="false" aria-controls="faq3" id="faqh3">Widziałem „95% kwasów humusowych" — to prawda? <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg></button>
-          <div class="wf-accordion__panel" id="faq3" role="region" aria-labelledby="faqh3" hidden>
-            <p class="wf-body wf-prose">95% to parametr <strong>surowca</strong> (leonardytu), nie gotowego produktu. W CARBOHUMIC zawartość kwasów humusowych to <strong>50–60%</strong> (filtrowany) / <strong>~50%</strong> (niefiltrowany) — i tak ją podajemy. Nie używamy „95%" jako parametru produktu, bo to wprowadzałoby w błąd.</p>
-          </div>
-        </div>
-        <div class="wf-accordion__item">
-          <button class="wf-accordion__trigger" aria-expanded="false" aria-controls="faq4" id="faqh4">Filtrowany czy niefiltrowany — który wybrać? <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg></button>
-          <div class="wf-accordion__panel" id="faq4" role="region" aria-labelledby="faqh4" hidden>
-            <p class="wf-body wf-prose"><strong>Filtrowany (187 mesh)</strong> jeśli chcesz podawać przez kroplownik (fertygacja) lub opryskiwacz, a także nalistnie — to wariant biostymulacyjny. <strong>Niefiltrowany (20 mesh)</strong> jeśli regenerujesz glebę doglebowo: kondycjonowanie, remediacja, budowa trwałej próchnicy. W razie wątpliwości konfigurator dobierze wariant pod Twoją uprawę i sprzęt.</p>
-          </div>
-        </div>
-        <div class="wf-accordion__item">
-          <button class="wf-accordion__trigger" aria-expanded="false" aria-controls="faq5" id="faqh5">Czy mogę przedawkować? Czy CARBOHUMIC zastąpi mi nawóz? <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg></button>
-          <div class="wf-accordion__panel" id="faq5" role="region" aria-labelledby="faqh5" hidden>
-            <p class="wf-body wf-prose">Praktycznie nie da się przedawkować — to naturalny surowiec, nie sól mineralna. Ale CARBOHUMIC <strong>nie zastępuje NPK</strong>: to kondycjoner i biostymulator. Sprawia, że Twoje nawożenie pracuje lepiej (odblokowany fosfor, mniej wypłukiwania azotu). Logika jest prosta: najpierw zdrowa gleba, potem nawóz.</p>
-          </div>
-        </div>
-        <div class="wf-accordion__item">
-          <button class="wf-accordion__trigger" aria-expanded="false" aria-controls="faq6" id="faqh6">Co się stanie, jeśli produkt zamarznie zimą w magazynie? <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg></button>
-          <div class="wf-accordion__panel" id="faq6" role="region" aria-labelledby="faqh6" hidden>
-            <p class="wf-body wf-prose">Nic złego. Płynny CARBOHUMIC można trzymać w niskich temperaturach — po rozmrożeniu wystarczy go wymieszać przed użyciem. Mróz nie niszczy kwasów humusowych.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 10b. DLA PROFESJONALISTÓW ===== -->
-  <section class="wf-section wf-section--subtle" id="dla-pro">
+  <!-- ===== 8. UPRAWY PROFESJONALNE ===== -->
+  <section class="wf-section" id="uprawy-profesjonalne">
     <div class="wf-container wf-grid wf-grid--2 wf-items-center" style="--wf-grid-min: 22rem;">
       <div class="wf-stack wf-stack--4">
-        <span class="wf-overline">Dla profesjonalistów i większych gospodarstw</span>
-        <h2 class="wf-h2">Większe ilości, palety, stała współpraca — przygotujemy ofertę i Twoją cenę</h2>
-        <p class="wf-body wf-prose">Prowadzisz gospodarstwo, sad, szkółkę albo zamawiasz większe ilości lub palety? Przygotujemy ofertę i Twoją cenę netto.</p>
-        <p class="wf-small wf-t-secondary">Pierwsze zamówienie możesz złożyć też w sklepie — jeśli zamawiasz profesjonalnie, po realizacji założymy Ci konto i kolejne zamówienia złożysz po swojej cenie.</p>
-        <div class="wf-cluster wf-gap-3">
-          <a class="wf-btn wf-btn--primary wf-btn--lg" href="kontakt.html">Zapytaj o ofertę</a>
-          <a class="wf-btn wf-btn--link" href="platforma-b2b.html">Masz już konto? Zaloguj się, by zobaczyć swoją cenę</a>
+        <span class="wf-overline">Uprawy profesjonalne</span>
+        <h2 class="wf-h2">Prowadzisz uprawę profesjonalną – gospodarstwo, sad, plantację lub szkółkę?</h2>
+        <p class="wf-body wf-prose">Przygotujemy ofertę i Twoją cenę – także na IBC 1000 l. Pierwsze zamówienie możesz złożyć w sklepie, a po realizacji zakładamy konto i kolejne robisz po swojej cenie.</p>
+        <div class="wf-cluster wf-gap-3 wf-items-center">
+          <a class="wf-btn wf-btn--secondary" href="kontakt.html">Zapytaj o ofertę</a>
+          <a class="wf-link--quiet" href="platforma-b2b.html">Masz konto? Zaloguj się</a>
         </div>
       </div>
-      <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Kontekst PRO: opryskiwacz polowy i kanistry 1000 L na palecie w gospodarstwie sadowniczym</span></div>
+      <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">Paletopojemnik IBC 1000 l CARBOHUMIC przy gospodarstwie</span></div>
     </div>
   </section>
 
-  <!-- ===== 11. CTA + dr JUREK ===== -->
-  <section class="wf-section">
-    <div class="wf-container wf-stack wf-stack--6">
-      <div class="wf-section--inverse" style="border-radius: var(--w-radius-xl);">
-        <div class="wf-container wf-grid wf-grid--2 wf-items-center" style="--wf-grid-min: 20rem;">
-          <div class="wf-stack wf-stack--3">
-            <h2 class="wf-h3 wf-t-inverse">Wiesz, jak działa. Dobierzmy wariant do Ciebie.</h2>
-            <p class="wf-body wf-t-inverse">Konfigurator dobierze wariant CARBOHUMIC, formę aplikacji i dawki w kilku pytaniach — dla ogrodu, sadu i pola. Dla większych wolumenów przygotujemy ofertę.</p>
+  <!-- ===== 9. FAQ ===== -->
+  <section class="wf-section wf-section--subtle" id="faq">
+    <div class="wf-container wf-container--narrow wf-stack wf-stack--8">
+      <div class="wf-stack wf-stack--3" style="max-width:680px;">
+        <span class="wf-overline">FAQ</span>
+        <h2 class="wf-h2">Najczęstsze pytania o CARBOHUMIC.</h2>
+      </div>
+
+      <div class="wf-stack wf-stack--2">
+        <div class="wf-accordion__item">
+          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="true" aria-controls="faq-1" id="faqh-1">
+            Filtrowany czy niefiltrowany?
+            <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button>
+          <div class="wf-accordion__panel" id="faq-1" role="region" aria-labelledby="faqh-1">
+            <p class="wf-body wf-t-secondary">Jeśli aplikujesz przez kroplowniki, opryskiwacz albo fertygację – wybierz filtrowany (187 mesh). Jeśli budujesz glebę, polewając z beczki lub konewki – niefiltrowany. Niefiltrowanego nie wlewaj do instalacji z filtrami – zapcha je.</p>
           </div>
-          <div class="wf-cluster wf-gap-3">
-            <a class="wf-btn wf-btn--primary wf-btn--lg" href="konfigurator.html">Otwórz Konfigurator</a>
-            <a class="wf-btn wf-btn--secondary wf-btn--lg" href="kontakt.html">Zapytaj o ofertę</a>
+        </div>
+        <div class="wf-accordion__item">
+          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-2" id="faqh-2">
+            Czy oprysk nalistny pomoże na suszę?
+            <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button>
+          <div class="wf-accordion__panel" id="faq-2" role="region" aria-labelledby="faqh-2" hidden>
+            <p class="wf-body wf-t-secondary">Nie – produkty nalistne nie zatrzymują wody, tylko wzmacniają roślinę. Na suszę pracuje baza doglebowa: niefiltrowany CARBOHUMIC lub sypki CARBOMAT.</p>
+          </div>
+        </div>
+        <div class="wf-accordion__item">
+          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-3" id="faqh-3">
+            Czym różni się CARBOHUMIC od CARBOMAT HUMIC?
+            <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button>
+          <div class="wf-accordion__panel" id="faq-3" role="region" aria-labelledby="faqh-3" hidden>
+            <p class="wf-body wf-t-secondary">CARBOHUMIC to płyn, a CARBOMAT HUMIC to sypki granulat do warzyw i roślin ozdobnych w ogrodzie i domu. Do podlewania i oprysku wybierz CARBOHUMIC.</p>
+          </div>
+        </div>
+        <div class="wf-accordion__item">
+          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-4" id="faqh-4">
+            Czy MAXI PLUS można mieszać z opryskiem na choroby?
+            <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button>
+          <div class="wf-accordion__panel" id="faq-4" role="region" aria-labelledby="faqh-4" hidden>
+            <p class="wf-body wf-t-secondary">Nie – ze środkami ochrony roślin nie łączymy (zabrania tego instrukcja). Z nawozami dolistnymi łączyć wolno.</p>
+          </div>
+        </div>
+        <div class="wf-accordion__item">
+          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-5" id="faqh-5">
+            Czy CALBOR nadaje się do warzyw albo truskawek?
+            <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button>
+          <div class="wf-accordion__panel" id="faq-5" role="region" aria-labelledby="faqh-5" hidden>
+            <p class="wf-body wf-t-secondary">Rejestracja CALBOR obejmuje uprawy sadownicze, więc do warzyw i roślin ozdobnych go nie polecamy. Do innych upraw wybierz filtrowany CARBOHUMIC.</p>
+          </div>
+        </div>
+        <div class="wf-accordion__item">
+          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-6" id="faqh-6">
+            Czy zamarznięty produkt jest zepsuty?
+            <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button>
+          <div class="wf-accordion__panel" id="faq-6" role="region" aria-labelledby="faqh-6" hidden>
+            <p class="wf-body wf-t-secondary">Nie – po rozmrożeniu dokładnie wymieszaj, bo koloidy mogą stężeć. Właściwości pozostają.</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
+  <!-- ===== 10. CTA BAND ===== -->
+  <section class="wf-section wf-section--lg wf-section--inverse">
+    <div class="wf-container wf-stack wf-stack--8">
+      <div class="wf-stack wf-stack--6 wf-center">
+        <h2 class="wf-h2 wf-t-inverse">Wiesz już: baza czy wzmocnienie. Dobierzmy dawkę.</h2>
+        <div class="wf-cluster wf-cluster--center wf-gap-3">
+          <a class="wf-btn wf-btn--lg cw2-btn-solid-inverse" href="konfigurator.html">Dobierz właściwy produkt</a>
+          <a class="wf-btn wf-btn--lg cw2-btn-outline-inverse" href="sklep.html?grupa=carbohumic">Kup produkty CARBOHUMIC</a>
+        </div>
+      </div>
       <div class="cw-ask">
         <span class="wf-ph wf-ph--avatar" aria-hidden="true"></span>
         <div class="cw-ask__txt wf-stack wf-stack--1">
-          <span class="wf-w-semibold">Nie wiesz, filtrowany czy niefiltrowany?</span>
-          <span class="wf-small wf-t-secondary">Zapytaj Wirtualnego dr Jurka o dobór wariantu, dawki albo konkretną uprawę — odpowie na bazie wiedzy Carbohort.</span>
+          <span class="wf-w-semibold">Filtrowany czy niefiltrowany?</span>
+          <span class="wf-small wf-t-secondary">Zapytaj dr Jurka o wariant, dawkę i sposób aplikacji dla Twojej uprawy.</span>
         </div>
         <button type="button" class="wf-btn wf-btn--secondary" data-jurek-open>Zapytaj dr Jurka</button>
       </div>
@@ -718,15 +948,15 @@
       </nav>
     </div>
     <div class="wf-footer__bottom wf-cluster wf-cluster--between">
-      <span class="wf-caption wf-t-secondary">© Carbohort — makieta. Treść i dane do akceptacji.</span>
+      <span class="wf-caption wf-t-secondary">© Carbohort – makieta. Treść i dane do akceptacji.</span>
       <span class="wf-caption wf-t-secondary">PL · poprawa gleby z lignitu</span>
     </div>
   </div>
 </footer>
 
-<!-- ===== dr Jurek — pływający dok ===== -->
+<!-- ===== dr Jurek – pływający dok (ukryty do przewinięcia) ===== -->
 <div class="cw-jurek-backdrop" data-jurek-backdrop data-open="false" aria-hidden="true"></div>
-<div class="cw-jurek" data-jurek-dock data-open="false">
+<div class="cw-jurek cw2-dockhide" data-jurek-dock data-open="false">
   <div class="cw-jurek__panel" role="dialog" aria-label="Wirtualny dr Jurek">
     <div class="cw-jurek__head">
       <span class="wf-ph wf-ph--avatar" aria-hidden="true"></span>
@@ -741,11 +971,128 @@
   </div>
   <form class="cw-jurek__bar" data-jurek-form>
     <svg class="wf-icon wf-icon--muted" aria-hidden="true" style="align-self:center;"><use href="#ti-message-2"></use></svg>
-    <input class="wf-input" type="text" data-jurek-input placeholder="Zapytaj o dobór, dawki, uprawę…" aria-label="Zapytaj dr. Jurka">
+    <input class="wf-input" type="text" data-jurek-input placeholder="Zapytaj o dobór, dawki, uprawę…" aria-label="Zapytaj dr Jurka">
     <button class="wf-btn wf-btn--primary wf-btn--icon" type="submit" aria-label="Wyślij"><svg class="wf-icon" aria-hidden="true"><use href="#ti-send"></use></svg></button>
   </form>
 </div>
 
 <script src="cw.js"></script>
+<script>
+/* ===== CARBOMAT V2 – mechaniki eksperymentalne (tylko ta strona) ===== */
+(function () {
+  "use strict";
+  document.documentElement.classList.add("cw2-js");
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Dok dr Jurka: pojawia się dopiero po przewinięciu poza hero */
+  var dock = document.querySelector("[data-jurek-dock]");
+  var hero = document.getElementById("hero");
+  function updateDock() {
+    if (!dock || !hero) return;
+    var past = window.scrollY > hero.offsetHeight * 0.55;
+    dock.classList.toggle("cw2-dockhide", !past);
+  }
+
+  /* Reveal on scroll + liczniki – deterministycznie po pozycji (bez IntersectionObserver) */
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll(".cw2-reveal"));
+  var counters = Array.prototype.slice.call(document.querySelectorAll("[data-count]"));
+
+  function inView(el, ratio) {
+    var r = el.getBoundingClientRect();
+    return r.top < window.innerHeight * (ratio || 0.88) && r.bottom > 0;
+  }
+
+  function animateCount(el) {
+    var end = parseFloat(el.getAttribute("data-count"));
+    var finalText = el.getAttribute("data-final") || String(end);
+    if (reduced) { el.textContent = finalText; return; }
+    var steps = 20, i = 0;
+    var iv = window.setInterval(function () {
+      i++;
+      el.textContent = String(Math.round(end * i / steps));
+      if (i >= steps) { window.clearInterval(iv); el.textContent = finalText; }
+    }, 45);
+  }
+
+  function updateAnimations() {
+    if (reduced) {
+      revealEls.forEach(function (el) { el.classList.add("cw2-in"); });
+      counters.forEach(function (el) { el.textContent = el.getAttribute("data-final") || el.getAttribute("data-count"); });
+      revealEls = []; counters = [];
+      return;
+    }
+    revealEls = revealEls.filter(function (el) {
+      if (inView(el)) { el.classList.add("cw2-in"); return false; }
+      return true;
+    });
+    counters = counters.filter(function (el) {
+      if (inView(el, 0.92)) { animateCount(el); return false; }
+      return true;
+    });
+  }
+
+  /* Scrollytelling „Czym jest": aktywny krok steruje wizualem, licznikiem i paskiem postępu */
+  var story = document.querySelector("[data-story]");
+  var storyFrame = story ? story.querySelector(".cw2-story__frame") : null;
+  var storySteps = story ? Array.prototype.slice.call(story.querySelectorAll("[data-step]")) : [];
+  var storyNum = story ? story.querySelector("[data-story-num]") : null;
+  var storyBar = story ? story.querySelector("[data-story-bar]") : null;
+  var storyTitle = story ? story.querySelector("[data-story-title]") : null;
+  function updateStory() {
+    if (!story || !storySteps.length) return;
+    var mid = window.innerHeight * 0.5;
+    var active = 0;
+    for (var i = 0; i < storySteps.length; i++) {
+      if (storySteps[i].getBoundingClientRect().top < mid) active = i;
+    }
+    var step = storySteps[active];
+    if (storyFrame) storyFrame.setAttribute("data-stage", step.getAttribute("data-step"));
+    if (storyNum) storyNum.textContent = "0" + (active + 1);
+    if (storyBar) storyBar.style.width = String(((active + 1) / storySteps.length) * 100) + "%";
+    if (storyTitle) storyTitle.textContent = step.getAttribute("data-title") || "";
+    storySteps.forEach(function (el, idx) { el.classList.toggle("cw2-step--active", idx === active); });
+  }
+
+  /* Siatka „Kiedy stosować": hover/klik na produkcie podświetla jego kropki */
+  var useChart = document.querySelector("[data-usechart]");
+  var chartDots = useChart ? Array.prototype.slice.call(useChart.querySelectorAll(".cw2-dot[data-prod]")) : [];
+  var prodNodes = Array.prototype.slice.call(document.querySelectorAll("[data-prod-node]"));
+  var tlWrap = document.querySelector(".cw2-tl");
+  function setChartFocus(prods) {
+    if (!useChart) return;
+    if (!prods) {
+      useChart.classList.remove("cw2-chart--focus");
+      if (tlWrap) tlWrap.classList.remove("cw2-tl--focus");
+      chartDots.forEach(function (d) { d.classList.remove("is-hl"); });
+      return;
+    }
+    useChart.classList.add("cw2-chart--focus");
+    if (tlWrap) tlWrap.classList.add("cw2-tl--focus");
+    chartDots.forEach(function (d) { d.classList.toggle("is-hl", prods.indexOf(d.getAttribute("data-prod")) !== -1); });
+  }
+  prodNodes.forEach(function (node) {
+    var prods = node.getAttribute("data-prod-node").split(" ");
+    node.addEventListener("mouseenter", function () { setChartFocus(prods); });
+    node.addEventListener("mouseleave", function () {
+      if (!node.classList.contains("is-active")) setChartFocus(null);
+    });
+    node.addEventListener("focus", function () { setChartFocus(prods); });
+    node.addEventListener("blur", function () {
+      if (!node.classList.contains("is-active")) setChartFocus(null);
+    });
+    node.addEventListener("click", function () {
+      var wasActive = node.classList.contains("is-active");
+      prodNodes.forEach(function (m) { m.classList.remove("is-active"); });
+      if (wasActive) { setChartFocus(null); } else { node.classList.add("is-active"); setChartFocus(prods); }
+    });
+  });
+
+  function onScroll() { updateDock(); updateAnimations(); updateStory(); }
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  window.addEventListener("load", onScroll);
+})();
+</script>
 </body>
 </html>

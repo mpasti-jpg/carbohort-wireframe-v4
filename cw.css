@@ -69,6 +69,8 @@
   width: auto;
 }
 .cw-mega--right { left: auto; right: 0; }
+/* Wąski dropdown (np. „Programy i badania" – pojedyncze pozycje) */
+.cw-mega--narrow { width: auto; min-width: 14rem; }
 .cw-mega__grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--w-space-8); align-items: stretch; }
 .cw-mega__grid--3 { grid-template-columns: 1.2fr 1fr 1fr; }
 .cw-mega__col { display: flex; flex-direction: column; }

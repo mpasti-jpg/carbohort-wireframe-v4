@@ -3,11 +3,108 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Carbohort — CARBOMAT HUMIC: aktywowany węgiel brunatny „3 w 1"</title>
-<meta name="description" content="CARBOMAT HUMIC: aktywowany węgiel brunatny, który łączy trzy działania — kondycjonuje glebę, dostarcza potas (K2O) i biostymuluje roślinę. Podnosi pH gleb zakwaszonych (pH 7–10). Wariant rolniczy oraz linie do warzyw, owoców i roślin ozdobnych.">
+<title>CARBOMAT HUMIC – granulat 3 w 1 do działki i domu · propozycja V2 | Carbohort</title>
+<meta name="description" content="Propozycja V2 strony CARBOMAT HUMIC: pełnoekranowe hero, WiO i ROiZ w kolumnach, sekcja o aktywacji KOH, dawki w gramach i siatka cyklu życia. Aktywowany węgiel brunatny do ogrodu działkowego i domu.">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="wireframe.css">
 <link rel="stylesheet" href="cw.css">
+<style>
+/* ===== CARBOMAT V2 – style eksperymentalne (tylko ta strona, wyłącznie tony neutralne + tokeny) ===== */
+.cw2-hero{position:relative;display:flex;align-items:flex-end;min-height:calc(100svh - 72px);overflow:hidden;background:var(--w-surface-inverse);}
+.cw2-hero__bg{position:absolute;inset:0;}
+.cw2-hero__bg .wf-ph{position:absolute;inset:0;height:100%;width:100%;border-radius:0;}
+.cw2-hero__bg .wf-ph__label{position:absolute;right:var(--w-space-4);bottom:var(--w-space-4);left:auto;top:auto;max-width:44ch;text-align:right;opacity:.7;}
+.cw2-hero__shade{position:absolute;inset:0;background:linear-gradient(180deg, rgb(0 0 0 / 0.20) 0%, rgb(0 0 0 / 0.36) 52%, rgb(0 0 0 / 0.78) 100%);}
+.cw2-hero__crumb{position:absolute;top:var(--w-space-5);left:0;right:0;z-index:2;}
+.cw2-hero__crumb .wf-link--quiet,.cw2-hero__crumb li,.cw2-hero__crumb .wf-breadcrumb__sep{color:var(--w-text-inverse);}
+.cw2-hero__content{position:relative;z-index:1;width:100%;padding-top:var(--w-space-24);padding-bottom:var(--w-space-16);}
+.cw2-btn-solid-inverse{background:var(--w-surface-page);border-color:var(--w-surface-page);color:var(--w-text-primary);}
+.cw2-btn-solid-inverse:hover{background:var(--w-gray-100);border-color:var(--w-gray-100);}
+.cw2-btn-outline-inverse{background:transparent;border:1px solid var(--w-border-inverse);color:var(--w-text-inverse);}
+.cw2-btn-outline-inverse:hover{background:rgb(255 255 255 / 0.14);}
+.cw2-scrollcue{position:absolute;left:50%;bottom:var(--w-space-4);z-index:2;color:var(--w-text-inverse);opacity:.85;animation:cw2bounce 2.2s infinite;}
+@keyframes cw2bounce{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
+/* Pionowa specyfikacja produktu (etykieta po lewej, wartość po prawej) */
+.cw2-spec{margin:0;display:flex;flex-direction:column;}
+.cw2-spec__row{display:grid;grid-template-columns:minmax(7rem,36%) 1fr;gap:var(--w-space-3);padding:var(--w-space-3) 0;border-top:1px solid var(--w-border-subtle);}
+.cw2-spec dt{font-size:var(--w-font-small);color:var(--w-text-tertiary);}
+.cw2-spec dd{margin:0;font-size:var(--w-font-small);color:var(--w-text-primary);}
+/* Kafle statystyk */
+.cw2-stat{border:1px solid var(--w-border-default);border-radius:var(--w-radius-md);padding:var(--w-space-6);display:flex;flex-direction:column;gap:var(--w-space-2);background:var(--w-surface-page);}
+.cw2-stat__num{font-size:var(--w-font-h1);line-height:1.05;font-weight:var(--w-weight-bold);letter-spacing:-0.02em;}
+/* Pozioma oś sezonu */
+.cw2-tl{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--w-space-6);}
+.cw2-tl::before{content:"";position:absolute;top:7px;left:calc(100%/6);right:calc(100%/6);height:2px;background:var(--w-border-strong);}
+.cw2-tl__node{position:relative;display:flex;flex-direction:column;gap:var(--w-space-3);}
+.cw2-tl__dot{width:16px;height:16px;border-radius:var(--w-radius-circle);background:var(--w-surface-page);border:3px solid var(--w-gray-900);position:relative;z-index:1;margin:0 auto;}
+.cw2-tl__node>*:not(.cw2-tl__dot){text-align:center;}
+.cw2-tl__ph{width:min(11rem,100%);margin:0 auto;}
+@media (max-width:767px){
+  .cw2-hero h1{font-size:var(--w-font-h1-size);line-height:var(--w-font-h1-lh);}
+  .cw2-hero .wf-lead{font-size:var(--w-font-body-size);}
+  .cw2-hero__content{padding-top:var(--w-space-16);padding-bottom:var(--w-space-12);}
+  .cw2-tl{grid-template-columns:1fr;}
+  .cw2-tl::before{left:7px;right:auto;top:8px;bottom:8px;width:2px;height:auto;}
+  .cw2-tl__node{padding-left:var(--w-space-8);}
+  .cw2-tl__dot{margin:0;position:absolute;left:0;top:2px;}
+  .cw2-tl__node>*:not(.cw2-tl__dot){text-align:left;}
+  .cw2-tl__ph{margin:0;}
+}
+/* ===== Scrollytelling „Czym jest" ===== */
+.cw2-story{display:grid;grid-template-columns:5fr 7fr;gap:var(--w-space-10);align-items:start;}
+.cw2-story__visual{position:sticky;top:calc(72px + var(--w-space-6));}
+.cw2-story__frame{position:relative;}
+.cw2-story__frame .wf-ph{aspect-ratio:4/4.6;width:100%;}
+.cw2-story__frame .wf-ph__label{display:none;}
+.cw2-story__frame[data-stage="1"] .wf-ph__label[data-for="1"],
+.cw2-story__frame[data-stage="2"] .wf-ph__label[data-for="2"],
+.cw2-story__frame[data-stage="3"] .wf-ph__label[data-for="3"],
+.cw2-story__frame[data-stage="4"] .wf-ph__label[data-for="4"]{display:block;}
+.cw2-story__meta{display:flex;align-items:center;gap:var(--w-space-4);margin-top:var(--w-space-4);}
+.cw2-story__count{font-variant-numeric:tabular-nums;white-space:nowrap;}
+.cw2-story__track{flex:1;height:2px;background:var(--w-border-subtle);border-radius:var(--w-radius-pill);overflow:hidden;}
+.cw2-story__bar{height:100%;width:25%;background:var(--w-gray-900);transition:width .4s ease;}
+.cw2-step{border-top:1px solid var(--w-border-subtle);padding-top:var(--w-space-6);display:flex;gap:var(--w-space-6);}
+.cw2-step__no{font-size:var(--w-font-h3-size);font-weight:var(--w-weight-bold);color:var(--w-text-disabled);font-variant-numeric:tabular-nums;line-height:1;transition:color .3s ease;}
+.cw2-step--active .cw2-step__no{color:var(--w-text-primary);}
+.cw2-step__body{display:flex;flex-direction:column;gap:var(--w-space-3);flex:1;}
+/* Wykres słupkowy – struktura danych w szarościach */
+.cw2-barchart{display:flex;flex-direction:column;gap:var(--w-space-3);}
+.cw2-bar{display:grid;grid-template-columns:minmax(6rem,28%) 1fr auto;gap:var(--w-space-3);align-items:center;}
+.cw2-bar__track{height:14px;background:var(--w-gray-100);border:1px solid var(--w-border-subtle);border-radius:var(--w-radius-pill);overflow:hidden;}
+.cw2-bar__fill{height:100%;background:var(--w-gray-900);border-radius:var(--w-radius-pill);width:var(--bw);}
+@media (max-width:899px){
+  .cw2-story{grid-template-columns:1fr;}
+  .cw2-story__visual{position:static;}
+  .cw2-story__frame .wf-ph{aspect-ratio:16/9;}
+}
+/* ===== Siatka „Kiedy stosować" – cykl życia rośliny × momenty aplikacji ===== */
+.cw2-chart{min-width:640px;display:grid;grid-template-columns:minmax(7.5rem,20%) repeat(5,1fr);}
+.cw2-chart__cell{border-top:1px solid var(--w-border-subtle);min-height:52px;display:flex;align-items:center;justify-content:center;gap:var(--w-space-2);padding:var(--w-space-2);}
+.cw2-chart__cell--head{border-top:0;min-height:0;align-items:flex-end;}
+.cw2-chart__cell--label{justify-content:flex-start;}
+.cw2-dot{width:12px;height:12px;border-radius:var(--w-radius-pill);background:var(--w-gray-500);transition:opacity .25s ease,transform .25s ease;}
+.cw2-dot--humic{width:14px;height:14px;background:var(--w-gray-900);}
+.cw2-dot--eco{background:var(--w-surface-page);border:2px solid var(--w-gray-900);}
+.cw2-dot--ogrod{background:var(--w-gray-500);}
+.cw2-chart--focus .cw2-dot{opacity:.12;}
+.cw2-chart--focus .cw2-dot.is-hl{opacity:1;transform:scale(1.35);}
+.cw2-legend{display:flex;flex-wrap:wrap;gap:var(--w-space-5) var(--w-space-6);align-items:center;}
+.cw2-legend__item{display:inline-flex;align-items:center;gap:var(--w-space-2);}
+.cw2-tl__node[data-prod-node]{cursor:pointer;border-radius:var(--w-radius-md);transition:opacity .25s ease;}
+.cw2-tl--focus .cw2-tl__node[data-prod-node]:not(.is-active):not(:hover){opacity:.45;}
+/* Reveal on scroll – ukrywanie tylko przy działającym JS (klasa cw2-js na <html>) */
+.cw2-js .cw2-reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+.cw2-js .cw2-reveal.cw2-in{opacity:1;transform:none;}
+/* Dok dr Jurka – ukryty do czasu przewinięcia poza hero */
+.cw-jurek{transition:opacity .3s ease,visibility .3s ease;}
+.cw-jurek.cw2-dockhide{opacity:0;visibility:hidden;pointer-events:none;}
+@media (prefers-reduced-motion: reduce){
+  .cw2-js .cw2-reveal{opacity:1;transform:none;transition:none;}
+  .cw2-scrollcue{animation:none;}
+  .cw-jurek{transition:none;}
+}
+</style>
 </head>
 <body>
 <a class="wf-sr-only" href="#main">Przejdź do treści</a>
@@ -91,6 +188,11 @@
 <symbol id="ti-dots" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
   <path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
   <path d="M18 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></symbol>
+<symbol id="ti-stack-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l-8 4l8 4l8 -4l-8 -4" /><path d="M4 12l8 4l8 -4" /><path d="M4 16l8 4l8 -4" /></symbol>
+<symbol id="ti-flask" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l6 0" /><path d="M10 9l4 0" /><path d="M10 3v6l-4.5 8a1.5 1.5 0 0 0 1.3 2.5h10.4a1.5 1.5 0 0 0 1.3 -2.5l-4.5 -8v-6" /></symbol>
+<symbol id="ti-magnet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13v-8a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v8a3 3 0 0 0 6 0v-8a2 2 0 0 1 2 -2h1a2 2 0 0 1 2 2v8a7 7 0 0 1 -14 0" /><path d="M4 8l5 0" /><path d="M15 8l4 0" /></symbol>
+<symbol id="ti-droplet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M7.502 19.423c2.602 2.105 6.395 2.105 8.996 0c2.602 -2.105 3.262 -5.708 1.566 -8.546l-4.89 -7.26c-.42 -.625 -1.287 -.803 -1.936 -.397a1.376 1.376 0 0 0 -.41 .397l-4.893 7.26c-1.695 2.838 -1.035 6.441 1.567 8.546z" /></symbol>
+<symbol id="ti-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21c.5 -4.5 2.5 -8 7 -10" /><path d="M9 18c6.218 0 10.5 -3.288 11 -12v-2h-4.014c-9 0 -11.986 4 -12 9c0 1 0 3 2 5h3z" /></symbol>
 </svg>
 
 <!-- ===== NAVBAR ===== -->
@@ -111,13 +213,13 @@
             <div class="cw-prodbox">
               <span class="wf-overline wf-t-tertiary">Płynne · doglebowe i nalistne</span>
               <a class="wf-link--quiet" href="carbohumic.html"><span class="wf-h5">CARBOHUMIC</span></a>
-              <p class="wf-small wf-t-secondary">„Próchnica w płynie" — kondycjonuje glebę i biostymuluje roślinę.</p>
+              <p class="wf-small wf-t-secondary">„Próchnica w płynie" – kondycjonuje glebę i biostymuluje roślinę.</p>
               <a class="wf-btn wf-btn--secondary wf-btn--sm" href="carbohumic.html">Poznaj rodzinę</a>
             </div>
             <div class="cw-prodbox">
               <span class="wf-overline wf-t-tertiary">Węgiel aktywowany · 3 w 1</span>
               <a class="wf-link--quiet" href="carbomat-humic.html"><span class="wf-h5">CARBOMAT HUMIC</span></a>
-              <p class="wf-small wf-t-secondary">Kondycjoner + potas + biostymulator; podnosi pH zakwaszonych pól.</p>
+              <p class="wf-small wf-t-secondary">Kondycjoner + potas + biostymulator; podnosi pH zakwaszonej gleby – do ogrodu i domu.</p>
               <a class="wf-btn wf-btn--secondary wf-btn--sm" href="carbomat-humic.html">Poznaj rodzinę</a>
             </div>
             <div class="cw-mega__needs">
@@ -169,7 +271,14 @@
           </div>
         </div>
       </div>
-      <a class="wf-navbar__link" href="prochnica-plus.html">Programy</a>
+      <div class="cw-haspopup">
+        <button class="cw-nav-trigger" data-mega-trigger aria-haspopup="true" aria-expanded="false" aria-controls="mega-programy">Programy i badania <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg></button>
+        <div class="cw-mega cw-mega--narrow" id="mega-programy" data-open="false" role="region" aria-label="Programy i badania">
+          <div class="cw-mega__list">
+            <a class="wf-link--quiet" href="prochnica-plus.html">Program Próchnica+</a>
+          </div>
+        </div>
+      </div>
       <a class="wf-navbar__link" href="centrum-wiedzy.html">Centrum wiedzy</a>
       <a class="wf-navbar__link" href="o-firmie.html">O nas</a>
       <a class="wf-navbar__link" href="kontakt.html">Kontakt</a>
@@ -185,7 +294,7 @@
   <nav class="cw-mobilenav wf-container" id="mobilenav" data-open="false" aria-label="Menu mobilne">
     <a class="wf-navitem wf-w-semibold" href="produkty.html" aria-current="page">Nasze produkty</a>
     <a class="wf-navitem" href="uprawy.html">Rodzaje upraw</a>
-    <a class="wf-navitem" href="prochnica-plus.html">Programy</a>
+    <a class="wf-navitem" href="prochnica-plus.html">Programy i badania</a>
     <a class="wf-navitem" href="centrum-wiedzy.html">Centrum wiedzy</a>
     <a class="wf-navitem" href="o-firmie.html">O nas</a>
     <a class="wf-navitem" href="kontakt.html">Kontakt</a>
@@ -197,497 +306,571 @@
 
 <main id="main">
 
-  <!-- ===== BREADCRUMB ===== -->
-  <nav class="wf-breadcrumb wf-container" aria-label="Okruszki">
-    <ol class="wf-cluster wf-items-center">
-      <li><a class="wf-link--quiet" href="home.html">Start</a></li>
-      <li><span class="wf-breadcrumb__sep" aria-hidden="true">/</span></li>
-      <li><a class="wf-link--quiet" href="produkty.html">Nasze produkty</a></li>
-      <li><span class="wf-breadcrumb__sep" aria-hidden="true">/</span></li>
-      <li aria-current="page">CARBOMAT HUMIC</li>
-    </ol>
-  </nav>
-
-  <!-- ===== HERO ===== -->
-  <section class="wf-section wf-section--lg">
-    <div class="wf-container wf-grid wf-grid--2 wf-items-center" style="--wf-grid-min: 22rem;">
-      <div class="wf-stack wf-stack--6">
-        <span class="wf-overline">Rodzina · CARBOMAT HUMIC</span>
-        <h1 class="wf-display">Aktywowany węgiel brunatny „3 w 1" do gleb zakwaszonych.</h1>
-        <p class="wf-lead wf-prose">Jeden granulat, trzy działania: <strong>kondycjonuje glebę</strong>, dostarcza <strong>potas (K₂O)</strong> i <strong>biostymuluje</strong> roślinę — a przy tym <strong>podnosi pH</strong> gleb zakwaszonych. Tam, gdzie pole jest kwaśne, ubogie w potas, a susza tnie plon, to jeden ruch zamiast trzech osobnych worków.</p>
+  <!-- ===== 1. HERO – pełny ekran ze zdjęciem w tle ===== -->
+  <section class="cw2-hero" id="hero">
+    <div class="cw2-hero__bg" aria-hidden="true">
+      <div class="wf-ph"><span class="wf-ph__label">FOTO PEŁNOEKRANOWE: dłoń rozsypująca czarny granulat CARBOMAT HUMIC na grządce warzywnej, niska perspektywa</span></div>
+      <div class="cw2-hero__shade"></div>
+    </div>
+    <nav class="cw2-hero__crumb wf-breadcrumb wf-container" aria-label="Okruszki">
+      <ol class="wf-cluster wf-items-center">
+        <li><a class="wf-link--quiet" href="home.html">Strona główna</a></li>
+        <li><span class="wf-breadcrumb__sep" aria-hidden="true">/</span></li>
+        <li><a class="wf-link--quiet" href="produkty.html">Nasze produkty</a></li>
+        <li><span class="wf-breadcrumb__sep" aria-hidden="true">/</span></li>
+        <li aria-current="page">CARBOMAT HUMIC</li>
+      </ol>
+    </nav>
+    <div class="cw2-hero__content">
+      <div class="wf-container wf-stack wf-stack--6">
+        <span class="wf-overline wf-t-inverse">Rodzina CARBOMAT HUMIC · sypki · ogród działkowy i dom</span>
+        <h1 class="wf-display wf-t-inverse" style="max-width:660px;">Trzy działania w jednym granulacie – do warzywnika, rabat i roślin w domu.</h1>
+        <p class="wf-lead wf-t-inverse" style="max-width:600px;">Aktywowany węgiel brunatny „3 w 1": poprawia glebę, dostarcza potas (K₂O 6% wg decyzji) i wspiera rośliny. Na glebach zakwaszonych podnosi pH (7–10). Do warzyw i roślin ozdobnych w ogrodzie działkowym i w domu.</p>
+        <p class="wf-small wf-t-inverse" style="opacity:.85;">Szukasz płynu do podlewania? To rodzina <a href="carbohumic.html" style="color:var(--w-text-inverse);text-decoration:underline;">CARBOHUMIC</a>.</p>
         <div class="wf-cluster wf-gap-3">
-          <a class="wf-btn wf-btn--primary wf-btn--lg" href="sklep.html?grupa=carbomat-humic">Zobacz produkty w sklepie</a>
-          <a class="wf-btn wf-btn--secondary wf-btn--lg" href="konfigurator.html">Dobierz w konfiguratorze</a>
+          <a class="wf-btn wf-btn--lg cw2-btn-solid-inverse" href="konfigurator.html?crop=ogrod">Dobierz właściwy produkt</a>
+          <a class="wf-btn wf-btn--lg cw2-btn-outline-inverse" href="sklep.html?grupa=carbomat-humic">Kup produkty CARBOMAT HUMIC</a>
         </div>
         <div class="wf-cluster wf-gap-4">
-          <span class="wf-small wf-t-tertiary">pH 7–10 — podnosi odczyn</span>
-          <span class="wf-small wf-t-tertiary">K₂O ~6% (~60 kg na tonę produktu)</span>
-          <span class="wf-small wf-t-tertiary">Polski granulat, łatwa aplikacja</span>
+          <span class="wf-small wf-t-inverse" style="opacity:.8;">Rejestracja MRiRW (G-1528/24)</span>
+          <span class="wf-small wf-t-inverse" style="opacity:.8;">Dawki w gramach – wygodne na działce</span>
+          <span class="wf-small wf-t-inverse" style="opacity:.8;">Polski granulat</span>
         </div>
       </div>
-      <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Granulat aktywowanego węgla brunatnego · pole strip-till</span></div>
+    </div>
+    <svg class="wf-icon wf-icon--lg cw2-scrollcue" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+  </section>
+
+  <!-- ===== 2. KTÓRY DLA MNIE – WiO / ROiZ ===== -->
+  <section class="wf-section" id="ktory-dla-mnie">
+    <div class="wf-container wf-stack wf-stack--8">
+      <div class="wf-stack wf-stack--3" style="max-width:680px;">
+        <span class="wf-overline">Który dla mnie?</span>
+        <h2 class="wf-h2">Jedno pytanie: co uprawiasz?</h2>
+        <p class="wf-lead wf-t-secondary">Ten sam granulat w dwóch liniach z dawkowaniem dopasowanym do upraw. Nazwy linii są handlowe; zakres stosowania wg decyzji: warzywa i rośliny ozdobne.</p>
+      </div>
+
+      <div class="wf-grid wf-grid--2" style="--wf-grid-min: 20rem;">
+        <!-- WiO -->
+        <article class="wf-card wf-card--flush cw2-reveal">
+          <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">DUŻE FOTO: opakowanie 1 l CARBOMAT HUMIC WiO na tle grządki warzywnej</span></div>
+          <div class="wf-card__body wf-stack wf-stack--4">
+            <div class="wf-cluster wf-cluster--between">
+              <h3 class="wf-h3">CARBOMAT HUMIC WiO</h3>
+              <span class="wf-badge wf-badge--outline">warzywa i owoce</span>
+            </div>
+            <dl class="cw2-spec">
+              <div class="cw2-spec__row"><dt>Gdzie stosować</dt><dd>warzywnik i grządki (warzywa i rośliny ozdobne)</dd></div>
+              <div class="cw2-spec__row"><dt>Działanie</dt><dd>poprawia glebę, dostarcza potas i podnosi pH</dd></div>
+              <div class="cw2-spec__row"><dt>Opakowania</dt><dd><a class="wf-link" href="sklep.html?grupa=carbomat-humic">1 l</a> · <a class="wf-link" href="sklep.html?grupa=carbomat-humic">2 l</a></dd></div>
+              <div class="cw2-spec__row"><dt>Cena</dt><dd class="wf-w-semibold">od 26 zł</dd></div>
+            </dl>
+            <div class="wf-mt-auto"><a class="wf-btn wf-btn--primary wf-btn--sm wf-inline" href="sklep.html?grupa=carbomat-humic">Kup CARBOMAT HUMIC WiO <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
+          </div>
+        </article>
+
+        <!-- ROiZ -->
+        <article class="wf-card wf-card--flush cw2-reveal">
+          <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">DUŻE FOTO: opakowanie 1 l CARBOMAT HUMIC ROiZ na tle rabaty ozdobnej</span></div>
+          <div class="wf-card__body wf-stack wf-stack--4">
+            <div class="wf-cluster wf-cluster--between">
+              <h3 class="wf-h3">CARBOMAT HUMIC ROiZ</h3>
+              <span class="wf-badge wf-badge--outline">rośliny ozdobne i zioła</span>
+            </div>
+            <dl class="cw2-spec">
+              <div class="cw2-spec__row"><dt>Gdzie stosować</dt><dd>rabaty ozdobne, zioła, rośliny w domu</dd></div>
+              <div class="cw2-spec__row"><dt>Działanie</dt><dd>to samo działanie 3 w 1, dawkowanie pod rośliny ozdobne</dd></div>
+              <div class="cw2-spec__row"><dt>Opakowania</dt><dd><a class="wf-link" href="sklep.html?grupa=carbomat-humic">1 l</a> · <a class="wf-link" href="sklep.html?grupa=carbomat-humic">2 l</a></dd></div>
+              <div class="cw2-spec__row"><dt>Cena</dt><dd class="wf-w-semibold">od 26 zł</dd></div>
+            </dl>
+            <div class="wf-mt-auto"><a class="wf-btn wf-btn--primary wf-btn--sm wf-inline" href="sklep.html?grupa=carbomat-humic">Kup CARBOMAT HUMIC ROiZ <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="wf-alert" role="status">
+        <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
+        <div><span class="wf-alert__title">Podnosi pH – nie pod kwasolubne.</span> <span class="wf-small wf-t-secondary">Nie stosuj pod borówkę, różaneczniki, hortensje i inne rośliny kwasolubne. Dla nich mamy <a class="wf-link" href="carbomat.html">CARBOMAT ECO</a> w odmianie o niższym pH.</span></div>
+      </div>
     </div>
   </section>
 
-  <!-- ===== 1. CZYM JEST ===== -->
+  <!-- ===== 3. CZYM JEST – scrollytelling ===== -->
   <section class="wf-section wf-section--subtle" id="czym-jest">
-    <div class="wf-container wf-stack wf-stack--8">
+    <div class="wf-container wf-stack wf-stack--10">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
         <span class="wf-overline">Czym jest</span>
-        <h2 class="wf-h2">Aktywowany węgiel brunatny — nie nawóz, lecz wielofunkcyjny kondycjoner z potasem</h2>
-        <p class="wf-lead wf-t-secondary">CARBOMAT HUMIC to <strong>aktywowany węgiel brunatny</strong> w wygodnej, granulowanej formie. Powstaje z tego samego polskiego lignitu co reszta gamy, ale przez aktywację zyskuje porowatą macierz i odczyn zasadowy — dlatego nie zakwasza, tylko <strong>podnosi pH</strong>.</p>
+        <h2 class="wf-h2">Aktywowany węgiel brunatny – kondycjoner z potasem, który podnosi pH.</h2>
+        <p class="wf-lead wf-t-secondary">Przewiń – cztery rzeczy, które trzeba wiedzieć o tym granulacie. Wszystkie liczby z karty produktu i decyzji MRiRW.</p>
       </div>
 
-      <div class="wf-card wf-card--flush">
-        <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">MAKRO — granulat aktywowanego węgla brunatnego 15–20× · porowata macierz, skala mm</span></div>
-        <div class="wf-card__body"><p class="wf-caption wf-t-secondary">Realny surowiec z bliska — porowata macierz węglowa, która magazynuje wodę i tworzy siedlisko dla mikrobów. Obraz dowodzi, że to fizyczna struktura, nie „proszek z worka".</p></div>
-      </div>
-
-      <div class="wf-grid wf-grid--2 wf-items-start" style="--wf-grid-min: 20rem;">
-        <div class="wf-stack wf-stack--4 wf-prose">
-          <p class="wf-body">To nie jest „kolejny worek NPK". Pełnego nawożenia potasem nie zastąpi — ale dostarcza potas w dawce, która potrafi <strong>zastąpić nawóz startowy</strong>, a przy okazji odbudowuje to, czego sam nawóz nie nadrobi: strukturę, życie biologiczne i odporność gleby na suszę.</p>
-          <p class="wf-body">Sednem jest <strong>kompozyt węglowy</strong>: porowata macierz (jak biowęgiel) połączona z kwasami humusowymi (~30%, jak próchnica). Jedno daje magazyn wody i siedlisko dla mikrobów, drugie — biostymulację i ochronę. Dlatego mówimy o działaniu „3 w 1", a nie o jednym efekcie.</p>
-          <div class="wf-alert" role="status">
-            <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
-            <div><p class="wf-alert__title">To nie nawóz — to kondycjoner z funkcją odżywczą.</p><p class="wf-small wf-t-secondary">Pełną naukę o tym, czym jest lignit i dlaczego młody węgiel brunatny zachowuje kwasy humusowe (a biowęgiel i węgiel aktywny już nie), znajdziesz na stronie filaru. <a class="wf-link" href="produkty.html#jak-dzialaja">Pełna nauka o lignicie</a>.</p></div>
+      <div class="cw2-story" data-story>
+        <div class="cw2-story__visual">
+          <div class="wf-card wf-card--flush cw2-story__frame" data-stage="1">
+            <div class="wf-ph" aria-hidden="true">
+              <span class="wf-ph__label" data-for="1">MAKRO: czarny, porowaty granulat CARBOMAT HUMIC na dłoni</span>
+              <span class="wf-ph__label" data-for="2">SCHEMAT: aktywacja alkaliczna KOH uwalnia kwasy humusowe z lignitu (bez spalania jak piroliza >300°C)</span>
+              <span class="wf-ph__label" data-for="3">ILUSTRACJA: trzy działania granulatu – kondycjoner + potas + biostymulator</span>
+              <span class="wf-ph__label" data-for="4">FOTO: próbka granulatu w laboratorium, arkusz parametrów z karty</span>
+            </div>
+          </div>
+          <div class="cw2-story__meta">
+            <span class="wf-small wf-t-tertiary cw2-story__count"><span data-story-num>01</span> / 04</span>
+            <div class="cw2-story__track" aria-hidden="true"><div class="cw2-story__bar" data-story-bar></div></div>
+            <span class="wf-small wf-t-secondary" data-story-title>Co to jest</span>
           </div>
         </div>
-        <div class="wf-stack wf-stack--3">
-          <div class="wf-card wf-card--flush">
-            <div class="wf-card__body"><h3 class="wf-h5">Parametry z karty produktu</h3></div>
-            <table class="wf-table">
-              <thead><tr><th scope="col">Parametr</th><th scope="col">Wartość</th><th scope="col">Uwaga</th></tr></thead>
-              <tbody>
-                <tr><td>Forma</td><td>granulat (aktywowany węgiel brunatny)</td><td>łatwa aplikacja</td></tr>
-                <tr><td>pH</td><td>7–10</td><td>podnosi odczyn gleby</td></tr>
-                <tr><td>Potas (K₂O)</td><td>~6% / ~60 kg na tonę produktu</td><td>wg karty</td></tr>
-                <tr><td>Kwasy humusowe</td><td>~30%</td><td>biostymulacja + ochrona</td></tr>
-                <tr><td>Certyfikat eko</td><td>—</td><td>produkt mineralny, bez „eko"</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="wf-caption wf-t-secondary">Wartości wg karty produktu CARBOMAT HUMIC. Potas podajemy w przeliczeniu na tonę produktu, nie na hektar.</p>
+
+        <div class="wf-stack wf-stack--10">
+          <article class="cw2-step cw2-step--active" data-step="1" data-title="Co to jest">
+            <span class="cw2-step__no" aria-hidden="true">01</span>
+            <div class="cw2-step__body">
+              <h3 class="wf-h4">Sypki, aktywowany węgiel brunatny.</h3>
+              <p class="wf-body wf-t-secondary wf-prose">CARBOMAT HUMIC to sypki, aktywowany węgiel brunatny. Łączy porowatą, węglową strukturę z kwasami humusowymi i potasem – stąd „3 w 1".</p>
+            </div>
+          </article>
+
+          <article class="cw2-step" data-step="2" data-title="Aktywacja KOH">
+            <span class="cw2-step__no" aria-hidden="true">02</span>
+            <div class="cw2-step__body">
+              <h3 class="wf-h4">Aktywacja alkaliczna, nie wypalanie.</h3>
+              <p class="wf-body wf-t-secondary wf-prose">Aktywacja alkaliczna wodorotlenkiem potasu (KOH) nie spala kwasów humusowych, jak robi to piroliza powyżej ~300°C, lecz uwalnia je z lignitu i nadaje granulatowi porowatą, zasadową strukturę – dlatego CARBOMAT HUMIC zawiera około 30% kwasów humusowych i ma pH 7–10 (wg karty), czyli nie zakwasza, tylko podnosi odczyn.</p>
+              <div class="wf-grid wf-grid--2" style="--wf-grid-min: 12rem;">
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-magnet"></use></svg></span>
+                  <p class="wf-small"><span class="wf-w-semibold">KOH</span> <span class="wf-t-secondary">uwalnia kwasy humusowe z lignitu</span></p>
+                </div>
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-flask"></use></svg></span>
+                  <p class="wf-small"><span class="wf-w-semibold">Piroliza &gt;300°C</span> <span class="wf-t-secondary">niszczy je – biowęgiel ich nie ma</span></p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="cw2-step" data-step="3" data-title="Trzy działania">
+            <span class="cw2-step__no" aria-hidden="true">03</span>
+            <div class="cw2-step__body">
+              <h3 class="wf-h4">Trzy działania w jednym granulacie.</h3>
+              <div class="wf-stack wf-stack--3">
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-stack-2"></use></svg></span>
+                  <p class="wf-body"><span class="wf-w-semibold">Kondycjoner</span> <span class="wf-t-secondary">– porowata struktura węglowa poprawia glebę.</span></p>
+                </div>
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-droplet"></use></svg></span>
+                  <p class="wf-body"><span class="wf-w-semibold">Potas</span> <span class="wf-t-secondary">– dostarcza K₂O na poziomie około 6% (wg decyzji).</span></p>
+                </div>
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-leaf"></use></svg></span>
+                  <p class="wf-body"><span class="wf-w-semibold">Biostymulator</span> <span class="wf-t-secondary">– około 30% kwasów humusowych wspiera rośliny.</span></p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="cw2-step" data-step="4" data-title="Parametry">
+            <span class="cw2-step__no" aria-hidden="true">04</span>
+            <div class="cw2-step__body">
+              <h3 class="wf-h4">Parametry z karty i decyzji.</h3>
+              <div class="wf-grid wf-grid--2" style="--wf-grid-min: 11rem;">
+                <div class="cw2-stat">
+                  <span class="cw2-stat__num">7–10</span>
+                  <span class="wf-small wf-t-secondary">pH – podnosi odczyn gleb zakwaszonych</span>
+                </div>
+                <div class="cw2-stat">
+                  <span class="cw2-stat__num">~6%</span>
+                  <span class="wf-small wf-t-secondary">K₂O – potas (wg decyzji)</span>
+                </div>
+                <div class="cw2-stat">
+                  <span class="cw2-stat__num">~30%</span>
+                  <span class="wf-small wf-t-secondary">kwasy humusowe (wg karty)</span>
+                </div>
+                <div class="cw2-stat">
+                  <span class="cw2-stat__num">granulat</span>
+                  <span class="wf-small wf-t-secondary">sypki, organiczno-mineralny – bez certyfikatu ekologicznego</span>
+                </div>
+              </div>
+              <p class="wf-small"><a class="wf-link" href="produkty.html#jak-dzialaja">Pełny mechanizm – jak działają nasze produkty</a></p>
+            </div>
+          </article>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 2. JAK DZIAŁA ===== -->
-  <section class="wf-section" id="jak-dziala">
+  <!-- ===== 4. JAK STOSOWAĆ – dawki jak przepis ===== -->
+  <section class="wf-section" id="jak-stosowac">
     <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Jak działa</span>
-        <h2 class="wf-h2">Trzy mechanizmy w jednym granulacie — plus korekta pH w górę</h2>
-        <p class="wf-lead wf-t-secondary">Większość pól zmaga się jednocześnie z trzema problemami: zakwaszeniem, niedoborem potasu i suszą. CARBOMAT HUMIC adresuje je naraz — bez trzech osobnych przejazdów.</p>
+        <span class="wf-overline">Jak stosować</span>
+        <h2 class="wf-h2">Dawki proste jak przepis – w gramach, nie w workach.</h2>
+        <p class="wf-lead wf-t-secondary">Trzy kroki i tabela dawek wg decyzji MRiRW. Pełne zalecenia znajdziesz w jednym miejscu.</p>
       </div>
 
-      <div class="wf-grid wf-grid--2" style="--wf-grid-min: 20rem;">
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <div class="wf-ph wf-ph--icon" aria-hidden="true"><span class="wf-ph__label">◻</span></div>
-          <h3 class="wf-h5">Kondycjoner + korekta pH</h3>
-          <p class="wf-small wf-t-secondary">Aktywowany węgiel brunatny ma odczyn zasadowy (pH 7–10), więc na glebach zakwaszonych <strong>podnosi pH</strong> i poprawia strukturę. Można go łączyć z wapnowaniem.</p>
-          <p class="wf-small wf-t-secondary"><strong>Uwaga:</strong> skoro podnosi pH, <strong>nie nadaje się pod rośliny kwasolubne</strong> (borówka, różaneczniki). Dla nich mamy produkty o niskim pH w gamie CARBOMAT i CARBOHUMIC.</p>
+      <div class="wf-grid wf-grid--3" style="--wf-grid-min: 13rem;">
+        <article class="wf-card cw2-reveal"><div class="wf-card__body wf-stack wf-stack--2">
+          <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-dots"></use></svg></span>
+          <span class="wf-overline wf-t-tertiary">Krok 1</span>
+          <h3 class="wf-h5">Rozsyp</h3>
+          <p class="wf-small wf-t-secondary">W gramach, wg tabeli.</p>
         </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <div class="wf-ph wf-ph--icon" aria-hidden="true"><span class="wf-ph__label">◻</span></div>
-          <h3 class="wf-h5">Nawóz potasowy (K₂O)</h3>
-          <p class="wf-small wf-t-secondary">Dostarcza potas — kluczowy dla gospodarki wodnej rośliny i odporności na suszę. Zawartość ~6% K₂O, czyli ~60 kg K₂O <strong>na tonę produktu</strong>.</p>
-          <p class="wf-small wf-t-secondary">Może <strong>zastąpić nawóz startowy</strong> potasem — ale <strong>nie zastępuje pełnego nawożenia K</strong> w sezonie. To wsparcie, nie cały plan nawozowy.</p>
+        <article class="wf-card cw2-reveal"><div class="wf-card__body wf-stack wf-stack--2">
+          <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-arrows-sort"></use></svg></span>
+          <span class="wf-overline wf-t-tertiary">Krok 2</span>
+          <h3 class="wf-h5">Wymieszaj lub podlej</h3>
+          <p class="wf-small wf-t-secondary">Wiosną wmieszaj, w sezonie posyp i podlej.</p>
         </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <div class="wf-ph wf-ph--icon" aria-hidden="true"><span class="wf-ph__label">◻</span></div>
-          <h3 class="wf-h5">Biostymulator (kwasy humusowe ~30%)</h3>
-          <p class="wf-small wf-t-secondary">Kwasy humusowe wspierają mikrobiom i pobieranie składników, działają jak biostymulator w fazach rozwoju. To ta sama chemia, co w glebowej próchnicy.</p>
-          <p class="wf-small wf-t-secondary">Efekt biostymulacyjny widać już w pierwszym sezonie — obok efektu potasowego i korekty pH.</p>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <div class="wf-ph wf-ph--icon" aria-hidden="true"><span class="wf-ph__label">◻</span></div>
-          <h3 class="wf-h5">Kompozyt węglowy — odporność na suszę i patogeny</h3>
-          <p class="wf-small wf-t-secondary">Porowata macierz (jak biowęgiel) magazynuje wodę i tworzy siedlisko dla pożytecznych mikroorganizmów; kwasy humusowe wzmacniają odporność na patogeny.</p>
-          <p class="wf-small wf-t-secondary"><strong>Retencja „to zależy":</strong> ile wody realnie trafi do rośliny, zależy od gleby i dawki — nie liczymy litrów na kalkulatorze.</p>
+        <article class="wf-card cw2-reveal"><div class="wf-card__body wf-stack wf-stack--2">
+          <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-check"></use></svg></span>
+          <span class="wf-overline wf-t-tertiary">Krok 3</span>
+          <h3 class="wf-h5">Gotowe</h3>
+          <p class="wf-small wf-t-secondary">Raz w sezonie.</p>
         </div></article>
       </div>
 
       <div class="wf-card wf-card--flush">
-        <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">ILUSTRACJA — diagram „3 w 1 + pH": granulat w glebie → pH (7–10), K₂O (~60 kg/tonę), kwasy humusowe ~30%</span></div>
-        <div class="wf-card__body"><p class="wf-caption wf-t-secondary">Jeden granulat, trzy mechanizmy działające naraz plus korekta pH w górę — ilustracja przekłada „3 w 1" na widoczny łańcuch (potas, biostymulacja, retencja) z etykietami liczbowymi z karty.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 3. WARIANTY ===== -->
-  <section class="wf-section wf-section--subtle" id="warianty">
-    <div class="wf-container wf-stack wf-stack--8">
-      <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Warianty</span>
-        <h2 class="wf-h2">Jeden produkt, trzy opakowania: pole, ogród warzywno-owocowy, rośliny ozdobne</h2>
-        <p class="wf-lead wf-t-secondary">Wariant rolniczy dla upraw polowych (aplikacja maszynowa) oraz dwie wygodne linie konsumenckie w butelkach 1/2 L. Ta sama logika „3 w 1", inna skala i sposób użycia.</p>
-      </div>
-
-      <div class="wf-card wf-card--flush">
-        <table class="wf-table">
-          <thead><tr><th scope="col">Wariant</th><th scope="col">Dla kogo</th><th scope="col">Aplikacja (z karty)</th><th scope="col">pH</th><th scope="col">Rola</th></tr></thead>
-          <tbody>
-            <tr><td>Wariant rolniczy</td><td>uprawy polowe (PRO)</td><td>strip-till / pasowo / pogłównie · ~100–250 kg/ha</td><td>7–10</td><td>kondycjoner + K + biostymulacja na hektar</td></tr>
-            <tr><td>WiO</td><td>do warzyw i owoców (ogród, działka)</td><td>butelka 1/2 L · wg etykiety</td><td>7–10</td><td>linia konsumencka „3 w 1"</td></tr>
-            <tr><td>ROiZ</td><td>do roślin ozdobnych i ziół</td><td>butelka 1/2 L · wg etykiety</td><td>7–10</td><td>linia konsumencka „3 w 1"</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="wf-grid wf-grid--2" style="--wf-grid-min: 20rem;">
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <h3 class="wf-h5">Wariant rolniczy — dla pola</h3>
-          <p class="wf-small wf-t-secondary">Aplikacja pasowa (strip-till), pogłówna lub pasowa, ~100–250 kg/ha zależnie od stanu gleby i celu. Tam, gdzie liczy się przejazd, budżet na hektar i efekt już w pierwszym roku (potas + korekta pH). Dawki i wolumeny ustalamy indywidualnie — <a class="wf-link" href="kontakt.html">zapytaj o ofertę</a>.</p>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <h3 class="wf-h5">WiO i ROiZ — do ogrodu i domu</h3>
-          <p class="wf-small wf-t-secondary">Wygodne butelki 1/2 L: <strong>WiO</strong> do warzyw i owoców, <strong>ROiZ</strong> do roślin ozdobnych i ziół. Dla działkowiczów i miłośników roślin — z tą samą zasadą bezpieczeństwa, co reszta gamy. Pamiętaj: podnosi pH, więc <strong>nie pod rośliny kwasolubne</strong>.</p>
-        </div></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 3b. PRODUKTY W TEJ RODZINIE ===== -->
-  <section class="wf-section" id="produkty-rodzina">
-    <div class="wf-container wf-stack wf-stack--8">
-      <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Produkty w tej rodzinie</span>
-        <h2 class="wf-h2">Konkretne produkty CARBOMAT HUMIC — i wprost do sklepu</h2>
-        <p class="wf-lead wf-t-secondary">Trzy realne pozycje rodziny „3 w 1": dwie wygodne linie konsumenckie w butelkach 1/2 L oraz wariant rolniczy dla upraw polowych. Zobacz, wybierz opakowanie i kup w sklepie.</p>
-      </div>
-
-      <div class="wf-grid wf-grid--3" style="--wf-grid-min: 17rem;">
-        <article class="wf-card wf-card--flush">
-          <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Butelka 1 L — CARBOMAT HUMIC WiO (warzywa i owoce)</span></div>
-          <div class="wf-card__body wf-stack wf-stack--3">
-            <h3 class="wf-h5">CARBOMAT HUMIC do warzyw i owoców (WiO)</h3>
-            <p class="wf-small wf-t-secondary">Linia konsumencka „3 w 1" do grządek i krzewów owocowych — kondycjonuje, dostarcza potas i biostymuluje.</p>
-            <p class="wf-small wf-t-tertiary">Opakowania: 1 L · 2 L</p>
-            <p class="wf-h5">od 26 zł</p>
-            <a class="wf-link--quiet wf-inline wf-small" href="sklep.html?grupa=carbomat-humic">Zobacz w sklepie <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a>
-          </div>
-        </article>
-        <article class="wf-card wf-card--flush">
-          <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Butelka 1 L — CARBOMAT HUMIC ROiZ (rośliny ozdobne i zioła)</span></div>
-          <div class="wf-card__body wf-stack wf-stack--3">
-            <h3 class="wf-h5">CARBOMAT HUMIC do ozdobnych i ziół (ROiZ)</h3>
-            <p class="wf-small wf-t-secondary">Linia konsumencka „3 w 1" do rabat, bylin, ziół i nasadzeń ozdobnych znoszących odczyn obojętny do lekko zasadowego.</p>
-            <p class="wf-small wf-t-tertiary">Opakowania: 1 L · 2 L</p>
-            <p class="wf-h5">od 26 zł</p>
-            <a class="wf-link--quiet wf-inline wf-small" href="sklep.html?grupa=carbomat-humic">Zobacz w sklepie <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a>
-          </div>
-        </article>
-        <article class="wf-card wf-card--flush">
-          <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Paleta / big-bag — wariant rolniczy na tle pola strip-till</span></div>
-          <div class="wf-card__body wf-stack wf-stack--3">
-            <h3 class="wf-h5">CARBOMAT HUMIC — wariant rolniczy</h3>
-            <p class="wf-small wf-t-secondary">Granulat do upraw polowych (strip-till / pasowo / pogłównie), ~100–250 kg/ha. Palety i duże opakowania.</p>
-            <p class="wf-small wf-t-tertiary">Opakowania: palety / duże opakowania</p>
-            <p class="wf-h5">cena w zapytaniu</p>
-            <a class="wf-link--quiet wf-inline wf-small" href="sklep.html?grupa=carbomat-humic">Zobacz w sklepie <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a>
-          </div>
-        </article>
+        <div class="wf-card__body"><h3 class="wf-h5">Dawki wg decyzji MRiRW G-1528/24</h3></div>
+        <div class="cw-scrollx" tabindex="0">
+          <table class="wf-table">
+            <thead>
+              <tr><th scope="col">Zastosowanie</th><th scope="col" style="text-align:right;">Dawka</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Wiosną, z wymieszaniem 15–20 cm</td><td style="text-align:right;">do 500 g/10 m²</td></tr>
+              <tr><td>Posypowo w sezonie</td><td style="text-align:right;">do 500 g/10 m² <span class="wf-t-tertiary">(lub 300 g/10 m² wzdłuż rzędów, raz w roku – po aplikacji podlać)</span></td></tr>
+              <tr><td>Drzewa i krzewy ozdobne</td><td style="text-align:right;">do 50 g/m²</td></tr>
+              <tr><td>Komponent podłoża</td><td style="text-align:right;">20–30 g/10 l</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <div class="wf-alert" role="status">
         <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
-        <div><p class="wf-alert__title">Ceny orientacyjne — do potwierdzenia.</p><p class="wf-small wf-t-secondary">Nie wiesz, które opakowanie ani ile potrzebujesz? <a class="wf-link" href="konfigurator.html">Dobierz w Konfiguratorze</a>.</p></div>
+        <div><span class="wf-alert__title">pH 7–10 – nie pod kwasolubne.</span> <span class="wf-small wf-t-secondary">Nie stosuj pod borówki, różaneczniki i inne rośliny kwasolubne. Do zakwaszania służy CARBOMAT ECO.</span></div>
       </div>
+
+      <p class="wf-small"><a class="wf-link" href="zalecenia.html#dawki">Pełne zalecenia i instrukcje</a></p>
     </div>
   </section>
 
-  <!-- ===== 4. CO DAJE ===== -->
-  <section class="wf-section wf-section--subtle" id="co-daje">
+  <!-- ===== 5. GAMA PRODUKTÓW CARBOMAT HUMIC (taby) ===== -->
+  <section class="wf-section wf-section--subtle" id="gama">
     <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Co daje</span>
-        <h2 class="wf-h2">Efekt już w pierwszym roku — i wkład, który zostaje w glebie</h2>
-        <p class="wf-lead wf-t-secondary">Część korzyści (potas, pH, biostymulacja) widać w pierwszym sezonie. Część (struktura, mikrobiom, próchnica) buduje się dłużej. Mówimy to wprost, żeby decyzja była świadoma.</p>
+        <span class="wf-overline">Gama</span>
+        <h2 class="wf-h2">Gama produktów CARBOMAT HUMIC.</h2>
+        <p class="wf-lead wf-t-secondary">Dwie linie, opakowania 1 l i 2 l – tak, jak zobaczysz je w sklepie.</p>
       </div>
 
-      <div class="wf-grid wf-grid--3" style="--wf-grid-min: 16rem;">
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <h3 class="wf-h5">Glebie</h3>
-          <ul class="wf-list">
-            <li>Podniesienie pH gleb zakwaszonych</li>
-            <li>Lepsza struktura i porowatość</li>
-            <li>Wyższa pojemność wodna (retencja — „to zależy")</li>
-            <li>Odbudowa życia mikrobiologicznego</li>
-            <li>Zasilenie potasem (K₂O)</li>
-          </ul>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <h3 class="wf-h5">Roślinie</h3>
-          <ul class="wf-list">
-            <li>Lepszy start dzięki potasowi i biostymulacji</li>
-            <li>Większa odporność na suszę (gospodarka wodna)</li>
-            <li>Wsparcie pobierania składników</li>
-            <li>Mniejsza presja patogenów</li>
-            <li>Stabilniejsze warunki w strefie korzeni</li>
-          </ul>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <h3 class="wf-h5">Tobie i polu</h3>
-          <ul class="wf-list">
-            <li>Trzy działania w jednym przejeździe</li>
-            <li>Efekt odczuwalny w 1. roku (K + pH)</li>
-            <li>Polski granulat, łatwa aplikacja maszynowa</li>
-            <li>Czysty, bezpieczny surowiec</li>
-            <li>Wkład poprawiający glebę na dłużej</li>
-          </ul>
-        </div></article>
-      </div>
+      <div class="wf-stack wf-stack--5" data-tabs="wio">
+        <div class="wf-tabs" role="tablist" aria-label="Gama produktów CARBOMAT HUMIC">
+          <button class="wf-tab" role="tab" id="tab-wio" data-tab="wio" aria-selected="true" aria-controls="panel-wio">WiO – warzywa i owoce</button>
+          <button class="wf-tab" role="tab" id="tab-roiz" data-tab="roiz" aria-selected="false" aria-controls="panel-roiz">ROiZ – rośliny ozdobne i zioła</button>
+        </div>
 
-      <div class="wf-stack wf-stack--4">
-        <h3 class="wf-h4">Kiedy zobaczysz efekt</h3>
-        <div class="wf-grid wf-grid--4" style="--wf-grid-min: 13rem;">
-          <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2"><span class="wf-overline wf-t-tertiary">1. sezon</span><h4 class="wf-h5">Potas i pH</h4><p class="wf-small wf-t-secondary">Korekta odczynu w górę i zasilenie potasem — efekt odczuwalny już w pierwszym roku.</p></div></article>
-          <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2"><span class="wf-overline wf-t-tertiary">1. sezon</span><h4 class="wf-h5">Biostymulacja</h4><p class="wf-small wf-t-secondary">Kwasy humusowe (~30%) wspierają mikrobiom i pobieranie składników w fazach rozwoju.</p></div></article>
-          <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2"><span class="wf-overline wf-t-tertiary">2–5 lat</span><h4 class="wf-h5">Struktura i życie</h4><p class="wf-small wf-t-secondary">Stopniowa odbudowa struktury, porowatości i mikrobiologii gleby.</p></div></article>
-          <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2"><span class="wf-overline wf-t-tertiary">Dłużej</span><h4 class="wf-h5">Wkład zostaje</h4><p class="wf-small wf-t-secondary">Macierz węglowa pozostaje w glebie jako trwały element poprawiający jej kondycję.</p></div></article>
+        <div id="panel-wio" role="tabpanel" data-panel="wio" aria-labelledby="tab-wio">
+          <div class="wf-grid wf-grid--2" style="--wf-grid-min: 18rem;">
+            <article class="wf-card wf-card--flush">
+              <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Opakowanie 1 l CARBOMAT HUMIC WiO</span></div>
+              <div class="wf-card__body wf-stack wf-stack--3">
+                <div class="wf-cluster wf-cluster--between"><h3 class="wf-h5">WiO – 1 l</h3><span class="wf-badge wf-badge--outline">warzywnik</span></div>
+                <p class="wf-small wf-t-secondary">Do warzyw i roślin ozdobnych w ogrodzie i domu. Poprawia glebę, dostarcza potas i podnosi pH.</p>
+                <p class="wf-body"><span class="wf-h5 wf-w-bold">od 26 zł</span> <span class="wf-small wf-t-tertiary">· opakowanie 1 l</span></p>
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <a class="wf-btn wf-btn--primary wf-btn--sm" href="sklep.html?grupa=carbomat-humic">Kup w sklepie</a>
+                  <a class="wf-link--quiet wf-small" href="centrum-wiedzy.html#magazyn">Karta i instrukcja (PDF)</a>
+                </div>
+              </div>
+            </article>
+            <article class="wf-card wf-card--flush">
+              <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Opakowanie 2 l CARBOMAT HUMIC WiO</span></div>
+              <div class="wf-card__body wf-stack wf-stack--3">
+                <div class="wf-cluster wf-cluster--between"><h3 class="wf-h5">WiO – 2 l</h3><span class="wf-badge wf-badge--outline">większa działka</span></div>
+                <p class="wf-small wf-t-secondary">Większe opakowanie na większy warzywnik – to samo działanie 3 w 1.</p>
+                <p class="wf-body"><span class="wf-w-semibold">cena w sklepie</span> <span class="wf-small wf-t-tertiary">· opakowanie 2 l</span></p>
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <a class="wf-btn wf-btn--primary wf-btn--sm" href="sklep.html?grupa=carbomat-humic">Kup w sklepie</a>
+                  <a class="wf-link--quiet wf-small" href="centrum-wiedzy.html#magazyn">Karta i instrukcja (PDF)</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div id="panel-roiz" role="tabpanel" data-panel="roiz" aria-labelledby="tab-roiz" hidden>
+          <div class="wf-grid wf-grid--2" style="--wf-grid-min: 18rem;">
+            <article class="wf-card wf-card--flush">
+              <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Opakowanie 1 l CARBOMAT HUMIC ROiZ</span></div>
+              <div class="wf-card__body wf-stack wf-stack--3">
+                <div class="wf-cluster wf-cluster--between"><h3 class="wf-h5">ROiZ – 1 l</h3><span class="wf-badge wf-badge--outline">rabaty i dom</span></div>
+                <p class="wf-small wf-t-secondary">Do rabat ozdobnych, ziół i roślin w domu. To samo działanie 3 w 1, dawkowanie pod rośliny ozdobne.</p>
+                <p class="wf-body"><span class="wf-h5 wf-w-bold">od 26 zł</span> <span class="wf-small wf-t-tertiary">· opakowanie 1 l</span></p>
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <a class="wf-btn wf-btn--primary wf-btn--sm" href="sklep.html?grupa=carbomat-humic">Kup w sklepie</a>
+                  <a class="wf-link--quiet wf-small" href="centrum-wiedzy.html#magazyn">Karta i instrukcja (PDF)</a>
+                </div>
+              </div>
+            </article>
+            <article class="wf-card wf-card--flush">
+              <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Opakowanie 2 l CARBOMAT HUMIC ROiZ</span></div>
+              <div class="wf-card__body wf-stack wf-stack--3">
+                <div class="wf-cluster wf-cluster--between"><h3 class="wf-h5">ROiZ – 2 l</h3><span class="wf-badge wf-badge--outline">więcej rabat</span></div>
+                <p class="wf-small wf-t-secondary">Większe opakowanie na rabaty i liczne nasadzenia ozdobne.</p>
+                <p class="wf-body"><span class="wf-w-semibold">cena w sklepie</span> <span class="wf-small wf-t-tertiary">· opakowanie 2 l</span></p>
+                <div class="wf-cluster wf-gap-3 wf-items-center">
+                  <a class="wf-btn wf-btn--primary wf-btn--sm" href="sklep.html?grupa=carbomat-humic">Kup w sklepie</a>
+                  <a class="wf-link--quiet wf-small" href="centrum-wiedzy.html#magazyn">Karta i instrukcja (PDF)</a>
+                </div>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
 
-      <div class="wf-card wf-card--flush">
-        <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">WYKRES — horyzont efektu: oś czasu 1. sezon → 5+ lat; krzywa „szybka" (K + pH + biostymulacja) i krzywa „wolna" (struktura + mikrobiom + próchnica)</span></div>
-        <div class="wf-card__body"><p class="wf-caption wf-t-secondary">Rozdzielamy horyzont korzyści na obrazie: co działa już w pierwszym roku (potas, pH), a co buduje się latami (struktura, życie gleby). Wykres mówi to wprost, bez obietnic „+% plonu".</p></div>
-      </div>
+      <p><a class="wf-btn wf-btn--link" href="konfigurator.html?crop=ogrod">Nie wiesz, ile pod swoje rośliny? Dobierz właściwy produkt</a></p>
     </div>
   </section>
 
-  <!-- ===== 5. GDZIE PRACUJE (taby) ===== -->
-  <section class="wf-section" id="gdzie-pracuje">
+  <!-- ===== 6. GDZIE NAJLEPIEJ STOSOWAĆ – fiszki z przyciskami ===== -->
+  <section class="wf-section" id="gdzie-stosowac">
     <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Gdzie pracuje</span>
-        <h2 class="wf-h2">Najlepiej tam, gdzie pole jest kwaśne, ubogie w potas i narażone na suszę</h2>
-        <p class="wf-lead wf-t-secondary">Kilka typowych sytuacji, w których CARBOMAT HUMIC robi najwięcej. Wybierz kontekst najbliższy Twojemu.</p>
+        <span class="wf-overline">Zastosowania</span>
+        <h2 class="wf-h2">Gdzie najlepiej stosować CARBOMAT HUMIC.</h2>
+        <p class="wf-lead wf-t-secondary">Cztery miejsca w ogrodzie i w domu – i jak granulat tam pracuje. Po kliknięciu przejdziesz do strony uprawy.</p>
       </div>
 
-      <div class="wf-stack wf-stack--4">
-        <div class="wf-tabs" role="tablist" aria-label="Konteksty zastosowania" data-tabs="polowe">
-          <button class="wf-tab wf-w-semibold" role="tab" data-tab="polowe" aria-selected="true" aria-controls="panel-polowe" id="tab-polowe">Uprawy polowe</button>
-          <button class="wf-tab" role="tab" data-tab="sady" aria-selected="false" aria-controls="panel-sady" id="tab-sady">Sady na glebach kwaśnych</button>
-          <button class="wf-tab" role="tab" data-tab="warzywa" aria-selected="false" aria-controls="panel-warzywa" id="tab-warzywa">Warzywa i owoce (ogród)</button>
-          <button class="wf-tab" role="tab" data-tab="ozdobne" aria-selected="false" aria-controls="panel-ozdobne" id="tab-ozdobne">Rośliny ozdobne i zioła</button>
-        </div>
-        <div role="tabpanel" data-panel="polowe" id="panel-polowe" aria-labelledby="tab-polowe">
-          <p class="wf-body wf-prose"><strong>Wariant rolniczy, strip-till / pasowo / pogłównie (~100–250 kg/ha).</strong> Na zakwaszonych polach z niedoborem potasu jeden przejazd daje trzy efekty: podniesienie pH, zasilenie potasem i biostymulację. Susza jako ryzyko #1 — kompozyt węglowy poprawia gospodarkę wodną gleby (z ramą „to zależy"). Mieści się w budżecie rzędu 200–300 zł/ha. Dawki i wolumeny ustalamy indywidualnie — <a class="wf-link" href="kontakt.html">zapytaj o ofertę</a>.</p>
-        </div>
-        <div role="tabpanel" data-panel="sady" id="panel-sady" aria-labelledby="tab-sady" hidden>
-          <p class="wf-body wf-prose"><strong>Sady i plantacje na glebach kwaśnych (bez upraw kwasolubnych).</strong> Tam, gdzie odczyn spadł, a roślina potrzebuje potasu i wsparcia w suszy — korekta pH w górę + K + biostymulacja. <strong>Wyłączenie:</strong> nie stosować pod borówkę i inne rośliny kwasolubne (te wymagają niskiego pH — patrz gama CARBOMAT / CARBOHUMIC).</p>
-        </div>
-        <div role="tabpanel" data-panel="warzywa" id="panel-warzywa" aria-labelledby="tab-warzywa" hidden>
-          <p class="wf-body wf-prose"><strong>Linia WiO (butelka 1/2 L) — warzywa i owoce w ogrodzie i na działce.</strong> Wygodne dawkowanie „3 w 1" dla grządek i krzewów owocowych na glebach o niskim pH. Stosuj wg etykiety. Pamiętaj: podnosi pH, więc nie pod rośliny kwasolubne.</p>
-        </div>
-        <div role="tabpanel" data-panel="ozdobne" id="panel-ozdobne" aria-labelledby="tab-ozdobne" hidden>
-          <p class="wf-body wf-prose"><strong>Linia ROiZ (butelka 1/2 L) — rośliny ozdobne i zioła.</strong> Dla rabat, bylin, ziół i nasadzeń ozdobnych, które dobrze znoszą odczyn obojętny do lekko zasadowego. Kondycjonuje podłoże, dostarcza potas i biostymuluje. Stosuj wg etykiety.</p>
-        </div>
+      <div class="wf-grid wf-grid--3" style="--wf-grid-min: 15rem;">
+        <article class="wf-card wf-card--flush cw2-reveal">
+          <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">FOTO: grządka warzywna, pomidory i papryka</span></div>
+          <div class="wf-card__body wf-stack wf-stack--3">
+            <h3 class="wf-h5">Warzywnik na działce</h3>
+            <p class="wf-small wf-t-secondary">Zmęczona, zakwaszona grządka? Wmieszaj granulat wiosną – poprawi glebę, doda potas i podniesie pH. Potas wspiera warzywa owocujące, jak pomidor i papryka.</p>
+            <div class="wf-mt-auto"><a class="wf-btn wf-btn--secondary wf-btn--sm wf-inline" href="ogrod.html">Ogród i działka <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
+          </div>
+        </article>
+        <article class="wf-card wf-card--flush cw2-reveal">
+          <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">FOTO: rabata z bylinami i krzewami ozdobnymi</span></div>
+          <div class="wf-card__body wf-stack wf-stack--3">
+            <h3 class="wf-h5">Rabaty i byliny</h3>
+            <p class="wf-small wf-t-secondary">Na rabatach i przy trwałych bylinach oraz krzewach ozdobnych stosuj do 50 g/m². Poprawia glebę i stabilizuje odczyn.</p>
+            <div class="wf-mt-auto"><a class="wf-btn wf-btn--secondary wf-btn--sm wf-inline" href="krzewy.html">Krzewy i tuje <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
+          </div>
+        </article>
+        <article class="wf-card wf-card--flush cw2-reveal">
+          <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">FOTO: rośliny doniczkowe na parapecie</span></div>
+          <div class="wf-card__body wf-stack wf-stack--3">
+            <h3 class="wf-h5">Rośliny w domu</h3>
+            <p class="wf-small wf-t-secondary">Do podłoża roślin doniczkowych dodaj 20–30 g na 10 l. Buforuje wodę i powietrze w podłożu, stabilizuje pH.</p>
+            <div class="wf-mt-auto"><a class="wf-btn wf-btn--secondary wf-btn--sm wf-inline" href="ogrod.html">Ogród i działka <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
+          </div>
+        </article>
+        <article class="wf-card wf-card--flush cw2-reveal">
+          <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">FOTO: sadzenie ozdobnego krzewu, strefa korzeniowa</span></div>
+          <div class="wf-card__body wf-stack wf-stack--3">
+            <h3 class="wf-h5">Drzewka i krzewy ozdobne</h3>
+            <p class="wf-small wf-t-secondary">Pod drzewka i krzewy ozdobne stosuj do 50 g/m², z wymieszaniem w strefie korzeniowej. Nie pod gatunki kwasolubne.</p>
+            <div class="wf-mt-auto"><a class="wf-btn wf-btn--secondary wf-btn--sm wf-inline" href="krzewy.html">Krzewy i tuje <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
+          </div>
+        </article>
       </div>
-    </div>
-  </section>
-
-  <!-- ===== 6. DOWÓD ===== -->
-  <section class="wf-section wf-section--subtle" id="dowod">
-    <div class="wf-container wf-stack wf-stack--8">
-      <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Dowód</span>
-        <h2 class="wf-h2">Sprawdź, nie wierz na słowo</h2>
-        <p class="wf-lead wf-t-secondary">Oddzielamy to, co <strong>wiemy</strong> (skład z karty, mechanizm z literaturą), od tego, co <strong>badamy</strong> u klienta w programie Próchnica+. Bez ściemy.</p>
-      </div>
-
-      <div class="wf-cluster wf-gap-4">
-        <span class="wf-inline"><span class="wf-ph wf-ph--logo" aria-hidden="true"><span class="wf-ph__label">karta</span></span> <span class="wf-small wf-t-secondary">Karta produktu (skład, pH, K₂O)</span></span>
-        <span class="wf-inline"><span class="wf-ph wf-ph--logo" aria-hidden="true"><span class="wf-ph__label">MRiRW</span></span> <span class="wf-small wf-t-secondary">Rejestracja MRiRW</span></span>
-        <span class="wf-inline"><span class="wf-ph wf-ph--logo" aria-hidden="true"><span class="wf-ph__label">PL</span></span> <span class="wf-small wf-t-secondary">Polski producent · polski surowiec</span></span>
-      </div>
-
-      <div class="wf-grid wf-grid--3" style="--wf-grid-min: 16rem;">
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2">
-          <h3 class="wf-h5">Czysty, bezpieczny skład</h3>
-          <p class="wf-small wf-t-secondary">Parametry (pH 7–10, K₂O ~6% / ~60 kg na tonę produktu, kwasy humusowe ~30%) pochodzą z karty produktu. Naturalny surowiec, niskie zawartości metali ciężkich.</p>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2">
-          <h3 class="wf-h5">Mechanizm w literaturze</h3>
-          <p class="wf-small wf-t-secondary">Rola kwasów humusowych (biostymulacja, odporność na suszę i patogeny) oraz koncepcja „kompozytu węglowego" mają oparcie w bazie wiedzy Carbohort — cytujemy z atrybucją.</p>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2">
-          <h3 class="wf-h5">Dowód u Ciebie — Próchnica+</h3>
-          <p class="wf-small wf-t-secondary">Nie prosimy o wiarę. Zakładamy pas kontrolny z produktem obok poletka bez niego i mierzymy efekt (pH, potas, plon). Pełne wyniki polowe — jesień 2026.</p>
-        </div></article>
-      </div>
-
-      <div class="wf-alert" role="status">
-        <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
-        <div><p class="wf-alert__title">Wiarygodność ponad obietnice.</p><p class="wf-small wf-t-secondary">Jesteśmy polskim, rodzinnym producentem z polskim surowcem. Twarde liczby podajemy z karty, mechanizm z literaturą, a efekt u klienta sprawdzamy pasem kontrolnym — nie hasłami z reklamy.</p></div>
-      </div>
-
-      <div class="wf-card wf-card--flush">
-        <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">DRON — pole w programie Próchnica+: pas kontrolny z produktem obok poletka bez niego, widoczna granica zabiegu</span></div>
-        <div class="wf-card__body"><p class="wf-caption wf-t-secondary">Dowód u klienta, nie w reklamie: pas kontrolny z lotu ptaka pokazuje, gdzie kończy się zabieg. Pełne wyniki polowe (pH, potas, plon) — jesień 2026.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 7. UCZCIWOŚĆ ===== -->
-  <section class="wf-section" id="uczciwosc">
-    <div class="wf-container wf-stack wf-stack--8">
-      <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Uczciwość</span>
-        <h2 class="wf-h2">Czego NIE obiecujemy — i dlaczego to nasz atut</h2>
-        <p class="wf-lead wf-t-secondary">W kategorii pełnej przesadzonych claimów uczciwość sprzedaje. Oto granice, których pilnujemy przy tej rodzinie.</p>
-      </div>
-
-      <div class="wf-card"><div class="wf-card__body">
-        <ul class="wf-list wf-stack wf-stack--3">
-          <li><strong>Podnosi pH — nie pod kwasolubne.</strong> CARBOMAT HUMIC podwyższa odczyn (pH 7–10). To atut na glebach zakwaszonych, ale wyklucza stosowanie pod borówkę, różaneczniki i inne rośliny kwasolubne.</li>
-          <li><strong>To nie pełne nawożenie potasem.</strong> Dostarcza potas (~60 kg K₂O na tonę produktu) i może zastąpić nawóz startowy — ale nie zastępuje całego planu nawozowego K w sezonie.</li>
-          <li><strong>Retencja „to zależy".</strong> Ile wody realnie trafi do rośliny, zależy od gleby i dawki — nie liczymy litrów na kalkulatorze i nie obiecujemy „−X% wody".</li>
-          <li><strong>Nie deklarujemy „eko".</strong> To produkt mineralny (aktywowany węgiel brunatny) — nie ma certyfikatu ekologicznego i tak go komunikujemy.</li>
-          <li><strong>Liczba zawsze ze źródłem.</strong> Dawki podajemy z karty (~100–250 kg/ha), potas „na tonę produktu", a czego nie wiemy na pewno — oznaczamy jako „do potwierdzenia".</li>
-        </ul>
-      </div></div>
-
-      <div class="wf-grid wf-grid--2" style="--wf-grid-min: 20rem;">
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <h3 class="wf-inline wf-h5"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-lock"></use></svg> Co wiemy</h3>
-          <ul class="wf-list">
-            <li>pH 7–10, K₂O ~6% (~60 kg na tonę), kwasy humusowe ~30% — z karty</li>
-            <li>Aplikacja z karty: ~100–250 kg/ha (strip-till 100–120)</li>
-            <li>Mechanizm kwasów humusowych i kompozytu węglowego w literaturze</li>
-            <li>Produkt mineralny — bez certyfikatu eko</li>
-          </ul>
-        </div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-          <h3 class="wf-inline wf-h5"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-flag"></use></svg> Co badamy / ujednolicamy</h3>
-          <ul class="wf-list">
-            <li>Własne wyniki polowe (program Próchnica+, jesień 2026)</li>
-            <li>Jednostki potasu: K vs K₂O oraz „na tonę" vs „na ha"</li>
-            <li>Liczba pierwiastków podawana w kartach i materiałach</li>
-            <li>Nazewnictwo (odróżnienie od CARBOHUMIC) i osobne SKU wariantu rolniczego</li>
-          </ul>
-        </div></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 8. CROSS-SELL / PROGRAM ===== -->
-  <section class="wf-section wf-section--subtle" id="program">
-    <div class="wf-container wf-stack wf-stack--8">
-      <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Program · cross-sell</span>
-        <h2 class="wf-h2">Baza w glebie, a CARBOMAT HUMIC robi trzy rzeczy naraz</h2>
-        <p class="wf-lead wf-t-secondary">CARBOMAT HUMIC najlepiej działa jako element całego programu: doglebowo naprawiasz glebę, nalistnie wzmacniasz roślinę. Konfigurator dobierze zestaw pod Twoją uprawę, glebę i sprzęt.</p>
-      </div>
-
-      <div class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
-        <h3 class="wf-h4">Jak to się składa w program</h3>
-        <p class="wf-body wf-prose">Na zakwaszonym, ubogim w potas polu CARBOMAT HUMIC dźwiga pH, potas i biostymulację w jednym przejeździe. Jeśli chcesz dołożyć trwałą próchnicę i strukturę na lata, łączysz go z bazą doglebową: <a class="wf-link" href="carbomat.html">CARBOMAT</a> (surowy lignit, długi horyzont) lub <a class="wf-link" href="carbohumic.html">CARBOHUMIC</a> niefiltrowany (płynna „próchnica w płynie"). Roślinę wzmacniasz nalistnie produktami z rodziny CARBOHUMIC — to wzmocnienie, nie zamiennik bazy glebowej.</p>
-      </div></div>
 
       <div class="wf-cluster wf-gap-3">
-        <a class="wf-btn wf-btn--primary wf-btn--lg" href="konfigurator.html">Złóż program w Konfiguratorze</a>
-        <a class="wf-btn wf-btn--secondary" href="sklep.html?grupa=carbomat-humic">Zobacz w sklepie</a>
-        <a class="wf-btn wf-btn--ghost" href="carbohumic.html">Zobacz CARBOHUMIC</a>
-        <a class="wf-btn wf-btn--ghost" href="carbomat.html">Zobacz CARBOMAT</a>
+        <a class="wf-btn wf-btn--secondary" href="konfigurator.html?crop=ogrod">Nie widzisz swojej uprawy? Dobierz właściwy produkt</a>
+        <a class="wf-btn wf-btn--link" href="uprawy.html">Wszystkie rodzaje upraw</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 7. KIEDY STOSOWAĆ – siatka + oś „z czym łączyć" ===== -->
+  <section class="wf-section wf-section--subtle" id="sezon">
+    <div class="wf-container wf-stack wf-stack--8">
+      <div class="wf-stack wf-stack--3" style="max-width:680px;">
+        <span class="wf-overline">Kiedy stosować</span>
+        <h2 class="wf-h2">Trzy działania w jednym – i kiedy dołożyć bazę.</h2>
+        <p class="wf-lead wf-t-secondary">Pozioma oś to cykl życia rośliny, kropki to momenty aplikacji. Najedź na produkt poniżej, a podświetlimy jego miejsca na siatce.</p>
+      </div>
+
+      <div class="wf-card wf-card--flush cw2-reveal">
+        <div class="cw-scrollx" tabindex="0">
+          <div class="cw2-chart" data-usechart aria-label="Siatka momentów aplikacji: wiersze to przykładowe uprawy w ogrodzie i domu (warzywnik, rabata ozdobna, doniczki), kolumny to fazy cyklu życia rośliny, kropki to momenty stosowania granulatu i produktów łączonych">
+            <div class="cw2-chart__cell cw2-chart__cell--head cw2-chart__cell--label"><span class="wf-caption wf-t-tertiary">Przykładowa uprawa</span></div>
+            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">Przygotowanie gleby</span></div>
+            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">Sadzenie i start</span></div>
+            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">W sezonie</span></div>
+            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">Podlewanie</span></div>
+            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">Po sezonie</span></div>
+
+            <div class="cw2-chart__cell cw2-chart__cell--label"><span class="wf-small wf-w-semibold">Warzywnik</span></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--eco" data-prod="eco" title="CARBOMAT ECO – baza, struktura na lata"></span><span class="cw2-dot cw2-dot--humic" data-prod="humic" title="CARBOMAT HUMIC – wmieszaj wiosną (do 500 g/10 m²)"></span></div>
+            <div class="cw2-chart__cell"></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--humic" data-prod="humic" title="CARBOMAT HUMIC – posypowo w sezonie"></span></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--ogrod" data-prod="ogrod" title="CARBOHUMIC OGRÓD – podlewanie w sezonie"></span></div>
+            <div class="cw2-chart__cell"></div>
+
+            <div class="cw2-chart__cell cw2-chart__cell--label"><span class="wf-small wf-w-semibold">Rabata ozdobna</span></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--humic" data-prod="humic" title="CARBOMAT HUMIC – do 50 g/m² pod byliny i krzewy ozdobne"></span></div>
+            <div class="cw2-chart__cell"></div>
+            <div class="cw2-chart__cell"></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--ogrod" data-prod="ogrod" title="CARBOHUMIC OGRÓD – podlewanie w sezonie"></span></div>
+            <div class="cw2-chart__cell"></div>
+
+            <div class="cw2-chart__cell cw2-chart__cell--label"><span class="wf-small wf-w-semibold">Doniczki i dom</span></div>
+            <div class="cw2-chart__cell"></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--humic" data-prod="humic" title="CARBOMAT HUMIC – komponent podłoża 20–30 g/10 l"></span></div>
+            <div class="cw2-chart__cell"></div>
+            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--ogrod" data-prod="ogrod" title="CARBOHUMIC OGRÓD – podlewanie"></span></div>
+            <div class="cw2-chart__cell"></div>
+          </div>
+        </div>
+        <div class="wf-card__body">
+          <div class="cw2-legend">
+            <span class="cw2-legend__item wf-small wf-t-secondary"><span class="cw2-dot cw2-dot--humic" aria-hidden="true"></span> CARBOMAT HUMIC (3 w 1)</span>
+            <span class="cw2-legend__item wf-small wf-t-secondary"><span class="cw2-dot cw2-dot--eco" aria-hidden="true"></span> CARBOMAT ECO (baza, struktura na lata)</span>
+            <span class="cw2-legend__item wf-small wf-t-secondary"><span class="cw2-dot cw2-dot--ogrod" aria-hidden="true"></span> CARBOHUMIC OGRÓD (podlewanie)</span>
+          </div>
+          <p class="wf-caption wf-t-tertiary" style="margin-top:var(--w-space-3);">Układ poglądowy – momenty przykładowe. Dokładne terminy i dawki: <a class="wf-link--muted" href="zalecenia.html#dawki">zalecenia dla uprawy</a>.</p>
+        </div>
+      </div>
+
+      <div class="cw2-tl">
+        <div class="cw2-tl__node cw2-reveal" data-prod-node="eco" tabindex="0">
+          <span class="cw2-tl__dot" aria-hidden="true"></span>
+          <div class="wf-ph wf-ph--1x1 cw2-tl__ph" aria-hidden="true"><span class="wf-ph__label">Worek CARBOMAT ECO</span></div>
+          <span class="wf-overline wf-t-tertiary">Raz · przygotowanie</span>
+          <h3 class="wf-h5">CARBOMAT ECO – baza na lata</h3>
+          <p class="wf-small wf-t-secondary">W ogrodzie dołóż bazę: sypki CARBOMAT ECO buduje strukturę gleby na lata. Stosujesz raz, przy przygotowaniu.</p>
+        </div>
+        <div class="cw2-tl__node cw2-reveal" data-prod-node="humic" tabindex="0">
+          <span class="cw2-tl__dot" aria-hidden="true"></span>
+          <div class="wf-ph wf-ph--1x1 cw2-tl__ph" aria-hidden="true"><span class="wf-ph__label">Granulat CARBOMAT HUMIC</span></div>
+          <span class="wf-overline wf-t-tertiary">Wiosną i w sezonie</span>
+          <h3 class="wf-h5">CARBOMAT HUMIC – 3 w 1</h3>
+          <p class="wf-small wf-t-secondary">Robi trzy rzeczy naraz: poprawia glebę, dodaje potas i podnosi pH. Wiosną wmieszaj, w sezonie posyp i podlej – raz w sezonie.</p>
+        </div>
+        <div class="cw2-tl__node cw2-reveal" data-prod-node="ogrod" tabindex="0">
+          <span class="cw2-tl__dot" aria-hidden="true"></span>
+          <div class="wf-ph wf-ph--1x1 cw2-tl__ph" aria-hidden="true"><span class="wf-ph__label">Butelka CARBOHUMIC OGRÓD</span></div>
+          <span class="wf-overline wf-t-tertiary">W sezonie · podlewanie</span>
+          <h3 class="wf-h5">CARBOHUMIC OGRÓD – płyn do konewki</h3>
+          <p class="wf-small wf-t-secondary">Podlewając linią OGRÓD z rodziny CARBOHUMIC karmisz glebę przy okazji. Płyn, do konewki, przez sezon.</p>
+        </div>
+      </div>
+
+      <div class="wf-alert" role="status">
+        <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
+        <div><span class="wf-alert__title">Rośliny kwasolubne?</span> <span class="wf-small wf-t-secondary">Pod rośliny kwasolubne zamiast CARBOMAT HUMIC użyj CARBOMAT ECO w odmianie o niższym pH.</span></div>
+      </div>
+
+      <div class="wf-cluster wf-gap-3">
+        <a class="wf-btn wf-btn--secondary" href="carbomat.html">Rodzina CARBOMAT</a>
+        <a class="wf-btn wf-btn--link" href="prochnica-plus.html#jak-dziala">Program Próchnica+</a>
+        <a class="wf-btn wf-btn--link" href="konfigurator.html?crop=ogrod">Dobierz właściwy produkt</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 8. UPRAWY PROFESJONALNE (zwrotnica) ===== -->
+  <section class="wf-section" id="uprawy-profesjonalne">
+    <div class="wf-container wf-stack wf-stack--6">
+      <div class="wf-stack wf-stack--3" style="max-width:680px;">
+        <span class="wf-overline">Uprawy profesjonalne</span>
+        <h2 class="wf-h2">Prowadzisz uprawę profesjonalną – gospodarstwo lub sad?</h2>
+        <p class="wf-lead wf-t-secondary">CARBOMAT HUMIC jest zarejestrowany do warzyw i roślin ozdobnych w ogrodach działkowych i w domu. W polu i w sadzie glebę budują CARBOMAT (sypka baza) i CARBOHUMIC (płyn – fertygacja i program nalistny). Chętnie doradzimy i przygotujemy ofertę.</p>
+      </div>
+
+      <div class="wf-cluster wf-gap-3">
+        <a class="wf-btn wf-btn--secondary" href="carbomat.html">CARBOMAT dla gospodarstwa</a>
+        <a class="wf-btn wf-btn--link" href="carbohumic.html">CARBOHUMIC do fertygacji</a>
+        <a class="wf-link--quiet" href="kontakt.html">Zapytaj o ofertę</a>
       </div>
     </div>
   </section>
 
   <!-- ===== 9. FAQ ===== -->
-  <section class="wf-section" id="faq">
+  <section class="wf-section wf-section--subtle" id="faq">
     <div class="wf-container wf-container--narrow wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
         <span class="wf-overline">FAQ</span>
-        <h2 class="wf-h2">Najczęstsze pytania o CARBOMAT HUMIC</h2>
-        <p class="wf-lead wf-t-secondary">Krótko i konkretnie — z jasnym wskazaniem tam, gdzie liczba czeka na ujednolicenie.</p>
+        <h2 class="wf-h2">Najczęstsze pytania o CARBOMAT HUMIC.</h2>
       </div>
 
-      <div class="wf-stack">
+      <div class="wf-stack wf-stack--2">
         <div class="wf-accordion__item">
-          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="true" aria-controls="faq1" id="faqh1">Czym CARBOMAT HUMIC różni się od CARBOHUMIC? <svg class="wf-icon" aria-hidden="true"><use href="#ti-chevron-down"></use></svg></button>
-          <div class="wf-accordion__panel" id="faq1" role="region" aria-labelledby="faqh1">
-            <p class="wf-body">To dwie różne rodziny. <strong>CARBOHUMIC</strong> to płynny ekstrakt z lignitu i leonardytu („próchnica w płynie"), o odczynie raczej kwaśnym/obojętnym. <strong>CARBOMAT HUMIC</strong> to granulowany, aktywowany węgiel brunatny „3 w 1", który <strong>podnosi pH</strong> i dostarcza potas. Nazwy są mylące — pracujemy nad ich odróżnieniem.</p>
-          </div>
-        </div>
-        <div class="wf-accordion__item">
-          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq2" id="faqh2">Czy mogę go stosować pod borówkę albo inne rośliny kwasolubne? <svg class="wf-icon" aria-hidden="true"><use href="#ti-chevron-down"></use></svg></button>
-          <div class="wf-accordion__panel" id="faq2" role="region" aria-labelledby="faqh2" hidden>
-            <p class="wf-body">Nie. CARBOMAT HUMIC <strong>podnosi pH</strong> (odczyn 7–10), a rośliny kwasolubne (borówka, różaneczniki, hortensje) potrzebują gleby kwaśnej. Dla nich mamy produkty o niskim pH w gamie CARBOMAT (ECO pH 4) i CARBOHUMIC niefiltrowany.</p>
+          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="true" aria-controls="faq-1" id="faqh-1">
+            Czy CARBOMAT HUMIC można stosować pod borówkę?
+            <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button>
+          <div class="wf-accordion__panel" id="faq-1" role="region" aria-labelledby="faqh-1">
+            <p class="wf-body wf-t-secondary">Nie – podnosi pH (7–10), a borówka, różaneczniki i hortensje lubią odczyn kwaśny. Pod rośliny kwasolubne użyj CARBOMAT ECO w odmianie o niższym pH.</p>
           </div>
         </div>
         <div class="wf-accordion__item">
-          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq3" id="faqh3">Czy zastąpi mój nawóz potasowy? <svg class="wf-icon" aria-hidden="true"><use href="#ti-chevron-down"></use></svg></button>
-          <div class="wf-accordion__panel" id="faq3" role="region" aria-labelledby="faqh3" hidden>
-            <p class="wf-body">Częściowo. Dostarcza potas (~6% K₂O, czyli ~60 kg K₂O <strong>na tonę produktu</strong>) i może <strong>zastąpić nawóz startowy</strong>, ale nie zastępuje pełnego nawożenia potasem w sezonie. Traktuj go jako wsparcie potasowe połączone z kondycjonowaniem gleby, nie jako jedyny nawóz K.</p>
+          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-2" id="faqh-2">
+            Czy to nawóz potasowy?
+            <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button>
+          <div class="wf-accordion__panel" id="faq-2" role="region" aria-labelledby="faqh-2" hidden>
+            <p class="wf-body wf-t-secondary">Częściowo – zawiera K₂O na poziomie około 6% (wg decyzji), więc uzupełnia potas, ale nie zastępuje pełnego nawożenia. To przede wszystkim poprawiacz gleby z potasem.</p>
           </div>
         </div>
         <div class="wf-accordion__item">
-          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq4" id="faqh4">O ile mniej wody będę musiał dodać dzięki retencji? <svg class="wf-icon" aria-hidden="true"><use href="#ti-chevron-down"></use></svg></button>
-          <div class="wf-accordion__panel" id="faq4" role="region" aria-labelledby="faqh4" hidden>
-            <p class="wf-body">Nie podajemy litrów ani procentów — <strong>to zależy</strong> od gleby i dawki. Kompozyt węglowy poprawia gospodarkę wodną i odporność na suszę, ale efekt jest największy na glebach lekkich, ubogich i suchych. Świadomie nie liczymy tego na kalkulatorze.</p>
+          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-3" id="faqh-3">
+            Czym różni się od CARBOHUMIC?
+            <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button>
+          <div class="wf-accordion__panel" id="faq-3" role="region" aria-labelledby="faqh-3" hidden>
+            <p class="wf-body wf-t-secondary">CARBOMAT HUMIC to sypki granulat do działki i domu, a CARBOHUMIC to rodzina płynów. Jeśli szukasz płynu do podlewania – to CARBOHUMIC.</p>
           </div>
         </div>
         <div class="wf-accordion__item">
-          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq5" id="faqh5">Jaka dawka na hektar i jak go aplikować? <svg class="wf-icon" aria-hidden="true"><use href="#ti-chevron-down"></use></svg></button>
-          <div class="wf-accordion__panel" id="faq5" role="region" aria-labelledby="faqh5" hidden>
-            <p class="wf-body">Wariant rolniczy aplikuje się pasowo (strip-till), pogłównie lub pasowo, w dawce <strong>~100–250 kg/ha</strong> (strip-till ok. 100–120 kg/ha), zależnie od stanu gleby i celu. Dokładną dawkę dobierzemy pod Twoją uprawę, glebę i sprzęt — <a class="wf-link" href="konfigurator.html">konfigurator</a> lub <a class="wf-link" href="kontakt.html">zapytaj o ofertę</a>.</p>
+          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-4" id="faqh-4">
+            Ile granulatu na grządkę 10 m²?
+            <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button>
+          <div class="wf-accordion__panel" id="faq-4" role="region" aria-labelledby="faqh-4" hidden>
+            <p class="wf-body wf-t-secondary">Wiosną do 500 g na 10 m², wymieszane z glebą na 15–20 cm (wg decyzji G-1528/24). Pełne dawki znajdziesz w <a class="wf-link" href="zalecenia.html#dawki">zaleceniach</a>.</p>
           </div>
         </div>
         <div class="wf-accordion__item">
-          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq6" id="faqh6">Czy to produkt ekologiczny? <svg class="wf-icon" aria-hidden="true"><use href="#ti-chevron-down"></use></svg></button>
-          <div class="wf-accordion__panel" id="faq6" role="region" aria-labelledby="faqh6" hidden>
-            <p class="wf-body">Nie. CARBOMAT HUMIC to produkt <strong>mineralny</strong> (aktywowany węgiel brunatny) i nie posiada certyfikatu ekologicznego — dlatego nie nazywamy go „eko". Jeśli szukasz produktów z certyfikatem ekologicznym, zajrzyj do rodziny CARBOMAT (ECO) lub CARBOHUMIC.</p>
+          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-5" id="faqh-5">
+            Czy jest ekologiczny?
+            <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button>
+          <div class="wf-accordion__panel" id="faq-5" role="region" aria-labelledby="faqh-5" hidden>
+            <p class="wf-body wf-t-secondary">Nie – to produkt organiczno-mineralny bez certyfikatu ekologicznego. Skład jest czysty wg karty produktu.</p>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 9b. DLA PROFESJONALISTÓW ===== -->
-  <section class="wf-section wf-section--subtle" id="dla-pro">
-    <div class="wf-container wf-stack wf-stack--8">
-      <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Dla profesjonalistów</span>
-        <h2 class="wf-h2">Dla profesjonalistów i większych gospodarstw</h2>
-      </div>
-
-      <div class="wf-grid wf-grid--2 wf-items-center" style="--wf-grid-min: 20rem;">
-        <div class="wf-stack wf-stack--4">
-          <p class="wf-body wf-prose">Prowadzisz gospodarstwo, sad, szkółkę albo zamawiasz większe ilości lub palety wariantu rolniczego? Przygotujemy ofertę i Twoją cenę netto pod Twój wolumen, uprawę i sprzęt.</p>
-          <p class="wf-body wf-prose">Pierwsze zamówienie możesz złożyć też w sklepie — jeśli zamawiasz profesjonalnie, po realizacji założymy Ci konto i kolejne zamówienia złożysz po swojej cenie.</p>
-          <div class="wf-cluster wf-gap-3">
-            <a class="wf-btn wf-btn--primary wf-btn--lg" href="kontakt.html">Zapytaj o ofertę</a>
+        <div class="wf-accordion__item">
+          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-6" id="faqh-6">
+            Czy nadaje się na pole albo do gospodarstwa?
+            <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button>
+          <div class="wf-accordion__panel" id="faq-6" role="region" aria-labelledby="faqh-6" hidden>
+            <p class="wf-body wf-t-secondary">Rejestracja obejmuje ogrody działkowe i dom (warzywa i rośliny ozdobne), więc do upraw polowych go nie kierujemy. W gospodarstwie i sadzie glebę budują <a class="wf-link" href="carbomat.html">CARBOMAT</a> i <a class="wf-link" href="carbohumic.html">CARBOHUMIC</a>.</p>
           </div>
-          <p class="wf-small wf-t-secondary">Masz już konto? <a class="wf-link" href="platforma-b2b.html">Zaloguj się, by zobaczyć swoją cenę.</a></p>
         </div>
-        <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">Aplikator strip-till rozsiewa granulat · paleta big-bagów gotowa do załadunku</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 10. CTA + dr JUREK ===== -->
-  <section class="wf-section">
+  <!-- ===== 10. CTA BAND ===== -->
+  <section class="wf-section wf-section--lg wf-section--inverse">
     <div class="wf-container wf-stack wf-stack--8">
-      <div class="wf-card"><div class="wf-card__body">
-        <div class="wf-grid wf-grid--2 wf-items-center" style="--wf-grid-min: 20rem;">
-          <div class="wf-stack wf-stack--3">
-            <h2 class="wf-h3">Masz kwaśne, ubogie w potas pole? Zróbmy z tego jeden ruch.</h2>
-            <p class="wf-body wf-t-secondary">Konfigurator dobierze dawkę CARBOMAT HUMIC i resztę programu pod Twoją uprawę, glebę i sprzęt. Dla upraw polowych przygotujemy indywidualną ofertę.</p>
-          </div>
-          <div class="wf-cluster wf-gap-3">
-            <a class="wf-btn wf-btn--primary wf-btn--lg" href="konfigurator.html">Otwórz Konfigurator</a>
-            <a class="wf-btn wf-btn--secondary wf-btn--lg" href="kontakt.html">Zapytaj o ofertę</a>
-          </div>
+      <div class="wf-stack wf-stack--6 wf-center">
+        <h2 class="wf-h2 wf-t-inverse">Kwaśna, zmęczona ziemia na działce? Jeden granulat, raz w sezonie.</h2>
+        <div class="wf-cluster wf-cluster--center wf-gap-3">
+          <a class="wf-btn wf-btn--lg cw2-btn-solid-inverse" href="konfigurator.html?crop=ogrod">Dobierz właściwy produkt</a>
+          <a class="wf-btn wf-btn--lg cw2-btn-outline-inverse" href="sklep.html?grupa=carbomat-humic">Kup produkty CARBOMAT HUMIC</a>
         </div>
-      </div></div>
-
+      </div>
       <div class="cw-ask">
         <span class="wf-ph wf-ph--avatar" aria-hidden="true"></span>
         <div class="cw-ask__txt wf-stack wf-stack--1">
-          <span class="wf-w-semibold">Nie wiesz, czy to produkt dla Twojego pola?</span>
-          <span class="wf-small wf-t-secondary">Zapytaj Wirtualnego dr. Jurka o pH, dawki potasu albo konkretną uprawę — odpowie na bazie wiedzy Carbohort.</span>
+          <span class="wf-w-semibold">WiO czy ROiZ?</span>
+          <span class="wf-small wf-t-secondary">Zapytaj dr Jurka o linię i dawkę pod Twoje rośliny.</span>
         </div>
         <button type="button" class="wf-btn wf-btn--secondary" data-jurek-open>Zapytaj dr Jurka</button>
       </div>
@@ -726,15 +909,15 @@
       </nav>
     </div>
     <div class="wf-footer__bottom wf-cluster wf-cluster--between">
-      <span class="wf-caption wf-t-secondary">© Carbohort — makieta. Treść i dane do akceptacji.</span>
+      <span class="wf-caption wf-t-secondary">© Carbohort – makieta. Treść i dane do akceptacji.</span>
       <span class="wf-caption wf-t-secondary">PL · poprawa gleby z lignitu</span>
     </div>
   </div>
 </footer>
 
-<!-- ===== dr Jurek — pływający dok ===== -->
+<!-- ===== dr Jurek – pływający dok (ukryty do przewinięcia) ===== -->
 <div class="cw-jurek-backdrop" data-jurek-backdrop data-open="false" aria-hidden="true"></div>
-<div class="cw-jurek" data-jurek-dock data-open="false">
+<div class="cw-jurek cw2-dockhide" data-jurek-dock data-open="false">
   <div class="cw-jurek__panel" role="dialog" aria-label="Wirtualny dr Jurek">
     <div class="cw-jurek__head">
       <span class="wf-ph wf-ph--avatar" aria-hidden="true"></span>
@@ -749,11 +932,128 @@
   </div>
   <form class="cw-jurek__bar" data-jurek-form>
     <svg class="wf-icon wf-icon--muted" aria-hidden="true" style="align-self:center;"><use href="#ti-message-2"></use></svg>
-    <input class="wf-input" type="text" data-jurek-input placeholder="Zapytaj o dobór, dawki, uprawę…" aria-label="Zapytaj dr. Jurka">
+    <input class="wf-input" type="text" data-jurek-input placeholder="Zapytaj o dobór, dawki, uprawę…" aria-label="Zapytaj dr Jurka">
     <button class="wf-btn wf-btn--primary wf-btn--icon" type="submit" aria-label="Wyślij"><svg class="wf-icon" aria-hidden="true"><use href="#ti-send"></use></svg></button>
   </form>
 </div>
 
 <script src="cw.js"></script>
+<script>
+/* ===== CARBOMAT V2 – mechaniki eksperymentalne (tylko ta strona) ===== */
+(function () {
+  "use strict";
+  document.documentElement.classList.add("cw2-js");
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Dok dr Jurka: pojawia się dopiero po przewinięciu poza hero */
+  var dock = document.querySelector("[data-jurek-dock]");
+  var hero = document.getElementById("hero");
+  function updateDock() {
+    if (!dock || !hero) return;
+    var past = window.scrollY > hero.offsetHeight * 0.55;
+    dock.classList.toggle("cw2-dockhide", !past);
+  }
+
+  /* Reveal on scroll + liczniki – deterministycznie po pozycji (bez IntersectionObserver) */
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll(".cw2-reveal"));
+  var counters = Array.prototype.slice.call(document.querySelectorAll("[data-count]"));
+
+  function inView(el, ratio) {
+    var r = el.getBoundingClientRect();
+    return r.top < window.innerHeight * (ratio || 0.88) && r.bottom > 0;
+  }
+
+  function animateCount(el) {
+    var end = parseFloat(el.getAttribute("data-count"));
+    var finalText = el.getAttribute("data-final") || String(end);
+    if (reduced) { el.textContent = finalText; return; }
+    var steps = 20, i = 0;
+    var iv = window.setInterval(function () {
+      i++;
+      el.textContent = String(Math.round(end * i / steps));
+      if (i >= steps) { window.clearInterval(iv); el.textContent = finalText; }
+    }, 45);
+  }
+
+  function updateAnimations() {
+    if (reduced) {
+      revealEls.forEach(function (el) { el.classList.add("cw2-in"); });
+      counters.forEach(function (el) { el.textContent = el.getAttribute("data-final") || el.getAttribute("data-count"); });
+      revealEls = []; counters = [];
+      return;
+    }
+    revealEls = revealEls.filter(function (el) {
+      if (inView(el)) { el.classList.add("cw2-in"); return false; }
+      return true;
+    });
+    counters = counters.filter(function (el) {
+      if (inView(el, 0.92)) { animateCount(el); return false; }
+      return true;
+    });
+  }
+
+  /* Scrollytelling „Czym jest": aktywny krok steruje wizualem, licznikiem i paskiem postępu */
+  var story = document.querySelector("[data-story]");
+  var storyFrame = story ? story.querySelector(".cw2-story__frame") : null;
+  var storySteps = story ? Array.prototype.slice.call(story.querySelectorAll("[data-step]")) : [];
+  var storyNum = story ? story.querySelector("[data-story-num]") : null;
+  var storyBar = story ? story.querySelector("[data-story-bar]") : null;
+  var storyTitle = story ? story.querySelector("[data-story-title]") : null;
+  function updateStory() {
+    if (!story || !storySteps.length) return;
+    var mid = window.innerHeight * 0.5;
+    var active = 0;
+    for (var i = 0; i < storySteps.length; i++) {
+      if (storySteps[i].getBoundingClientRect().top < mid) active = i;
+    }
+    var step = storySteps[active];
+    if (storyFrame) storyFrame.setAttribute("data-stage", step.getAttribute("data-step"));
+    if (storyNum) storyNum.textContent = "0" + (active + 1);
+    if (storyBar) storyBar.style.width = String(((active + 1) / storySteps.length) * 100) + "%";
+    if (storyTitle) storyTitle.textContent = step.getAttribute("data-title") || "";
+    storySteps.forEach(function (el, idx) { el.classList.toggle("cw2-step--active", idx === active); });
+  }
+
+  /* Siatka „Kiedy stosować": hover/klik na produkcie podświetla jego kropki */
+  var useChart = document.querySelector("[data-usechart]");
+  var chartDots = useChart ? Array.prototype.slice.call(useChart.querySelectorAll(".cw2-dot[data-prod]")) : [];
+  var prodNodes = Array.prototype.slice.call(document.querySelectorAll("[data-prod-node]"));
+  var tlWrap = document.querySelector(".cw2-tl");
+  function setChartFocus(prods) {
+    if (!useChart) return;
+    if (!prods) {
+      useChart.classList.remove("cw2-chart--focus");
+      if (tlWrap) tlWrap.classList.remove("cw2-tl--focus");
+      chartDots.forEach(function (d) { d.classList.remove("is-hl"); });
+      return;
+    }
+    useChart.classList.add("cw2-chart--focus");
+    if (tlWrap) tlWrap.classList.add("cw2-tl--focus");
+    chartDots.forEach(function (d) { d.classList.toggle("is-hl", prods.indexOf(d.getAttribute("data-prod")) !== -1); });
+  }
+  prodNodes.forEach(function (node) {
+    var prods = node.getAttribute("data-prod-node").split(" ");
+    node.addEventListener("mouseenter", function () { setChartFocus(prods); });
+    node.addEventListener("mouseleave", function () {
+      if (!node.classList.contains("is-active")) setChartFocus(null);
+    });
+    node.addEventListener("focus", function () { setChartFocus(prods); });
+    node.addEventListener("blur", function () {
+      if (!node.classList.contains("is-active")) setChartFocus(null);
+    });
+    node.addEventListener("click", function () {
+      var wasActive = node.classList.contains("is-active");
+      prodNodes.forEach(function (m) { m.classList.remove("is-active"); });
+      if (wasActive) { setChartFocus(null); } else { node.classList.add("is-active"); setChartFocus(prods); }
+    });
+  });
+
+  function onScroll() { updateDock(); updateAnimations(); updateStory(); }
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  window.addEventListener("load", onScroll);
+})();
+</script>
 </body>
 </html>

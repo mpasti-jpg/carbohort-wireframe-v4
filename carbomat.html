@@ -98,6 +98,11 @@
 /* Reveal on scroll – ukrywanie tylko przy działającym JS (klasa cw2-js na <html>) */
 .cw2-js .cw2-reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
 .cw2-js .cw2-reveal.cw2-in{opacity:1;transform:none;}
+/* Selektor pH w kartach wariantów (sekcja „Który dla mnie") */
+.cw2-phsel{display:flex;align-items:center;gap:var(--w-space-3);flex-wrap:wrap;}
+.cw2-phsel__label{white-space:nowrap;}
+.cw2-phsel .wf-segmented{flex-wrap:wrap;}
+.cw2-phseg--static{pointer-events:none;}
 /* Dok dr Jurka – ukryty do czasu przewinięcia poza hero */
 .cw-jurek{transition:opacity .3s ease,visibility .3s ease;}
 .cw-jurek.cw2-dockhide{opacity:0;visibility:hidden;pointer-events:none;}
@@ -356,6 +361,13 @@
         <article class="wf-card wf-card--flush cw2-reveal">
           <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">DUŻE FOTO: worek 20 l CARBOMAT ECO i gruzełki frakcji drobnej na dłoni</span></div>
           <div class="wf-card__body wf-stack wf-stack--4">
+            <div class="cw2-phsel">
+              <span class="wf-overline wf-t-tertiary cw2-phsel__label">Zakres pH</span>
+              <div class="wf-segmented" role="group" aria-label="Zakres pH – CARBOMAT ECO" data-phsel>
+                <button type="button" class="wf-btn wf-btn--sm" data-ph aria-pressed="true" data-ph-desc="odmiana kwasolubna – borówka i rośliny wrzosowate">4,5–5,0 pH</button>
+                <button type="button" class="wf-btn wf-btn--sm" data-ph aria-pressed="false" data-ph-desc="odmiana uniwersalna – warzywa, trawnik, sad">6,0–6,5 pH</button>
+              </div>
+            </div>
             <div class="wf-cluster wf-cluster--between">
               <h3 class="wf-h3">CARBOMAT ECO</h3>
               <span class="wf-badge wf-badge--outline">baza doglebowa</span>
@@ -364,7 +376,7 @@
               <div class="cw2-spec__row"><dt>Rola</dt><dd>dodatek do gleby i podłoży – odbudowuje strukturę, retencję i próchnicę</dd></div>
               <div class="cw2-spec__row"><dt>Aplikacja</dt><dd>rozmieszaj z glebą lub podłożem</dd></div>
               <div class="cw2-spec__row"><dt>Gdzie najlepiej</dt><dd>grządka, trawnik, doniczki, sad</dd></div>
-              <div class="cw2-spec__row"><dt>pH</dt><dd>odmiany o niższym i wyższym pH (zakres karty 4,5–6,5)</dd></div>
+              <div class="cw2-spec__row"><dt>pH</dt><dd data-ph-target>odmiana kwasolubna – borówka i rośliny wrzosowate</dd></div>
               <div class="cw2-spec__row"><dt>Opakowania</dt><dd><a class="wf-link" href="sklep.html?grupa=carbomat">worek 20 l</a> · <a class="wf-link" href="sklep.html?grupa=carbomat">big bag 1000 l</a> · <a class="wf-link" href="sklep.html?grupa=carbomat">1500 l</a></dd></div>
               <div class="cw2-spec__row"><dt>Cena</dt><dd class="wf-w-semibold">od 89 zł</dd></div>
             </dl>
@@ -379,6 +391,12 @@
         <article class="wf-card wf-card--flush cw2-reveal">
           <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">DUŻE FOTO: ściółka lignitowa 8–20 mm rozsypana wokół krzewu borówki</span></div>
           <div class="wf-card__body wf-stack wf-stack--4">
+            <div class="cw2-phsel">
+              <span class="wf-overline wf-t-tertiary cw2-phsel__label">Zakres pH</span>
+              <div class="wf-segmented" role="group" aria-label="Zakres pH – CARBOMAT ECO ŚCIÓŁKA (stały)">
+                <span class="wf-btn wf-btn--sm cw2-phseg--static" aria-pressed="true">4,5–5,0 pH</span>
+              </div>
+            </div>
             <div class="wf-cluster wf-cluster--between">
               <h3 class="wf-h3">CARBOMAT ECO ŚCIÓŁKA</h3>
               <span class="wf-badge wf-badge--outline">baza doglebowa</span>
@@ -1073,6 +1091,19 @@
       if (wasActive) { setChartFocus(null); } else { node.classList.add("is-active"); setChartFocus(prods); }
     });
   });
+
+  /* Selektor pH – CARBOMAT ECO (dwa warianty odczynu) */
+  var phSel = document.querySelector("[data-phsel]");
+  if (phSel) {
+    var phBtns = Array.prototype.slice.call(phSel.querySelectorAll("[data-ph]"));
+    var phTarget = document.querySelector("[data-ph-target]");
+    phBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        phBtns.forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
+        if (phTarget) phTarget.textContent = btn.getAttribute("data-ph-desc") || phTarget.textContent;
+      });
+    });
+  }
 
   function onScroll() { updateDock(); updateAnimations(); updateStory(); }
   onScroll();

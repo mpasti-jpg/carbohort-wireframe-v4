@@ -206,13 +206,17 @@
 .cw-scrollx { overflow-x: auto; }
 
 /* --- Konfigurator (state machine) — composed from wf-* primitives ------- */
-/* Two-column shell: live "Twój dobór" sticky aside + vertical question flow.
-   Uses wf-split--sidebar; only structural tweaks live here. */
-.cw-konfig { gap: var(--w-space-8); }
-.cw-konfig__aside { align-self: start; }
-@media (min-width: 1024px) {
-  .cw-konfig__aside { position: sticky; top: calc(var(--w-control-h-lg) + var(--w-space-6)); }
-}
+/* Kreator „krok po kroku": jeden ekran = jedno pytanie, wyśrodkowana kolumna,
+   pasek postępu na górze i pasek nawigacji (Wstecz / Dalej) na dole. Wynik to
+   ostatni krok: Twój dobór (produkty + agrotechnika + zakup). */
+.cw-wizard { max-width: 56rem; margin-inline: auto; display: flex; flex-direction: column; gap: var(--w-space-6); }
+/* Krok = jeden ekran: [hidden] musi wygrać z display:flex kart/przycisków wf-* */
+.cw-wizard [hidden] { display: none !important; }
+.cw-konfig__steps { overflow-x: auto; }               /* mieści 5 kroków; na wąskich ekranach przewija się w poziomie */
+.cw-step--clickable { cursor: pointer; }
+.cw-step--clickable:hover .wf-step__node { border-color: var(--w-text-primary); color: var(--w-text-primary); }
+.cw-wizard__nav { display: flex; align-items: center; gap: var(--w-space-4); }
+.cw-wizard__navend { display: flex; align-items: center; gap: var(--w-space-3); margin-left: auto; }
 
 /* Option button grid (Q1–Q4). Buttons wrap multi-line, left-aligned, taller
    than a control. Selected = filled-dark (aria-pressed) + weight — never hue. */

@@ -16,6 +16,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true" id="wf-icon-sprite">
 <symbol id="ti-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6l6 -6" /></symbol>
 <symbol id="ti-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6l-6 6" /></symbol>
+<symbol id="ti-chevron-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6l6 6" /></symbol>
+<symbol id="ti-rotate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M19.95 11a8 8 0 1 0 -.5 4m.5 5v-5h-5" /></symbol>
 <symbol id="ti-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></symbol>
 <symbol id="ti-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></symbol>
 <symbol id="ti-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10" /></symbol>
@@ -151,49 +153,31 @@
           <li><span class="wf-breadcrumb__sep" aria-hidden="true"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-right"></use></svg></span><span aria-current="page">Konfigurator</span></li>
         </ol>
       </nav>
-      <div class="wf-stack wf-stack--3" style="max-width:720px;">
+      <div class="wf-stack wf-stack--3" style="max-width:760px;">
         <span class="wf-overline">Główne narzędzie doboru</span>
         <h1 class="wf-h1">Konfigurator</h1>
-        <p class="wf-lead wf-t-secondary">Odpowiadaj na kolejne pytania po prawej — dobrane produkty z ilościami pojawiają się po lewej, a pod nimi krótka agrotechnika. Możesz wrócić do każdego pytania, zmienić liczbę opakowań albo odznaczyć produkt, którego nie potrzebujesz.</p>
+        <p class="wf-lead wf-t-secondary">Odpowiadaj krok po kroku – jedno pytanie na ekran, żeby łatwiej się skupić. Na końcu zobaczysz dobrany zestaw z ilościami, krótką agrotechniką (jak stosować w Twoim przypadku) i opcjami zakupu. Do każdego kroku możesz wrócić i zmienić wybór.</p>
       </div>
-
-      <!-- Postęp: done / current / upcoming -->
-      <ol class="wf-steps cw-konfig__steps" aria-label="Postęp konfiguracji">
-        <li class="wf-step wf-step--current" data-step="q1" aria-current="step"><span class="wf-step__node">1</span> Uprawa</li>
-        <span class="wf-step__connector" aria-hidden="true"></span>
-        <li class="wf-step wf-step--upcoming" data-step="q2"><span class="wf-step__node">2</span> Skala</li>
-        <span class="wf-step__connector" aria-hidden="true"></span>
-        <li class="wf-step wf-step--upcoming" data-step="q3"><span class="wf-step__node">3</span> Cel</li>
-        <span class="wf-step__connector" aria-hidden="true" data-step-pro hidden></span>
-        <li class="wf-step wf-step--upcoming" data-step="q4" data-step-pro hidden><span class="wf-step__node">4</span> Sprzęt i program</li>
-        <span class="wf-step__connector" aria-hidden="true"></span>
-        <li class="wf-step wf-step--upcoming" data-step="result"><span class="wf-step__node"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg></span> Wynik</li>
-      </ol>
     </div>
   </section>
 
   <!-- ===== KONFIGURATOR ===== -->
   <section class="wf-section wf-section--subtle">
     <div class="wf-container">
-      <div class="wf-split wf-split--sidebar cw-konfig" data-konfig>
+      <div class="cw-wizard" data-konfig data-konfig-top>
 
-        <!-- LEWA: Twój dobór (sticky) -->
-        <aside class="cw-konfig__aside" aria-label="Twój dobór">
-          <div class="wf-card">
-            <div class="wf-card__body wf-stack wf-stack--4">
-              <div class="wf-stack wf-stack--2">
-                <h2 class="wf-h4">Twój dobór</h2>
-                <div class="wf-cluster wf-gap-2" data-prog-meta></div>
-              </div>
-              <div class="wf-divider"></div>
-              <ul class="wf-list wf-list--plain wf-stack wf-stack--5" data-prog-list></ul>
-              <div data-prog-howto></div>
-            </div>
-          </div>
-        </aside>
-
-        <!-- PRAWA: pionowy flow pytań + wynik -->
-        <div class="wf-stack wf-stack--6 cw-konfig__flow">
+        <!-- Pasek postępu — jeden krok = jeden ekran -->
+        <ol class="wf-steps cw-konfig__steps" aria-label="Postęp konfiguracji">
+          <li class="wf-step wf-step--current" data-step="q1" aria-current="step"><span class="wf-step__node">1</span> Uprawa</li>
+          <span class="wf-step__connector" aria-hidden="true"></span>
+          <li class="wf-step wf-step--upcoming" data-step="q2"><span class="wf-step__node">2</span> Skala</li>
+          <span class="wf-step__connector" aria-hidden="true"></span>
+          <li class="wf-step wf-step--upcoming" data-step="q3"><span class="wf-step__node">3</span> Cel</li>
+          <span class="wf-step__connector" aria-hidden="true" data-step-pro hidden></span>
+          <li class="wf-step wf-step--upcoming" data-step="q4" data-step-pro hidden><span class="wf-step__node">4</span> Sprzęt i program</li>
+          <span class="wf-step__connector" aria-hidden="true"></span>
+          <li class="wf-step wf-step--upcoming" data-step="result"><span class="wf-step__node"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg></span> Wynik</li>
+        </ol>
 
           <!-- Q1 -->
           <article class="wf-card" data-q="q1">
@@ -292,10 +276,32 @@
             </div>
           </article>
 
-          <!-- WYNIK -->
-          <article class="wf-card cw-tier--lead" data-konfig-result hidden></article>
+          <!-- WYNIK — ostatni krok: Twój dobór -->
+          <article class="wf-card cw-tier--lead" data-konfig-result hidden>
+            <div class="wf-card__body wf-stack wf-stack--5">
+              <div class="wf-cluster wf-cluster--between">
+                <span class="wf-overline wf-t-tertiary">Ostatni krok · Twój dobór</span>
+                <span class="wf-inline wf-small wf-t-secondary"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Gotowe</span>
+              </div>
+              <div class="wf-stack wf-stack--2" data-prog-summary></div>
+              <div class="wf-cluster wf-gap-2" data-prog-meta></div>
+              <div class="wf-divider"></div>
+              <ul class="wf-list wf-list--plain wf-stack wf-stack--5" data-prog-list></ul>
+              <div data-prog-howto></div>
+              <div class="wf-divider"></div>
+              <div data-prog-cta></div>
+            </div>
+          </article>
 
-        </div>
+          <!-- Nawigacja kreatora -->
+          <div class="cw-wizard__nav" aria-label="Nawigacja kreatora">
+            <button type="button" class="wf-btn wf-btn--ghost wf-inline" data-nav-back hidden><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-left"></use></svg> Wstecz</button>
+            <div class="cw-wizard__navend">
+              <span class="wf-small wf-t-tertiary" data-nav-hint></span>
+              <button type="button" class="wf-btn wf-btn--primary wf-inline" data-nav-next disabled>Dalej <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-right"></use></svg></button>
+            </div>
+          </div>
+
       </div>
     </div>
   </section>
@@ -305,8 +311,8 @@
     <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
         <span class="wf-overline">Jak czytać dobór</span>
-        <h2 class="wf-h2">Pionowy dobór, nie ankieta</h2>
-        <p class="wf-lead wf-t-secondary">Pytania zostają widoczne — wracasz w górę i zmieniasz wybór, a „Twój dobór" po lewej aktualizuje się na bieżąco. Zestaw to baza doglebowa plus uzupełnienia dopasowane do Twojego celu.</p>
+        <h2 class="wf-h2">Krok po kroku, jedno pytanie na ekran</h2>
+        <p class="wf-lead wf-t-secondary">Przechodzisz kolejne kroki od lewej do prawej – łatwiej się skupić na jednej decyzji. Wracasz przyciskiem „Wstecz" albo klikając krok na pasku postępu. Na końcu, w „Twoim doborze", pojawia się zestaw: baza doglebowa plus uzupełnienia pod Twój cel, z ilościami, krótką agrotechniką i zakupem.</p>
       </div>
       <div class="wf-grid wf-grid--3" style="--wf-grid-min: 15rem;">
         <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2"><span class="wf-overline wf-t-tertiary">Baza</span><h3 class="wf-h5">Rdzeń doglebowy</h3><p class="wf-small wf-t-secondary">CARBOMAT lub CARBOHUMIC — fundament, który poprawia glebę na lata.</p></div></article>
@@ -442,45 +448,100 @@
 
   var state = { crop: null, cropLabel: null, reg: null, scale: null, scaleLabel: null, ha: undefined, channel: null, goal: null, sprzet: null, sprzetLabel: null, obecny: null, obecnyLabel: null };
   var prog = [];                 /* [{id, packs, included, palette}] */
-  var revealed = { q1: true };
+  var current = "q1";            /* aktualny krok kreatora (jeden ekran = jedno pytanie) */
 
   function qblock(id) { return id === "result" ? qs("[data-konfig-result]") : qs('[data-q="' + id + '"]'); }
-  function applyReveal() {
-    ["q1", "q2", "q3", "q4", "result"].forEach(function (id) {
-      var b = qblock(id); if (!b) return;
-      var show = !!revealed[id];
-      if (id === "q4") show = show && state.reg === "pro";
-      b.hidden = !show;
-    });
-    /* postęp: kroki PRO widoczne tylko dla doboru profesjonalnego */
-    qsa("[data-step-pro]").forEach(function (el) { el.hidden = state.reg !== "pro"; });
-    renderSteps();
+  /* ---- Model kreatora: kolejność kroków zależna od trybu (pro/prywatny) ---- */
+  function order() { return state.reg === "pro" ? ["q1", "q2", "q3", "q4", "result"] : ["q1", "q2", "q3", "result"]; }
+  function answered(id) {
+    if (id === "q1") return !!state.crop;
+    if (id === "q2") return !!state.scale;
+    if (id === "q3") return !!state.goal;
+    return true;               /* q4 = krok opcjonalny; result = zawsze dostępny po celu */
   }
-  function reveal(id) { revealed[id] = true; applyReveal(); }
-
-  /* ---- Postęp (wf-steps): done / current / upcoming ---- */
-  function renderSteps() {
-    var order = state.reg === "pro" ? ["q1", "q2", "q3", "q4", "result"] : ["q1", "q2", "q3", "result"];
-    var picked = { q1: !!state.crop, q2: !!state.scale, q3: !!state.goal, q4: !!(state.sprzet || state.obecny), result: false };
-    var current = order[0];
-    for (var i = 0; i < order.length; i++) { current = order[i]; if (!picked[order[i]]) break; }
-    if (state.goal) current = state.reg === "pro" ? "q4" : "result";
-    var curIdx = order.indexOf(current);
-    qsa("[data-step]").forEach(function (li) {
-      var id = li.getAttribute("data-step");
-      li.classList.remove("wf-step--done", "wf-step--current", "wf-step--upcoming");
-      li.removeAttribute("aria-current");
-      var idx = order.indexOf(id);
-      if (idx === -1) { li.classList.add("wf-step--upcoming"); return; }
-      if (id === "result") {
-        if (state.goal) { li.classList.add("wf-step--current"); li.setAttribute("aria-current", "step"); }
-        else li.classList.add("wf-step--upcoming");
-        return;
-      }
-      if (picked[id] && idx < curIdx) li.classList.add("wf-step--done");
-      else if (id === current) { li.classList.add("wf-step--current"); li.setAttribute("aria-current", "step"); }
-      else li.classList.add("wf-step--upcoming");
+  function canEnter(id) {
+    var ord = order(), idx = ord.indexOf(id);
+    if (idx < 0) return false;
+    for (var i = 0; i < idx; i++) { if (!answered(ord[i])) return false; }
+    return true;
+  }
+  function showOnly(id) {
+    var ord = order();
+    ["q1", "q2", "q3", "q4", "result"].forEach(function (p) {
+      var el = qblock(p); if (!el) return;
+      el.hidden = !(ord.indexOf(p) !== -1 && p === id);
     });
+  }
+  function goStep(id, focusHeading) {
+    if (!canEnter(id)) return;
+    current = id;
+    if (id === "result") { if (!prog.length) buildProgram(); renderPanel(); }
+    showOnly(id);
+    renderSteps();
+    renderNav();
+    var top = qs("[data-konfig-top]") || root;
+    try { top.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) {}
+    if (focusHeading !== false) {
+      var b = qblock(id), h = b && b.querySelector("h2, h3");
+      if (h) { h.setAttribute("tabindex", "-1"); try { h.focus({ preventScroll: true }); } catch (e) {} }
+    }
+  }
+
+  /* ---- Pasek postępu (wf-steps): done / current / upcoming + klikalne kroki ---- */
+  function renderSteps() {
+    var ord = order(), curIdx = ord.indexOf(current);
+    qsa("[data-step-pro]").forEach(function (el) { el.hidden = state.reg !== "pro"; });
+    qsa("[data-step]").forEach(function (li) {
+      var id = li.getAttribute("data-step"), idx = ord.indexOf(id);
+      li.classList.remove("wf-step--done", "wf-step--current", "wf-step--upcoming", "cw-step--clickable");
+      li.removeAttribute("aria-current");
+      if (idx === -1) { li.classList.add("wf-step--upcoming"); li.removeAttribute("tabindex"); li.removeAttribute("role"); return; }
+      if (id === current) { li.classList.add("wf-step--current"); li.setAttribute("aria-current", "step"); }
+      else if (idx < curIdx && answered(id)) li.classList.add("wf-step--done");
+      else li.classList.add("wf-step--upcoming");
+      if (id !== current && canEnter(id)) { li.classList.add("cw-step--clickable"); li.setAttribute("tabindex", "0"); li.setAttribute("role", "button"); }
+      else { li.removeAttribute("tabindex"); li.removeAttribute("role"); }
+    });
+  }
+
+  /* ---- Pasek nawigacji: Wstecz / Dalej / Pokaż dobór / Zacznij od nowa ---- */
+  function renderNav() {
+    var ord = order(), idx = ord.indexOf(current);
+    var back = qs("[data-nav-back]"), next = qs("[data-nav-next]"), hint = qs("[data-nav-hint]");
+    if (back) back.hidden = idx <= 0;
+    if (!next) return;
+    if (current === "result") {
+      next.className = "wf-btn wf-btn--secondary wf-inline";
+      next.disabled = false;
+      next.setAttribute("data-nav-role", "restart");
+      next.innerHTML = '<svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-rotate"></use></svg> Zacznij od nowa';
+      if (hint) hint.textContent = "";
+    } else {
+      next.className = "wf-btn wf-btn--primary wf-inline";
+      next.removeAttribute("data-nav-role");
+      var ok = current === "q4" ? true : answered(current);
+      next.disabled = !ok;
+      var isLast = idx === ord.length - 2;   /* ostatnie pytanie przed wynikiem */
+      next.innerHTML = (isLast ? "Pokaż dobór" : "Dalej") + ' <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-right"></use></svg>';
+      if (hint) hint.textContent = ok ? "" : "Wybierz opcję, aby przejść dalej";
+    }
+  }
+
+  function goNext() {
+    if (current === "result") return;
+    var ord = order(), idx = ord.indexOf(current), nxt = ord[idx + 1];
+    if (nxt && (current === "q4" ? true : answered(current))) goStep(nxt);
+  }
+  function goBack() {
+    var ord = order(), idx = ord.indexOf(current);
+    if (idx > 0) goStep(ord[idx - 1]);
+  }
+  function restart() {
+    state = { crop: null, cropLabel: null, reg: null, scale: null, scaleLabel: null, ha: undefined, channel: null, goal: null, sprzet: null, sprzetLabel: null, obecny: null, obecnyLabel: null };
+    prog = [];
+    qsa("[data-crop],[data-goal],[data-sprzet],[data-obecny]").forEach(function (o) { o.setAttribute("aria-pressed", "false"); });
+    ["q1", "q2", "q3", "q4"].forEach(function (id) { setAnswered(id, ""); });
+    renderScale(); renderPanel(); goStep("q1");
   }
 
   function setAnswered(qid, pick) {
@@ -493,12 +554,6 @@
     qsa(sel).forEach(function (o) { o.setAttribute("aria-pressed", "false"); });
     if (btn) btn.setAttribute("aria-pressed", "true");
   }
-  function scrollTo(id) {
-    var b = qblock(id); if (!b) return;
-    var h = b.querySelector("h3"); if (h) { h.setAttribute("tabindex", "-1"); try { h.focus({ preventScroll: true }); } catch (e) {} }
-    b.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-
   function channelHint(ch) { return ch === "panel" ? "panel B2B" : ch === "paleta" ? "paleta · zapytanie" : "sklep / koszyk"; }
   function renderScale() {
     var mount = qs("[data-konfig-scale]"); if (!mount) return;
@@ -586,44 +641,50 @@
         }).join("");
       }
     }
-    /* „Jak stosować zestaw" — agrotechnika pod produktami */
+    /* „Jak stosować — mała agrotechnika": jak użyć zestawu w tym konkretnym przypadku */
     var howto = qs("[data-prog-howto]");
     if (howto) {
       var inc = includedItems();
       if (!inc.length) { howto.innerHTML = ""; }
       else {
-        var bullets = inc.map(function (it) { var p = KONFIG.products[it.id]; return '<li class="wf-small"><span class="wf-w-semibold">' + esc(p.name) + '</span> — ' + esc(p.agro) + '</li>'; }).join("");
-        howto.innerHTML = '<div class="wf-divider"></div><div class="wf-stack wf-stack--3"><h3 class="wf-h5">Jak stosować zestaw</h3>' +
+        var bullets = inc.map(function (it) { var p = KONFIG.products[it.id]; return '<li class="wf-small"><span class="wf-w-semibold">' + esc(p.name) + '</span> – ' + esc(p.agro) + '</li>'; }).join("");
+        var ctx = [state.cropLabel, state.goal ? KONFIG.goals[state.goal].label : null].filter(Boolean).join(" · ");
+        howto.innerHTML = '<div class="wf-stack wf-stack--3">' +
+          '<div class="wf-stack wf-stack--1"><h3 class="wf-h5">Jak stosować – mała agrotechnika</h3>' +
+          (ctx ? '<p class="wf-small wf-t-secondary">Dla: ' + esc(ctx) + ' – krótki sposób użycia dobranego zestawu.</p>' : '') + '</div>' +
           '<ul class="wf-list wf-stack wf-stack--2">' + bullets + '</ul>' +
-          '<p class="wf-caption wf-t-secondary">Zestaw dobrany pod Twoje odpowiedzi (uprawa, skala, cel). Ilości i produkty zmienisz wyżej.</p></div>';
+          '<p class="wf-caption wf-t-secondary">Dawki i terminy poglądowe – dopracuje je Carbohort / dr Jurek pod Twoje warunki.</p></div>';
       }
     }
-    renderResult();
+    renderResultExtras();
   }
 
-  /* WYNIK = ostatni element prawej kolumny: rozgałęziony CTA + 1 zdanie. */
-  function renderResult() {
-    var res = qs("[data-konfig-result]"); if (!res) return;
-    if (!state.goal) { res.hidden = true; res.innerHTML = ""; return; }
-    res.hidden = false;
+  /* Wynik (ostatni krok): nagłówek podsumowania + rozgałęziony CTA zakupu. */
+  function renderResultExtras() {
     var inc = includedItems();
-    var hasPalette = inc.some(function (it) { return it.palette; });
-    var cta;
-    if (state.reg === "prywatny") {
-      cta = '<button type="button" class="wf-btn wf-btn--primary wf-btn--lg wf-btn--block" data-konfig-checkout>Dodaj zestaw do koszyka</button>';
-    } else {
-      var big = (state.channel === "paleta" || hasPalette) ? "Złóż zamówienie / zapytaj o ofertę" : "Złóż zamówienie";
-      cta = '<a class="wf-btn wf-btn--primary wf-btn--lg wf-btn--block" href="platforma-b2b.html">' + big + '</a>' +
-            '<button type="button" class="wf-btn wf-btn--secondary wf-btn--block" data-konfig-checkout>Kup w sklepie po cenie standardowej</button>' +
-            '<a class="wf-btn wf-btn--ghost wf-btn--block wf-inline" href="kontakt.html"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-message-2"></use></svg> Skontaktuj się (większe zamówienia)</a>';
+    var summary = qs("[data-prog-summary]");
+    if (summary) {
+      if (!state.goal) { summary.innerHTML = ""; }
+      else {
+        summary.innerHTML = '<h2 class="wf-h3" tabindex="-1">Twój zestaw – ' + inc.length + ' ' + plural(inc.length) + '</h2>' +
+          '<p class="wf-small wf-t-secondary">' + esc([state.cropLabel, state.scaleLabel, KONFIG.goals[state.goal].label].filter(Boolean).join(" · ")) + ' – skomponowany pod Twoje odpowiedzi. Ilości i produkty zmienisz niżej albo wracając do wcześniejszych kroków.</p>';
+      }
     }
-    res.innerHTML =
-      '<div class="wf-card__body wf-stack wf-stack--4">' +
-        '<div class="wf-cluster wf-cluster--between"><span class="wf-overline wf-t-tertiary">Wynik</span><span class="wf-badge wf-badge--solid">Gotowe</span></div>' +
-        '<div class="wf-stack wf-stack--2"><h3 class="wf-h3">Twój zestaw — ' + inc.length + ' ' + plural(inc.length) + '</h3>' +
-        '<p class="wf-small wf-t-secondary">' + esc([state.cropLabel, state.scaleLabel, KONFIG.goals[state.goal].label].filter(Boolean).join(" · ")) + ' — skomponowany pod Twoje odpowiedzi. Ilości i produkty zmienisz po lewej.</p></div>' +
-        '<div class="wf-stack wf-stack--3">' + cta + '</div>' +
-      '</div>';
+    var ctaMount = qs("[data-prog-cta]");
+    if (ctaMount) {
+      if (!state.goal) { ctaMount.innerHTML = ""; return; }
+      var hasPalette = inc.some(function (it) { return it.palette; });
+      var cta;
+      if (state.reg === "prywatny") {
+        cta = '<button type="button" class="wf-btn wf-btn--primary wf-btn--lg wf-btn--block" data-konfig-checkout>Dodaj zestaw do koszyka</button>';
+      } else {
+        var big = (state.channel === "paleta" || hasPalette) ? "Złóż zamówienie / zapytaj o ofertę" : "Złóż zamówienie";
+        cta = '<a class="wf-btn wf-btn--primary wf-btn--lg wf-btn--block" href="platforma-b2b.html">' + big + '</a>' +
+              '<button type="button" class="wf-btn wf-btn--secondary wf-btn--block" data-konfig-checkout>Kup w sklepie po cenie standardowej</button>' +
+              '<a class="wf-btn wf-btn--ghost wf-btn--block wf-inline" href="kontakt.html"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-message-2"></use></svg> Skontaktuj się (większe zamówienia)</a>';
+      }
+      ctaMount.innerHTML = '<div class="wf-stack wf-stack--3">' + cta + '</div>';
+    }
   }
   function plural(n) { return n === 1 ? "produkt" : (n >= 2 && n <= 4 ? "produkty" : "produktów"); }
 
@@ -644,7 +705,17 @@
 
   /* ---- Zdarzenia ---- */
   root.addEventListener("click", function (e) {
-    var opt = e.target.closest ? e.target.closest("[data-crop],[data-scale],[data-goal],[data-sprzet],[data-obecny]") : null;
+    var t = e.target;
+    /* Nawigacja: klik na krok paska postępu (jeśli osiągalny) */
+    var stepLi = t.closest ? t.closest("[data-step]") : null;
+    if (stepLi && stepLi.classList.contains("cw-step--clickable")) { goStep(stepLi.getAttribute("data-step")); return; }
+    /* Nawigacja: Wstecz / Dalej / Zacznij od nowa */
+    if (t.closest && t.closest("[data-nav-back]")) { goBack(); return; }
+    var navNext = t.closest ? t.closest("[data-nav-next]") : null;
+    if (navNext) { if (navNext.getAttribute("data-nav-role") === "restart") restart(); else goNext(); return; }
+
+    /* Wybór odpowiedzi w pytaniu (bez auto-przejścia — użytkownik klika „Dalej") */
+    var opt = t.closest ? t.closest("[data-crop],[data-scale],[data-goal],[data-sprzet],[data-obecny]") : null;
     if (opt) {
       if (opt.hasAttribute("data-crop")) {
         var prevReg = state.reg;
@@ -652,7 +723,7 @@
         state.crop = opt.getAttribute("data-crop"); state.cropLabel = opt.getAttribute("data-label"); state.reg = opt.getAttribute("data-reg");
         setAnswered("q1", state.cropLabel);
         if (prevReg && prevReg !== state.reg) { state.scale = null; state.scaleLabel = null; state.ha = undefined; state.channel = null; setAnswered("q2", ""); }
-        renderScale(); reveal("q2"); renderPanel(); scrollTo("q2");
+        renderScale(); if (state.goal) recomputePacks(); renderPanel();
       } else if (opt.hasAttribute("data-scale")) {
         markPressed(opt, "[data-scale]");
         var arr = state.reg === "prywatny" ? KONFIG.scalesPrywatny : KONFIG.scalesPro;
@@ -661,14 +732,12 @@
         state.scale = s.id; state.scaleLabel = (spn ? spn.textContent : opt.textContent).trim(); state.ha = s.ha; state.channel = s.channel;
         setAnswered("q2", state.scaleLabel);
         if (state.goal) recomputePacks();
-        reveal("q3"); renderPanel(); scrollTo("q3");
+        renderPanel();
       } else if (opt.hasAttribute("data-goal")) {
         markPressed(opt, "[data-goal]");
         state.goal = opt.getAttribute("data-goal");
         setAnswered("q3", KONFIG.goals[state.goal].label);
-        buildProgram();
-        if (state.reg === "pro") reveal("q4");
-        reveal("result"); renderPanel(); scrollTo(state.reg === "pro" ? "q4" : "result");
+        buildProgram(); renderPanel();
       } else if (opt.hasAttribute("data-sprzet")) {
         markPressed(opt, "[data-sprzet]"); state.sprzet = opt.getAttribute("data-sprzet"); state.sprzetLabel = opt.textContent.trim();
         setAnswered("q4", [state.sprzetLabel, state.obecnyLabel].filter(Boolean).join(" · ")); renderPanel();
@@ -676,13 +745,22 @@
         markPressed(opt, "[data-obecny]"); state.obecny = opt.getAttribute("data-obecny"); state.obecnyLabel = opt.textContent.trim();
         setAnswered("q4", [state.sprzetLabel, state.obecnyLabel].filter(Boolean).join(" · ")); renderPanel();
       }
+      renderSteps(); renderNav();
       return;
     }
-    var inc = e.target.closest ? e.target.closest("[data-prog-inc]") : null;
+    var inc = t.closest ? t.closest("[data-prog-inc]") : null;
     if (inc) { var i = +inc.getAttribute("data-prog-inc"); if (prog[i] && !prog[i].palette) { prog[i].packs++; renderPanel(); } return; }
-    var dec = e.target.closest ? e.target.closest("[data-prog-dec]") : null;
+    var dec = t.closest ? t.closest("[data-prog-dec]") : null;
     if (dec) { var j = +dec.getAttribute("data-prog-dec"); if (prog[j] && !prog[j].palette && prog[j].packs > 1) { prog[j].packs--; renderPanel(); } return; }
-    if (e.target.closest && e.target.closest("[data-konfig-checkout]")) { e.preventDefault(); doCheckout(); return; }
+    if (t.closest && t.closest("[data-konfig-checkout]")) { e.preventDefault(); doCheckout(); return; }
+  });
+
+  /* Klawiatura: krok paska postępu jako przycisk (Enter / Spacja) */
+  root.addEventListener("keydown", function (e) {
+    var li = e.target.closest ? e.target.closest("[data-step]") : null;
+    if (li && li.classList.contains("cw-step--clickable") && (e.key === "Enter" || e.key === " ")) {
+      e.preventDefault(); goStep(li.getAttribute("data-step"));
+    }
   });
 
   root.addEventListener("change", function (e) {
@@ -698,10 +776,11 @@
     var m = (location.search.match(/[?&]crop=([^&]+)/) || [])[1];
     if (!m) return;
     m = decodeURIComponent(m); m = CROP_ALIAS[m] || m;
-    var btn = qs('[data-crop="' + m + '"]'); if (btn) btn.click();
+    var btn = qs('[data-crop="' + m + '"]'); if (btn) { btn.click(); goStep("q2"); }
   }
 
-  applyReveal(); renderScale(); renderPanel(); prefill();
+  /* Init: pokaż pierwszy krok, bez auto-przewijania strony */
+  renderScale(); showOnly("q1"); renderPanel(); renderSteps(); renderNav(); prefill();
 })();
 </script>
 </body>

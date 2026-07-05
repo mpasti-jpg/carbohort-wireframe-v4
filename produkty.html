@@ -19,6 +19,16 @@ html:not(.pv-js) .pv-progress{display:none;}
 .pv-js .pv-reveal.pv-in{opacity:1;transform:none;}
 .pv-js .pv-stagger>*{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;transition-delay:calc(var(--i,0)*70ms);}
 .pv-js .pv-stagger.pv-in>*{opacity:1;transform:none;}
+/* Hero: wyśrodkowany lineup rodzin – 3 grupy opakowań w różnych wielkościach */
+.pv-hero__intro{max-width:46rem;margin-inline:auto;}
+.pv-hero__lead{margin-inline:auto;}
+.pv-lineup{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--w-space-10);width:100%;max-width:60rem;margin-inline:auto;}
+.pv-family{position:relative;aspect-ratio:5/6;}
+.pv-family__ph{position:absolute;margin:0;min-height:0;}
+.pv-family__ph--lg{left:0;top:0;width:64%;height:82%;z-index:1;}
+.pv-family__ph--md{right:0;bottom:0;width:48%;height:52%;z-index:2;}
+.pv-family__ph--sm{left:22%;bottom:0;width:32%;height:34%;z-index:3;}
+@media (max-width:767px){ .pv-lineup{grid-template-columns:1fr;gap:var(--w-space-12);max-width:20rem;} }
 /* Wielka liczba-akcent */
 .pv-num{font-size:var(--w-font-display-size);line-height:1;font-weight:var(--w-weight-bold);letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
 /* Kotwice pod sticky navbarem */
@@ -302,23 +312,45 @@ main section[id], main article[id]{scroll-margin-top:calc(72px + var(--w-space-4
 
   <!-- ===== HERO ===== -->
   <section class="wf-section wf-section--lg">
-    <div class="wf-container wf-grid wf-grid--2 wf-items-center pv-reveal" style="--wf-grid-min: 22rem;">
-      <div class="wf-stack wf-stack--6">
-        <span class="wf-overline">Nasze produkty</span>
-        <h1 class="wf-display">Trzy rodziny z lignitu. Jedna logika: baza w glebie, wzmocnienie na roślinie.</h1>
-        <p class="wf-lead wf-prose">Z polskiego lignitu i leonardytu robimy poprawiacze gleby: odbudowują próchnicę, strukturę, retencję wody i życie biologiczne. Rozdzielamy to, co naprawia glebę na lata, od tego, co wspiera roślinę w sezonie.</p>
-        <div class="wf-cluster wf-gap-3">
-          <a class="wf-btn wf-btn--primary wf-btn--lg" href="#gama">Zobacz gamę</a>
-          <a class="wf-btn wf-btn--secondary wf-btn--lg" href="konfigurator.html">Dobierz w konfiguratorze</a>
-          <button type="button" class="wf-btn wf-btn--ghost wf-btn--lg wf-inline" data-jurek-open><svg class="wf-icon" aria-hidden="true"><use href="#ti-message-2"></use></svg> Zapytaj dr Jurka</button>
+    <div class="wf-container wf-stack wf-stack--10 wf-center pv-reveal">
+
+      <div class="wf-stack wf-stack--5 pv-hero__intro">
+        <span class="wf-overline">Produkty Carbohort</span>
+        <h1 class="wf-display">Kompletna gama produktów na bazie lignitu.</h1>
+      </div>
+
+      <!-- Lineup rodzin: 3 grupy × opakowania w różnych wielkościach -->
+      <div class="pv-lineup" aria-hidden="true">
+        <div class="pv-family">
+          <div class="wf-ph pv-family__ph pv-family__ph--lg"><span class="wf-ph__label">CARBOMAT · worek duży</span></div>
+          <div class="wf-ph pv-family__ph pv-family__ph--md"><span class="wf-ph__label">worek średni</span></div>
+          <div class="wf-ph pv-family__ph pv-family__ph--sm"><span class="wf-ph__label">próbka</span></div>
         </div>
-        <div class="wf-cluster wf-gap-4">
-          <span class="wf-small wf-t-tertiary">Polski, rodzinny producent</span>
-          <span class="wf-small wf-t-tertiary">Rejestracje MRiRW dla każdego produktu</span>
-          <span class="wf-small wf-t-tertiary">Certyfikaty ekologiczne – zakres per produkt w sekcji Dowód</span>
+        <div class="pv-family">
+          <div class="wf-ph pv-family__ph pv-family__ph--lg"><span class="wf-ph__label">CARBOHUMIC · kanister</span></div>
+          <div class="wf-ph pv-family__ph pv-family__ph--md"><span class="wf-ph__label">butelka</span></div>
+          <div class="wf-ph pv-family__ph pv-family__ph--sm"><span class="wf-ph__label">próbka</span></div>
+        </div>
+        <div class="pv-family">
+          <div class="wf-ph pv-family__ph pv-family__ph--lg"><span class="wf-ph__label">CARBOMAT HUMIC · opak. duże</span></div>
+          <div class="wf-ph pv-family__ph pv-family__ph--md"><span class="wf-ph__label">opak. małe</span></div>
+          <div class="wf-ph pv-family__ph pv-family__ph--sm"><span class="wf-ph__label">saszetka</span></div>
         </div>
       </div>
-      <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">MAKRO: gruzełki lignitu na dłoni, w tle przekrój gleby z korzeniem</span></div>
+
+      <p class="wf-lead wf-prose pv-hero__lead">Z polskiego lignitu i leonardytu robimy poprawiacze gleby: odbudowują próchnicę, strukturę, retencję wody i życie biologiczne. Rozdzielamy to, co naprawia glebę na lata, od tego, co wspiera roślinę w sezonie.</p>
+
+      <div class="wf-cluster wf-cluster--center wf-gap-3">
+        <a class="wf-btn wf-btn--primary wf-btn--lg" href="#gama">Zobacz porównanie produktów</a>
+        <a class="wf-btn wf-btn--secondary wf-btn--lg" href="konfigurator.html">Dobierz właściwy produkt</a>
+      </div>
+
+      <div class="wf-cluster wf-cluster--center wf-gap-4">
+        <span class="wf-small wf-t-tertiary">Polski, rodzinny producent</span>
+        <span class="wf-small wf-t-tertiary">Rejestracje MRiRW dla każdego produktu</span>
+        <span class="wf-small wf-t-tertiary">Certyfikaty ekologiczne – zakres per produkt w sekcji Dowód</span>
+      </div>
+
     </div>
   </section>
 

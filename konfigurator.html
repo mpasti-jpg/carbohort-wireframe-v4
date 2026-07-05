@@ -155,8 +155,8 @@
       </nav>
       <div class="wf-stack wf-stack--3" style="max-width:760px;">
         <span class="wf-overline">Główne narzędzie doboru</span>
-        <h1 class="wf-h1">Konfigurator</h1>
-        <p class="wf-lead wf-t-secondary">Odpowiadaj krok po kroku – jedno pytanie na ekran, żeby łatwiej się skupić. Na końcu zobaczysz dobrany zestaw z ilościami, krótką agrotechniką (jak stosować w Twoim przypadku) i opcjami zakupu. Do każdego kroku możesz wrócić i zmienić wybór.</p>
+        <h1 class="wf-h1">Dobierz właściwe produkty</h1>
+        <p class="wf-lead wf-t-secondary">Odpowiadaj po kolei – pytania rozwijają się jedno po drugim. Kliknięcie odpowiedzi od razu przenosi do następnego pytania; żeby coś zmienić, kliknij zwinięte pytanie wyżej. Na końcu wpada zestaw dobranych produktów z ilościami, krótką agrotechniką i zakupem.</p>
       </div>
     </div>
   </section>
@@ -164,164 +164,129 @@
   <!-- ===== KONFIGURATOR ===== -->
   <section class="wf-section wf-section--subtle">
     <div class="wf-container">
-      <div class="cw-wizard" data-konfig data-konfig-top>
+      <div class="cw-acc" data-konfig data-konfig-top>
 
-        <!-- Pasek postępu — jeden krok = jeden ekran -->
-        <ol class="wf-steps cw-konfig__steps" aria-label="Postęp konfiguracji">
-          <li class="wf-step wf-step--current" data-step="q1" aria-current="step"><span class="wf-step__node">1</span> Uprawa</li>
-          <span class="wf-step__connector" aria-hidden="true"></span>
-          <li class="wf-step wf-step--upcoming" data-step="q2"><span class="wf-step__node">2</span> Skala</li>
-          <span class="wf-step__connector" aria-hidden="true"></span>
-          <li class="wf-step wf-step--upcoming" data-step="q3"><span class="wf-step__node">3</span> Cel</li>
-          <span class="wf-step__connector" aria-hidden="true" data-step-pro hidden></span>
-          <li class="wf-step wf-step--upcoming" data-step="q4" data-step-pro hidden><span class="wf-step__node">4</span> Sprzęt i program</li>
-          <span class="wf-step__connector" aria-hidden="true"></span>
-          <li class="wf-step wf-step--upcoming" data-step="result"><span class="wf-step__node"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg></span> Wynik</li>
-        </ol>
-
-          <!-- Q1 -->
-          <article class="wf-card" data-q="q1">
-            <div class="wf-card__body wf-stack wf-stack--4">
-              <div class="wf-cluster wf-cluster--between">
-                <span class="wf-overline wf-t-tertiary">Pytanie 1</span>
-                <span class="wf-inline wf-small wf-t-secondary" data-qpick hidden><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg><span data-qpick-label></span></span>
-              </div>
-              <div class="wf-stack wf-stack--2">
-                <h3 class="wf-h4">Co uprawiasz?</h3>
-                <p class="wf-small wf-t-secondary">Wstępnie rozpoznaje uprawę towarową od ogrodu i działki — potwierdzimy przy skali.</p>
-              </div>
-              <div class="wf-grid cw-opt-grid" style="--wf-grid-min: 13rem;" role="group" aria-label="Rodzaj uprawy">
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="sadownicze" data-label="Sad" data-reg="pro" aria-pressed="false">Sad</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="jagodowe" data-label="Jagodowe" data-reg="pro" aria-pressed="false">Jagodowe</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="warzywnicze" data-label="Warzywa" data-reg="pro" aria-pressed="false">Warzywa</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="zboza" data-label="Zboża / rzepak / kukurydza" data-reg="pro" aria-pressed="false">Zboża / kukurydza</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="zielen" data-label="Zieleń miejska" data-reg="pro" aria-pressed="false">Zieleń miejska</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="szkolki" data-label="Szkółka" data-reg="pro" aria-pressed="false">Szkółka</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="trawnik" data-label="Trawnik" data-reg="prywatny" aria-pressed="false">Trawnik</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="ogrod" data-label="Ogród / działka" data-reg="prywatny" aria-pressed="false">Ogród / działka</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="krzewy" data-label="Krzewy ozdobne / tuje" data-reg="prywatny" aria-pressed="false">Krzewy / tuje</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="balkon" data-label="Balkon / donice" data-reg="prywatny" aria-pressed="false">Balkon / donice</button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Q2 -->
-          <article class="wf-card" data-q="q2" hidden>
-            <div class="wf-card__body wf-stack wf-stack--4">
-              <div class="wf-cluster wf-cluster--between">
-                <span class="wf-overline wf-t-tertiary">Pytanie 2</span>
-                <span class="wf-inline wf-small wf-t-secondary" data-qpick hidden><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg><span data-qpick-label></span></span>
-              </div>
-              <div class="wf-stack wf-stack--2">
-                <h3 class="wf-h4">Jaka skala / powierzchnia?</h3>
-                <p class="wf-small wf-t-secondary">Ustala proponowane ilości i kanał zakupu; jednostki dopasowane do uprawy. Skala to tylko ilość i kanał — nie zmienia sposobu doboru produktów.</p>
-              </div>
-              <div class="wf-grid cw-opt-grid" style="--wf-grid-min: 16rem;" role="group" aria-label="Skala uprawy" data-konfig-scale></div>
-            </div>
-          </article>
-
-          <!-- Q3 -->
-          <article class="wf-card" data-q="q3" hidden>
-            <div class="wf-card__body wf-stack wf-stack--4">
-              <div class="wf-cluster wf-cluster--between">
-                <span class="wf-overline wf-t-tertiary">Pytanie 3</span>
-                <span class="wf-inline wf-small wf-t-secondary" data-qpick hidden><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg><span data-qpick-label></span></span>
-              </div>
-              <div class="wf-stack wf-stack--2">
-                <h3 class="wf-h4">Co chcesz poprawić?</h3>
-                <p class="wf-small wf-t-secondary">Wybiera bazę (rdzeń doglebowy) i uzupełnienia. Produkty pojawią się po lewej w „Twoim doborze".</p>
-              </div>
-              <div class="wf-grid cw-opt-grid" style="--wf-grid-min: 13rem;" role="group" aria-label="Cel doboru">
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-goal="retencja" aria-pressed="false">Retencja wody / susza</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-goal="struktura" aria-pressed="false">Zbita gleba / struktura</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-goal="prochnica" aria-pressed="false">Próchnica / żyzność</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-goal="jakosc" aria-pressed="false">Jakość i trwałość owocu</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-goal="start" aria-pressed="false">Start / wzrost</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-goal="przezyw" aria-pressed="false">Przeżywalność nasadzeń</button>
-                <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-goal="regen" aria-pressed="false">Regeneracja po stresie</button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Q4 (tylko dobór profesjonalny) -->
-          <article class="wf-card" data-q="q4" hidden>
-            <div class="wf-card__body wf-stack wf-stack--4">
-              <div class="wf-cluster wf-cluster--between">
-                <span class="wf-overline wf-t-tertiary">Pytanie 4 · dobór profesjonalny</span>
-                <span class="wf-inline wf-small wf-t-secondary" data-qpick hidden><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg><span data-qpick-label></span></span>
-              </div>
-              <div class="wf-stack wf-stack--2">
-                <h3 class="wf-h4">Czym dysponujesz i co już stosujesz?</h3>
-                <p class="wf-small wf-t-secondary">Sprzęt determinuje formę produktu; obecny program decyduje, czy nasz produkt zastępuje, czy dołącza. Krok opcjonalny — zestaw dodasz także bez niego.</p>
-              </div>
-              <div class="wf-stack wf-stack--3">
-                <span class="wf-label">Sprzęt do aplikacji</span>
-                <div class="wf-grid cw-opt-grid" style="--wf-grid-min: 12rem;" role="group" aria-label="Sprzęt do aplikacji">
-                  <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-sprzet="opryskiwacz" aria-pressed="false">Opryskiwacz</button>
-                  <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-sprzet="rozrzutnik" aria-pressed="false">Rozrzutnik</button>
-                  <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-sprzet="beczkowoz" aria-pressed="false">Beczkowóz</button>
-                  <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-sprzet="fertygacja" aria-pressed="false">Fertygacja / nawadnianie</button>
-                  <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-sprzet="recznie" aria-pressed="false">Ręcznie</button>
-                </div>
-              </div>
-              <div class="wf-stack wf-stack--3">
-                <span class="wf-label">Co już stosujesz?</span>
-                <div class="wf-grid cw-opt-grid" style="--wf-grid-min: 16rem;" role="group" aria-label="Obecny program">
-                  <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-obecny="npk" aria-pressed="false">NPK / nawozy mineralne</button>
-                  <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-obecny="obornik" aria-pressed="false">Obornik / nawozy naturalne</button>
-                  <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-obecny="biostymulanty" aria-pressed="false">Biostymulanty</button>
-                  <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-obecny="nic" aria-pressed="false">Nic / zaczynam</button>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <!-- WYNIK — ostatni krok: Twój dobór -->
-          <article class="wf-card cw-tier--lead" data-konfig-result hidden>
-            <div class="wf-card__body wf-stack wf-stack--5">
-              <div class="wf-cluster wf-cluster--between">
-                <span class="wf-overline wf-t-tertiary">Ostatni krok · Twój dobór</span>
-                <span class="wf-inline wf-small wf-t-secondary"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Gotowe</span>
-              </div>
-              <div class="wf-stack wf-stack--2" data-prog-summary></div>
-              <div class="wf-cluster wf-gap-2" data-prog-meta></div>
-              <div class="wf-divider"></div>
-              <ul class="wf-list wf-list--plain wf-stack wf-stack--5" data-prog-list></ul>
-              <div data-prog-howto></div>
-              <div class="wf-divider"></div>
-              <div data-prog-cta></div>
-            </div>
-          </article>
-
-          <!-- Nawigacja kreatora -->
-          <div class="cw-wizard__nav" aria-label="Nawigacja kreatora">
-            <button type="button" class="wf-btn wf-btn--ghost wf-inline" data-nav-back hidden><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-left"></use></svg> Wstecz</button>
-            <div class="cw-wizard__navend">
-              <span class="wf-small wf-t-tertiary" data-nav-hint></span>
-              <button type="button" class="wf-btn wf-btn--primary wf-inline" data-nav-next disabled>Dalej <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-right"></use></svg></button>
+        <!-- Q1 -->
+        <section class="cw-acc__item" data-q="q1" data-state="open" data-answered="false">
+          <h3 class="cw-acc__h"><button type="button" class="cw-acc__head" data-acc-head aria-expanded="true">
+            <span class="cw-acc__no" aria-hidden="true">1</span>
+            <span class="cw-acc__title">Co uprawiasz?</span>
+            <span class="cw-acc__pill" data-acc-pill hidden></span>
+            <svg class="wf-icon cw-acc__chev" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button></h3>
+          <div class="cw-acc__body" data-acc-body>
+            <p class="cw-acc__intro wf-small wf-t-secondary">Wstępnie rozpoznaje uprawę towarową od ogrodu i działki – potwierdzimy przy skali.</p>
+            <div class="wf-grid cw-opt-grid" style="--wf-grid-min: 13rem;" role="group" aria-label="Rodzaj uprawy">
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="sadownicze" data-label="Sad" data-reg="pro" aria-pressed="false">Sad</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="jagodowe" data-label="Jagodowe" data-reg="pro" aria-pressed="false">Jagodowe</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="warzywnicze" data-label="Warzywa" data-reg="pro" aria-pressed="false">Warzywa</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="zboza" data-label="Zboża / rzepak / kukurydza" data-reg="pro" aria-pressed="false">Zboża / kukurydza</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="zielen" data-label="Zieleń miejska" data-reg="pro" aria-pressed="false">Zieleń miejska</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="szkolki" data-label="Szkółka" data-reg="pro" aria-pressed="false">Szkółka</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="trawnik" data-label="Trawnik" data-reg="prywatny" aria-pressed="false">Trawnik</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="ogrod" data-label="Ogród / działka" data-reg="prywatny" aria-pressed="false">Ogród / działka</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="krzewy" data-label="Krzewy ozdobne / tuje" data-reg="prywatny" aria-pressed="false">Krzewy / tuje</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-crop="balkon" data-label="Balkon / donice" data-reg="prywatny" aria-pressed="false">Balkon / donice</button>
             </div>
           </div>
+        </section>
 
-      </div>
-    </div>
-  </section>
+          <!-- Q2 -->
+        <section class="cw-acc__item" data-q="q2" data-state="hidden" data-answered="false">
+          <h3 class="cw-acc__h"><button type="button" class="cw-acc__head" data-acc-head aria-expanded="false">
+            <span class="cw-acc__no" aria-hidden="true">2</span>
+            <span class="cw-acc__title">Jaka skala / powierzchnia uprawy?</span>
+            <span class="cw-acc__pill" data-acc-pill hidden></span>
+            <svg class="wf-icon cw-acc__chev" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button></h3>
+          <div class="cw-acc__body" data-acc-body>
+            <p class="cw-acc__intro wf-small wf-t-secondary">Ustala proponowane ilości i kanał zakupu; jednostki dopasowane do uprawy. Skala to tylko ilość i kanał – nie zmienia sposobu doboru produktów.</p>
+            <div class="wf-grid cw-opt-grid" style="--wf-grid-min: 16rem;" role="group" aria-label="Skala uprawy" data-konfig-scale></div>
+          </div>
+        </section>
 
-  <!-- ===== JAK CZYTAĆ DOBÓR ===== -->
-  <section class="wf-section">
-    <div class="wf-container wf-stack wf-stack--8">
-      <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Jak czytać dobór</span>
-        <h2 class="wf-h2">Krok po kroku, jedno pytanie na ekran</h2>
-        <p class="wf-lead wf-t-secondary">Przechodzisz kolejne kroki od lewej do prawej – łatwiej się skupić na jednej decyzji. Wracasz przyciskiem „Wstecz" albo klikając krok na pasku postępu. Na końcu, w „Twoim doborze", pojawia się zestaw: baza doglebowa plus uzupełnienia pod Twój cel, z ilościami, krótką agrotechniką i zakupem.</p>
-      </div>
-      <div class="wf-grid wf-grid--3" style="--wf-grid-min: 15rem;">
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2"><span class="wf-overline wf-t-tertiary">Baza</span><h3 class="wf-h5">Rdzeń doglebowy</h3><p class="wf-small wf-t-secondary">CARBOMAT lub CARBOHUMIC — fundament, który poprawia glebę na lata.</p></div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2"><span class="wf-overline wf-t-tertiary">Uzupełnienia</span><h3 class="wf-h5">Wsparcie nalistne</h3><p class="wf-small wf-t-secondary">MAXI PLUS, CALBOR — dokładają się do rdzenia pod konkretny cel.</p></div></article>
-        <article class="wf-card"><div class="wf-card__body wf-stack wf-stack--2"><span class="wf-overline wf-t-tertiary">Opcja</span><h3 class="wf-h5">Mikrobiologia</h3><p class="wf-small wf-t-secondary">EnFarma (partner) — ożywia glebę po regeneracji, gdy ma to sens.</p></div></article>
-      </div>
-      <div class="wf-alert">
-        <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
-        <div><span class="wf-alert__title">Ilości, dawki i ceny są poglądowe.</span> <span class="wf-small wf-t-secondary">Przeliczniki areał → ilość, mapowanie celu na produkty oraz dawki dostarczy Carbohort. Tu pokazujemy sam mechanizm doboru i sposób składania zestawu.</span></div>
+          <!-- Q3 -->
+        <section class="cw-acc__item" data-q="q3" data-state="hidden" data-answered="false">
+          <h3 class="cw-acc__h"><button type="button" class="cw-acc__head" data-acc-head aria-expanded="false">
+            <span class="cw-acc__no" aria-hidden="true">3</span>
+            <span class="cw-acc__title">Co chcesz poprawić?</span>
+            <span class="cw-acc__pill" data-acc-pill hidden></span>
+            <svg class="wf-icon cw-acc__chev" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button></h3>
+          <div class="cw-acc__body" data-acc-body>
+            <p class="cw-acc__intro wf-small wf-t-secondary">Wybiera bazę (rdzeń doglebowy) i uzupełnienia dopasowane do celu. Dobrane produkty pojawią się na końcu, w „Twoim doborze".</p>
+            <div class="wf-grid cw-opt-grid" style="--wf-grid-min: 13rem;" role="group" aria-label="Cel doboru">
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-goal="retencja" aria-pressed="false">Retencja wody / susza</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-goal="struktura" aria-pressed="false">Zbita gleba / struktura</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-goal="prochnica" aria-pressed="false">Próchnica / żyzność</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-goal="jakosc" aria-pressed="false">Jakość i trwałość owocu</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-goal="start" aria-pressed="false">Start / wzrost</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-goal="przezyw" aria-pressed="false">Przeżywalność nasadzeń</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-goal="regen" aria-pressed="false">Regeneracja po stresie</button>
+            </div>
+          </div>
+        </section>
+
+          <!-- Q4 (tylko dobór profesjonalny) — Sprzęt -->
+        <section class="cw-acc__item" data-q="q4" data-state="hidden" data-answered="false">
+          <h3 class="cw-acc__h"><button type="button" class="cw-acc__head" data-acc-head aria-expanded="false">
+            <span class="cw-acc__no" aria-hidden="true">4</span>
+            <span class="cw-acc__title">Czym aplikujesz?</span>
+            <span class="cw-acc__pill" data-acc-pill hidden></span>
+            <svg class="wf-icon cw-acc__chev" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button></h3>
+          <div class="cw-acc__body" data-acc-body>
+            <p class="cw-acc__intro wf-small wf-t-secondary">Sprzęt określa formę produktu – sypki czy płynny, doglebowo czy nalistnie.</p>
+            <div class="wf-grid cw-opt-grid" style="--wf-grid-min: 12rem;" role="group" aria-label="Sprzęt do aplikacji">
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-sprzet="opryskiwacz" aria-pressed="false">Opryskiwacz</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-sprzet="rozrzutnik" aria-pressed="false">Rozrzutnik</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-sprzet="beczkowoz" aria-pressed="false">Beczkowóz</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-sprzet="fertygacja" aria-pressed="false">Fertygacja / nawadnianie</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-sprzet="recznie" aria-pressed="false">Ręcznie</button>
+            </div>
+          </div>
+        </section>
+
+          <!-- Q5 (tylko dobór profesjonalny) — Program -->
+        <section class="cw-acc__item" data-q="q5" data-state="hidden" data-answered="false">
+          <h3 class="cw-acc__h"><button type="button" class="cw-acc__head" data-acc-head aria-expanded="false">
+            <span class="cw-acc__no" aria-hidden="true">5</span>
+            <span class="cw-acc__title">Co już stosujesz?</span>
+            <span class="cw-acc__pill" data-acc-pill hidden></span>
+            <svg class="wf-icon cw-acc__chev" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button></h3>
+          <div class="cw-acc__body" data-acc-body>
+            <p class="cw-acc__intro wf-small wf-t-secondary">Decyduje, czy nasz produkt zastępuje, czy dołącza do Twojego programu.</p>
+            <div class="wf-grid cw-opt-grid" style="--wf-grid-min: 16rem;" role="group" aria-label="Obecny program">
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-obecny="npk" aria-pressed="false">NPK / nawozy mineralne</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-obecny="obornik" aria-pressed="false">Obornik / nawozy naturalne</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-obecny="biostymulanty" aria-pressed="false">Biostymulanty</button>
+              <button type="button" class="wf-btn wf-btn--secondary cw-opt" data-obecny="nic" aria-pressed="false">Nic / zaczynam</button>
+            </div>
+          </div>
+        </section>
+
+          <!-- WYNIK — ostatnia zakładka: Twój dobór -->
+        <section class="cw-acc__item cw-tier--lead" data-q="result" data-state="hidden" data-answered="false">
+          <h3 class="cw-acc__h"><button type="button" class="cw-acc__head" data-acc-head aria-expanded="false">
+            <span class="cw-acc__no" aria-hidden="true"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg></span>
+            <span class="cw-acc__title">Twój dobór – dopasowane produkty</span>
+            <span class="cw-acc__pill" data-acc-pill hidden></span>
+            <svg class="wf-icon cw-acc__chev" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button></h3>
+          <div class="cw-acc__body" data-acc-body>
+            <div class="wf-stack wf-stack--1" data-prog-summary></div>
+            <div class="cw-prod-grid" data-prog-list></div>
+            <div data-prog-howto></div>
+            <div class="wf-divider"></div>
+            <div class="wf-stack wf-stack--3" data-prog-cta></div>
+            <div class="wf-cluster wf-cluster--between wf-gap-3">
+              <p class="wf-caption wf-t-tertiary" style="flex:1 1 18rem;">Ilości, dawki i ceny są poglądowe. Przeliczniki areał → ilość, mapowanie celu na produkty oraz dawki dostarczy Carbohort.</p>
+              <button type="button" class="wf-btn wf-btn--ghost wf-btn--sm wf-inline" data-konfig-restart><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-rotate"></use></svg> Zacznij od nowa</button>
+            </div>
+          </div>
+        </section>
+
       </div>
     </div>
   </section>
@@ -448,108 +413,104 @@
 
   var state = { crop: null, cropLabel: null, reg: null, scale: null, scaleLabel: null, ha: undefined, channel: null, goal: null, sprzet: null, sprzetLabel: null, obecny: null, obecnyLabel: null };
   var prog = [];                 /* [{id, packs, included, palette}] */
-  var current = "q1";            /* aktualny krok kreatora (jeden ekran = jedno pytanie) */
 
-  function qblock(id) { return id === "result" ? qs("[data-konfig-result]") : qs('[data-q="' + id + '"]'); }
-  /* ---- Model kreatora: kolejność kroków zależna od trybu (pro/prywatny) ---- */
-  function order() { return state.reg === "pro" ? ["q1", "q2", "q3", "q4", "result"] : ["q1", "q2", "q3", "result"]; }
+  /* ---- Model akordeonu: sekwencja pytań zależna od trybu (pro/prywatny) ---- */
+  function curSeq() { return state.reg === "pro" ? ["q1", "q2", "q3", "q4", "q5"] : ["q1", "q2", "q3"]; }
   function answered(id) {
-    if (id === "q1") return !!state.crop;
-    if (id === "q2") return !!state.scale;
-    if (id === "q3") return !!state.goal;
-    return true;               /* q4 = krok opcjonalny; result = zawsze dostępny po celu */
+    switch (id) {
+      case "q1": return !!state.crop;
+      case "q2": return !!state.scale;
+      case "q3": return !!state.goal;
+      case "q4": return !!state.sprzet;
+      case "q5": return !!state.obecny;
+      default: return true;
+    }
   }
-  function canEnter(id) {
-    var ord = order(), idx = ord.indexOf(id);
-    if (idx < 0) return false;
-    for (var i = 0; i < idx; i++) { if (!answered(ord[i])) return false; }
-    return true;
+  function firstUnanswered() {
+    var s = curSeq();
+    for (var i = 0; i < s.length; i++) { if (!answered(s[i])) return s[i]; }
+    return null;
   }
-  function showOnly(id) {
-    var ord = order();
-    ["q1", "q2", "q3", "q4", "result"].forEach(function (p) {
-      var el = qblock(p); if (!el) return;
-      el.hidden = !(ord.indexOf(p) !== -1 && p === id);
-    });
-  }
-  function goStep(id, focusHeading) {
-    if (!canEnter(id)) return;
-    current = id;
-    if (id === "result") { if (!prog.length) buildProgram(); renderPanel(); }
-    showOnly(id);
-    renderSteps();
-    renderNav();
-    var top = qs("[data-konfig-top]") || root;
-    try { top.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) {}
-    if (focusHeading !== false) {
-      var b = qblock(id), h = b && b.querySelector("h2, h3");
-      if (h) { h.setAttribute("tabindex", "-1"); try { h.focus({ preventScroll: true }); } catch (e) {} }
+  function pillText(id) {
+    switch (id) {
+      case "q1": return state.cropLabel || "";
+      case "q2": return state.scaleLabel || "";
+      case "q3": return state.goal ? KONFIG.goals[state.goal].label : "";
+      case "q4": return state.sprzetLabel || "";
+      case "q5": return state.obecnyLabel || "";
+      default: return "";
     }
   }
 
-  /* ---- Pasek postępu (wf-steps): done / current / upcoming + klikalne kroki ---- */
-  function renderSteps() {
-    var ord = order(), curIdx = ord.indexOf(current);
-    qsa("[data-step-pro]").forEach(function (el) { el.hidden = state.reg !== "pro"; });
-    qsa("[data-step]").forEach(function (li) {
-      var id = li.getAttribute("data-step"), idx = ord.indexOf(id);
-      li.classList.remove("wf-step--done", "wf-step--current", "wf-step--upcoming", "cw-step--clickable");
-      li.removeAttribute("aria-current");
-      if (idx === -1) { li.classList.add("wf-step--upcoming"); li.removeAttribute("tabindex"); li.removeAttribute("role"); return; }
-      if (id === current) { li.classList.add("wf-step--current"); li.setAttribute("aria-current", "step"); }
-      else if (idx < curIdx && answered(id)) li.classList.add("wf-step--done");
-      else li.classList.add("wf-step--upcoming");
-      if (id !== current && canEnter(id)) { li.classList.add("cw-step--clickable"); li.setAttribute("tabindex", "0"); li.setAttribute("role", "button"); }
-      else { li.removeAttribute("tabindex"); li.removeAttribute("role"); }
+  var reached = { q1: true };    /* które zakładki „wpadły" (są widoczne) */
+  var resultReached = false;
+  var openId = "q1";             /* jedyna rozwinięta zakładka */
+  var prevVisible = {};
+  var inited = false;
+  var ITEMS = ["q1", "q2", "q3", "q4", "q5", "result"];
+  function item(id) { return qs('[data-q="' + id + '"]'); }
+
+  /* ---- Render: widoczność + stan (open/collapsed/hidden) + pille odpowiedzi ---- */
+  function render() {
+    var seq = curSeq();
+    ITEMS.forEach(function (id) {
+      var el = item(id); if (!el) return;
+      var visible = id === "result" ? resultReached : (seq.indexOf(id) !== -1 && !!reached[id]);
+      if (!visible) { el.setAttribute("data-state", "hidden"); return; }
+      var st = id === openId ? "open" : "collapsed";
+      el.setAttribute("data-state", st);
+      var isAns = id !== "result" && answered(id);
+      el.setAttribute("data-answered", isAns ? "true" : "false");
+      var head = qs("[data-acc-head]", el); if (head) head.setAttribute("aria-expanded", st === "open" ? "true" : "false");
+      var pill = qs("[data-acc-pill]", el);
+      if (pill) { var pt = (isAns && st === "collapsed") ? pillText(id) : ""; pill.textContent = pt; pill.hidden = !pt; }
     });
+    /* animacja „wpadania" nowo pokazanych zakładek */
+    var now = {};
+    ITEMS.forEach(function (id) { var el = item(id); if (el && el.getAttribute("data-state") !== "hidden") now[id] = true; });
+    if (inited) {
+      Object.keys(now).forEach(function (id) {
+        if (!prevVisible[id]) { var el = item(id); el.classList.remove("cw-acc__item--enter"); void el.offsetWidth; el.classList.add("cw-acc__item--enter"); }
+      });
+    }
+    prevVisible = now;
   }
 
-  /* ---- Pasek nawigacji: Wstecz / Dalej / Pokaż dobór / Zacznij od nowa ---- */
-  function renderNav() {
-    var ord = order(), idx = ord.indexOf(current);
-    var back = qs("[data-nav-back]"), next = qs("[data-nav-next]"), hint = qs("[data-nav-hint]");
-    if (back) back.hidden = idx <= 0;
-    if (!next) return;
-    if (current === "result") {
-      next.className = "wf-btn wf-btn--secondary wf-inline";
-      next.disabled = false;
-      next.setAttribute("data-nav-role", "restart");
-      next.innerHTML = '<svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-rotate"></use></svg> Zacznij od nowa';
-      if (hint) hint.textContent = "";
+  function scrollOpenIntoView() {
+    var el = item(openId); if (!el) return;
+    try { el.scrollIntoView({ behavior: "smooth", block: "nearest" }); } catch (e) {}
+  }
+
+  /* ---- Auto-przejście po wyborze: rozwiń pierwsze nieodpowiedziane albo wynik ---- */
+  function afterSelect(invalidated) {
+    var seq = curSeq();
+    if (invalidated) { reached = { q1: true }; resultReached = false; prog = []; }
+    var next = firstUnanswered(), wasHidden;
+    if (next) {
+      var ni = seq.indexOf(next);
+      for (var i = 0; i <= ni; i++) reached[seq[i]] = true;
+      wasHidden = !prevVisible[next];
+      openId = next;
     } else {
-      next.className = "wf-btn wf-btn--primary wf-inline";
-      next.removeAttribute("data-nav-role");
-      var ok = current === "q4" ? true : answered(current);
-      next.disabled = !ok;
-      var isLast = idx === ord.length - 2;   /* ostatnie pytanie przed wynikiem */
-      next.innerHTML = (isLast ? "Pokaż dobór" : "Dalej") + ' <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-right"></use></svg>';
-      if (hint) hint.textContent = ok ? "" : "Wybierz opcję, aby przejść dalej";
+      seq.forEach(function (id) { reached[id] = true; });
+      if (!prog.length) buildProgram();
+      resultReached = true;
+      wasHidden = !prevVisible.result;
+      openId = "result";
+      renderResult();
     }
+    render();
+    if (wasHidden) scrollOpenIntoView();
   }
 
-  function goNext() {
-    if (current === "result") return;
-    var ord = order(), idx = ord.indexOf(current), nxt = ord[idx + 1];
-    if (nxt && (current === "q4" ? true : answered(current))) goStep(nxt);
-  }
-  function goBack() {
-    var ord = order(), idx = ord.indexOf(current);
-    if (idx > 0) goStep(ord[idx - 1]);
-  }
   function restart() {
     state = { crop: null, cropLabel: null, reg: null, scale: null, scaleLabel: null, ha: undefined, channel: null, goal: null, sprzet: null, sprzetLabel: null, obecny: null, obecnyLabel: null };
-    prog = [];
+    prog = []; reached = { q1: true }; resultReached = false; openId = "q1";
     qsa("[data-crop],[data-goal],[data-sprzet],[data-obecny]").forEach(function (o) { o.setAttribute("aria-pressed", "false"); });
-    ["q1", "q2", "q3", "q4"].forEach(function (id) { setAnswered(id, ""); });
-    renderScale(); renderPanel(); goStep("q1");
+    renderScale(); render();
+    var top = qs("[data-konfig-top]"); if (top) { try { top.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) {} }
   }
 
-  function setAnswered(qid, pick) {
-    var b = qs('[data-q="' + qid + '"]'); if (!b) return;
-    var wrap = qs("[data-qpick]", b), lbl = qs("[data-qpick-label]", b);
-    if (lbl) lbl.textContent = pick || "";
-    if (wrap) wrap.hidden = !pick;
-  }
   function markPressed(btn, sel) {
     qsa(sel).forEach(function (o) { o.setAttribute("aria-pressed", "false"); });
     if (btn) btn.setAttribute("aria-pressed", "true");
@@ -595,84 +556,49 @@
     return '<strong>Cena widoczna w zamówieniu</strong> <span class="wf-t-tertiary">Twoja cena po zalogowaniu w panelu B2B</span>';
   }
 
-  function metaChip(val, fallback) {
-    return val ? '<span class="wf-badge wf-badge--outline">' + esc(val) + '</span>'
-               : '<span class="wf-badge wf-badge--outline wf-t-tertiary">' + esc(fallback) + '</span>';
-  }
-
-  function renderPanel() {
-    /* Meta — wybrane parametry jako badge */
-    var meta = qs("[data-prog-meta]");
-    if (meta) {
-      var chips = [];
-      chips.push(metaChip(state.cropLabel, "uprawa"));
-      chips.push(metaChip(state.scaleLabel, "skala"));
-      chips.push(metaChip(state.goal ? KONFIG.goals[state.goal].label : null, "cel"));
-      if (state.reg) chips.push('<span class="wf-badge wf-badge--solid">' + (state.reg === "pro" ? "dobór profesjonalny" : "dla siebie") + '</span>');
-      meta.innerHTML = chips.join("");
-    }
-    /* Lista produktów */
-    var list = qs("[data-prog-list]");
-    if (list) {
-      if (!prog.length) {
-        list.innerHTML = '<li><div class="wf-empty"><svg class="wf-icon wf-icon--lg wf-icon--muted" aria-hidden="true"><use href="#ti-shopping-cart"></use></svg>' +
-          '<p class="wf-small wf-t-secondary">Odpowiadaj na pytania po prawej — dobrane produkty z ilościami pojawią się tutaj i będą narastać. Każdy produkt możesz odznaczyć albo zmienić liczbę opakowań.</p></div></li>';
-      } else {
-        list.innerHTML = prog.map(function (it, i) {
-          var p = KONFIG.products[it.id], note = noteFor(it.id);
-          var qty = it.palette
-            ? '<p class="wf-small wf-t-secondary">Paleta — zapytaj o ofertę (duża skala).</p>'
-            : '<div class="cw-qty">' +
-                '<button type="button" class="wf-btn wf-btn--secondary wf-btn--icon wf-btn--sm" data-prog-dec="' + i + '" aria-label="Mniej opakowań: ' + esc(p.name) + '"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-minus"></use></svg></button>' +
-                '<span class="wf-w-semibold" data-prog-qty="' + i + '" aria-hidden="true">' + it.packs + '</span>' +
-                '<button type="button" class="wf-btn wf-btn--secondary wf-btn--icon wf-btn--sm" data-prog-inc="' + i + '" aria-label="Więcej opakowań: ' + esc(p.name) + '"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-plus"></use></svg></button>' +
-                '<span class="wf-small wf-t-secondary">' + it.packs + ' × ' + esc(p.packLabel) + ' (przelicznik poglądowy)</span></div>';
-          return '<li class="cw-prog-item' + (it.included ? "" : " cw-prog-item--off") + '">' +
-            '<label class="cw-prog-item__pick"><input type="checkbox" class="wf-checkbox" data-prog-toggle="' + i + '"' + (it.included ? " checked" : "") + ' aria-label="' + (it.included ? "W zestawie" : "Poza zestawem") + ": " + esc(p.name) + '"></label>' +
-            '<span class="wf-ph wf-ph--1x1 cw-prog-item__ph" aria-hidden="true"></span>' +
-            '<div class="wf-stack wf-stack--2 cw-prog-item__body">' +
-              '<span class="wf-overline wf-t-tertiary">' + esc(p.kind) + '</span>' +
-              '<h3 class="wf-h5">' + esc(p.name) + '</h3>' +
-              '<p class="wf-small wf-t-secondary">' + esc(p.mech) + '</p>' +
-              qty +
-              '<p class="wf-small">' + priceHTML(it) + '</p>' +
-              (note ? '<p class="wf-inline wf-small wf-t-secondary"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg>' + esc(note) + '</p>' : "") +
-            '</div></li>';
-        }).join("");
-      }
-    }
-    /* „Jak stosować — mała agrotechnika": jak użyć zestawu w tym konkretnym przypadku */
-    var howto = qs("[data-prog-howto]");
-    if (howto) {
-      var inc = includedItems();
-      if (!inc.length) { howto.innerHTML = ""; }
-      else {
-        var bullets = inc.map(function (it) { var p = KONFIG.products[it.id]; return '<li class="wf-small"><span class="wf-w-semibold">' + esc(p.name) + '</span> – ' + esc(p.agro) + '</li>'; }).join("");
-        var ctx = [state.cropLabel, state.goal ? KONFIG.goals[state.goal].label : null].filter(Boolean).join(" · ");
-        howto.innerHTML = '<div class="wf-stack wf-stack--3">' +
-          '<div class="wf-stack wf-stack--1"><h3 class="wf-h5">Jak stosować – mała agrotechnika</h3>' +
-          (ctx ? '<p class="wf-small wf-t-secondary">Dla: ' + esc(ctx) + ' – krótki sposób użycia dobranego zestawu.</p>' : '') + '</div>' +
-          '<ul class="wf-list wf-stack wf-stack--2">' + bullets + '</ul>' +
-          '<p class="wf-caption wf-t-secondary">Dawki i terminy poglądowe – dopracuje je Carbohort / dr Jurek pod Twoje warunki.</p></div>';
-      }
-    }
-    renderResultExtras();
-  }
-
-  /* Wynik (ostatni krok): nagłówek podsumowania + rozgałęziony CTA zakupu. */
-  function renderResultExtras() {
+  /* ---- Wynik: karty produktów (2–3/wiersz) + agrotechnika + CTA zakupu ---- */
+  function renderResult() {
+    if (!state.goal) return;
     var inc = includedItems();
     var summary = qs("[data-prog-summary]");
     if (summary) {
-      if (!state.goal) { summary.innerHTML = ""; }
+      summary.innerHTML = '<h3 class="wf-h4" tabindex="-1">Dopasowany zestaw – ' + inc.length + ' ' + plural(inc.length) + '</h3>' +
+        '<p class="wf-small wf-t-secondary">' + esc([state.cropLabel, state.scaleLabel, KONFIG.goals[state.goal].label].filter(Boolean).join(" · ")) + ' – baza doglebowa plus uzupełnienia pod Twój cel. Ilości i produkty dostosujesz niżej.</p>';
+    }
+    var list = qs("[data-prog-list]");
+    if (list) {
+      list.innerHTML = prog.map(function (it, i) {
+        var p = KONFIG.products[it.id], note = noteFor(it.id);
+        var qty = it.palette
+          ? '<p class="wf-small wf-t-secondary">Paleta — zapytaj o ofertę (duża skala).</p>'
+          : '<div class="cw-qty"><button type="button" class="wf-btn wf-btn--secondary wf-btn--icon wf-btn--sm" data-prog-dec="' + i + '" aria-label="Mniej opakowań: ' + esc(p.name) + '"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-minus"></use></svg></button>' +
+              '<span class="wf-w-semibold" data-prog-qty="' + i + '">' + it.packs + '</span>' +
+              '<button type="button" class="wf-btn wf-btn--secondary wf-btn--icon wf-btn--sm" data-prog-inc="' + i + '" aria-label="Więcej opakowań: ' + esc(p.name) + '"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-plus"></use></svg></button></div>' +
+              '<p class="wf-caption wf-t-tertiary">' + it.packs + ' × ' + esc(p.packLabel) + ' (poglądowo)</p>';
+        return '<div class="cw-prod-card' + (it.included ? "" : " cw-prod-card--off") + '">' +
+          '<div class="cw-prod-card__top"><span class="wf-overline wf-t-tertiary">' + esc(p.kind) + '</span>' +
+          '<label class="cw-prod-card__pick"><input type="checkbox" class="wf-checkbox" data-prog-toggle="' + i + '"' + (it.included ? " checked" : "") + ' aria-label="' + (it.included ? "W zestawie" : "Poza zestawem") + ": " + esc(p.name) + '"></label></div>' +
+          '<h4 class="wf-h5">' + esc(p.name) + '</h4>' +
+          '<p class="wf-small wf-t-secondary">' + esc(p.mech) + '</p>' + qty +
+          '<p class="wf-small">' + priceHTML(it) + '</p>' +
+          (note ? '<p class="wf-inline wf-small wf-t-secondary"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg>' + esc(note) + '</p>' : "") +
+          '</div>';
+      }).join("");
+    }
+    var howto = qs("[data-prog-howto]");
+    if (howto) {
+      if (!inc.length) { howto.innerHTML = ""; }
       else {
-        summary.innerHTML = '<h2 class="wf-h3" tabindex="-1">Twój zestaw – ' + inc.length + ' ' + plural(inc.length) + '</h2>' +
-          '<p class="wf-small wf-t-secondary">' + esc([state.cropLabel, state.scaleLabel, KONFIG.goals[state.goal].label].filter(Boolean).join(" · ")) + ' – skomponowany pod Twoje odpowiedzi. Ilości i produkty zmienisz niżej albo wracając do wcześniejszych kroków.</p>';
+        var bullets = inc.map(function (it) { var p = KONFIG.products[it.id]; return '<li class="wf-small"><span class="wf-w-semibold">' + esc(p.name) + '</span> – ' + esc(p.agro) + '</li>'; }).join("");
+        var ctx = [state.cropLabel, KONFIG.goals[state.goal].label].filter(Boolean).join(" · ");
+        howto.innerHTML = '<div class="wf-stack wf-stack--3"><div class="wf-divider"></div>' +
+          '<div class="wf-stack wf-stack--1"><h4 class="wf-h5">Jak stosować – mała agrotechnika</h4>' +
+          (ctx ? '<p class="wf-small wf-t-secondary">Dla: ' + esc(ctx) + ' – krótki sposób użycia dobranego zestawu.</p>' : '') + '</div>' +
+          '<ul class="wf-list wf-stack wf-stack--2">' + bullets + '</ul></div>';
       }
     }
     var ctaMount = qs("[data-prog-cta]");
     if (ctaMount) {
-      if (!state.goal) { ctaMount.innerHTML = ""; return; }
       var hasPalette = inc.some(function (it) { return it.palette; });
       var cta;
       if (state.reg === "prywatny") {
@@ -683,7 +609,7 @@
               '<button type="button" class="wf-btn wf-btn--secondary wf-btn--block" data-konfig-checkout>Kup w sklepie po cenie standardowej</button>' +
               '<a class="wf-btn wf-btn--ghost wf-btn--block wf-inline" href="kontakt.html"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-message-2"></use></svg> Skontaktuj się (większe zamówienia)</a>';
       }
-      ctaMount.innerHTML = '<div class="wf-stack wf-stack--3">' + cta + '</div>';
+      ctaMount.innerHTML = cta;
     }
   }
   function plural(n) { return n === 1 ? "produkt" : (n >= 2 && n <= 4 ? "produkty" : "produktów"); }
@@ -703,71 +629,68 @@
     setTimeout(function () { location.href = "koszyk.html"; }, 300);
   }
 
+  /* ---- Wybór odpowiedzi → aktualizacja stanu; auto-przejście robi afterSelect ---- */
+  function onOption(opt) {
+    if (opt.hasAttribute("data-crop")) {
+      var prevReg = state.reg;
+      markPressed(opt, "[data-crop]");
+      state.crop = opt.getAttribute("data-crop"); state.cropLabel = opt.getAttribute("data-label"); state.reg = opt.getAttribute("data-reg");
+      var regChanged = !!prevReg && prevReg !== state.reg;
+      if (regChanged) { state.scale = null; state.scaleLabel = null; state.ha = undefined; state.channel = null; renderScale(); }
+      afterSelect(regChanged);
+    } else if (opt.hasAttribute("data-scale")) {
+      markPressed(opt, "[data-scale]");
+      var arr = state.reg === "prywatny" ? KONFIG.scalesPrywatny : KONFIG.scalesPro;
+      var s = arr.filter(function (x) { return x.id === opt.getAttribute("data-scale"); })[0];
+      var spn = opt.querySelector("span");
+      state.scale = s.id; state.scaleLabel = (spn ? spn.textContent : opt.textContent).trim(); state.ha = s.ha; state.channel = s.channel;
+      if (state.goal) { if (prog.length) recomputePacks(); else buildProgram(); }
+      afterSelect(false);
+    } else if (opt.hasAttribute("data-goal")) {
+      markPressed(opt, "[data-goal]");
+      state.goal = opt.getAttribute("data-goal"); buildProgram();
+      afterSelect(false);
+    } else if (opt.hasAttribute("data-sprzet")) {
+      markPressed(opt, "[data-sprzet]"); state.sprzet = opt.getAttribute("data-sprzet"); state.sprzetLabel = opt.textContent.trim();
+      afterSelect(false);
+    } else if (opt.hasAttribute("data-obecny")) {
+      markPressed(opt, "[data-obecny]"); state.obecny = opt.getAttribute("data-obecny"); state.obecnyLabel = opt.textContent.trim();
+      afterSelect(false);
+    }
+  }
+
   /* ---- Zdarzenia ---- */
   root.addEventListener("click", function (e) {
     var t = e.target;
-    /* Nawigacja: klik na krok paska postępu (jeśli osiągalny) */
-    var stepLi = t.closest ? t.closest("[data-step]") : null;
-    if (stepLi && stepLi.classList.contains("cw-step--clickable")) { goStep(stepLi.getAttribute("data-step")); return; }
-    /* Nawigacja: Wstecz / Dalej / Zacznij od nowa */
-    if (t.closest && t.closest("[data-nav-back]")) { goBack(); return; }
-    var navNext = t.closest ? t.closest("[data-nav-next]") : null;
-    if (navNext) { if (navNext.getAttribute("data-nav-role") === "restart") restart(); else goNext(); return; }
-
-    /* Wybór odpowiedzi w pytaniu (bez auto-przejścia — użytkownik klika „Dalej") */
-    var opt = t.closest ? t.closest("[data-crop],[data-scale],[data-goal],[data-sprzet],[data-obecny]") : null;
-    if (opt) {
-      if (opt.hasAttribute("data-crop")) {
-        var prevReg = state.reg;
-        markPressed(opt, "[data-crop]");
-        state.crop = opt.getAttribute("data-crop"); state.cropLabel = opt.getAttribute("data-label"); state.reg = opt.getAttribute("data-reg");
-        setAnswered("q1", state.cropLabel);
-        if (prevReg && prevReg !== state.reg) { state.scale = null; state.scaleLabel = null; state.ha = undefined; state.channel = null; setAnswered("q2", ""); }
-        renderScale(); if (state.goal) recomputePacks(); renderPanel();
-      } else if (opt.hasAttribute("data-scale")) {
-        markPressed(opt, "[data-scale]");
-        var arr = state.reg === "prywatny" ? KONFIG.scalesPrywatny : KONFIG.scalesPro;
-        var s = arr.filter(function (x) { return x.id === opt.getAttribute("data-scale"); })[0];
-        var spn = opt.querySelector("span");
-        state.scale = s.id; state.scaleLabel = (spn ? spn.textContent : opt.textContent).trim(); state.ha = s.ha; state.channel = s.channel;
-        setAnswered("q2", state.scaleLabel);
-        if (state.goal) recomputePacks();
-        renderPanel();
-      } else if (opt.hasAttribute("data-goal")) {
-        markPressed(opt, "[data-goal]");
-        state.goal = opt.getAttribute("data-goal");
-        setAnswered("q3", KONFIG.goals[state.goal].label);
-        buildProgram(); renderPanel();
-      } else if (opt.hasAttribute("data-sprzet")) {
-        markPressed(opt, "[data-sprzet]"); state.sprzet = opt.getAttribute("data-sprzet"); state.sprzetLabel = opt.textContent.trim();
-        setAnswered("q4", [state.sprzetLabel, state.obecnyLabel].filter(Boolean).join(" · ")); renderPanel();
-      } else if (opt.hasAttribute("data-obecny")) {
-        markPressed(opt, "[data-obecny]"); state.obecny = opt.getAttribute("data-obecny"); state.obecnyLabel = opt.textContent.trim();
-        setAnswered("q4", [state.sprzetLabel, state.obecnyLabel].filter(Boolean).join(" · ")); renderPanel();
+    /* Klik w nagłówek zakładki → rozwiń (podgląd / edycja) */
+    var head = t.closest ? t.closest("[data-acc-head]") : null;
+    if (head) {
+      var it = head.closest("[data-q]");
+      if (it && it.getAttribute("data-state") !== "hidden") {
+        var id = it.getAttribute("data-q");
+        if (id && id !== openId) { openId = id; render(); }
       }
-      renderSteps(); renderNav();
       return;
     }
+    /* Wybór odpowiedzi → auto-przejście */
+    var opt = t.closest ? t.closest("[data-crop],[data-scale],[data-goal],[data-sprzet],[data-obecny]") : null;
+    if (opt) { onOption(opt); return; }
+    /* Ilości opakowań w wyniku */
     var inc = t.closest ? t.closest("[data-prog-inc]") : null;
-    if (inc) { var i = +inc.getAttribute("data-prog-inc"); if (prog[i] && !prog[i].palette) { prog[i].packs++; renderPanel(); } return; }
+    if (inc) { var i = +inc.getAttribute("data-prog-inc"); if (prog[i] && !prog[i].palette) { prog[i].packs++; renderResult(); } return; }
     var dec = t.closest ? t.closest("[data-prog-dec]") : null;
-    if (dec) { var j = +dec.getAttribute("data-prog-dec"); if (prog[j] && !prog[j].palette && prog[j].packs > 1) { prog[j].packs--; renderPanel(); } return; }
+    if (dec) { var j = +dec.getAttribute("data-prog-dec"); if (prog[j] && !prog[j].palette && prog[j].packs > 1) { prog[j].packs--; renderResult(); } return; }
+    if (t.closest && t.closest("[data-konfig-restart]")) { restart(); return; }
     if (t.closest && t.closest("[data-konfig-checkout]")) { e.preventDefault(); doCheckout(); return; }
   });
 
-  /* Klawiatura: krok paska postępu jako przycisk (Enter / Spacja) */
-  root.addEventListener("keydown", function (e) {
-    var li = e.target.closest ? e.target.closest("[data-step]") : null;
-    if (li && li.classList.contains("cw-step--clickable") && (e.key === "Enter" || e.key === " ")) {
-      e.preventDefault(); goStep(li.getAttribute("data-step"));
-    }
-  });
+  /* Nagłówki zakładek są natywnymi <button> — Enter/Spacja działają bez dodatkowego kodu. */
 
   root.addEventListener("change", function (e) {
     var cb = e.target.closest ? e.target.closest("[data-prog-toggle]") : null;
     if (!cb) return;
     var i = +cb.getAttribute("data-prog-toggle");
-    if (prog[i]) { prog[i].included = cb.checked; renderPanel(); }
+    if (prog[i]) { prog[i].included = cb.checked; renderResult(); }
   });
 
   /* ---- Deep-link: ?crop=slug (alias toleruje skróty) ---- */
@@ -776,11 +699,11 @@
     var m = (location.search.match(/[?&]crop=([^&]+)/) || [])[1];
     if (!m) return;
     m = decodeURIComponent(m); m = CROP_ALIAS[m] || m;
-    var btn = qs('[data-crop="' + m + '"]'); if (btn) { btn.click(); goStep("q2"); }
+    var btn = qs('[data-crop="' + m + '"]'); if (btn) btn.click();   /* onOption → afterSelect przejdzie do q2 */
   }
 
-  /* Init: pokaż pierwszy krok, bez auto-przewijania strony */
-  renderScale(); showOnly("q1"); renderPanel(); renderSteps(); renderNav(); prefill();
+  /* Init: pierwsza zakładka otwarta, bez auto-przewijania strony */
+  renderScale(); render(); inited = true; prefill();
 })();
 </script>
 </body>

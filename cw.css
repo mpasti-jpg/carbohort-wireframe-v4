@@ -206,17 +206,44 @@
 .cw-scrollx { overflow-x: auto; }
 
 /* --- Konfigurator (state machine) — composed from wf-* primitives ------- */
-/* Kreator „krok po kroku": jeden ekran = jedno pytanie, wyśrodkowana kolumna,
-   pasek postępu na górze i pasek nawigacji (Wstecz / Dalej) na dole. Wynik to
-   ostatni krok: Twój dobór (produkty + agrotechnika + zakup). */
-.cw-wizard { max-width: 56rem; margin-inline: auto; display: flex; flex-direction: column; gap: var(--w-space-6); }
-/* Krok = jeden ekran: [hidden] musi wygrać z display:flex kart/przycisków wf-* */
-.cw-wizard [hidden] { display: none !important; }
-.cw-konfig__steps { overflow-x: auto; }               /* mieści 5 kroków; na wąskich ekranach przewija się w poziomie */
-.cw-step--clickable { cursor: pointer; }
-.cw-step--clickable:hover .wf-step__node { border-color: var(--w-text-primary); color: var(--w-text-primary); }
-.cw-wizard__nav { display: flex; align-items: center; gap: var(--w-space-4); }
-.cw-wizard__navend { display: flex; align-items: center; gap: var(--w-space-3); margin-left: auto; }
+/* Kreator = STOS AKORDEONÓW. Nowe pytania „wpadają" od dołu; odpowiedziane
+   zostają zwinięte z pillem odpowiedzi po prawej; klik w nagłówek = edycja.
+   Brak przycisku „Dalej" — auto-przejście po wyborze. Ostatnia zakładka =
+   Twój dobór (produkty 2–3/wiersz + agrotechnika + zakup). */
+.cw-acc { max-width: 60rem; margin-inline: auto; display: flex; flex-direction: column; gap: var(--w-space-4); }
+.cw-acc [hidden] { display: none !important; }        /* [hidden] musi wygrać z display:flex wf-* */
+.cw-acc__item { border: 1px solid var(--w-border-default); border-radius: var(--w-radius-lg);
+  background: var(--w-surface-page); scroll-margin-top: calc(72px + var(--w-space-4)); }
+.cw-acc__item[data-state="hidden"] { display: none; }
+.cw-acc__item.cw-tier--lead { border-color: var(--w-border-strong); border-width: 2px; }
+.cw-acc__h { margin: 0; }
+.cw-acc__head { display: flex; align-items: center; gap: var(--w-space-4); width: 100%;
+  padding: var(--w-space-5) var(--w-space-6); background: none; border: 0; cursor: pointer;
+  text-align: left; color: inherit; font: inherit; border-radius: var(--w-radius-lg); }
+.cw-acc__item[data-state="open"] .cw-acc__head { cursor: default; }
+.cw-acc__no { flex: none; min-width: 1.5rem; font-size: var(--w-font-h5-size); font-weight: var(--w-weight-bold);
+  color: var(--w-text-tertiary); font-variant-numeric: tabular-nums; display: inline-flex; align-items: center; }
+.cw-acc__item[data-answered="true"] .cw-acc__no, .cw-acc__item[data-state="open"] .cw-acc__no { color: var(--w-text-primary); }
+.cw-acc__title { flex: 1 1 auto; font-size: var(--w-font-h4-size); line-height: var(--w-font-h4-lh); font-weight: var(--w-weight-semibold); }
+.cw-acc__pill { flex: none; max-width: 45%; padding: var(--w-space-1) var(--w-space-3); border: 1px solid var(--w-border-strong);
+  border-radius: var(--w-radius-pill); font-size: var(--w-font-sm-size); font-weight: var(--w-weight-medium);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cw-acc__chev { flex: none; color: var(--w-icon-muted); transition: transform .2s ease; }
+.cw-acc__item[data-state="open"] .cw-acc__chev { transform: rotate(180deg); }
+.cw-acc__body { padding: 0 var(--w-space-6) var(--w-space-6); display: flex; flex-direction: column; gap: var(--w-space-4); }
+.cw-acc__item[data-state="collapsed"] .cw-acc__body { display: none; }
+.cw-acc__intro { margin: 0; }
+/* „wpadanie" nowej zakładki od dołu */
+@keyframes cw-acc-fall { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+.cw-acc__item--enter { animation: cw-acc-fall .4s cubic-bezier(.2,.7,.3,1); }
+/* Wynik: karty produktów 2–3 w wierszu (przy >3 zawijają się do 2 rzędów) */
+.cw-prod-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: var(--w-space-4); }
+.cw-prod-card { display: flex; flex-direction: column; gap: var(--w-space-2); padding: var(--w-space-5);
+  border: 1px solid var(--w-border-default); border-radius: var(--w-radius-md); background: var(--w-surface-raised); }
+.cw-prod-card--off { opacity: 0.55; }
+.cw-prod-card__top { display: flex; align-items: center; justify-content: space-between; gap: var(--w-space-2); }
+.cw-prod-card__pick { display: inline-flex; align-items: center; min-height: var(--w-tap-min); cursor: pointer; }
+@media (prefers-reduced-motion: reduce) { .cw-acc__item--enter { animation: none; } .cw-acc__chev { transition: none; } }
 
 /* Option button grid (Q1–Q4). Buttons wrap multi-line, left-aligned, taller
    than a control. Selected = filled-dark (aria-pressed) + weight — never hue. */

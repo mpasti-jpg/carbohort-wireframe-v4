@@ -80,10 +80,10 @@
   display: flex; align-items: center; justify-content: space-between; gap: var(--w-space-4);
 }
 
-/* Mega „Nasze produkty": 3 wydzielone ramką boxy rodzin + kolumna „wg potrzeby". */
+/* Mega „Nasze produkty": 4 wydzielone ramką boxy rodzin + kolumna „wg potrzeby". */
 .cw-mega__layout {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(160px, 0.82fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(150px, 0.72fr);
   gap: var(--w-space-4);
   align-items: stretch;
 }
@@ -92,10 +92,11 @@
   border: 1px solid var(--w-border-default); border-radius: var(--w-radius-md);
   padding: var(--w-space-4);
 }
-.cw-prodbox > .wf-overline { white-space: nowrap; }
+/* Przy 4 boxach overline musi się zawijać (np. „Płynne · doglebowe i nalistne"). */
+.cw-prodbox > .wf-overline { white-space: normal; }
 .cw-prodbox > .wf-btn { margin-top: auto; align-self: flex-start; }
-/* Wyraźny odstęp kolumny „Wg potrzeby" od trzeciego boxu (≥ ~48px). */
-.cw-mega__needs { display: flex; flex-direction: column; padding-left: var(--w-space-12); }
+/* Wyraźny odstęp kolumny „Wg potrzeby" od ostatniego boxu (~32px przy 4 boxach). */
+.cw-mega__needs { display: flex; flex-direction: column; padding-left: var(--w-space-8); }
 
 /* Wyraźny odstęp nagłówka kolumny od jej listy (obie mega-menu). */
 .cw-mega__list { display: flex; flex-direction: column; gap: var(--w-space-2); margin-top: var(--w-space-4); }
@@ -188,7 +189,9 @@
   align-items: start;
 }
 @media (max-width: 768px) {
-  .cw-cart-grid { grid-template-columns: 1fr; gap: var(--w-space-6); }
+  /* minmax(0,…) jak w wariancie desktop: goły 1fr = minmax(auto,1fr), a min-content
+     karty z tabelą (523px) rozpychał kolumnę i scrollowała strona, nie wrapper. */
+  .cw-cart-grid { grid-template-columns: minmax(0, 1fr); gap: var(--w-space-6); }
 }
 
 /* --- Chat bubbles inside dr Jurek panel (demo) ------------------------- */
@@ -200,10 +203,13 @@
 }
 .cw-msg--user { align-self: flex-end; background: var(--w-surface-inverse); color: var(--w-text-inverse); border-color: var(--w-surface-inverse); }
 
-/* --- Scoped horizontal scroll for wide admin tables --------------------- */
+/* --- Scoped horizontal scroll for wide tables (admin + treść) ----------- */
 /* DS §5a: keep one source of truth, make the region keyboard-scrollable
-   (paired with tabindex="0" on the element). No new colour/shape. */
-.cw-scrollx { overflow-x: auto; }
+   (paired with tabindex="0" on the element). No new colour/shape.
+   position:relative = containing block dla absolutnych potomków (kitowy
+   .wf-sr-only jest position:absolute i bez tego ucieka z regionu scrolla,
+   rozciągając scrollWidth strony – patrz koszyk „Akcje" na 375px). */
+.cw-scrollx { overflow-x: auto; position: relative; }
 
 /* --- Konfigurator (state machine) — composed from wf-* primitives ------- */
 /* Kreator = STOS AKORDEONÓW. Nowe pytania „wpadają" od dołu; odpowiedziane
@@ -271,6 +277,25 @@
 .cw-prog-item__ph { width: 56px; }
 .cw-prog-item--off { opacity: 0.55; }
 .cw-prog-item--off .cw-prog-item__ph { opacity: 0.7; }
+
+/* --- Mobile <=599px: treść nie może rozpychać strony (poziomy scroll) ----
+   Kit (nietykalny wendor) trzyma .wf-btn w white-space:nowrap + sztywnym
+   height, a .wf-display ma stałe 56px – na 375px długie CTA i długie słowa
+   H1 generują poziomy scroll strony. Reguły tylko dla treści (<main>);
+   chrome (navbar/hamburger/dock/stopka) zostaje jak w kicie. Wzorzec
+   przeniesiony z Layout V2 (carbomat-v2.html ma to samo w inline #main). */
+@media (max-width: 599px) {
+  main .wf-btn { white-space: normal; height: auto; min-height: var(--w-control-h-md); padding-block: var(--w-space-2); }
+  main .wf-btn--sm { min-height: var(--w-control-h-sm); }
+  main .wf-btn--lg { min-height: var(--w-control-h-lg); }
+  main .wf-btn--link { min-height: 0; padding-block: 0; }  /* kit: height:auto; padding:0 */
+  main .wf-segmented > .wf-btn { white-space: nowrap; min-height: 0; padding-block: 0; }  /* zwarty przełącznik jak w kicie */
+  main .wf-display { font-size: var(--w-font-h1-size); line-height: var(--w-font-h1-lh); }
+  /* Stepper (wf-steps) bywa szerszy niż 375 – region przewijany wg DS §5a
+     (tabindex="0" w HTML tam, gdzie realnie scrolluje); kroki bez ściskania. */
+  main .wf-steps { overflow-x: auto; }
+  main .wf-steps > * { flex: none; }
+}
 
 /* --- Reduced motion ----------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {

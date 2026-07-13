@@ -3,112 +3,225 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CARBOMAT – sypki lignit do odbudowy gleby · propozycja V2 | Carbohort</title>
-<meta name="description" content="Propozycja V2 strony CARBOMAT: pełnoekranowe hero, porównanie ECO i ściółki w kolumnach, sekcja naukowa, gama produktów i oś sezonu. Surowy polski lignit – baza doglebowa na lata.">
+<title>CARBOMAT ECO – surowy polski lignit do trwałej poprawy gleby | Carbohort</title>
+<meta name="description" content="CARBOMAT ECO: surowy polski lignit – jeden składnik, który pracuje w glebie latami. Dwa warianty (dodatek do gleby i CARBOMAT ECO Ściółka), pięć faktów o surowcu, najprostsze recepty stosowania i kalkulator dawki.">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="wireframe.css">
 <link rel="stylesheet" href="cw.css">
 <style>
-/* ===== CARBOMAT V2 – style eksperymentalne (tylko ta strona, wyłącznie tony neutralne + tokeny) ===== */
-.cw2-hero{position:relative;display:flex;align-items:flex-end;min-height:calc(100svh - 72px);overflow:hidden;background:var(--w-surface-inverse);}
-.cw2-hero__bg{position:absolute;inset:0;}
-.cw2-hero__bg .wf-ph{position:absolute;inset:0;height:100%;width:100%;border-radius:0;}
-.cw2-hero__bg .wf-ph__label{position:absolute;right:var(--w-space-4);bottom:var(--w-space-4);left:auto;top:auto;max-width:44ch;text-align:right;opacity:.7;}
-.cw2-hero__shade{position:absolute;inset:0;background:linear-gradient(180deg, rgb(0 0 0 / 0.20) 0%, rgb(0 0 0 / 0.36) 52%, rgb(0 0 0 / 0.78) 100%);}
-.cw2-hero__crumb{position:absolute;top:var(--w-space-5);left:0;right:0;z-index:2;}
-.cw2-hero__crumb .wf-link--quiet,.cw2-hero__crumb li,.cw2-hero__crumb .wf-breadcrumb__sep{color:var(--w-text-inverse);}
-.cw2-hero__content{position:relative;z-index:1;width:100%;padding-top:var(--w-space-24);padding-bottom:var(--w-space-16);}
-.cw2-btn-solid-inverse{background:var(--w-surface-page);border-color:var(--w-surface-page);color:var(--w-text-primary);}
-.cw2-btn-solid-inverse:hover{background:var(--w-gray-100);border-color:var(--w-gray-100);}
-.cw2-btn-outline-inverse{background:transparent;border:1px solid var(--w-border-inverse);color:var(--w-text-inverse);}
-.cw2-btn-outline-inverse:hover{background:rgb(255 255 255 / 0.14);}
-.cw2-scrollcue{position:absolute;left:50%;bottom:var(--w-space-4);z-index:2;color:var(--w-text-inverse);opacity:.85;animation:cw2bounce 2.2s infinite;}
-@keyframes cw2bounce{0%,100%{transform:translate(-50%,0);}50%{transform:translate(-50%,8px);}}
-/* Pionowa specyfikacja produktu (etykieta po lewej, wartość po prawej) */
-.cw2-spec{margin:0;display:flex;flex-direction:column;}
-.cw2-spec__row{display:grid;grid-template-columns:minmax(7rem,36%) 1fr;gap:var(--w-space-3);padding:var(--w-space-3) 0;border-top:1px solid var(--w-border-subtle);}
-.cw2-spec dt{font-size:var(--w-font-small);color:var(--w-text-tertiary);}
-.cw2-spec dd{margin:0;font-size:var(--w-font-small);color:var(--w-text-primary);}
-/* Kafle statystyk */
-.cw2-stat{border:1px solid var(--w-border-default);border-radius:var(--w-radius-md);padding:var(--w-space-6);display:flex;flex-direction:column;gap:var(--w-space-2);background:var(--w-surface-page);}
-.cw2-stat__num{font-size:var(--w-font-h1);line-height:1.05;font-weight:var(--w-weight-bold);letter-spacing:-0.02em;}
-/* Pozioma oś sezonu */
-.cw2-tl{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--w-space-6);}
-.cw2-tl::before{content:"";position:absolute;top:7px;left:calc(100%/6);right:calc(100%/6);height:2px;background:var(--w-border-strong);}
-.cw2-tl__node{position:relative;display:flex;flex-direction:column;gap:var(--w-space-3);}
-.cw2-tl__dot{width:16px;height:16px;border-radius:var(--w-radius-circle);background:var(--w-surface-page);border:3px solid var(--w-gray-900);position:relative;z-index:1;margin:0 auto;}
-.cw2-tl__node>*:not(.cw2-tl__dot){text-align:center;}
-.cw2-tl__ph{width:min(11rem,100%);margin:0 auto;}
-@media (max-width:767px){
-  .cw2-hero h1{font-size:var(--w-font-h1-size);line-height:var(--w-font-h1-lh);}
-  .cw2-hero .wf-lead{font-size:var(--w-font-body-size);}
-  .cw2-hero__content{padding-top:var(--w-space-16);padding-bottom:var(--w-space-12);}
-  .cw2-tl{grid-template-columns:1fr;}
-  .cw2-tl::before{left:7px;right:auto;top:8px;bottom:8px;width:2px;height:auto;}
-  .cw2-tl__node{padding-left:var(--w-space-8);}
-  .cw2-tl__dot{margin:0;position:absolute;left:0;top:2px;}
-  .cw2-tl__node>*:not(.cw2-tl__dot){text-align:left;}
-  .cw2-tl__ph{margin:0;}
+/* =====================================================================
+   CARBOMAT ECO – mechanika prezentacji wg Layout V2 (prefiks cx-*).
+   Wyłącznie tokeny --w-* i skala szarości. Treść = wersja wg dokumentu
+   Darka (2026-07-10). Progressive enhancement: bez JS wszystko czytelne
+   w naturalnym flow dokumentu.
+   ===================================================================== */
+:root { --cx-nav-h: 72px; --cx-subnav-h: 49px; --cx-chrome: calc(var(--cx-nav-h) + var(--cx-subnav-h)); }
+
+/* --- Produktowa nawigacja lokalna (rozdziały + zakup) -------------------- */
+.cx-subnav{position:sticky;top:var(--cx-nav-h);z-index:90;background:var(--w-surface-page);border-bottom:1px solid var(--w-border-subtle);}
+.cx-subnav__in{display:flex;align-items:center;gap:var(--w-space-6);min-height:var(--cx-subnav-h);}
+.cx-subnav__name{font-weight:var(--w-weight-bold);white-space:nowrap;}
+.cx-subnav__links{display:flex;gap:var(--w-space-1);overflow-x:auto;scrollbar-width:none;flex:1;min-width:0;}
+.cx-subnav__links::-webkit-scrollbar{display:none;}
+.cx-subnav__link{padding:var(--w-space-3) var(--w-space-3);font-size:var(--w-font-sm-size);color:var(--w-text-tertiary);white-space:nowrap;border-bottom:2px solid transparent;text-decoration:none;}
+.cx-subnav__link:hover{color:var(--w-text-primary);}
+.cx-subnav__link[aria-current="true"]{color:var(--w-text-primary);font-weight:var(--w-weight-semibold);border-bottom-color:var(--w-text-primary);}
+.cx-subnav__buy{display:flex;align-items:center;gap:var(--w-space-3);white-space:nowrap;}
+.cx-progress{position:absolute;left:0;bottom:-1px;height:2px;width:0%;background:var(--w-gray-900);}
+@media (max-width:767px){ .cx-subnav__buy .cx-subnav__price{display:none;} }
+
+/* --- HERO: scena produktu (jasne studio zamiast foto-tła) ---------------- */
+.cx-hero{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:var(--w-space-12);align-items:center;min-height:min(44rem, calc(100svh - var(--cx-chrome)));padding-block:var(--w-space-10) var(--w-space-12);}
+.cx-hero__copy{display:flex;flex-direction:column;gap:var(--w-space-6);}
+.cx-trust{display:flex;flex-wrap:wrap;gap:var(--w-space-2) var(--w-space-5);}
+.cx-trust li{display:inline-flex;align-items:center;gap:var(--w-space-2);font-size:var(--w-font-sm-size);color:var(--w-text-secondary);}
+/* Scena: przełącznik wariantu podmienia packshot i szybką specyfikację */
+.cx-stage{display:flex;flex-direction:column;gap:var(--w-space-4);}
+.cx-stage__frame{position:relative;}
+.cx-stage__frame .wf-ph{aspect-ratio:4/4.4;width:100%;border-radius:var(--w-radius-xl);}
+.cx-stage__frame .wf-ph__label{display:none;max-width:34ch;}
+.cx-stage[data-variant="eco"] [data-hv-label="eco"],
+.cx-stage[data-variant="sciolka"] [data-hv-label="sciolka"]{display:block;}
+.cx-stage__badge{position:absolute;top:var(--w-space-4);left:var(--w-space-4);}
+.cx-quick{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--w-border-subtle);border-radius:var(--w-radius-md);overflow:hidden;}
+.cx-quick__cell{padding:var(--w-space-3) var(--w-space-4);display:flex;flex-direction:column;gap:2px;}
+.cx-quick__cell + .cx-quick__cell{border-left:1px solid var(--w-border-subtle);}
+.cx-stage [data-hv]{display:none;}
+.cx-stage[data-variant="eco"] [data-hv="eco"],
+.cx-stage[data-variant="sciolka"] [data-hv="sciolka"]{display:inline;}
+/* Delikatne unoszenie packshotu + podmiana wariantu */
+@keyframes cx-float{from{transform:translateY(0);}to{transform:translateY(-7px);}}
+.cx-js .cx-stage__frame .wf-ph{animation:cx-float 5.5s ease-in-out infinite alternate;}
+.cx-swap{animation:cx-swapin .32s var(--w-ease);}
+@keyframes cx-swapin{from{opacity:0;transform:translateY(8px) scale(.985);}to{opacity:1;transform:none;}}
+/* Sekwencyjne wejście hero po załadowaniu */
+.cx-js .cx-load{opacity:0;transform:translateY(14px);transition:opacity .5s var(--w-ease),transform .5s var(--w-ease);transition-delay:calc(var(--i,0)*90ms);}
+.cx-js .cx-ready .cx-load{opacity:1;transform:none;}
+
+/* --- Ticker dowodów (zapętlony pas, pauza na hover) ----------------------- */
+.cx-ticker{border-block:1px solid var(--w-border-subtle);overflow:hidden;padding-block:var(--w-space-3);}
+.cx-ticker__track{display:flex;gap:var(--w-space-10);width:max-content;}
+.cx-js .cx-ticker__track{animation:cx-marq 34s linear infinite;}
+.cx-ticker:hover .cx-ticker__track,.cx-ticker:focus-within .cx-ticker__track{animation-play-state:paused;}
+@keyframes cx-marq{to{transform:translateX(-50%);}}
+.cx-ticker__list{display:flex;gap:var(--w-space-10);align-items:center;margin:0;padding:0;list-style:none;}
+.cx-ticker__list li{display:inline-flex;align-items:center;gap:var(--w-space-10);font-size:var(--w-font-sm-size);color:var(--w-text-secondary);white-space:nowrap;}
+.cx-ticker__list li::after{content:"";width:5px;height:5px;border-radius:var(--w-radius-circle);background:var(--w-gray-400);}
+
+/* --- Wybór sposobu aplikacji: dwa duże wybory sterują panelem produktu ---- */
+.cx-ways{display:grid;grid-template-columns:1fr 1fr;gap:var(--w-space-4);}
+.cx-way{display:flex;gap:var(--w-space-4);align-items:flex-start;text-align:left;padding:var(--w-space-5) var(--w-space-6);background:var(--w-surface-page);border:1px solid var(--w-border-default);border-radius:var(--w-radius-lg);cursor:pointer;font:inherit;color:inherit;transition:border-color var(--w-duration-base) var(--w-ease),background var(--w-duration-base) var(--w-ease);}
+.cx-way:hover{border-color:var(--w-border-strong);}
+.cx-way[aria-pressed="true"]{background:var(--w-surface-inverse);border-color:var(--w-surface-inverse);color:var(--w-text-inverse);}
+.cx-way[aria-pressed="true"] .wf-h4{color:var(--w-text-inverse);}  /* kitowy .wf-h4 ma własny kolor – na ciemnym tle musi być inverse */
+.cx-way[aria-pressed="true"] .wf-t-secondary,.cx-way[aria-pressed="true"] .wf-t-tertiary{color:var(--w-text-inverse);opacity:.78;}
+.cx-way[aria-pressed="true"] .cw-feat-icon{color:var(--w-text-inverse);border-color:rgb(255 255 255 / .5);}
+.cx-decide__panel[hidden]{display:none;}
+.cx-decide__card{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);}
+.cx-decide__card > .wf-ph{height:100%;border-radius:0;min-height:280px;}
+/* Pionowa specyfikacja (etykieta / wartość) */
+.cx-spec{margin:0;display:flex;flex-direction:column;}
+.cx-spec__row{display:grid;grid-template-columns:minmax(7rem,32%) 1fr;gap:var(--w-space-3);padding:var(--w-space-3) 0;border-top:1px solid var(--w-border-subtle);}
+.cx-spec dt{font-size:var(--w-font-sm-size);color:var(--w-text-tertiary);}
+.cx-spec dd{margin:0;font-size:var(--w-font-sm-size);color:var(--w-text-primary);}
+.cx-phsel{display:flex;align-items:center;gap:var(--w-space-3);flex-wrap:wrap;}
+/* Lista „Najważniejsze funkcje" w panelu wariantu */
+.cx-fn{display:flex;flex-direction:column;gap:var(--w-space-2);margin:0;padding:0;list-style:none;}
+.cx-fn li{display:flex;gap:var(--w-space-2);align-items:flex-start;font-size:var(--w-font-sm-size);color:var(--w-text-secondary);}
+.cx-fn .wf-icon{flex:none;margin-top:2px;color:var(--w-icon-default);}
+/* Cennik per pojemność (ceny „na sztywno", od razu widoczne) */
+.cx-price{display:flex;flex-direction:column;}
+.cx-price__row{display:grid;grid-template-columns:1fr auto;gap:var(--w-space-3);align-items:center;padding:var(--w-space-2) 0;border-top:1px solid var(--w-border-subtle);}
+.cx-price__row .wf-badge{margin-left:var(--w-space-2);}
+
+/* --- Przypięta opowieść „Czym jest" (pinned story, 5 paneli) ---------------
+   Domyślnie (mobile / bez JS / reduced motion): panele w zwykłym flow.
+   Na desktopie z JS: scena przyklejona, scroll przełącza panele.          */
+.cx-pin__stage{display:flex;flex-direction:column;gap:var(--w-space-10);}
+.cx-pin__panel{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,6fr);gap:var(--w-space-10);align-items:center;}
+.cx-pin__panel .wf-ph{aspect-ratio:16/10;width:100%;}
+.cx-pin__meta{display:none;}
+.cx-pin__count{font-variant-numeric:tabular-nums;}
+.cx-pin__dots{display:flex;gap:var(--w-space-2);}
+.cx-pin__dot{width:8px;height:8px;border-radius:var(--w-radius-pill);background:var(--w-gray-300);transition:width var(--w-duration-slow) var(--w-ease),background var(--w-duration-slow) var(--w-ease);}
+.cx-pin__dot.is-on{width:26px;background:var(--w-gray-900);}
+/* Wykres słupkowy (stopień humifikacji – etykiety jakościowe) */
+.cx-barchart{display:flex;flex-direction:column;gap:var(--w-space-3);}
+.cx-bar{display:grid;grid-template-columns:minmax(8rem,30%) 1fr minmax(5.5rem,auto);gap:var(--w-space-3);align-items:center;}
+.cx-bar__track{height:12px;background:var(--w-gray-100);border:1px solid var(--w-border-subtle);border-radius:var(--w-radius-pill);overflow:hidden;}
+.cx-bar__fill{height:100%;width:var(--bw);background:var(--w-gray-900);border-radius:var(--w-radius-pill);transition:width .9s var(--w-ease);}
+/* Trójka „mikrokosmos" jako karty */
+.cx-frak{display:grid;grid-template-columns:1fr;gap:var(--w-space-3);}
+.cx-frak__item{display:flex;gap:var(--w-space-4);align-items:flex-start;border:1px solid var(--w-border-default);border-radius:var(--w-radius-md);padding:var(--w-space-4) var(--w-space-5);background:var(--w-surface-page);}
+/* Kompaktowa tabela metali w panelu opowieści */
+.cx-pin__panel .wf-table th,.cx-pin__panel .wf-table td{padding-block:var(--w-space-2);}
+@media (min-width:900px) and (prefers-reduced-motion: no-preference){
+  .cx-js .cx-pin{height:520svh;position:relative;}
+  .cx-js .cx-pin__stage{position:sticky;top:var(--cx-chrome);height:calc(100svh - var(--cx-chrome));overflow:hidden;display:block;}
+  .cx-js .cx-pin__inner{position:relative;height:100%;}
+  .cx-js .cx-pin__panel{position:absolute;inset:0;margin:auto;max-height:100%;opacity:0;transform:translateY(34px);transition:opacity .45s var(--w-ease),transform .45s var(--w-ease);pointer-events:none;padding-block:var(--w-space-8);}
+  .cx-js .cx-pin__panel.is-on{opacity:1;transform:none;pointer-events:auto;}
+  .cx-js .cx-pin__meta{display:flex;align-items:center;gap:var(--w-space-4);position:absolute;left:0;bottom:var(--w-space-5);}
+  /* elementy wewnątrz aktywnego panelu wchodzą kaskadowo */
+  .cx-js .cx-pin__panel .cx-cascade{opacity:0;transform:translateY(12px);transition:opacity .4s var(--w-ease),transform .4s var(--w-ease);transition-delay:calc(var(--i,0)*110ms + 120ms);}
+  .cx-js .cx-pin__panel.is-on .cx-cascade{opacity:1;transform:none;}
+  /* słupki rosną dopiero, gdy panel jest aktywny */
+  .cx-js .cx-pin__panel .cx-bar__fill{width:0;}
+  .cx-js .cx-pin__panel.is-on .cx-bar__fill{width:var(--bw);}
 }
-/* ===== Scrollytelling „Czym jest" ===== */
-.cw2-story{display:grid;grid-template-columns:5fr 7fr;gap:var(--w-space-10);align-items:start;}
-.cw2-story__visual{position:sticky;top:calc(72px + var(--w-space-6));}
-.cw2-story__frame{position:relative;}
-.cw2-story__frame .wf-ph{aspect-ratio:4/4.6;width:100%;}
-.cw2-story__frame .wf-ph__label{display:none;}
-.cw2-story__frame[data-stage="1"] .wf-ph__label[data-for="1"],
-.cw2-story__frame[data-stage="2"] .wf-ph__label[data-for="2"],
-.cw2-story__frame[data-stage="3"] .wf-ph__label[data-for="3"],
-.cw2-story__frame[data-stage="4"] .wf-ph__label[data-for="4"]{display:block;}
-.cw2-story__meta{display:flex;align-items:center;gap:var(--w-space-4);margin-top:var(--w-space-4);}
-.cw2-story__count{font-variant-numeric:tabular-nums;white-space:nowrap;}
-.cw2-story__track{flex:1;height:2px;background:var(--w-border-subtle);border-radius:var(--w-radius-pill);overflow:hidden;}
-.cw2-story__bar{height:100%;width:25%;background:var(--w-gray-900);transition:width .4s ease;}
-.cw2-step{border-top:1px solid var(--w-border-subtle);padding-top:var(--w-space-6);display:flex;gap:var(--w-space-6);}
-.cw2-step__no{font-size:var(--w-font-h3-size);font-weight:var(--w-weight-bold);color:var(--w-text-disabled);font-variant-numeric:tabular-nums;line-height:1;transition:color .3s ease;}
-.cw2-step--active .cw2-step__no{color:var(--w-text-primary);}
-.cw2-step__body{display:flex;flex-direction:column;gap:var(--w-space-3);flex:1;}
-/* Wykres słupkowy – struktura danych w szarościach */
-.cw2-barchart{display:flex;flex-direction:column;gap:var(--w-space-3);}
-.cw2-bar{display:grid;grid-template-columns:minmax(6rem,28%) 1fr auto;gap:var(--w-space-3);align-items:center;}
-.cw2-bar__track{height:14px;background:var(--w-gray-100);border:1px solid var(--w-border-subtle);border-radius:var(--w-radius-pill);overflow:hidden;}
-.cw2-bar__fill{height:100%;background:var(--w-gray-900);border-radius:var(--w-radius-pill);width:var(--bw);}
+
+/* --- Liczby jak z okładki (editorial) ------------------------------------ */
+.cx-num{border-top:1px solid var(--w-border-subtle);display:grid;grid-template-columns:minmax(12rem,38%) 1fr;gap:var(--w-space-4) var(--w-space-10);padding-block:var(--w-space-8);align-items:center;}
+.cx-num__val{font-size:clamp(3rem, 7.5vw, 6rem);line-height:1;font-weight:var(--w-weight-bold);letter-spacing:var(--w-tracking-tight);font-variant-numeric:tabular-nums;}
+.cx-num__body{display:flex;flex-direction:column;gap:var(--w-space-2);}
+
+/* --- Jak stosować: recepty z dużymi numerami ------------------------------ */
+.cx-step{display:flex;gap:var(--w-space-4);align-items:flex-start;padding-block:var(--w-space-4);border-top:1px solid var(--w-border-subtle);}
+.cx-step__no{font-size:var(--w-font-h3-size);font-weight:var(--w-weight-bold);color:var(--w-text-disabled);font-variant-numeric:tabular-nums;line-height:1.1;min-width:2.2rem;}
+
+/* --- Kalkulator „Dobierz swoją dawkę" (feature uniwersalny, D59) ---------- */
+.cx-dcalc{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--w-space-8);align-items:start;}
+.cx-dcalc [hidden]{display:none!important;}  /* [hidden] musi wygrać z display:flex pól */
+.cx-dcalc .wf-segmented{flex-wrap:wrap;}
+.cx-dcalc__field{display:flex;flex-direction:column;gap:var(--w-space-2);}
+.cx-dcalc__field input[type="range"]{width:100%;max-width:26rem;accent-color:var(--w-gray-900);}
+.cx-dcalc__out{border-left:1px solid var(--w-border-subtle);padding-left:var(--w-space-8);display:flex;flex-direction:column;gap:var(--w-space-3);}
+.cx-dcalc__num{font-size:clamp(2.4rem,4.5vw,3.6rem);line-height:1.05;font-weight:var(--w-weight-bold);letter-spacing:-0.02em;}
 @media (max-width:899px){
-  .cw2-story{grid-template-columns:1fr;}
-  .cw2-story__visual{position:static;}
-  .cw2-story__frame .wf-ph{aspect-ratio:16/9;}
+  .cx-dcalc{grid-template-columns:1fr;}
+  .cx-dcalc__out{border-left:0;padding-left:0;border-top:1px solid var(--w-border-subtle);padding-top:var(--w-space-5);}
 }
-/* ===== Siatka „Kiedy stosować" – cykl życia rośliny × momenty aplikacji ===== */
-.cw2-chart{min-width:640px;display:grid;grid-template-columns:minmax(7.5rem,20%) repeat(5,1fr);}
-.cw2-chart__cell{border-top:1px solid var(--w-border-subtle);min-height:52px;display:flex;align-items:center;justify-content:center;gap:var(--w-space-2);padding:var(--w-space-2);}
-.cw2-chart__cell--head{border-top:0;min-height:0;align-items:flex-end;}
-.cw2-chart__cell--label{justify-content:flex-start;}
-.cw2-dot{width:12px;height:12px;border-radius:var(--w-radius-pill);background:var(--w-gray-500);transition:opacity .25s ease,transform .25s ease;}
-.cw2-dot--carbomat{width:14px;height:14px;background:var(--w-gray-900);}
-.cw2-dot--niefiltr{background:var(--w-surface-page);border:2px solid var(--w-gray-900);}
-.cw2-dot--maxi{background:var(--w-gray-500);}
-.cw2-dot--calbor{border-radius:2px;transform:rotate(45deg);background:var(--w-gray-900);width:11px;height:11px;}
-.cw2-chart--focus .cw2-dot{opacity:.12;}
-.cw2-chart--focus .cw2-dot.is-hl{opacity:1;transform:scale(1.35);}
-.cw2-chart--focus .cw2-dot--calbor.is-hl{transform:rotate(45deg) scale(1.35);}
-.cw2-legend{display:flex;flex-wrap:wrap;gap:var(--w-space-5) var(--w-space-6);align-items:center;}
-.cw2-legend__item{display:inline-flex;align-items:center;gap:var(--w-space-2);}
-.cw2-tl__node[data-prod-node]{cursor:pointer;border-radius:var(--w-radius-md);transition:opacity .25s ease;}
-.cw2-tl--focus .cw2-tl__node[data-prod-node]:not(.is-active):not(:hover){opacity:.45;}
-/* Reveal on scroll – ukrywanie tylko przy działającym JS (klasa cw2-js na <html>) */
-.cw2-js .cw2-reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
-.cw2-js .cw2-reveal.cw2-in{opacity:1;transform:none;}
-/* Selektor pH w kartach wariantów (sekcja „Który dla mnie") */
-.cw2-phsel{display:flex;align-items:center;gap:var(--w-space-3);flex-wrap:wrap;}
-.cw2-phsel__label{white-space:nowrap;}
-.cw2-phsel .wf-segmented{flex-wrap:wrap;}
-.cw2-phseg--static{pointer-events:none;}
-/* Dok dr Jurka – ukryty do czasu przewinięcia poza hero */
+
+/* --- Sezon: sekwencja z rysującą się linią -------------------------------- */
+.cx-seq{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--w-space-6);}
+.cx-seq::before{content:"";position:absolute;top:7px;left:calc(100%/6);right:calc(100%/6);height:2px;background:var(--w-border-strong);transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--w-ease) .15s;}
+.cx-seq.cx-in::before{transform:scaleX(1);}
+.cx-seq__node{display:flex;flex-direction:column;gap:var(--w-space-3);}
+.cx-seq__dot{width:16px;height:16px;border-radius:var(--w-radius-circle);background:var(--w-surface-page);border:3px solid var(--w-gray-900);margin:0 auto;position:relative;z-index:1;}
+.cx-seq__node>*:not(.cx-seq__dot){text-align:center;}
+.cx-seq__ph{width:min(10rem,100%);margin:0 auto;}
+@media (max-width:767px){
+  .cx-seq{grid-template-columns:1fr;}
+  .cx-seq::before{left:7px;right:auto;top:8px;bottom:8px;width:2px;height:auto;transform:scaleY(0);transform-origin:top;}
+  .cx-seq.cx-in::before{transform:scaleY(1);}
+  .cx-seq__node{padding-left:var(--w-space-8);position:relative;}
+  .cx-seq__dot{margin:0;position:absolute;left:0;}
+  .cx-seq__node>*:not(.cx-seq__dot){text-align:left;}
+  .cx-seq__ph{margin:0;}
+}
+/* Rozwijana siatka sezonu (progressive disclosure) */
+.cx-details{border:1px solid var(--w-border-default);border-radius:var(--w-radius-lg);background:var(--w-surface-page);overflow:hidden;}
+.cx-details summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:var(--w-space-4);padding:var(--w-space-4) var(--w-space-6);cursor:pointer;font-weight:var(--w-weight-semibold);}
+.cx-details summary::-webkit-details-marker{display:none;}
+.cx-details summary .wf-icon{transition:transform var(--w-duration-base) var(--w-ease);}
+.cx-details[open] summary .wf-icon{transform:rotate(180deg);}
+.cx-details__body{border-top:1px solid var(--w-border-subtle);}
+.cx-chart{min-width:640px;display:grid;grid-template-columns:minmax(7.5rem,20%) repeat(5,1fr);}
+.cx-chart__cell{border-top:1px solid var(--w-border-subtle);min-height:52px;display:flex;align-items:center;justify-content:center;gap:var(--w-space-2);padding:var(--w-space-2);}
+.cx-chart__cell--head{border-top:0;min-height:0;align-items:flex-end;}
+.cx-chart__cell--label{justify-content:flex-start;}
+.cx-dot{width:12px;height:12px;border-radius:var(--w-radius-pill);background:var(--w-gray-500);}
+.cx-dot--carbomat{width:14px;height:14px;background:var(--w-gray-900);}
+.cx-dot--niefiltr{background:var(--w-surface-page);border:2px solid var(--w-gray-900);}
+.cx-dot--maxi{background:var(--w-gray-500);}
+.cx-dot--calbor{border-radius:2px;transform:rotate(45deg);background:var(--w-gray-900);width:11px;height:11px;}
+.cx-legend{display:flex;flex-wrap:wrap;gap:var(--w-space-4) var(--w-space-6);align-items:center;}
+.cx-legend__item{display:inline-flex;align-items:center;gap:var(--w-space-2);}
+
+/* --- Reveal przy scrollu (ukrywanie tylko z działającym JS) --------------- */
+.cx-js .cx-reveal{opacity:0;transform:translateY(14px);transition:opacity .5s var(--w-ease),transform .5s var(--w-ease);transition-delay:calc(var(--i,0)*100ms);}
+.cx-js .cx-reveal.cx-in{opacity:1;transform:none;}
+
+/* --- Dok dr Jurka: pojawia się po zejściu z hero --------------------------- */
 .cw-jurek{transition:opacity .3s ease,visibility .3s ease;}
-.cw-jurek.cw2-dockhide{opacity:0;visibility:hidden;pointer-events:none;}
+.cw-jurek.cx-dockhide{opacity:0;visibility:hidden;pointer-events:none;}
+
+/* --- Przyciski na ciemnym pasie -------------------------------------------- */
+.cx-btn-solid-inverse{background:var(--w-surface-page);border-color:var(--w-surface-page);color:var(--w-text-primary);}
+.cx-btn-solid-inverse:hover{background:var(--w-gray-100);border-color:var(--w-gray-100);}
+.cx-btn-outline-inverse{background:transparent;border:1px solid var(--w-border-inverse);color:var(--w-text-inverse);}
+.cx-btn-outline-inverse:hover{background:rgb(255 255 255 / 0.14);}
+
+@media (max-width:599px){
+  .cx-quick{grid-template-columns:1fr;}
+  .cx-quick__cell + .cx-quick__cell{border-left:0;border-top:1px solid var(--w-border-subtle);}
+}
+@media (max-width:899px){
+  .cx-hero{grid-template-columns:1fr;gap:var(--w-space-8);min-height:0;}
+  .cx-hero h1{font-size:var(--w-font-h1-size);line-height:var(--w-font-h1-lh);}
+  .cx-hero .wf-lead{font-size:var(--w-font-body-size);}
+  .cx-decide__card{grid-template-columns:1fr;}
+  .cx-decide__card > .wf-ph{min-height:0;aspect-ratio:16/9;}
+  .cx-num{grid-template-columns:1fr;gap:var(--w-space-2);padding-block:var(--w-space-6);}
+  .cx-pin__panel{grid-template-columns:1fr;gap:var(--w-space-5);}
+  .cx-ways{grid-template-columns:1fr;}
+}
 @media (prefers-reduced-motion: reduce){
-  .cw2-js .cw2-reveal{opacity:1;transform:none;transition:none;}
-  .cw2-scrollcue{animation:none;}
+  .cx-js .cx-load,.cx-js .cx-reveal{opacity:1;transform:none;transition:none;}
+  .cx-js .cx-stage__frame .wf-ph{animation:none;}
+  .cx-js .cx-ticker__track{animation:none;flex-wrap:wrap;width:auto;}
+  .cx-swap{animation:none;}
+  .cx-seq::before{transition:none;transform:none;}
   .cw-jurek{transition:none;}
 }
 </style>
@@ -128,24 +241,14 @@
 <symbol id="ti-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0" />
   <path d="M5 12l6 6" />
   <path d="M5 12l6 -6" /></symbol>
-<symbol id="ti-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14" />
-  <path d="M18 11l-6 -6" />
-  <path d="M6 11l6 -6" /></symbol>
-<symbol id="ti-arrow-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14" />
-  <path d="M18 13l-6 6" />
-  <path d="M6 13l6 6" /></symbol>
 <symbol id="ti-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6l-12 12" />
   <path d="M6 6l12 12" /></symbol>
 <symbol id="ti-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l10 -10" /></symbol>
-<symbol id="ti-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5l0 14" />
-  <path d="M5 12l14 0" /></symbol>
-<symbol id="ti-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0" /></symbol>
 <symbol id="ti-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
   <path d="M21 21l-6 -6" /></symbol>
 <symbol id="ti-menu-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l16 0" />
   <path d="M4 12l16 0" />
   <path d="M4 18l16 0" /></symbol>
-<symbol id="ti-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v2.172a2 2 0 0 1 -.586 1.414l-4.414 4.414v7l-6 2v-8.5l-4.48 -4.928a2 2 0 0 1 -.52 -1.345v-2.227" /></symbol>
 <symbol id="ti-arrows-sort" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l4 -4l4 4m-4 -4v14" />
   <path d="M21 15l-4 4l-4 -4m4 4v-14" /></symbol>
 <symbol id="ti-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
@@ -154,19 +257,9 @@
   <path d="M15 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
   <path d="M17 17h-11v-14h-2" />
   <path d="M6 5l14 1l-1 7h-13" /></symbol>
-<symbol id="ti-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065" />
-  <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /></symbol>
 <symbol id="ti-info-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
   <path d="M12 9h.01" />
   <path d="M11 12h1v4h1" /></symbol>
-<symbol id="ti-alert-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4" />
-  <path d="M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0" />
-  <path d="M12 16h.01" /></symbol>
-<symbol id="ti-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6" />
-  <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0" />
-  <path d="M8 11v-4a4 4 0 1 1 8 0v4" /></symbol>
-<symbol id="ti-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a5 5 0 0 1 7 0a5 5 0 0 0 7 0v9a5 5 0 0 1 -7 0a5 5 0 0 0 -7 0v-9" />
-  <path d="M5 21v-7" /></symbol>
 <symbol id="ti-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10" />
   <path d="M3 7l9 6l9 -6" /></symbol>
 <symbol id="ti-message-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9h8" />
@@ -174,18 +267,9 @@
   <path d="M9 18h-3a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-3l-3 3l-3 -3" /></symbol>
 <symbol id="ti-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14l11 -11" />
   <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" /></symbol>
-<symbol id="ti-pencil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
-  <path d="M13.5 6.5l4 4" /></symbol>
-<symbol id="ti-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7l16 0" />
-  <path d="M10 11l0 6" />
-  <path d="M14 11l0 6" />
-  <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-  <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" /></symbol>
 <symbol id="ti-external-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6h-6a2 2 0 0 0 -2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-6" />
   <path d="M11 13l9 -9" />
   <path d="M15 4h5v5" /></symbol>
-<symbol id="ti-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-  <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></symbol>
 <symbol id="ti-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12" />
   <path d="M16 3v4" />
   <path d="M8 3v4" />
@@ -213,9 +297,15 @@
           <div class="cw-mega__layout">
             <div class="cw-prodbox">
               <span class="wf-overline wf-t-tertiary">Sypkie · doglebowe</span>
-              <a class="wf-link--quiet" href="carbomat.html"><span class="wf-h5">CARBOMAT</span></a>
+              <a class="wf-link--quiet" href="carbomat.html"><span class="wf-h5">CARBOMAT ECO</span></a>
               <p class="wf-small wf-t-secondary">Surowy lignit, który na lata przebudowuje strukturę i retencję gleby.</p>
               <a class="wf-btn wf-btn--secondary wf-btn--sm" href="carbomat.html">Poznaj rodzinę</a>
+            </div>
+            <div class="cw-prodbox">
+              <span class="wf-overline wf-t-tertiary">Sypkie · uprawa bezglebowa</span>
+              <a class="wf-link--quiet" href="carbomat-mata.html"><span class="wf-h5">CARBOMAT Mata Uprawowa</span></a>
+              <p class="wf-small wf-t-secondary">Organiczna mata lignitowa do upraw bezglebowych – wieloletnia alternatywa dla wełny mineralnej i maty kokosowej.</p>
+              <a class="wf-btn wf-btn--secondary wf-btn--sm" href="carbomat-mata.html">Poznaj produkt</a>
             </div>
             <div class="cw-prodbox">
               <span class="wf-overline wf-t-tertiary">Płynne · doglebowe i nalistne</span>
@@ -311,106 +401,230 @@
 </header>
 <div class="cw-scrim" data-cw-scrim data-open="false" aria-hidden="true"></div>
 
+<!-- ===== Nawigacja produktowa: rozdziały strony + zakup (scrollspy) ===== -->
+<nav class="cx-subnav" aria-label="Rozdziały strony CARBOMAT ECO" data-subnav>
+  <div class="cx-subnav__in wf-container">
+    <span class="cx-subnav__name wf-small">CARBOMAT ECO</span>
+    <div class="cx-subnav__links">
+      <a class="cx-subnav__link" href="#ktory-dla-mnie" data-spy="ktory-dla-mnie">Który dla mnie</a>
+      <a class="cx-subnav__link" href="#czym-jest" data-spy="czym-jest">Czym jest</a>
+      <a class="cx-subnav__link" href="#liczby" data-spy="liczby">Liczby</a>
+      <a class="cx-subnav__link" href="#jak-stosowac" data-spy="jak-stosowac">Jak stosować</a>
+      <a class="cx-subnav__link" href="#dawka" data-spy="dawka">Dawka</a>
+      <a class="cx-subnav__link" href="#sezon" data-spy="sezon">Sezon</a>
+      <a class="cx-subnav__link" href="#faq" data-spy="faq">FAQ</a>
+    </div>
+    <div class="cx-subnav__buy">
+      <span class="wf-small wf-t-secondary cx-subnav__price">od <span class="wf-w-bold wf-t-primary">79 zł</span></span>
+      <a class="wf-btn wf-btn--primary wf-btn--sm" href="sklep.html?grupa=carbomat">Kup w sklepie</a>
+    </div>
+  </div>
+  <div class="cx-progress" data-progress aria-hidden="true"></div>
+</nav>
+
 <main id="main">
 
-  <!-- ===== 1. HERO – pełny ekran ze zdjęciem w tle ===== -->
-  <section class="cw2-hero" id="hero">
-    <div class="cw2-hero__bg" aria-hidden="true">
-      <div class="wf-ph"><span class="wf-ph__label">FOTO PEŁNOEKRANOWE: dłonie przesypujące gruzełki lignitu nad świeżo przygotowaną grządką, niska perspektywa, miękkie światło</span></div>
-      <div class="cw2-hero__shade"></div>
-    </div>
-    <nav class="cw2-hero__crumb wf-breadcrumb wf-container" aria-label="Okruszki">
-      <ol class="wf-cluster wf-items-center">
-        <li><a class="wf-link--quiet" href="home.html">Strona główna</a></li>
-        <li><span class="wf-breadcrumb__sep" aria-hidden="true">/</span></li>
-        <li><a class="wf-link--quiet" href="produkty.html">Nasze produkty</a></li>
-        <li><span class="wf-breadcrumb__sep" aria-hidden="true">/</span></li>
-        <li aria-current="page">CARBOMAT</li>
-      </ol>
-    </nav>
-    <div class="cw2-hero__content">
-      <div class="wf-container wf-stack wf-stack--6">
-        <span class="wf-overline wf-t-inverse">Rodzina CARBOMAT · sypkie, doglebowe – baza</span>
-        <h1 class="wf-display wf-t-inverse" style="max-width:640px;">Surowy polski lignit. Jeden wkład, który pracuje w glebie latami.</h1>
-        <p class="wf-lead wf-t-inverse" style="max-width:560px;">To nie sezonowy nawóz, tylko jednorazowa inwestycja w strukturę, retencję wody i próchnicę – na kilkanaście do ponad 20 lat. Frakcjonowany i odsiewany, bez obróbki chemicznej.</p>
-        <div class="wf-cluster wf-gap-3">
-          <a class="wf-btn wf-btn--lg cw2-btn-solid-inverse" href="konfigurator.html">Dobierz właściwy produkt</a>
-          <a class="wf-btn wf-btn--lg cw2-btn-outline-inverse" href="sklep.html?grupa=carbomat">Kup produkty CARBOMAT</a>
+  <!-- ===== 1. HERO: scena produktu z wyborem wariantu ===== -->
+  <section id="hero">
+    <div class="wf-container">
+      <nav class="wf-breadcrumb" aria-label="Okruszki">
+        <ol class="wf-cluster wf-items-center">
+          <li><a class="wf-link--quiet" href="home.html">Strona główna</a></li>
+          <li><span class="wf-breadcrumb__sep" aria-hidden="true">/</span></li>
+          <li><a class="wf-link--quiet" href="produkty.html">Nasze produkty</a></li>
+          <li><span class="wf-breadcrumb__sep" aria-hidden="true">/</span></li>
+          <li aria-current="page">CARBOMAT ECO</li>
+        </ol>
+      </nav>
+      <div class="cx-hero">
+        <div class="cx-hero__copy">
+          <span class="wf-overline cx-load" style="--i:0;">CARBOMAT ECO · sypki lignit doglebowy – baza</span>
+          <h1 class="wf-display cx-load" style="--i:1;max-width:640px;">Surowy polski lignit. Jeden składnik, który pracuje w glebie latami.</h1>
+          <p class="wf-lead wf-t-secondary cx-load" style="--i:2;max-width:560px;">To nie sezonowy nawóz, tylko jednorazowa, trwała inwestycja w jakość i strukturę gleby, próchnicę oraz retencję wody – działa nawet powyżej 20 lat. Frakcjonowany i odsiewany, bez żadnej obróbki chemicznej.</p>
+          <div class="wf-cluster wf-gap-3 cx-load" style="--i:3;">
+            <a class="wf-btn wf-btn--primary wf-btn--lg" href="sklep.html?grupa=carbomat">Kup produkty CARBOMAT ECO</a>
+            <a class="wf-btn wf-btn--secondary wf-btn--lg" href="konfigurator.html">Dobierz właściwy produkt</a>
+          </div>
+          <ul class="cx-trust wf-list--plain cx-load" style="--i:4;">
+            <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Produkt ekologiczny · certyfikat IUNG</li>
+            <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Czysta organika</li>
+            <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Rezerwuar składników odżywczych</li>
+          </ul>
         </div>
-        <div class="wf-cluster wf-gap-4">
-          <span class="wf-small wf-t-inverse" style="opacity:.8;">Surowy lignit, bez obróbki chemicznej</span>
-          <span class="wf-small wf-t-inverse" style="opacity:.8;">Certyfikat ekologiczny IUNG</span>
-          <span class="wf-small wf-t-inverse" style="opacity:.8;">Produkt nienawozowy – trudno przedawkować</span>
+
+        <div class="cx-stage cx-load" style="--i:2;" data-variant="eco" data-stage>
+          <div class="wf-segmented" role="group" aria-label="Wybierz wariant CARBOMAT ECO">
+            <button type="button" class="wf-btn wf-btn--sm" data-hero-variant="eco" aria-pressed="true">CARBOMAT ECO</button>
+            <button type="button" class="wf-btn wf-btn--sm" data-hero-variant="sciolka" aria-pressed="false">CARBOMAT ECO Ściółka</button>
+          </div>
+          <div class="cx-stage__frame" data-stage-frame>
+            <div class="wf-ph wf-ph--cross">
+              <span class="wf-ph__label" data-hv-label="eco">PACKSHOT: worek 20 l CARBOMAT ECO (nowe opakowanie – brand ID w opracowaniu), frontalnie, neutralne tło studyjne, u podstawy usypane gruzełki frakcji drobnej</span>
+              <span class="wf-ph__label" data-hv-label="sciolka">PACKSHOT: worek 20 l CARBOMAT ECO Ściółka, frontalnie, obok usypany stożek ściółki 8–20 mm pokazujący grubą frakcję</span>
+            </div>
+            <span class="wf-badge wf-badge--outline cx-stage__badge" data-hv="eco">dodatek do gleby</span>
+            <span class="wf-badge wf-badge--outline cx-stage__badge" data-hv="sciolka">ściółka powierzchniowa · nowość 20 l</span>
+          </div>
+          <div class="cx-quick" data-stage-quick>
+            <div class="cx-quick__cell">
+              <span class="wf-caption wf-t-tertiary">Aplikacja</span>
+              <span class="wf-small wf-w-semibold"><span data-hv="eco">wymieszaj z glebą lub podłożem</span><span data-hv="sciolka">rozsyp – bez mieszania</span></span>
+            </div>
+            <div class="cx-quick__cell">
+              <span class="wf-caption wf-t-tertiary">Frakcje</span>
+              <span class="wf-small wf-w-semibold"><span data-hv="eco">0,1–2 · 2–4 · 4–8 mm</span><span data-hv="sciolka">8–20 mm</span></span>
+            </div>
+            <div class="cx-quick__cell">
+              <span class="wf-caption wf-t-tertiary">Cena</span>
+              <span class="wf-small wf-w-semibold"><span data-hv="eco">od 89 zł · worek 20 l</span><span data-hv="sciolka">od 79 zł · worek 20 l</span></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <svg class="wf-icon wf-icon--lg cw2-scrollcue" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+
+    <!-- Ticker dowodów: fakty z dokumentacji w ruchu, pauza na hover -->
+    <div class="cx-ticker" aria-label="Najważniejsze fakty o CARBOMAT ECO">
+      <div class="cx-ticker__track">
+        <ul class="cx-ticker__list">
+          <li>Produkt ekologiczny – certyfikat IUNG</li>
+          <li>Czysta organika – bez obróbki chemicznej</li>
+          <li>Rezerwuar składników odżywczych</li>
+          <li>Do 70% kwasów humusowych w suchej masie</li>
+          <li>Około 60% objętości gruzełki to pory</li>
+          <li>Pracuje w glebie nawet powyżej 20 lat</li>
+          <li>Wspiera sekwestrację CO₂</li>
+          <li>Metale ciężkie wielokrotnie poniżej granic</li>
+        </ul>
+        <ul class="cx-ticker__list" aria-hidden="true">
+          <li>Produkt ekologiczny – certyfikat IUNG</li>
+          <li>Czysta organika – bez obróbki chemicznej</li>
+          <li>Rezerwuar składników odżywczych</li>
+          <li>Do 70% kwasów humusowych w suchej masie</li>
+          <li>Około 60% objętości gruzełki to pory</li>
+          <li>Pracuje w glebie nawet powyżej 20 lat</li>
+          <li>Wspiera sekwestrację CO₂</li>
+          <li>Metale ciężkie wielokrotnie poniżej granic</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <!-- ===== 2. KTÓRY DLA MNIE – dwie kolumny produktów ===== -->
-  <section class="wf-section" id="ktory-dla-mnie">
+  <!-- ===== 2. KTÓRY DLA MNIE: wybór sposobu aplikacji ===== -->
+  <section class="wf-section" id="ktory-dla-mnie" data-chapter="ktory-dla-mnie">
     <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
         <span class="wf-overline">Który dla mnie?</span>
-        <h2 class="wf-h2">Dwa warianty, dwie czynności: rozmieszać albo rozsypać.</h2>
-        <p class="wf-lead wf-t-secondary">Ten sam surowy lignit w dwóch postaciach. ECO rozmieszasz z glebą lub podłożem, ściółkę rozsypujesz na powierzchni.</p>
+        <h2 class="wf-h2">Dwa warianty, dwie czynności: przemieszać z glebą albo rozsypać po powierzchni.</h2>
+        <p class="wf-lead wf-t-secondary">Ten sam surowiec zastosujesz przy zakładaniu plantacji i sadzeniu roślin – gdy chcesz wnieść do gleby cenną materię organiczną – albo w uprawach już istniejących, w postaci ściółki. Wybierz czynność, którą planujesz – pokażemy właściwy wariant.</p>
       </div>
 
-      <div class="wf-grid wf-grid--2" style="--wf-grid-min: 20rem;">
-        <!-- CARBOMAT ECO -->
-        <article class="wf-card wf-card--flush cw2-reveal">
-          <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">DUŻE FOTO: worek 20 l CARBOMAT ECO i gruzełki frakcji drobnej na dłoni</span></div>
+      <div class="cx-ways cx-reveal" role="group" aria-label="Wybierz sposób aplikacji">
+        <button type="button" class="cx-way" data-decide="eco" aria-pressed="true">
+          <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-arrows-sort"></use></svg></span>
+          <span class="wf-stack wf-stack--1">
+            <span class="wf-h4">Przemieszam z glebą</span>
+            <span class="wf-small wf-t-secondary">gleby ubogie w materię organiczną, własne mieszanki podłoży, doniczki – frakcje 0,1–8 mm wchodzą w glebę</span>
+          </span>
+        </button>
+        <button type="button" class="cx-way" data-decide="sciolka" aria-pressed="false">
+          <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-stack-2"></use></svg></span>
+          <span class="wf-stack wf-stack--1">
+            <span class="wf-h4">Rozsypię po powierzchni</span>
+            <span class="wf-small wf-t-secondary">borówka, krzewy i drzewa ozdobne – rzędy, rabaty i doniczki; gruba frakcja 8–20 mm zostaje na wierzchu</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Panel: CARBOMAT ECO -->
+      <div class="cx-decide__panel" data-decide-panel="eco">
+        <article class="wf-card wf-card--flush cx-decide__card" data-decide-card>
+          <div class="wf-ph" aria-hidden="true"><span class="wf-ph__label">DUŻE FOTO: worek 20 l CARBOMAT ECO i gruzełki frakcji drobnej na dłoni</span></div>
           <div class="wf-card__body wf-stack wf-stack--4">
-            <div class="cw2-phsel">
-              <span class="wf-overline wf-t-tertiary cw2-phsel__label">Zakres pH</span>
-              <div class="wf-segmented" role="group" aria-label="Zakres pH – CARBOMAT ECO" data-phsel>
-                <button type="button" class="wf-btn wf-btn--sm" data-ph aria-pressed="true" data-ph-desc="odmiana kwasolubna – borówka i rośliny wrzosowate">4,5–5,0 pH</button>
-                <button type="button" class="wf-btn wf-btn--sm" data-ph aria-pressed="false" data-ph-desc="odmiana uniwersalna – warzywa, trawnik, sad">6,0–6,5 pH</button>
-              </div>
-            </div>
             <div class="wf-cluster wf-cluster--between">
               <h3 class="wf-h3">CARBOMAT ECO</h3>
-              <span class="wf-badge wf-badge--outline">baza doglebowa</span>
+              <span class="wf-badge wf-badge--outline">dodatek do gleby</span>
             </div>
-            <dl class="cw2-spec">
-              <div class="cw2-spec__row"><dt>Rola</dt><dd>dodatek do gleby i podłoży – odbudowuje strukturę, retencję i próchnicę</dd></div>
-              <div class="cw2-spec__row"><dt>Aplikacja</dt><dd>rozmieszaj z glebą lub podłożem</dd></div>
-              <div class="cw2-spec__row"><dt>Gdzie najlepiej</dt><dd>grządka, trawnik, doniczki, sad</dd></div>
-              <div class="cw2-spec__row"><dt>pH</dt><dd data-ph-target>odmiana kwasolubna – borówka i rośliny wrzosowate</dd></div>
-              <div class="cw2-spec__row"><dt>Opakowania</dt><dd><a class="wf-link" href="sklep.html?grupa=carbomat">worek 20 l</a> · <a class="wf-link" href="sklep.html?grupa=carbomat">big bag 1000 l</a> · <a class="wf-link" href="sklep.html?grupa=carbomat">1500 l</a></dd></div>
-              <div class="cw2-spec__row"><dt>Cena</dt><dd class="wf-w-semibold">od 89 zł</dd></div>
+            <div class="wf-stack wf-stack--2">
+              <span class="wf-overline wf-t-tertiary">Najważniejsze funkcje</span>
+              <ul class="cx-fn">
+                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Optymalizuje właściwości fizyczne i chemiczne gleby</li>
+                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Trwale użyźnia i stabilizuje odczyn gleby</li>
+                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Wspiera rozwój systemu korzeniowego</li>
+                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Buduje w glebie magazyn na składniki odżywcze i wodę</li>
+                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Działa ochronnie na glebę, przeciwdziała chorobom</li>
+              </ul>
+            </div>
+            <div class="cx-phsel">
+              <span class="wf-overline wf-t-tertiary">Zakres pH</span>
+              <div class="wf-segmented" role="group" aria-label="Zakres pH – CARBOMAT ECO" data-phsel>
+                <button type="button" class="wf-btn wf-btn--sm" data-ph aria-pressed="true" data-ph-desc="dla roślin kwasolubnych – borówka, wrzosowate, różaneczniki, azalie">4,5–5,0 pH</button>
+                <button type="button" class="wf-btn wf-btn--sm" data-ph aria-pressed="false" data-ph-desc="odmiana uniwersalna dla większości grup roślin">6,0–6,5 pH</button>
+              </div>
+            </div>
+            <dl class="cx-spec">
+              <div class="cx-spec__row"><dt>Aplikacja</dt><dd>wymieszaj z glebą lub stwórz własną mieszankę podłoża</dd></div>
+              <div class="cx-spec__row"><dt>Gdzie najlepiej</dt><dd>każda gleba o niskiej zawartości materii organicznej lub wymagająca poprawy struktury; uprawy doniczkowe</dd></div>
+              <div class="cx-spec__row"><dt>pH</dt><dd data-ph-target>dla roślin kwasolubnych – borówka, wrzosowate, różaneczniki, azalie</dd></div>
+              <div class="cx-spec__row"><dt>Frakcje</dt><dd>0,1–2 mm · 2–4 mm · 4–8 mm</dd></div>
             </dl>
+            <div class="wf-stack wf-stack--2">
+              <span class="wf-overline wf-t-tertiary">Opakowania i ceny</span>
+              <div class="cx-price">
+                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">worek 20 l</a><span class="wf-w-semibold">89 zł</span></div>
+                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">big bag 1000 l</a><span class="wf-w-semibold">1490 zł</span></div>
+                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">big bag 1500 l</a><span class="wf-w-semibold">1990 zł</span></div>
+              </div>
+            </div>
             <div class="wf-cluster wf-gap-3 wf-items-center">
               <a class="wf-btn wf-btn--primary" href="sklep.html?grupa=carbomat">Kup CARBOMAT ECO</a>
               <a class="wf-link--quiet wf-small wf-inline" href="centrum-wiedzy.html#magazyn"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-external-link"></use></svg> Karta produktu (PDF)</a>
             </div>
           </div>
         </article>
+      </div>
 
-        <!-- CARBOMAT ECO ŚCIÓŁKA -->
-        <article class="wf-card wf-card--flush cw2-reveal">
-          <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">DUŻE FOTO: ściółka lignitowa 8–20 mm rozsypana wokół krzewu borówki</span></div>
+      <!-- Panel: CARBOMAT ECO Ściółka -->
+      <div class="cx-decide__panel" data-decide-panel="sciolka" hidden>
+        <article class="wf-card wf-card--flush cx-decide__card" data-decide-card>
+          <div class="wf-ph" aria-hidden="true"><span class="wf-ph__label">DUŻE FOTO: ściółka lignitowa 8–20 mm rozsypana wokół krzewu borówki</span></div>
           <div class="wf-card__body wf-stack wf-stack--4">
-            <div class="cw2-phsel">
-              <span class="wf-overline wf-t-tertiary cw2-phsel__label">Zakres pH</span>
-              <div class="wf-segmented" role="group" aria-label="Zakres pH – CARBOMAT ECO ŚCIÓŁKA (stały)">
-                <span class="wf-btn wf-btn--sm cw2-phseg--static" aria-pressed="true">4,5–5,0 pH</span>
+            <div class="wf-cluster wf-cluster--between">
+              <h3 class="wf-h3">CARBOMAT ECO Ściółka</h3>
+              <span class="wf-badge wf-badge--outline">ściółka powierzchniowa</span>
+            </div>
+            <div class="wf-stack wf-stack--2">
+              <span class="wf-overline wf-t-tertiary">Najważniejsze funkcje</span>
+              <ul class="cx-fn">
+                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Chroni glebę przed erozją i nadmiernym odparowaniem</li>
+                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Wzbogaca glebę w materię organiczną i substancje humusowe</li>
+                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Obniża pH gleb i podłoży pod istniejące uprawy kwasolubne</li>
+                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> W przeciwieństwie do kory nie powoduje głodu azotowego</li>
+                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Tworzy siedlisko dla pożytecznych mikroorganizmów</li>
+              </ul>
+            </div>
+            <div class="cx-phsel">
+              <span class="wf-overline wf-t-tertiary">Zakres pH</span>
+              <div class="wf-segmented" role="group" aria-label="Zakres pH – CARBOMAT ECO Ściółka (stały)">
+                <span class="wf-btn wf-btn--sm" style="pointer-events:none;" aria-pressed="true">4,5–5,0 pH</span>
               </div>
             </div>
-            <div class="wf-cluster wf-cluster--between">
-              <h3 class="wf-h3">CARBOMAT ECO ŚCIÓŁKA</h3>
-              <span class="wf-badge wf-badge--outline">baza doglebowa</span>
-            </div>
-            <dl class="cw2-spec">
-              <div class="cw2-spec__row"><dt>Rola</dt><dd>ochronna warstwa na powierzchni – ogranicza parowanie, chroni glebę</dd></div>
-              <div class="cw2-spec__row"><dt>Aplikacja</dt><dd>rozsyp wokół roślin – bez mieszania</dd></div>
-              <div class="cw2-spec__row"><dt>Gdzie najlepiej</dt><dd>borówka, krzewy, rzędy, rabaty</dd></div>
-              <div class="cw2-spec__row"><dt>Frakcja</dt><dd>8–20 mm</dd></div>
-              <div class="cw2-spec__row"><dt>Opakowania</dt><dd><a class="wf-link" href="sklep.html?grupa=carbomat">worek 20 l – nowość</a> · <a class="wf-link" href="sklep.html?grupa=carbomat">1000 l</a> · <a class="wf-link" href="sklep.html?grupa=carbomat">1500 l</a></dd></div>
-              <div class="cw2-spec__row"><dt>Cena</dt><dd><a class="wf-link" href="sklep.html?grupa=carbomat">sprawdź w sklepie</a></dd></div>
+            <dl class="cx-spec">
+              <div class="cx-spec__row"><dt>Aplikacja</dt><dd>rozsyp wokół roślin lub w rzędach – bez mieszania</dd></div>
+              <div class="cx-spec__row"><dt>Gdzie najlepiej</dt><dd>borówka, krzewy i drzewa ozdobne – doniczki, rzędy i rabaty; także gdy chcesz zakwasić glebę</dd></div>
+              <div class="cx-spec__row"><dt>pH</dt><dd>produkt dostępny wyłącznie o niższym odczynie</dd></div>
+              <div class="cx-spec__row"><dt>Frakcja</dt><dd>8–20 mm</dd></div>
             </dl>
+            <div class="wf-stack wf-stack--2">
+              <span class="wf-overline wf-t-tertiary">Opakowania i ceny</span>
+              <div class="cx-price">
+                <div class="cx-price__row"><span><a class="wf-link" href="sklep.html?grupa=carbomat">worek 20 l</a><span class="wf-badge wf-badge--outline">nowość</span></span><span class="wf-w-semibold">79 zł</span></div>
+                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">big bag 1000 l</a><span class="wf-w-semibold">1290 zł</span></div>
+                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">big bag 1500 l</a><span class="wf-w-semibold">1690 zł</span></div>
+              </div>
+            </div>
             <div class="wf-cluster wf-gap-3 wf-items-center">
-              <a class="wf-btn wf-btn--primary" href="sklep.html?grupa=carbomat">Kup CARBOMAT ECO ŚCIÓŁKĘ</a>
+              <a class="wf-btn wf-btn--primary" href="sklep.html?grupa=carbomat">Kup CARBOMAT ECO Ściółkę</a>
               <a class="wf-link--quiet wf-small wf-inline" href="centrum-wiedzy.html#magazyn"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-external-link"></use></svg> Karta produktu (PDF)</a>
             </div>
           </div>
@@ -419,163 +633,200 @@
 
       <div class="wf-alert" role="status">
         <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
-        <div><span class="wf-alert__title">Uprawiasz borówkę lub inne kwasolubne?</span> <span class="wf-small wf-t-secondary">Wybierz odmianę CARBOMAT ECO o niższym pH – zwykła może podnieść odczyn ponad ich komfort. Zakres z karty: 4,5–6,5.</span></div>
+        <div><span class="wf-alert__title">Uprawiasz borówkę lub inne kwasolubne?</span> <span class="wf-small wf-t-secondary">Wybierz wersję CARBOMAT ECO o niższym pH – zwykła może podnieść odczyn ponad tolerancję roślin.</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ===== 3. CZYM JEST – scrollytelling ===== -->
-  <section class="wf-section wf-section--subtle" id="czym-jest">
-    <div class="wf-container wf-stack wf-stack--10">
+  <!-- ===== 3. CZYM JEST: przypięta opowieść (pinned story, 5 paneli) ===== -->
+  <section class="wf-section wf-section--subtle" id="czym-jest" data-chapter="czym-jest">
+    <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
         <span class="wf-overline">Czym jest</span>
-        <h2 class="wf-h2">Skondensowana próchnica, nie paliwo.</h2>
-        <p class="wf-lead wf-t-secondary">Przewiń – cztery rzeczy, które trzeba wiedzieć o tym surowcu. Wszystkie liczby z karty produktu i decyzji MRiRW.</p>
+        <h2 class="wf-h2">Skondensowana próchnica – najbardziej wartościowa materia organiczna.</h2>
+        <p class="wf-lead wf-t-secondary">Przewiń – ekran zatrzyma się, a pięć najważniejszych rzeczy, które powinieneś wiedzieć o tym surowcu, przejdzie przed Tobą jedna po drugiej.</p>
       </div>
+    </div>
 
-      <div class="cw2-story" data-story>
-        <!-- Lewa, przyklejona kolumna wizualna -->
-        <div class="cw2-story__visual">
-          <div class="wf-card wf-card--flush cw2-story__frame" data-stage="1">
-            <div class="wf-ph" aria-hidden="true">
-              <span class="wf-ph__label" data-for="1">MAKRO: pojedynczy gruzełek lignitu z widocznymi włóknami dawnych roślin</span>
-              <span class="wf-ph__label" data-for="2">SCHEMAT: przekrój gruzełka – trzy warstwy frakcji humusowych</span>
-              <span class="wf-ph__label" data-for="3">ILUSTRACJA: łyżka lignitu obok taczki obornika – porównanie gęstości próchnicy</span>
-              <span class="wf-ph__label" data-for="4">FOTO: próbka CARBOMAT w laboratorium, arkusz wyników badań</span>
+    <div class="cx-pin" data-pin>
+      <div class="cx-pin__stage wf-container">
+        <div class="cx-pin__inner">
+
+          <article class="cx-pin__panel is-on" data-pin-panel="1">
+            <div class="wf-stack wf-stack--4">
+              <span class="wf-overline wf-t-tertiary cx-cascade" style="--i:0;">01 · Pochodzenie</span>
+              <h3 class="wf-h3 cx-cascade" style="--i:1;">Węgiel, który nie musi być paliwem.</h3>
+              <p class="wf-body wf-t-secondary wf-prose cx-cascade" style="--i:2;">Lignit to najmłodsza forma węgla brunatnego – materia organiczna prastarych drzew, zatrzymana na etapie stabilnego i trwałego humusu. Nie musi kojarzyć się z energetyką: coraz mocniej odkrywamy jego potencjał jako naturalnego składnika zdrowych, żyznych gleb.</p>
+              <p class="wf-body wf-t-secondary wf-prose cx-cascade" style="--i:3;">Co więcej – zamiast spłonąć i wyemitować CO₂ do atmosfery, lignit zastosowany w glebie wspiera sekwestrację, czyli długotrwałe wiązanie dwutlenku węgla.</p>
             </div>
-          </div>
-          <div class="cw2-story__meta">
-            <span class="wf-small wf-t-tertiary cw2-story__count"><span data-story-num>01</span> / 04</span>
-            <div class="cw2-story__track" aria-hidden="true"><div class="cw2-story__bar" data-story-bar></div></div>
-            <span class="wf-small wf-t-secondary" data-story-title>Pochodzenie</span>
-          </div>
-        </div>
+            <div class="wf-ph cx-cascade" style="--i:2;" aria-hidden="true"><span class="wf-ph__label">MAKRO: pojedynczy gruzełek lignitu z widocznymi włóknami prastarych drzew</span></div>
+          </article>
 
-        <!-- Prawa kolumna – kroki narracji -->
-        <div class="wf-stack wf-stack--10">
-          <article class="cw2-step cw2-step--active" data-step="1" data-title="Pochodzenie">
-            <span class="cw2-step__no" aria-hidden="true">01</span>
-            <div class="cw2-step__body">
-              <h3 class="wf-h4">Węgiel, który nigdy nie był paliwem.</h3>
-              <p class="wf-body wf-t-secondary wf-prose">Lignit to najmłodsza forma węgla brunatnego – materia roślinna zatrzymana na etapie humusu. CARBOMAT ECO powstaje z niego wyłącznie przez frakcjonowanie i odsiew, bez obróbki chemicznej.</p>
-              <p class="cw2-stat__num"><span data-count="60" data-final="60%">0</span></p>
-              <p class="wf-small wf-t-secondary">substancji organicznej w suchej masie (wg decyzji G-971/20)</p>
+          <article class="cx-pin__panel" data-pin-panel="2">
+            <div class="wf-stack wf-stack--4">
+              <span class="wf-overline wf-t-tertiary cx-cascade" style="--i:0;">02 · Zasobność</span>
+              <h3 class="wf-h3 cx-cascade" style="--i:1;">Najzasobniejsze źródło kwasów humusowych i fulwowych.</h3>
+              <p class="wf-body wf-t-secondary wf-prose cx-cascade" style="--i:2;">W przeciwieństwie do młodej materii organicznej – kompostów, biohumusu, ligniny czy produktów roślinnych – lignit zawiera dojrzałe formy humusu o złożonej, trwałej strukturze. Zwiększa pojemność sorpcyjną gleby, wspiera zatrzymywanie wody i składników pokarmowych oraz tworzy korzystne środowisko dla korzeni i mikroorganizmów glebowych.</p>
+              <div class="cx-cascade" style="--i:3;">
+                <p class="cx-num__val" style="font-size:clamp(2.6rem,5vw,4rem);"><span data-count="70" data-final="do 70%">0</span></p>
+                <p class="wf-small wf-t-secondary">może sięgać zawartość kwasów humusowych w suchej masie lignitu – zależnie od pokładu</p>
+              </div>
+            </div>
+            <div class="wf-ph cx-cascade" style="--i:2;" aria-hidden="true"><span class="wf-ph__label">SCHEMAT: gruzełek i otoczka kwasów humusowych i fulwowych wiążąca wodę i składniki</span></div>
+          </article>
+
+          <article class="cx-pin__panel" data-pin-panel="3">
+            <div class="wf-stack wf-stack--4">
+              <span class="wf-overline wf-t-tertiary cx-cascade" style="--i:0;">03 · Stabilność</span>
+              <h3 class="wf-h3 cx-cascade" style="--i:1;">Najbardziej dojrzała i stabilna forma materii organicznej.</h3>
+              <p class="wf-body wf-t-secondary wf-prose cx-cascade" style="--i:2;"><span class="wf-w-semibold">Całkowita zawartość substancji organicznej</span> mówi, ile materii jest w materiale; <span class="wf-w-semibold">stopień humifikacji</span> – jak długo i jak skutecznie działa ona w glebie. Świeża biomasa, kompost, obornik czy torf są dopiero na początku tej drogi; lignit to efekt milionów lat humifikacji i kondensacji związków organicznych.</p>
+              <div class="cx-barchart cx-cascade" style="--i:3;" role="img" aria-label="Porównanie stopnia humifikacji i stabilności materii organicznej: lignit bardzo wysoki, torf wysoki do średniego, biohumus średni, kompost dojrzały średni, obornik niski do średniego, świeża biomasa bardzo niski">
+                <div class="cx-bar"><span class="wf-small wf-w-semibold">Lignit</span><div class="cx-bar__track"><div class="cx-bar__fill" style="--bw:100%;"></div></div><span class="wf-small wf-t-secondary">bardzo wysoki</span></div>
+                <div class="cx-bar"><span class="wf-small">Torf</span><div class="cx-bar__track"><div class="cx-bar__fill" style="--bw:62%;"></div></div><span class="wf-small wf-t-secondary">wysoki / średni</span></div>
+                <div class="cx-bar"><span class="wf-small">Biohumus</span><div class="cx-bar__track"><div class="cx-bar__fill" style="--bw:46%;"></div></div><span class="wf-small wf-t-secondary">średni</span></div>
+                <div class="cx-bar"><span class="wf-small">Kompost dojrzały</span><div class="cx-bar__track"><div class="cx-bar__fill" style="--bw:42%;"></div></div><span class="wf-small wf-t-secondary">średni</span></div>
+                <div class="cx-bar"><span class="wf-small">Obornik</span><div class="cx-bar__track"><div class="cx-bar__fill" style="--bw:24%;"></div></div><span class="wf-small wf-t-secondary">niski / średni</span></div>
+                <div class="cx-bar"><span class="wf-small">Świeża biomasa</span><div class="cx-bar__track"><div class="cx-bar__fill" style="--bw:8%;"></div></div><span class="wf-small wf-t-secondary">bardzo niski</span></div>
+              </div>
+              <p class="wf-caption wf-t-tertiary cx-cascade" style="--i:4;">Stopień humifikacji i stabilności materii organicznej – porównanie jakościowe wg materiałów producenta.</p>
+            </div>
+            <div class="wf-ph cx-cascade" style="--i:2;" aria-hidden="true"><span class="wf-ph__label">ILUSTRACJA: szereg dojrzałości materii organicznej – od świeżej biomasy, przez kompost i torf, do lignitu</span></div>
+          </article>
+
+          <article class="cx-pin__panel" data-pin-panel="4">
+            <div class="wf-stack wf-stack--4">
+              <span class="wf-overline wf-t-tertiary cx-cascade" style="--i:0;">04 · Czystość</span>
+              <h3 class="wf-h3 cx-cascade" style="--i:1;">Wolny od zanieczyszczeń i nadmiaru metali ciężkich.</h3>
+              <p class="wf-body wf-t-secondary wf-prose cx-cascade" style="--i:2;">CARBOMAT ECO dostarcza glebie cennej materii organicznej bez ryzyka nadmiernego wprowadzania metali ciężkich. Bardzo niska zawartość kadmu, rtęci, arsenu czy ołowiu potwierdza wysoką jakość surowca, a zawarte w nim kwasy humusowe dodatkowo wspierają naturalną stabilizację środowiska glebowego.</p>
+            </div>
+            <div class="wf-card wf-card--flush cx-cascade" style="--i:2;">
+              <div class="cw-scrollx" tabindex="0">
+                <table class="wf-table">
+                  <thead><tr><th scope="col">Pierwiastek</th><th scope="col" style="text-align:right;">Zawartość</th></tr></thead>
+                  <tbody>
+                    <tr><td>Ołów (Pb)</td><td style="text-align:right;">&lt;1,0 mg/kg</td></tr>
+                    <tr><td>Kadm (Cd)</td><td style="text-align:right;">&lt;1,0 mg/kg</td></tr>
+                    <tr><td>Arsen (As)</td><td style="text-align:right;">&lt;0,01 mg/kg</td></tr>
+                    <tr><td>Chrom (Cr)</td><td style="text-align:right;">&lt;0,5 mg/kg</td></tr>
+                    <tr><td>Nikiel (Ni)</td><td style="text-align:right;">&lt;0,5 mg/kg</td></tr>
+                    <tr><td>Rtęć (Hg)</td><td style="text-align:right;">&lt;0,05 mg/kg</td></tr>
+                    <tr><td>Selen (Se)</td><td style="text-align:right;">&lt;0,5 mg/kg</td></tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </article>
 
-          <article class="cw2-step" data-step="2" data-title="Skład">
-            <span class="cw2-step__no" aria-hidden="true">02</span>
-            <div class="cw2-step__body">
-              <h3 class="wf-h4">Trzy frakcje, trzy zadania.</h3>
-              <div class="wf-stack wf-stack--3">
-                <div class="wf-cluster wf-gap-3 wf-items-center">
+          <article class="cx-pin__panel" data-pin-panel="5">
+            <div class="wf-stack wf-stack--4">
+              <span class="wf-overline wf-t-tertiary cx-cascade" style="--i:0;">05 · Struktura</span>
+              <h3 class="wf-h3 cx-cascade" style="--i:1;">Każda gruzełka to ogromny mikrokosmos.</h3>
+              <p class="wf-body wf-t-secondary wf-prose cx-cascade" style="--i:2;">Około 60% objętości gruzełki stanowią naturalne pory. Dzięki rozwiniętej strukturze porowatej CARBOMAT ECO działa jak naturalny regulator środowiska glebowego:</p>
+              <div class="cx-frak">
+                <div class="cx-frak__item cx-cascade" style="--i:3;">
+                  <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-droplet"></use></svg></span>
+                  <p class="wf-body"><span class="wf-w-semibold">Magazynuje wodę</span> <span class="wf-t-secondary">– w strukturze mikroporów, ograniczając przesychanie gleby.</span></p>
+                </div>
+                <div class="cx-frak__item cx-cascade" style="--i:4;">
                   <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-stack-2"></use></svg></span>
-                  <p class="wf-body"><span class="wf-w-semibold">Huminy</span> <span class="wf-t-secondary">– szkielet: nierozpuszczalne, budują gruzełkowatą strukturę na dekady.</span></p>
+                  <p class="wf-body"><span class="wf-w-semibold">Napowietrza podłoże</span> <span class="wf-t-secondary">– tworzy korzystne warunki dla korzeni i mikroorganizmów.</span></p>
                 </div>
-                <div class="wf-cluster wf-gap-3 wf-items-center">
+                <div class="cx-frak__item cx-cascade" style="--i:5;">
                   <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-magnet"></use></svg></span>
-                  <p class="wf-body"><span class="wf-w-semibold">Kwasy huminowe</span> <span class="wf-t-secondary">– magazyn i bufor: kompleks sorpcyjny wiąże wodę i składniki, potem oddaje je korzeniom.</span></p>
-                </div>
-                <div class="wf-cluster wf-gap-3 wf-items-center">
-                  <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-flask"></use></svg></span>
-                  <p class="wf-body"><span class="wf-w-semibold">Kwasy fulwowe</span> <span class="wf-t-secondary">– transport: uruchamiają składniki mineralne i karmią życie mikrobiologiczne.</span></p>
+                  <p class="wf-body"><span class="wf-w-semibold">Zwiększa powierzchnię sorpcyjną</span> <span class="wf-t-secondary">– ujemny ładunek kwasów humusowych wiąże kationy potasu, wapnia, magnezu, azotu amonowego i wielu mikroelementów.</span></p>
                 </div>
               </div>
             </div>
+            <div class="wf-ph cx-cascade" style="--i:2;" aria-hidden="true"><span class="wf-ph__label">MAKRO 3D: przekrój gruzełka – sieć mikroporów wypełnionych wodą i powietrzem</span></div>
           </article>
 
-          <article class="cw2-step" data-step="3" data-title="Stężenie">
-            <span class="cw2-step__no" aria-hidden="true">03</span>
-            <div class="cw2-step__body">
-              <h3 class="wf-h4">Najgęstsze naturalne źródło substancji humusowych.</h3>
-              <div class="cw2-barchart cw2-reveal" role="img" aria-label="Porównanie zawartości kwasów humusowych w suchej masie: lignit do około 70 procent, torf 3 do 30 procent, biohumus 1 do 5 procent, biowęgiel brak">
-                <div class="cw2-bar"><span class="wf-small wf-w-semibold">Lignit</span><div class="cw2-bar__track"><div class="cw2-bar__fill" style="--bw:100%;"></div></div><span class="wf-small wf-t-secondary">do ~70% s.m.</span></div>
-                <div class="cw2-bar"><span class="wf-small">Torf</span><div class="cw2-bar__track"><div class="cw2-bar__fill" style="--bw:43%;"></div></div><span class="wf-small wf-t-secondary">3–30%</span></div>
-                <div class="cw2-bar"><span class="wf-small">Biohumus</span><div class="cw2-bar__track"><div class="cw2-bar__fill" style="--bw:7%;"></div></div><span class="wf-small wf-t-secondary">1–5%</span></div>
-                <div class="cw2-bar"><span class="wf-small">Biowęgiel</span><div class="cw2-bar__track"><div class="cw2-bar__fill" style="--bw:0%;"></div></div><span class="wf-small wf-t-secondary">brak</span></div>
-              </div>
-              <p class="wf-caption wf-t-tertiary">Zawartość kwasów humusowych w suchej masie surowca – typowe zakresy; lignit wg materiałów producenta.</p>
-              <p class="wf-body wf-t-secondary wf-prose">Dlatego jedna tona CARBOMAT ECO (ok. 800 kg suchej masy) odpowiada równoważnikowi około 5000 kg suchej masy młodej materii organicznej (wg karty producenta) – lignit jest końcowym efektem humifikacji, a nie materiałem, który gleba musi dopiero rozłożyć.</p>
+          <div class="cx-pin__meta" aria-hidden="true">
+            <span class="wf-small wf-t-tertiary cx-pin__count"><span data-pin-num>01</span> / 05</span>
+            <div class="cx-pin__dots">
+              <span class="cx-pin__dot is-on" data-pin-dot="1"></span>
+              <span class="cx-pin__dot" data-pin-dot="2"></span>
+              <span class="cx-pin__dot" data-pin-dot="3"></span>
+              <span class="cx-pin__dot" data-pin-dot="4"></span>
+              <span class="cx-pin__dot" data-pin-dot="5"></span>
             </div>
-          </article>
+            <span class="wf-small wf-t-secondary" data-pin-title>Pochodzenie</span>
+          </div>
 
-          <article class="cw2-step" data-step="4" data-title="Parametry">
-            <span class="cw2-step__no" aria-hidden="true">04</span>
-            <div class="cw2-step__body">
-              <h3 class="wf-h4">Policzony i czysty.</h3>
-              <div class="wf-grid wf-grid--2" style="--wf-grid-min: 11rem;">
-                <div class="cw2-stat">
-                  <span class="cw2-stat__num"><span data-count="50" data-final="~50%">0</span></span>
-                  <span class="wf-small wf-t-secondary">pojemności wodnej przy pF 1.0 (wg karty)</span>
-                </div>
-                <div class="cw2-stat">
-                  <span class="cw2-stat__num">4,5–6,5</span>
-                  <span class="wf-small wf-t-secondary">pH – odmiany dla kwasolubnych i uniwersalna</span>
-                </div>
-                <div class="cw2-stat">
-                  <span class="cw2-stat__num"><span data-count="20" data-final="20+">0</span></span>
-                  <span class="wf-small wf-t-secondary">lat pracy w glebie – kilkanaście do ponad 20 (badania PW i IUNG)</span>
-                </div>
-                <div class="cw2-stat">
-                  <span class="cw2-stat__num">&lt;0,005</span>
-                  <span class="wf-small wf-t-secondary">mg/kg rtęci – metale ciężkie wielokrotnie poniżej granic (wg karty)</span>
-                </div>
-              </div>
-            </div>
-          </article>
         </div>
       </div>
-
-      <p class="wf-small">Pełny mechanizm: <a class="wf-link" href="produkty.html#jak-dzialaja">jak lignit buduje próchnicę i glebę</a>.</p>
     </div>
   </section>
 
-  <!-- ===== 4. JAK STOSOWAĆ – dwa produkty, dwa gesty ===== -->
-  <section class="wf-section" id="jak-stosowac">
+  <!-- ===== 4. LICZBY: parametry jak z okładki ===== -->
+  <section class="wf-section" id="liczby" data-chapter="liczby">
+    <div class="wf-container wf-stack wf-stack--8">
+      <div class="wf-stack wf-stack--3" style="max-width:680px;">
+        <span class="wf-overline">Liczby</span>
+        <h2 class="wf-h2">Cztery liczby, które robią robotę.</h2>
+        <p class="wf-lead wf-t-secondary">Bez marketingowych obietnic – parametry surowca z dokumentacji producenta i badań.</p>
+      </div>
+
+      <div>
+        <div class="cx-num cx-reveal">
+          <p class="cx-num__val"><span data-count="70" data-final="do 70%">0</span></p>
+          <div class="cx-num__body">
+            <h3 class="wf-h5">Kwasów humusowych w suchej masie.</h3>
+            <p class="wf-small wf-t-secondary">Najzasobniejsza naturalna forma dojrzałego humusu – zależnie od pokładu.</p>
+            <p class="wf-caption wf-t-tertiary">Źródło: opracowanie producenta.</p>
+          </div>
+        </div>
+        <div class="cx-num cx-reveal">
+          <p class="cx-num__val"><span data-count="60" data-final="~60%">0</span></p>
+          <div class="cx-num__body">
+            <h3 class="wf-h5">Objętości gruzełki to naturalne pory.</h3>
+            <p class="wf-small wf-t-secondary">Magazyn na wodę i powietrze – mikrokosmos dla korzeni i mikroorganizmów.</p>
+            <p class="wf-caption wf-t-tertiary">Źródło: opracowanie producenta.</p>
+          </div>
+        </div>
+        <div class="cx-num cx-reveal">
+          <p class="cx-num__val"><span data-count="20" data-final="20+">0</span></p>
+          <div class="cx-num__body">
+            <h3 class="wf-h5">Lat pracy w glebie – nawet powyżej 20.</h3>
+            <p class="wf-small wf-t-secondary">Jednorazowa aplikacja zamiast corocznego odtwarzania materii organicznej.</p>
+            <p class="wf-caption wf-t-tertiary">Źródło: badania Politechniki Warszawskiej i IUNG Puławy.</p>
+          </div>
+        </div>
+        <div class="cx-num cx-reveal" style="border-bottom:1px solid var(--w-border-subtle);">
+          <p class="cx-num__val">&lt;0,05</p>
+          <div class="cx-num__body">
+            <h3 class="wf-h5">Miligrama rtęci na kilogram.</h3>
+            <p class="wf-small wf-t-secondary">Metale ciężkie wielokrotnie poniżej granic – surowiec czysty z natury.</p>
+            <p class="wf-caption wf-t-tertiary">Źródło: badanie surowca producenta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 5. JAK STOSOWAĆ: najprostsze recepty ===== -->
+  <section class="wf-section wf-section--subtle" id="jak-stosowac" data-chapter="jak-stosowac">
     <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
         <span class="wf-overline">Jak stosować</span>
-        <h2 class="wf-h2">Dwa produkty, dwa gesty.</h2>
-        <p class="wf-lead wf-t-secondary">Bez niuansów i tabel – ogólna zasada. Dokładne proporcje dla Twojej uprawy znajdziesz w zaleceniach i na opakowaniu.</p>
+        <h2 class="wf-h2">Dwa produkty – najprostsze recepty.</h2>
+        <p class="wf-lead wf-t-secondary">Bez głębszych niuansów i tabel – ogólne zasady. Dokładniejsze proporcje znajdziesz w naszych opracowaniach lub zapytaj bezpośrednio doradcę.</p>
       </div>
 
       <div class="wf-grid wf-grid--2" style="--wf-grid-min: 20rem;">
-        <article class="wf-card cw2-reveal"><div class="wf-card__body wf-stack wf-stack--4">
-          <h3 class="wf-h4">CARBOMAT ECO – rozmieszaj</h3>
-          <div class="wf-stack wf-stack--3">
-            <div class="wf-cluster wf-gap-3 wf-items-center">
-              <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-dots"></use></svg></span>
-              <p class="wf-body">Rozsyp na glebie lub dodaj do podłoża.</p>
-            </div>
-            <div class="wf-cluster wf-gap-3 wf-items-center">
-              <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-arrows-sort"></use></svg></span>
-              <p class="wf-body">Rozmieszaj z wierzchnią warstwą (ok. 15–20 cm) lub z podłożem.</p>
-            </div>
-            <div class="wf-cluster wf-gap-3 wf-items-center">
-              <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-droplet"></use></svg></span>
-              <p class="wf-body">Podlej, żeby lignit związał się z glebą.</p>
-            </div>
-          </div>
-          <p class="wf-small wf-t-secondary">Kiedy: przy sadzeniu i wysadzaniu, przy zakładaniu grządki lub trawnika, przy rewitalizacji podłoża. W podłożach zwykle jako domieszka 20–30% objętości (wg decyzji).</p>
+        <article class="wf-card cx-reveal" style="--i:0;"><div class="wf-card__body wf-stack wf-stack--3">
+          <h3 class="wf-h4">CARBOMAT ECO – dodatek do gleby</h3>
+          <div class="cx-step"><span class="cx-step__no">01</span><p class="wf-body"><span class="wf-w-semibold">Powierzchniowo:</span> wymieszaj z glebą lub innymi składnikami – 10–15% objętości warstwy ornej lub całego przygotowanego podłoża.</p></div>
+          <div class="cx-step"><span class="cx-step__no">02</span><p class="wf-body"><span class="wf-w-semibold">Frakcję dobieraj do gleby:</span> lekkie, piaszczyste – drobniejsza; ciężkie, gliniaste – grubsza.</p></div>
+          <div class="cx-step"><span class="cx-step__no">03</span><p class="wf-body"><span class="wf-w-semibold">Punktowo:</span> pod rozsadę lub goły korzeń przy sadzeniu, przemieszaj z glebą. Małe jednoroczne (pomidor, papryka, ogórek) ok. 100–200 ml, drzewa sadownicze 3–5 l.</p></div>
+          <p class="wf-small wf-t-secondary">Uprawy doniczkowe: 10–20% objętości gotowej mieszanki podłoża albo wartościowy drenaż na spodzie doniczki (warstwa ok. 5 cm). Im więcej wartościowego podłoża przygotujesz, tym bujniej rozrośnie się korzeń.</p>
         </div></article>
 
-        <article class="wf-card cw2-reveal"><div class="wf-card__body wf-stack wf-stack--4">
-          <h3 class="wf-h4">CARBOMAT ECO ŚCIÓŁKA – rozsyp</h3>
-          <div class="wf-stack wf-stack--3">
-            <div class="wf-cluster wf-gap-3 wf-items-center">
-              <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-check"></use></svg></span>
-              <p class="wf-body">Odchwaść i wyrównaj powierzchnię wokół roślin.</p>
-            </div>
-            <div class="wf-cluster wf-gap-3 wf-items-center">
-              <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-stack-2"></use></svg></span>
-              <p class="wf-body">Rozsyp równą warstwę kilku centymetrów – bez mieszania z glebą.</p>
-            </div>
-            <div class="wf-cluster wf-gap-3 wf-items-center">
-              <span class="cw-feat-icon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-calendar"></use></svg></span>
-              <p class="wf-body">Uzupełniaj warstwę co sezon lub dwa.</p>
-            </div>
-          </div>
-          <p class="wf-small wf-t-secondary">Kiedy: wokół krzewów jagodowych (np. pas ok. 60 cm średnicy wokół borówki), w rzędach i na rabatach – także dekoracyjnie.</p>
+        <article class="wf-card cx-reveal" style="--i:1;"><div class="wf-card__body wf-stack wf-stack--3">
+          <h3 class="wf-h4">CARBOMAT ECO Ściółka – rozsyp bez mieszania</h3>
+          <div class="cx-step"><span class="cx-step__no">01</span><p class="wf-body"><span class="wf-w-semibold">Powierzchniowo:</span> w rzędach dopasuj szerokość ściółki do rośliny – młoda borówka (pierwsze 3 lata) 60–80 cm, starsza 80–120 cm. Na rabatach przykryj całą powierzchnię.</p></div>
+          <div class="cx-step"><span class="cx-step__no">02</span><p class="wf-body"><span class="wf-w-semibold">Punktowo:</span> obwód ściółki odpowiadający części nadziemnej rośliny.</p></div>
+          <div class="cx-step"><span class="cx-step__no">03</span><p class="wf-body"><span class="wf-w-semibold">Warstwa 3–5 cm.</span> Odświeżaj co kilka lat.</p></div>
+          <p class="wf-small wf-t-secondary">Uprawy doniczkowe: przykryj całą powierzchnię doniczki warstwą 3–5 cm.</p>
         </div></article>
       </div>
 
@@ -583,226 +834,176 @@
     </div>
   </section>
 
-  <!-- ===== 5. GAMA PRODUKTÓW CARBOMAT (taby + karty sklepowe) ===== -->
-  <section class="wf-section wf-section--subtle" id="gama">
+  <!-- ===== 6. DOBIERZ SWOJĄ DAWKĘ: kalkulator (feature uniwersalny, D59) ===== -->
+  <section class="wf-section" id="dawka" data-chapter="dawka">
     <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Gama</span>
-        <h2 class="wf-h2">Gama produktów CARBOMAT.</h2>
-        <p class="wf-lead wf-t-secondary">Konkretne produkty z ceną – tak, jak zobaczysz je w sklepie.</p>
+        <span class="wf-overline">Zastosowania i dawki</span>
+        <h2 class="wf-h2">Dobierz swoją dawkę.</h2>
+        <p class="wf-lead wf-t-secondary">CARBOMAT ECO jest uniwersalny – zamiast listy miejsc po prostu policz, ile potrzebujesz u siebie. Wybierz produkt i sposób aplikacji, ustaw suwak.</p>
       </div>
 
-      <div class="wf-stack wf-stack--5" data-tabs="eco">
-        <div class="wf-tabs" role="tablist" aria-label="Gama produktów CARBOMAT">
-          <button class="wf-tab" role="tab" id="tab-eco" data-tab="eco" aria-selected="true" aria-controls="panel-eco">CARBOMAT ECO</button>
-          <button class="wf-tab" role="tab" id="tab-sciolka" data-tab="sciolka" aria-selected="false" aria-controls="panel-sciolka">CARBOMAT ECO ŚCIÓŁKA</button>
-        </div>
+      <article class="wf-card cx-reveal">
+        <div class="wf-card__body cx-dcalc" data-calc>
+          <div class="wf-stack wf-stack--5">
+            <div class="cx-dcalc__field">
+              <span class="wf-overline wf-t-tertiary">Produkt</span>
+              <div class="wf-segmented" role="group" aria-label="Wybierz produkt">
+                <button type="button" class="wf-btn wf-btn--sm" data-calc-prod="eco" aria-pressed="true">CARBOMAT ECO</button>
+                <button type="button" class="wf-btn wf-btn--sm" data-calc-prod="sciolka" aria-pressed="false">CARBOMAT ECO Ściółka</button>
+              </div>
+            </div>
 
-        <div id="panel-eco" role="tabpanel" data-panel="eco" aria-labelledby="tab-eco">
-          <div class="wf-grid wf-grid--2" style="--wf-grid-min: 18rem;">
-            <article class="wf-card wf-card--flush">
-              <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Worek 20 l – CARBOMAT ECO, odmiana o niższym pH</span></div>
-              <div class="wf-card__body wf-stack wf-stack--3">
-                <div class="wf-cluster wf-cluster--between"><h3 class="wf-h5">CARBOMAT ECO – niższe pH</h3><span class="wf-badge wf-badge--outline">kwasolubne</span></div>
-                <p class="wf-small wf-t-secondary">Pod borówkę, wrzosy, różaneczniki i inne rośliny kwasolubne.</p>
-                <p class="wf-body"><span class="wf-h4 wf-w-bold">od 89 zł</span> <span class="wf-small wf-t-tertiary">· worek 20 l</span></p>
-                <div class="wf-cluster wf-gap-3 wf-items-center">
-                  <a class="wf-btn wf-btn--primary wf-btn--sm" href="sklep.html?grupa=carbomat">Kup w sklepie</a>
-                  <a class="wf-link--quiet wf-small" href="centrum-wiedzy.html#magazyn">Karta (PDF)</a>
-                </div>
+            <div class="cx-dcalc__field" data-calc-only="eco">
+              <span class="wf-overline wf-t-tertiary">Sposób aplikacji</span>
+              <div class="wf-segmented" role="group" aria-label="Sposób aplikacji CARBOMAT ECO">
+                <button type="button" class="wf-btn wf-btn--sm" data-calc-mode="grunt" aria-pressed="true">Grunt i grządki</button>
+                <button type="button" class="wf-btn wf-btn--sm" data-calc-mode="doniczki" aria-pressed="false">Doniczki i podłoża</button>
+                <button type="button" class="wf-btn wf-btn--sm" data-calc-mode="punkt" aria-pressed="false">Punktowo przy sadzeniu</button>
               </div>
-            </article>
-            <article class="wf-card wf-card--flush">
-              <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Worek 20 l – CARBOMAT ECO, odmiana o wyższym pH</span></div>
-              <div class="wf-card__body wf-stack wf-stack--3">
-                <div class="wf-cluster wf-cluster--between"><h3 class="wf-h5">CARBOMAT ECO – wyższe pH</h3><span class="wf-badge wf-badge--outline">uniwersalna</span></div>
-                <p class="wf-small wf-t-secondary">Do warzywnika, trawnika, sadu i większości upraw.</p>
-                <p class="wf-body"><span class="wf-h4 wf-w-bold">od 89 zł</span> <span class="wf-small wf-t-tertiary">· worek 20 l</span></p>
-                <div class="wf-cluster wf-gap-3 wf-items-center">
-                  <a class="wf-btn wf-btn--primary wf-btn--sm" href="sklep.html?grupa=carbomat">Kup w sklepie</a>
-                  <a class="wf-link--quiet wf-small" href="centrum-wiedzy.html#magazyn">Karta (PDF)</a>
-                </div>
+            </div>
+
+            <div class="cx-dcalc__field" data-calc-only="punkt" hidden>
+              <span class="wf-overline wf-t-tertiary">Rodzaj roślin</span>
+              <div class="wf-segmented" role="group" aria-label="Rodzaj roślin do sadzenia punktowego">
+                <button type="button" class="wf-btn wf-btn--sm" data-calc-typ="jednoroczne" aria-pressed="true">Jednoroczne (pomidor, papryka)</button>
+                <button type="button" class="wf-btn wf-btn--sm" data-calc-typ="drzewa" aria-pressed="false">Drzewa sadownicze</button>
               </div>
-            </article>
+            </div>
+
+            <div class="cx-dcalc__field" data-calc-only="sciolka-w" hidden>
+              <span class="wf-overline wf-t-tertiary">Grubość warstwy</span>
+              <div class="wf-segmented" role="group" aria-label="Grubość warstwy ściółki">
+                <button type="button" class="wf-btn wf-btn--sm" data-calc-warstwa="3" aria-pressed="true">3 cm</button>
+                <button type="button" class="wf-btn wf-btn--sm" data-calc-warstwa="5" aria-pressed="false">5 cm</button>
+              </div>
+            </div>
+
+            <div class="cx-dcalc__field" data-calc-only="m2">
+              <label class="wf-label" for="calc-m2">Powierzchnia: <output data-calc-outm2>20</output> m²</label>
+              <input type="range" id="calc-m2" min="1" max="200" step="1" value="20" data-calc-m2>
+              <div class="wf-cluster wf-cluster--between" style="max-width:26rem;"><span class="wf-caption wf-t-tertiary">1 m²</span><span class="wf-caption wf-t-tertiary">200 m²</span></div>
+            </div>
+            <div class="cx-dcalc__field" data-calc-only="lit" hidden>
+              <label class="wf-label" for="calc-lit">Objętość przygotowywanego podłoża: <output data-calc-outlit>50</output> l</label>
+              <input type="range" id="calc-lit" min="5" max="500" step="5" value="50" data-calc-lit>
+              <div class="wf-cluster wf-cluster--between" style="max-width:26rem;"><span class="wf-caption wf-t-tertiary">5 l</span><span class="wf-caption wf-t-tertiary">500 l</span></div>
+            </div>
+            <div class="cx-dcalc__field" data-calc-only="n" hidden>
+              <label class="wf-label" for="calc-n">Liczba roślin: <output data-calc-outn>10</output></label>
+              <input type="range" id="calc-n" min="1" max="200" step="1" value="10" data-calc-n>
+              <div class="wf-cluster wf-cluster--between" style="max-width:26rem;"><span class="wf-caption wf-t-tertiary">1</span><span class="wf-caption wf-t-tertiary">200</span></div>
+            </div>
+
+            <p class="wf-caption wf-t-tertiary" data-calc-basis>Liczymy 10–15% objętości gleby dla przemieszania z warstwą orną ok. 20 cm.</p>
+          </div>
+
+          <div class="cx-dcalc__out" aria-live="polite">
+            <span class="wf-overline wf-t-tertiary">Twoja orientacyjna dawka</span>
+            <span class="cx-dcalc__num" data-calc-result>ok. 400–600 l</span>
+            <span class="wf-body wf-t-secondary" data-calc-packs>To około 30 worków 20 l.</span>
+            <span class="wf-small wf-t-secondary" data-calc-hint hidden>Przy takiej ilości wygodniejszy będzie big bag 1000 l lub 1500 l.</span>
+            <div class="wf-cluster wf-gap-3">
+              <a class="wf-btn wf-btn--primary" href="sklep.html?grupa=carbomat">Kup w sklepie</a>
+              <a class="wf-btn wf-btn--secondary" href="konfigurator.html">Dobierz właściwy produkt</a>
+            </div>
+            <span class="wf-caption wf-t-tertiary">Wynik poglądowy wg ogólnych zasad z sekcji „Jak stosować" – dokładne proporcje znajdziesz w zaleceniach dla uprawy.</span>
           </div>
         </div>
+      </article>
 
-        <div id="panel-sciolka" role="tabpanel" data-panel="sciolka" aria-labelledby="tab-sciolka" hidden>
-          <div class="wf-grid wf-grid--2" style="--wf-grid-min: 18rem;">
-            <article class="wf-card wf-card--flush">
-              <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Worek 20 l – CARBOMAT ECO ŚCIÓŁKA 8–20 mm</span></div>
-              <div class="wf-card__body wf-stack wf-stack--3">
-                <div class="wf-cluster wf-cluster--between"><h3 class="wf-h5">ŚCIÓŁKA – worek 20 l</h3><span class="wf-badge wf-badge--outline">nowość</span></div>
-                <p class="wf-small wf-t-secondary">Frakcja 8–20 mm do ogrodu: wokół krzewów, w rzędach i na rabatach.</p>
-                <p class="wf-body"><a class="wf-link wf-w-semibold" href="sklep.html?grupa=carbomat">sprawdź cenę w sklepie</a></p>
-                <div class="wf-cluster wf-gap-3 wf-items-center">
-                  <a class="wf-btn wf-btn--primary wf-btn--sm" href="sklep.html?grupa=carbomat">Kup w sklepie</a>
-                  <a class="wf-link--quiet wf-small" href="centrum-wiedzy.html#magazyn">Karta (PDF)</a>
-                </div>
-              </div>
-            </article>
-            <article class="wf-card wf-card--flush">
-              <div class="wf-ph wf-ph--4x3" aria-hidden="true"><span class="wf-ph__label">Big bag 1000 l / 1500 l – ŚCIÓŁKA na plantację</span></div>
-              <div class="wf-card__body wf-stack wf-stack--3">
-                <div class="wf-cluster wf-cluster--between"><h3 class="wf-h5">ŚCIÓŁKA – 1000 l / 1500 l</h3><span class="wf-badge wf-badge--outline">plantacje</span></div>
-                <p class="wf-small wf-t-secondary">Duże opakowania na rzędy i plantacje jagodowe.</p>
-                <p class="wf-body"><span class="wf-w-semibold">wycena indywidualna</span> <span class="wf-small wf-t-tertiary">· big bag</span></p>
-                <div class="wf-cluster wf-gap-3 wf-items-center">
-                  <a class="wf-btn wf-btn--secondary wf-btn--sm" href="kontakt.html">Zapytaj o ofertę</a>
-                  <a class="wf-link--quiet wf-small" href="sklep.html?grupa=carbomat">Zobacz w sklepie</a>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-
-      <p><a class="wf-btn wf-btn--link" href="konfigurator.html">Nie wiesz, ile potrzebujesz? Dobierz właściwy produkt</a></p>
+      <p class="wf-small wf-t-secondary">Zalecenia dla Twojej uprawy:
+        <a class="wf-link" href="jagodowe.html">Jagodowe</a> ·
+        <a class="wf-link" href="sadownicze.html">Sadownicze</a> ·
+        <a class="wf-link" href="warzywnicze.html">Warzywnicze</a> ·
+        <a class="wf-link" href="trawnik.html">Trawnik</a> ·
+        <a class="wf-link" href="krzewy.html">Krzewy i tuje</a> ·
+        <a class="wf-link" href="ogrod.html">Ogród i działka</a>
+      </p>
     </div>
   </section>
 
-  <!-- ===== 6. GDZIE NAJLEPIEJ STOSOWAĆ – fiszki zastosowań ===== -->
-  <section class="wf-section" id="gdzie-stosowac">
-    <div class="wf-container wf-stack wf-stack--8">
-      <div class="wf-stack wf-stack--3" style="max-width:680px;">
-        <span class="wf-overline">Zastosowania</span>
-        <h2 class="wf-h2">Gdzie najlepiej stosować CARBOMAT.</h2>
-        <p class="wf-lead wf-t-secondary">Sześć najczęstszych miejsc – i w jednym zdaniu, jak produkt tam pracuje.</p>
-      </div>
-
-      <div class="wf-grid wf-grid--3" style="--wf-grid-min: 15rem;">
-        <article class="wf-card wf-card--flush cw2-reveal">
-          <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">FOTO: rząd krzewów borówki ze ściółką lignitową</span></div>
-          <div class="wf-card__body wf-stack wf-stack--3">
-            <h3 class="wf-h5">Borówka i jagodowe</h3>
-            <p class="wf-small wf-t-secondary">Przy nasadzeniach ECO o niższym pH rozmieszany z glebą w rzędzie, potem ściółka pasem ok. 60 cm wokół krzewów – raz, bez corocznego powtarzania.</p>
-            <div class="wf-mt-auto"><a class="wf-btn wf-btn--secondary wf-btn--sm wf-inline" href="jagodowe.html">Jagodowe <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
-          </div>
-        </article>
-        <article class="wf-card wf-card--flush cw2-reveal">
-          <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">FOTO: młody sad, dołki sadzeniowe</span></div>
-          <div class="wf-card__body wf-stack wf-stack--3">
-            <h3 class="wf-h5">Sad</h3>
-            <p class="wf-small wf-t-secondary">Do dołka sadzeniowego i w rzędy: rozmieszany z glebą przy sadzeniu wspiera strukturę i wodę pod koroną przez lata.</p>
-            <div class="wf-mt-auto"><a class="wf-btn wf-btn--secondary wf-btn--sm wf-inline" href="sadownicze.html">Sadownicze <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
-          </div>
-        </article>
-        <article class="wf-card wf-card--flush cw2-reveal">
-          <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">FOTO: grządki warzywne wiosną</span></div>
-          <div class="wf-card__body wf-stack wf-stack--3">
-            <h3 class="wf-h5">Warzywnik</h3>
-            <p class="wf-small wf-t-secondary">Przed sezonem rozmieszany z wierzchnią warstwą (ok. 15–20 cm) – w gruncie i pod osłonami ziemia robi się pulchna i lepiej trzyma wodę.</p>
-            <div class="wf-mt-auto"><a class="wf-btn wf-btn--secondary wf-btn--sm wf-inline" href="warzywnicze.html">Warzywnicze <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
-          </div>
-        </article>
-        <article class="wf-card wf-card--flush cw2-reveal">
-          <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">FOTO: zakładanie trawnika, wyrównane podłoże</span></div>
-          <div class="wf-card__body wf-stack wf-stack--3">
-            <h3 class="wf-h5">Trawnik</h3>
-            <p class="wf-small wf-t-secondary">Przy zakładaniu lub renowacji rozmieszany z podłożem – wyrównuje strukturę i ogranicza przesychanie murawy.</p>
-            <div class="wf-mt-auto"><a class="wf-btn wf-btn--secondary wf-btn--sm wf-inline" href="trawnik.html">Trawnik <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
-          </div>
-        </article>
-        <article class="wf-card wf-card--flush cw2-reveal">
-          <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">FOTO: sadzenie krzewu, mieszanie podłoża w dołku</span></div>
-          <div class="wf-card__body wf-stack wf-stack--3">
-            <h3 class="wf-h5">Krzewy i rośliny ozdobne</h3>
-            <p class="wf-small wf-t-secondary">Przy sadzeniu krzewów i bylin rozmieszany z ziemią z dołka; w doniczkach jako komponent podłoża 20–30% objętości (wg decyzji).</p>
-            <div class="wf-mt-auto"><a class="wf-btn wf-btn--secondary wf-btn--sm wf-inline" href="krzewy.html">Krzewy i tuje <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
-          </div>
-        </article>
-        <article class="wf-card wf-card--flush cw2-reveal">
-          <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">FOTO: rabata ozdobna z ciemną ściółką lignitową</span></div>
-          <div class="wf-card__body wf-stack wf-stack--3">
-            <h3 class="wf-h5">Rabaty i ściółkowanie ozdobne</h3>
-            <p class="wf-small wf-t-secondary">Równa warstwa kilku centymetrów na rabacie: mniej parowania, wyższa temperatura gleby (wg poradnika producenta) i wyrazisty, ciemny wygląd.</p>
-            <div class="wf-mt-auto"><a class="wf-btn wf-btn--secondary wf-btn--sm wf-inline" href="ogrod.html">Ogród i działka <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg></a></div>
-          </div>
-        </article>
-      </div>
-
-      <div class="wf-cluster wf-gap-3">
-        <a class="wf-btn wf-btn--secondary" href="konfigurator.html">Nie widzisz swojej uprawy? Dobierz właściwy produkt</a>
-        <a class="wf-btn wf-btn--link" href="uprawy.html">Wszystkie rodzaje upraw</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== 7. KIEDY STOSOWAĆ – pozioma oś sezonu ===== -->
-  <section class="wf-section wf-section--subtle" id="sezon">
+  <!-- ===== 7. SEZON: system w trzech krokach + rozwijana siatka ===== -->
+  <section class="wf-section wf-section--subtle" id="sezon" data-chapter="sezon">
     <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
         <span class="wf-overline">Kiedy stosować</span>
         <h2 class="wf-h2">Produkty w rytmie sezonu.</h2>
-        <p class="wf-lead wf-t-secondary">Pozioma oś to cykl życia rośliny, kropki to momenty aplikacji. Najedź na produkt poniżej, a podświetlimy jego miejsca na siatce.</p>
+        <p class="wf-lead wf-t-secondary">CARBOMAT ECO to pierwszy krok systemu: bazę zakładasz raz, a w sezonie pracują produkty płynne.</p>
       </div>
 
-      <div class="wf-card wf-card--flush cw2-reveal">
-        <div class="cw-scrollx" tabindex="0">
-          <div class="cw2-chart" data-usechart aria-label="Siatka momentów aplikacji: wiersze to przykładowe uprawy (borówka, sad, warzywnik), kolumny to fazy cyklu życia rośliny, kropki to momenty stosowania produktów">
-            <div class="cw2-chart__cell cw2-chart__cell--head cw2-chart__cell--label"><span class="wf-caption wf-t-tertiary">Przykładowa uprawa</span></div>
-            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">Przygotowanie gleby</span></div>
-            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">Sadzenie i start</span></div>
-            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">Wzrost</span></div>
-            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">Owocowanie</span></div>
-            <div class="cw2-chart__cell cw2-chart__cell--head"><span class="wf-caption wf-t-tertiary">Po sezonie</span></div>
-
-            <div class="cw2-chart__cell cw2-chart__cell--label"><span class="wf-small wf-w-semibold">Borówka</span></div>
-            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--carbomat" data-prod="carbomat" title="CARBOMAT – raz, przy przygotowaniu gleby"></span></div>
-            <div class="cw2-chart__cell"></div>
-            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--niefiltr" data-prod="niefiltr" title="CARBOHUMIC niefiltrowany – wiosną"></span><span class="cw2-dot cw2-dot--maxi" data-prod="maxi" title="MAXI PLUS – nalistnie w fazie wzrostu"></span></div>
-            <div class="cw2-chart__cell"></div>
-            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--niefiltr" data-prod="niefiltr" title="CARBOHUMIC niefiltrowany – jesienią"></span></div>
-
-            <div class="cw2-chart__cell cw2-chart__cell--label"><span class="wf-small wf-w-semibold">Sad</span></div>
-            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--carbomat" data-prod="carbomat" title="CARBOMAT – raz, przy zakładaniu"></span></div>
-            <div class="cw2-chart__cell"></div>
-            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--niefiltr" data-prod="niefiltr" title="CARBOHUMIC niefiltrowany – wiosną"></span><span class="cw2-dot cw2-dot--maxi" data-prod="maxi" title="MAXI PLUS – nalistnie w fazie wzrostu"></span></div>
-            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--calbor" data-prod="calbor" title="CALBOR – jakość owocu (wyłącznie sady)"></span></div>
-            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--niefiltr" data-prod="niefiltr" title="CARBOHUMIC niefiltrowany – jesienią"></span></div>
-
-            <div class="cw2-chart__cell cw2-chart__cell--label"><span class="wf-small wf-w-semibold">Warzywnik</span></div>
-            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--carbomat" data-prod="carbomat" title="CARBOMAT – przed sezonem"></span></div>
-            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--niefiltr" data-prod="niefiltr" title="CARBOHUMIC niefiltrowany – przy sadzeniu"></span></div>
-            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--maxi" data-prod="maxi" title="MAXI PLUS – nalistnie w fazie wzrostu"></span></div>
-            <div class="cw2-chart__cell"></div>
-            <div class="cw2-chart__cell"><span class="cw2-dot cw2-dot--niefiltr" data-prod="niefiltr" title="CARBOHUMIC niefiltrowany – po zbiorach"></span></div>
-          </div>
-        </div>
-        <div class="wf-card__body">
-          <div class="cw2-legend">
-            <span class="cw2-legend__item wf-small wf-t-secondary"><span class="cw2-dot cw2-dot--carbomat" aria-hidden="true"></span> CARBOMAT (raz)</span>
-            <span class="cw2-legend__item wf-small wf-t-secondary"><span class="cw2-dot cw2-dot--niefiltr" aria-hidden="true"></span> CARBOHUMIC niefiltrowany (powtarzalnie)</span>
-            <span class="cw2-legend__item wf-small wf-t-secondary"><span class="cw2-dot cw2-dot--maxi" aria-hidden="true"></span> MAXI PLUS (nalistnie)</span>
-            <span class="cw2-legend__item wf-small wf-t-secondary"><span class="cw2-dot cw2-dot--calbor" aria-hidden="true"></span> CALBOR (wyłącznie sady)</span>
-          </div>
-          <p class="wf-caption wf-t-tertiary" style="margin-top:var(--w-space-3);">Układ poglądowy – momenty przykładowe. Dokładne terminy i dawki: <a class="wf-link--muted" href="zalecenia.html#dawki">zalecenia dla uprawy</a>.</p>
-        </div>
-      </div>
-
-      <div class="cw2-tl">
-        <div class="cw2-tl__node cw2-reveal" data-prod-node="carbomat" tabindex="0">
-          <span class="cw2-tl__dot" aria-hidden="true"></span>
-          <div class="wf-ph wf-ph--1x1 cw2-tl__ph" aria-hidden="true"><span class="wf-ph__label">Worek CARBOMAT</span></div>
+      <div class="cx-seq cx-reveal" data-seq>
+        <div class="cx-seq__node">
+          <span class="cx-seq__dot" aria-hidden="true"></span>
+          <div class="wf-ph wf-ph--1x1 cx-seq__ph" aria-hidden="true"><span class="wf-ph__label">Worek CARBOMAT ECO</span></div>
           <span class="wf-overline wf-t-tertiary">Start · przygotowanie gleby</span>
-          <h3 class="wf-h5">CARBOMAT – baza doglebowa</h3>
+          <h3 class="wf-h5">CARBOMAT ECO – baza doglebowa</h3>
           <p class="wf-small wf-t-secondary">Stosujesz raz, gdy gleba jest odkryta – przy sadzeniu lub zakładaniu uprawy. Potem już jej nie rozkopujesz, żeby nie niszczyć budowanej próchnicy.</p>
         </div>
-        <div class="cw2-tl__node cw2-reveal" data-prod-node="niefiltr" tabindex="0">
-          <span class="cw2-tl__dot" aria-hidden="true"></span>
-          <div class="wf-ph wf-ph--1x1 cw2-tl__ph" aria-hidden="true"><span class="wf-ph__label">Kanister CARBOHUMIC niefiltrowany</span></div>
+        <div class="cx-seq__node">
+          <span class="cx-seq__dot" aria-hidden="true"></span>
+          <div class="wf-ph wf-ph--1x1 cx-seq__ph" aria-hidden="true"><span class="wf-ph__label">Kanister CARBOHUMIC niefiltrowany</span></div>
           <span class="wf-overline wf-t-tertiary">W roku · wiosna i jesień</span>
           <h3 class="wf-h5">CARBOHUMIC niefiltrowany – uzupełnienie doglebowe</h3>
           <p class="wf-small wf-t-secondary">Płynne kwasy humusowe podajesz bez rozkopywania – podlewając. Zabiegi można powtarzać, kilka razy w roku.</p>
         </div>
-        <div class="cw2-tl__node cw2-reveal" data-prod-node="maxi calbor" tabindex="0">
-          <span class="cw2-tl__dot" aria-hidden="true"></span>
-          <div class="wf-ph wf-ph--1x1 cw2-tl__ph" aria-hidden="true"><span class="wf-ph__label">Butelki MAXI PLUS i CALBOR</span></div>
+        <div class="cx-seq__node">
+          <span class="cx-seq__dot" aria-hidden="true"></span>
+          <div class="wf-ph wf-ph--1x1 cx-seq__ph" aria-hidden="true"><span class="wf-ph__label">Butelki MAXI PLUS i CALBOR</span></div>
           <span class="wf-overline wf-t-tertiary">W sezonie · wzrost i owocowanie</span>
           <h3 class="wf-h5">MAXI PLUS, w sadzie CALBOR – wzmocnienie nalistne</h3>
           <p class="wf-small wf-t-secondary">MAXI PLUS w fazie wzrostu, CALBOR na jakość owocu (wyłącznie sady). Opryski nalistne można powtarzać kilka razy w sezonie.</p>
         </div>
       </div>
+
+      <details class="cx-details cx-reveal">
+        <summary>
+          <span class="wf-inline"><svg class="wf-icon wf-icon--sm" aria-hidden="true" style="margin-right:var(--w-space-2);"><use href="#ti-calendar"></use></svg> Rozwiń siatkę sezonu: trzy przykładowe uprawy, pięć faz</span>
+          <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+        </summary>
+        <div class="cx-details__body">
+          <div class="cw-scrollx" tabindex="0">
+            <div class="cx-chart" aria-label="Siatka momentów aplikacji: wiersze to przykładowe uprawy (borówka, sad, warzywnik), kolumny to fazy cyklu życia rośliny, kropki to momenty stosowania produktów">
+              <div class="cx-chart__cell cx-chart__cell--head cx-chart__cell--label"><span class="wf-caption wf-t-tertiary">Przykładowa uprawa</span></div>
+              <div class="cx-chart__cell cx-chart__cell--head"><span class="wf-caption wf-t-tertiary">Przygotowanie gleby</span></div>
+              <div class="cx-chart__cell cx-chart__cell--head"><span class="wf-caption wf-t-tertiary">Sadzenie i start</span></div>
+              <div class="cx-chart__cell cx-chart__cell--head"><span class="wf-caption wf-t-tertiary">Wzrost</span></div>
+              <div class="cx-chart__cell cx-chart__cell--head"><span class="wf-caption wf-t-tertiary">Owocowanie</span></div>
+              <div class="cx-chart__cell cx-chart__cell--head"><span class="wf-caption wf-t-tertiary">Po sezonie</span></div>
+
+              <div class="cx-chart__cell cx-chart__cell--label"><span class="wf-small wf-w-semibold">Borówka</span></div>
+              <div class="cx-chart__cell"><span class="cx-dot cx-dot--carbomat" title="CARBOMAT ECO – raz, przy przygotowaniu gleby"></span></div>
+              <div class="cx-chart__cell"></div>
+              <div class="cx-chart__cell"><span class="cx-dot cx-dot--niefiltr" title="CARBOHUMIC niefiltrowany – wiosną"></span><span class="cx-dot cx-dot--maxi" title="MAXI PLUS – nalistnie w fazie wzrostu"></span></div>
+              <div class="cx-chart__cell"></div>
+              <div class="cx-chart__cell"><span class="cx-dot cx-dot--niefiltr" title="CARBOHUMIC niefiltrowany – jesienią"></span></div>
+
+              <div class="cx-chart__cell cx-chart__cell--label"><span class="wf-small wf-w-semibold">Sad</span></div>
+              <div class="cx-chart__cell"><span class="cx-dot cx-dot--carbomat" title="CARBOMAT ECO – raz, przy zakładaniu"></span></div>
+              <div class="cx-chart__cell"></div>
+              <div class="cx-chart__cell"><span class="cx-dot cx-dot--niefiltr" title="CARBOHUMIC niefiltrowany – wiosną"></span><span class="cx-dot cx-dot--maxi" title="MAXI PLUS – nalistnie w fazie wzrostu"></span></div>
+              <div class="cx-chart__cell"><span class="cx-dot cx-dot--calbor" title="CALBOR – jakość owocu (wyłącznie sady)"></span></div>
+              <div class="cx-chart__cell"><span class="cx-dot cx-dot--niefiltr" title="CARBOHUMIC niefiltrowany – jesienią"></span></div>
+
+              <div class="cx-chart__cell cx-chart__cell--label"><span class="wf-small wf-w-semibold">Warzywnik</span></div>
+              <div class="cx-chart__cell"><span class="cx-dot cx-dot--carbomat" title="CARBOMAT ECO – przed sezonem"></span></div>
+              <div class="cx-chart__cell"><span class="cx-dot cx-dot--niefiltr" title="CARBOHUMIC niefiltrowany – przy sadzeniu"></span></div>
+              <div class="cx-chart__cell"><span class="cx-dot cx-dot--maxi" title="MAXI PLUS – nalistnie w fazie wzrostu"></span></div>
+              <div class="cx-chart__cell"></div>
+              <div class="cx-chart__cell"><span class="cx-dot cx-dot--niefiltr" title="CARBOHUMIC niefiltrowany – po zbiorach"></span></div>
+            </div>
+          </div>
+          <div class="wf-card__body">
+            <div class="cx-legend">
+              <span class="cx-legend__item wf-small wf-t-secondary"><span class="cx-dot cx-dot--carbomat" aria-hidden="true"></span> CARBOMAT ECO (raz)</span>
+              <span class="cx-legend__item wf-small wf-t-secondary"><span class="cx-dot cx-dot--niefiltr" aria-hidden="true"></span> CARBOHUMIC niefiltrowany (powtarzalnie)</span>
+              <span class="cx-legend__item wf-small wf-t-secondary"><span class="cx-dot cx-dot--maxi" aria-hidden="true"></span> MAXI PLUS (nalistnie)</span>
+              <span class="cx-legend__item wf-small wf-t-secondary"><span class="cx-dot cx-dot--calbor" aria-hidden="true"></span> CALBOR (wyłącznie sady)</span>
+            </div>
+            <p class="wf-caption wf-t-tertiary" style="margin-top:var(--w-space-3);">Układ poglądowy – momenty przykładowe. Dokładne terminy i dawki: <a class="wf-link--muted" href="zalecenia.html#dawki">zalecenia dla uprawy</a>.</p>
+          </div>
+        </div>
+      </details>
 
       <div class="wf-alert" role="status">
         <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
@@ -820,7 +1021,7 @@
   <!-- ===== 8. UPRAWY PROFESJONALNE ===== -->
   <section class="wf-section" id="uprawy-profesjonalne">
     <div class="wf-container wf-grid wf-grid--2 wf-items-center" style="--wf-grid-min: 22rem;">
-      <div class="wf-stack wf-stack--4">
+      <div class="wf-stack wf-stack--4 cx-reveal">
         <span class="wf-overline">Uprawy profesjonalne</span>
         <h2 class="wf-h2">Prowadzisz uprawę profesjonalną – sad, plantację, pole lub szkółkę?</h2>
         <p class="wf-body wf-prose">Przygotujemy ofertę i Twoją cenę – także na palety i duże opakowania (big bag 1,5 m³). Pierwsze zamówienie możesz złożyć w sklepie, a po realizacji zakładamy konto i kolejne robisz po swojej cenie.</p>
@@ -829,26 +1030,26 @@
           <a class="wf-link--quiet" href="platforma-b2b.html">Masz konto? Zaloguj się</a>
         </div>
       </div>
-      <div class="wf-ph wf-ph--16x9" aria-hidden="true"><span class="wf-ph__label">Palety i big bag 1,5 m³ CARBOMAT przy gospodarstwie</span></div>
+      <div class="wf-ph wf-ph--16x9 cx-reveal" aria-hidden="true"><span class="wf-ph__label">FOTO: palety i big bag 1,5 m³ CARBOMAT ECO przy gospodarstwie</span></div>
     </div>
   </section>
 
   <!-- ===== 9. FAQ ===== -->
-  <section class="wf-section wf-section--subtle" id="faq">
+  <section class="wf-section wf-section--subtle" id="faq" data-chapter="faq">
     <div class="wf-container wf-container--narrow wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:680px;">
         <span class="wf-overline">FAQ</span>
-        <h2 class="wf-h2">Najczęstsze pytania o CARBOMAT.</h2>
+        <h2 class="wf-h2">Najczęstsze pytania o CARBOMAT ECO.</h2>
       </div>
 
       <div class="wf-stack wf-stack--2">
         <div class="wf-accordion__item">
           <button class="wf-accordion__trigger wf-w-medium" aria-expanded="true" aria-controls="faq-1" id="faqh-1">
-            Czym CARBOMAT różni się od obornika i kompostu?
+            Czym CARBOMAT ECO różni się od obornika i kompostu?
             <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
           </button>
           <div class="wf-accordion__panel" id="faq-1" role="region" aria-labelledby="faqh-1">
-            <p class="wf-body wf-t-secondary">CARBOMAT to gotowa, trwała próchnica, a obornik i kompost mineralizują się w około 3 lata i tylko około 15% przechodzi w trwałą próchnicę (Kwiatkowska-Malina, PW + IUNG). 1 tona CARBOMAT ECO to około 800 kg suchej masy – równoważnik około 5000 kg suchej masy młodej materii organicznej (wg karty). Wkład zostaje w glebie kilkanaście do ponad 20 lat.</p>
+            <p class="wf-body wf-t-secondary">CARBOMAT ECO to gotowa, trwała próchnica, a obornik i kompost mineralizują się w około 3 lata i tylko około 15% przechodzi w trwałą próchnicę (Kwiatkowska-Malina, PW + IUNG). 1 tona CARBOMAT ECO to około 800 kg suchej masy – równoważnik około 5000 kg suchej masy młodej materii organicznej (wg karty). Wkład zostaje w glebie kilkanaście do ponad 20 lat.</p>
           </div>
         </div>
         <div class="wf-accordion__item">
@@ -857,25 +1058,25 @@
             <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
           </button>
           <div class="wf-accordion__panel" id="faq-2" role="region" aria-labelledby="faqh-2" hidden>
-            <p class="wf-body wf-t-secondary">To zależy od gleby, uprawy i pogody – nie podajemy litrów. W naszym doświadczeniu (wyniki wstępne) wilgotność po nasyceniu wzrosła z 11,9% w kontroli do 13,3% po rozmieszaniu CARBOMAT z glebą. Retencję buduje aplikacja doglebowa, nie oprysk.</p>
+            <p class="wf-body wf-t-secondary">To zależy od gleby, uprawy i pogody – nie podajemy litrów. W naszym doświadczeniu (wyniki wstępne) wilgotność po nasyceniu wzrosła z 11,9% w kontroli do 13,3% po przemieszaniu CARBOMAT ECO z glebą. Retencję buduje aplikacja doglebowa, nie oprysk.</p>
           </div>
         </div>
         <div class="wf-accordion__item">
           <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-3" id="faqh-3">
-            Czy CARBOMAT można przedawkować?
+            Czy CARBOMAT ECO można przedawkować?
             <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
           </button>
           <div class="wf-accordion__panel" id="faq-3" role="region" aria-labelledby="faqh-3" hidden>
-            <p class="wf-body wf-t-secondary">Praktycznie nie – to produkt nienawozowy. Zwróć uwagę tylko na odczyn: pod borówkę i inne kwasolubne wybierz odmianę o niższym pH (zakres karty 4,5–6,5).</p>
+            <p class="wf-body wf-t-secondary">Praktycznie nie – to produkt nienawozowy. Zwróć uwagę tylko na odczyn: pod borówkę i inne kwasolubne wybierz odmianę 4,5–5,0 pH; odmiana uniwersalna ma 6,0–6,5 pH.</p>
           </div>
         </div>
         <div class="wf-accordion__item">
           <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-4" id="faqh-4">
-            Rozmieszać czy rozsypać?
+            Przemieszać czy rozsypać?
             <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
           </button>
           <div class="wf-accordion__panel" id="faq-4" role="region" aria-labelledby="faqh-4" hidden>
-            <p class="wf-body wf-t-secondary">Zależy od wariantu: CARBOMAT ECO (frakcja drobna) rozmieszaj z glebą lub podłożem, a CARBOMAT ECO ŚCIÓŁKĘ (8–20 mm) rozsyp na powierzchni równą warstwą kilku centymetrów.</p>
+            <p class="wf-body wf-t-secondary">Zależy od wariantu: CARBOMAT ECO (frakcje 0,1–8 mm) przemieszaj z glebą lub podłożem, a CARBOMAT ECO Ściółkę (8–20 mm) rozsyp na powierzchni równą warstwą 3–5 cm.</p>
           </div>
         </div>
         <div class="wf-accordion__item">
@@ -889,11 +1090,20 @@
         </div>
         <div class="wf-accordion__item">
           <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-6" id="faqh-6">
-            Czy CARBOMAT zastąpi torf w podłożu?
+            Czy CARBOMAT ECO zastąpi torf w podłożu?
             <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
           </button>
           <div class="wf-accordion__panel" id="faq-6" role="region" aria-labelledby="faqh-6" hidden>
-            <p class="wf-body wf-t-secondary">Tak, jako komponent podłoża w udziale 20–30% objętości (wg decyzji G-971/20). To trwały, organiczny następca torfu.</p>
+            <p class="wf-body wf-t-secondary">Tak, jako komponent podłoża – w mieszankach zalecany udział to 10–20% objętości. To trwały, organiczny następca torfu.</p>
+          </div>
+        </div>
+        <div class="wf-accordion__item">
+          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-7" id="faqh-7">
+            Czym CARBOMAT ECO Ściółka różni się od kory?
+            <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button>
+          <div class="wf-accordion__panel" id="faq-7" role="region" aria-labelledby="faqh-7" hidden>
+            <p class="wf-body wf-t-secondary">W przeciwieństwie do kory nie powoduje głodu azotowego. Do tego wzbogaca glebę w materię organiczną i substancje humusowe, obniża pH pod uprawy kwasolubne i tworzy siedlisko dla pożytecznych mikroorganizmów.</p>
           </div>
         </div>
       </div>
@@ -906,14 +1116,14 @@
       <div class="wf-stack wf-stack--6 wf-center">
         <h2 class="wf-h2 wf-t-inverse">Gotów zainwestować w glebę na lata?</h2>
         <div class="wf-cluster wf-cluster--center wf-gap-3">
-          <a class="wf-btn wf-btn--lg cw2-btn-solid-inverse" href="konfigurator.html">Dobierz właściwy produkt</a>
-          <a class="wf-btn wf-btn--lg cw2-btn-outline-inverse" href="sklep.html?grupa=carbomat">Kup produkty CARBOMAT</a>
+          <a class="wf-btn wf-btn--lg cx-btn-solid-inverse" href="konfigurator.html">Dobierz właściwy produkt</a>
+          <a class="wf-btn wf-btn--lg cx-btn-outline-inverse" href="sklep.html?grupa=carbomat">Kup produkty CARBOMAT ECO</a>
         </div>
       </div>
       <div class="cw-ask">
         <span class="wf-ph wf-ph--avatar" aria-hidden="true"></span>
         <div class="cw-ask__txt wf-stack wf-stack--1">
-          <span class="wf-w-semibold">ECO czy ściółka?</span>
+          <span class="wf-w-semibold">Przemieszać czy rozsypać?</span>
           <span class="wf-small wf-t-secondary">Zapytaj dr Jurka o dobór wariantu, dawkę i Twoją uprawę.</span>
         </div>
         <button type="button" class="wf-btn wf-btn--secondary" data-jurek-open>Zapytaj dr Jurka</button>
@@ -933,7 +1143,8 @@
       </div>
       <nav class="wf-stack wf-stack--2" aria-label="Produkty"><p class="wf-overline">Produkty</p>
         <a class="wf-link--quiet" href="produkty.html">Nasze produkty</a>
-        <a class="wf-link--quiet" href="carbomat.html">CARBOMAT</a>
+        <a class="wf-link--quiet" href="carbomat.html">CARBOMAT ECO</a>
+        <a class="wf-link--quiet" href="carbomat-mata.html">CARBOMAT Mata Uprawowa</a>
         <a class="wf-link--quiet" href="carbohumic.html">CARBOHUMIC</a>
         <a class="wf-link--quiet" href="carbomat-humic.html">CARBOMAT HUMIC</a>
         <a class="wf-link--quiet" href="sklep.html">Sklep</a>
@@ -961,7 +1172,7 @@
 
 <!-- ===== dr Jurek – pływający dok (ukryty do przewinięcia) ===== -->
 <div class="cw-jurek-backdrop" data-jurek-backdrop data-open="false" aria-hidden="true"></div>
-<div class="cw-jurek cw2-dockhide" data-jurek-dock data-open="false">
+<div class="cw-jurek cx-dockhide" data-jurek-dock data-open="false">
   <div class="cw-jurek__panel" role="dialog" aria-label="Wirtualny dr Jurek">
     <div class="cw-jurek__head">
       <span class="wf-ph wf-ph--avatar" aria-hidden="true"></span>
@@ -983,30 +1194,104 @@
 
 <script src="cw.js"></script>
 <script>
-/* ===== CARBOMAT V2 – mechaniki eksperymentalne (tylko ta strona) ===== */
+/* ===== CARBOMAT ECO – mechanika prezentacji wg Layout V2 ===== */
 (function () {
   "use strict";
-  document.documentElement.classList.add("cw2-js");
+  var doc = document;
+  doc.documentElement.classList.add("cx-js");
   var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function $(s, r) { return (r || doc).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || doc).querySelectorAll(s)); }
 
-  /* Dok dr Jurka: pojawia się dopiero po przewinięciu poza hero */
-  var dock = document.querySelector("[data-jurek-dock]");
-  var hero = document.getElementById("hero");
-  function updateDock() {
-    if (!dock || !hero) return;
-    var past = window.scrollY > hero.offsetHeight * 0.55;
-    dock.classList.toggle("cw2-dockhide", !past);
+  /* Realna wysokość navbara (na mobile zawija się wyżej niż 72px) */
+  var navbar = $(".wf-navbar");
+  function updateNavH() {
+    if (navbar) doc.documentElement.style.setProperty("--cx-nav-h", navbar.offsetHeight + "px");
+  }
+  updateNavH();
+
+  /* --- Hero: sekwencyjne wejście elementów --------------------------------- */
+  window.requestAnimationFrame(function () { doc.body.classList.add("cx-ready"); });
+
+  /* --- Hero: przełącznik wariantu (packshot + szybka specyfikacja) --------- */
+  var stage = $("[data-stage]");
+  if (stage) {
+    var stageFrame = $("[data-stage-frame]", stage);
+    var stageQuick = $("[data-stage-quick]", stage);
+    $$("[data-hero-variant]", stage).forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        if (btn.getAttribute("aria-pressed") === "true") return;
+        $$("[data-hero-variant]", stage).forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
+        stage.setAttribute("data-variant", btn.getAttribute("data-hero-variant"));
+        [stageFrame, stageQuick].forEach(function (el) {
+          if (!el || reduced) return;
+          el.classList.remove("cx-swap");
+          void el.offsetWidth; /* restart animacji podmiany */
+          el.classList.add("cx-swap");
+        });
+      });
+    });
   }
 
-  /* Reveal on scroll + liczniki – deterministycznie po pozycji (bez IntersectionObserver) */
-  var revealEls = Array.prototype.slice.call(document.querySelectorAll(".cw2-reveal"));
-  var counters = Array.prototype.slice.call(document.querySelectorAll("[data-count]"));
+  /* --- Nawigacja produktowa: scrollspy + pasek postępu czytania ------------ */
+  var spyLinks = $$("[data-spy]");
+  var chapters = $$("[data-chapter]");
+  var progress = $("[data-progress]");
+  function updateSpy() {
+    var mid = window.innerHeight * 0.4;
+    var current = null;
+    chapters.forEach(function (sec) {
+      if (sec.getBoundingClientRect().top < mid) current = sec.getAttribute("data-chapter");
+    });
+    spyLinks.forEach(function (a) {
+      var on = a.getAttribute("data-spy") === current;
+      if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+    });
+    if (progress) {
+      var h = doc.documentElement;
+      var max = h.scrollHeight - window.innerHeight;
+      progress.style.width = (max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0) + "%";
+    }
+  }
 
+  /* --- Wybór sposobu aplikacji: przemieszam / rozsypię ---------------------- */
+  var applyBtns = $$("[data-decide]");
+  var decidePanels = $$("[data-decide-panel]");
+  applyBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var pick = btn.getAttribute("data-decide");
+      applyBtns.forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
+      decidePanels.forEach(function (p) {
+        var on = p.getAttribute("data-decide-panel") === pick;
+        p.hidden = !on;
+        if (on && !reduced) {
+          var card = $("[data-decide-card]", p);
+          if (card) { card.classList.remove("cx-swap"); void card.offsetWidth; card.classList.add("cx-swap"); }
+        }
+      });
+    });
+  });
+
+  /* --- Selektor pH (panel CARBOMAT ECO) ------------------------------------ */
+  var phSel = $("[data-phsel]");
+  if (phSel) {
+    var phBtns = $$("[data-ph]", phSel);
+    var phTarget = $("[data-ph-target]");
+    phBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        phBtns.forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
+        if (phTarget) phTarget.textContent = btn.getAttribute("data-ph-desc") || phTarget.textContent;
+      });
+    });
+  }
+
+  /* --- Reveal + liczniki (deterministycznie po pozycji scrolla) ------------- */
+  var revealEls = $$(".cx-reveal");
+  var counters = $$("[data-count]");
   function inView(el, ratio) {
     var r = el.getBoundingClientRect();
     return r.top < window.innerHeight * (ratio || 0.88) && r.bottom > 0;
   }
-
   function animateCount(el) {
     var end = parseFloat(el.getAttribute("data-count"));
     var finalText = el.getAttribute("data-final") || String(end);
@@ -1018,16 +1303,15 @@
       if (i >= steps) { window.clearInterval(iv); el.textContent = finalText; }
     }, 45);
   }
-
   function updateAnimations() {
     if (reduced) {
-      revealEls.forEach(function (el) { el.classList.add("cw2-in"); });
+      revealEls.forEach(function (el) { el.classList.add("cx-in"); });
       counters.forEach(function (el) { el.textContent = el.getAttribute("data-final") || el.getAttribute("data-count"); });
       revealEls = []; counters = [];
       return;
     }
     revealEls = revealEls.filter(function (el) {
-      if (inView(el)) { el.classList.add("cw2-in"); return false; }
+      if (inView(el)) { el.classList.add("cx-in"); return false; }
       return true;
     });
     counters = counters.filter(function (el) {
@@ -1036,80 +1320,150 @@
     });
   }
 
-  /* Scrollytelling „Czym jest": aktywny krok steruje wizualem, licznikiem i paskiem postępu */
-  var story = document.querySelector("[data-story]");
-  var storyFrame = story ? story.querySelector(".cw2-story__frame") : null;
-  var storySteps = story ? Array.prototype.slice.call(story.querySelectorAll("[data-step]")) : [];
-  var storyNum = story ? story.querySelector("[data-story-num]") : null;
-  var storyBar = story ? story.querySelector("[data-story-bar]") : null;
-  var storyTitle = story ? story.querySelector("[data-story-title]") : null;
-  function updateStory() {
-    if (!story || !storySteps.length) return;
-    var mid = window.innerHeight * 0.5;
-    var active = 0;
-    for (var i = 0; i < storySteps.length; i++) {
-      if (storySteps[i].getBoundingClientRect().top < mid) active = i;
-    }
-    var step = storySteps[active];
-    if (storyFrame) storyFrame.setAttribute("data-stage", step.getAttribute("data-step"));
-    if (storyNum) storyNum.textContent = "0" + (active + 1);
-    if (storyBar) storyBar.style.width = String(((active + 1) / storySteps.length) * 100) + "%";
-    if (storyTitle) storyTitle.textContent = step.getAttribute("data-title") || "";
-    storySteps.forEach(function (el, idx) { el.classList.toggle("cw2-step--active", idx === active); });
+  /* --- Przypięta opowieść „Czym jest" (5 paneli) ----------------------------- */
+  var pin = $("[data-pin]");
+  var pinPanels = $$("[data-pin-panel]");
+  var pinDots = $$("[data-pin-dot]");
+  var pinNum = $("[data-pin-num]");
+  var pinTitle = $("[data-pin-title]");
+  var pinTitles = ["Pochodzenie", "Zasobność", "Stabilność", "Czystość", "Struktura"];
+  var pinMQ = window.matchMedia("(min-width: 900px)");
+  function pinActive() { return pin && pinMQ.matches && !reduced; }
+  function updatePin() {
+    if (!pinActive()) return;
+    var rect = pin.getBoundingClientRect();
+    var stageH = window.innerHeight;
+    var span = rect.height - stageH;
+    var t = span > 0 ? Math.min(1, Math.max(0, -rect.top / span)) : 0;
+    var idx = Math.min(pinPanels.length - 1, Math.floor(t * pinPanels.length));
+    pinPanels.forEach(function (p, i) { p.classList.toggle("is-on", i === idx); });
+    pinDots.forEach(function (d, i) { d.classList.toggle("is-on", i === idx); });
+    if (pinNum) pinNum.textContent = "0" + (idx + 1);
+    if (pinTitle) pinTitle.textContent = pinTitles[idx] || "";
   }
 
-  /* Siatka „Kiedy stosować": hover/klik na produkcie podświetla jego kropki */
-  var useChart = document.querySelector("[data-usechart]");
-  var chartDots = useChart ? Array.prototype.slice.call(useChart.querySelectorAll(".cw2-dot[data-prod]")) : [];
-  var prodNodes = Array.prototype.slice.call(document.querySelectorAll("[data-prod-node]"));
-  var tlWrap = document.querySelector(".cw2-tl");
-  function setChartFocus(prods) {
-    if (!useChart) return;
-    if (!prods) {
-      useChart.classList.remove("cw2-chart--focus");
-      if (tlWrap) tlWrap.classList.remove("cw2-tl--focus");
-      chartDots.forEach(function (d) { d.classList.remove("is-hl"); });
-      return;
-    }
-    useChart.classList.add("cw2-chart--focus");
-    if (tlWrap) tlWrap.classList.add("cw2-tl--focus");
-    chartDots.forEach(function (d) { d.classList.toggle("is-hl", prods.indexOf(d.getAttribute("data-prod")) !== -1); });
-  }
-  prodNodes.forEach(function (node) {
-    var prods = node.getAttribute("data-prod-node").split(" ");
-    node.addEventListener("mouseenter", function () { setChartFocus(prods); });
-    node.addEventListener("mouseleave", function () {
-      if (!node.classList.contains("is-active")) setChartFocus(null);
-    });
-    node.addEventListener("focus", function () { setChartFocus(prods); });
-    node.addEventListener("blur", function () {
-      if (!node.classList.contains("is-active")) setChartFocus(null);
-    });
-    node.addEventListener("click", function () {
-      var wasActive = node.classList.contains("is-active");
-      prodNodes.forEach(function (m) { m.classList.remove("is-active"); });
-      if (wasActive) { setChartFocus(null); } else { node.classList.add("is-active"); setChartFocus(prods); }
-    });
-  });
+  /* --- Kalkulator „Dobierz swoją dawkę" (D59) – geometria z recept ----------- */
+  var calc = $("[data-calc]");
+  if (calc) {
+    var state = { prod: "eco", mode: "grunt", typ: "jednoroczne", warstwa: 3 };
+    var m2 = $("[data-calc-m2]", calc);
+    var lit = $("[data-calc-lit]", calc);
+    var n = $("[data-calc-n]", calc);
+    var outM2 = $("[data-calc-outm2]", calc);
+    var outLit = $("[data-calc-outlit]", calc);
+    var outN = $("[data-calc-outn]", calc);
+    var result = $("[data-calc-result]", calc);
+    var packs = $("[data-calc-packs]", calc);
+    var hint = $("[data-calc-hint]", calc);
+    var basis = $("[data-calc-basis]", calc);
 
-  /* Selektor pH – CARBOMAT ECO (dwa warianty odczynu) */
-  var phSel = document.querySelector("[data-phsel]");
-  if (phSel) {
-    var phBtns = Array.prototype.slice.call(phSel.querySelectorAll("[data-ph]"));
-    var phTarget = document.querySelector("[data-ph-target]");
-    phBtns.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        phBtns.forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
-        if (phTarget) phTarget.textContent = btn.getAttribute("data-ph-desc") || phTarget.textContent;
+    var fmt = function (x) { return Math.round(x).toLocaleString("pl-PL"); };
+    var setSeg = function (btns, on) {
+      btns.forEach(function (b) { b.setAttribute("aria-pressed", b === on ? "true" : "false"); });
+    };
+    var show = function (key, visible) {
+      $$('[data-calc-only="' + key + '"]', calc).forEach(function (el) {
+        if (visible) { el.removeAttribute("hidden"); } else { el.setAttribute("hidden", ""); }
       });
+    };
+
+    var recompute = function () {
+      var min = 0, max = 0, basisTxt = "";
+      if (state.prod === "sciolka") {
+        var v = Number(m2.value) * state.warstwa * 10; /* 1 cm × 1 m² = 10 l */
+        min = v; max = v;
+        basisTxt = "Liczymy warstwę " + state.warstwa + " cm na całej podanej powierzchni (1 cm na 1 m² = 10 l).";
+      } else if (state.mode === "grunt") {
+        var soil = Number(m2.value) * 200; /* warstwa orna ~20 cm → 200 l gleby na m² */
+        min = soil * 0.10; max = soil * 0.15;
+        basisTxt = "Liczymy 10–15% objętości gleby dla przemieszania z warstwą orną ok. 20 cm.";
+      } else if (state.mode === "doniczki") {
+        min = Number(lit.value) * 0.10; max = Number(lit.value) * 0.20;
+        basisTxt = "Liczymy 10–20% objętości gotowej mieszanki podłoża.";
+      } else {
+        var per = state.typ === "drzewa" ? [3, 5] : [0.1, 0.2];
+        min = Number(n.value) * per[0]; max = Number(n.value) * per[1];
+        basisTxt = state.typ === "drzewa"
+          ? "Liczymy 3–5 l na drzewo sadownicze, do przemieszania z glebą w dołku."
+          : "Liczymy 100–200 ml na roślinę jednoroczną (pomidor, papryka, ogórek).";
+      }
+      if (basis) basis.textContent = basisTxt;
+      if (result) {
+        if (max < 1) {
+          result.textContent = "ok. " + fmt(min * 1000) + "–" + fmt(max * 1000) + " ml";
+        } else if (min === max) {
+          result.textContent = "ok. " + fmt(max) + " l";
+        } else {
+          result.textContent = "ok. " + fmt(min) + "–" + fmt(max) + " l";
+        }
+      }
+      if (packs) {
+        var bags = Math.max(1, Math.ceil(max / 20));
+        packs.textContent = max < 1
+          ? "Zmieści się w jednym worku 20 l."
+          : "To około " + fmt(bags) + " " + (bags === 1 ? "worka" : "worków") + " 20 l.";
+      }
+      if (hint) {
+        if (max >= 500) { hint.removeAttribute("hidden"); } else { hint.setAttribute("hidden", ""); }
+      }
+    };
+
+    var refreshFields = function () {
+      var eco = state.prod === "eco";
+      show("eco", eco);
+      show("punkt", eco && state.mode === "punkt");
+      show("sciolka-w", !eco);
+      show("m2", !eco || state.mode === "grunt");
+      show("lit", eco && state.mode === "doniczki");
+      show("n", eco && state.mode === "punkt");
+      recompute();
+    };
+
+    var prodBtns = $$("[data-calc-prod]", calc);
+    prodBtns.forEach(function (b) {
+      b.addEventListener("click", function () { state.prod = b.getAttribute("data-calc-prod"); setSeg(prodBtns, b); refreshFields(); });
     });
+    var modeBtns = $$("[data-calc-mode]", calc);
+    modeBtns.forEach(function (b) {
+      b.addEventListener("click", function () { state.mode = b.getAttribute("data-calc-mode"); setSeg(modeBtns, b); refreshFields(); });
+    });
+    var typBtns = $$("[data-calc-typ]", calc);
+    typBtns.forEach(function (b) {
+      b.addEventListener("click", function () { state.typ = b.getAttribute("data-calc-typ"); setSeg(typBtns, b); recompute(); });
+    });
+    var wBtns = $$("[data-calc-warstwa]", calc);
+    wBtns.forEach(function (b) {
+      b.addEventListener("click", function () { state.warstwa = Number(b.getAttribute("data-calc-warstwa")); setSeg(wBtns, b); recompute(); });
+    });
+    if (m2) m2.addEventListener("input", function () { if (outM2) outM2.textContent = m2.value; recompute(); });
+    if (lit) lit.addEventListener("input", function () { if (outLit) outLit.textContent = lit.value; recompute(); });
+    if (n) n.addEventListener("input", function () { if (outN) outN.textContent = n.value; recompute(); });
+    refreshFields();
   }
 
-  function onScroll() { updateDock(); updateAnimations(); updateStory(); }
+  /* --- Sezon: rysująca się linia sekwencji ----------------------------------- */
+  var seq = $("[data-seq]");
+
+  /* --- Dok dr Jurka: pojawia się po zejściu z hero ---------------------------- */
+  var dock = $("[data-jurek-dock]");
+  var hero = doc.getElementById("hero");
+  function updateDock() {
+    if (!dock || !hero) return;
+    var past = window.scrollY > hero.offsetHeight * 0.6;
+    dock.classList.toggle("cx-dockhide", !past);
+  }
+
+  function onScroll() {
+    updateSpy();
+    updateAnimations();
+    updatePin();
+    updateDock();
+    if (seq && inView(seq, 0.85)) seq.classList.add("cx-in");
+  }
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
-  window.addEventListener("resize", onScroll);
-  window.addEventListener("load", onScroll);
+  window.addEventListener("resize", function () { updateNavH(); onScroll(); });
+  window.addEventListener("load", function () { updateNavH(); onScroll(); });
 })();
 </script>
 </body>

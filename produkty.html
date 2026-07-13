@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Poprawiacze gleby z lignitu – produkty Carbohort · propozycja V2</title>
-<meta name="description" content="Propozycja V2 filaru: interaktywny filar produktów Carbohort – pasek postępu, filtr gamy, animowany łańcuch działania, pulpit doboru wg potrzeby i liczniki dowodu. Trzy rodziny z lignitu.">
+<meta name="description" content="Propozycja V2 filaru: interaktywny filar produktów Carbohort – pasek postępu, filtr gamy, animowany łańcuch działania, pulpit doboru wg potrzeby i liczniki dowodu. Cztery rodziny produktów z lignitu.">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="wireframe.css">
 <link rel="stylesheet" href="cw.css">
@@ -19,10 +19,10 @@ html:not(.pv-js) .pv-progress{display:none;}
 .pv-js .pv-reveal.pv-in{opacity:1;transform:none;}
 .pv-js .pv-stagger>*{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;transition-delay:calc(var(--i,0)*70ms);}
 .pv-js .pv-stagger.pv-in>*{opacity:1;transform:none;}
-/* Hero: wyśrodkowany lineup rodzin – 3 grupy opakowań w różnych wielkościach */
+/* Hero: wyśrodkowany lineup rodzin – 4 grupy opakowań w różnych wielkościach */
 .pv-hero__intro{max-width:46rem;margin-inline:auto;}
 .pv-hero__lead{margin-inline:auto;}
-.pv-lineup{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--w-space-10);width:100%;max-width:60rem;margin-inline:auto;}
+.pv-lineup{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--w-space-8);width:100%;max-width:74rem;margin-inline:auto;}
 .pv-family{position:relative;aspect-ratio:5/6;}
 .pv-family__ph{position:absolute;margin:0;min-height:0;}
 .pv-family__ph--lg{left:0;top:0;width:64%;height:82%;z-index:1;}
@@ -208,9 +208,15 @@ main section[id], main article[id]{scroll-margin-top:calc(72px + var(--w-space-4
           <div class="cw-mega__layout">
             <div class="cw-prodbox">
               <span class="wf-overline wf-t-tertiary">Sypkie · doglebowe</span>
-              <a class="wf-link--quiet" href="carbomat.html"><span class="wf-h5">CARBOMAT</span></a>
+              <a class="wf-link--quiet" href="carbomat.html"><span class="wf-h5">CARBOMAT ECO</span></a>
               <p class="wf-small wf-t-secondary">Surowy lignit, który na lata przebudowuje strukturę i retencję gleby.</p>
               <a class="wf-btn wf-btn--secondary wf-btn--sm" href="carbomat.html">Poznaj rodzinę</a>
+            </div>
+            <div class="cw-prodbox">
+              <span class="wf-overline wf-t-tertiary">Sypkie · uprawa bezglebowa</span>
+              <a class="wf-link--quiet" href="carbomat-mata.html"><span class="wf-h5">CARBOMAT Mata Uprawowa</span></a>
+              <p class="wf-small wf-t-secondary">Organiczna mata lignitowa do upraw bezglebowych – wieloletnia alternatywa dla wełny mineralnej i maty kokosowej.</p>
+              <a class="wf-btn wf-btn--secondary wf-btn--sm" href="carbomat-mata.html">Poznaj produkt</a>
             </div>
             <div class="cw-prodbox">
               <span class="wf-overline wf-t-tertiary">Płynne · doglebowe i nalistne</span>
@@ -319,12 +325,17 @@ main section[id], main article[id]{scroll-margin-top:calc(72px + var(--w-space-4
         <h1 class="wf-display">Kompletna gama produktów na bazie lignitu.</h1>
       </div>
 
-      <!-- Lineup rodzin: 3 grupy × opakowania w różnych wielkościach -->
+      <!-- Lineup rodzin: 4 grupy × opakowania w różnych wielkościach -->
       <div class="pv-lineup" aria-hidden="true">
         <div class="pv-family">
-          <div class="wf-ph pv-family__ph pv-family__ph--lg"><span class="wf-ph__label">CARBOMAT · worek duży</span></div>
+          <div class="wf-ph pv-family__ph pv-family__ph--lg"><span class="wf-ph__label">CARBOMAT ECO · worek duży</span></div>
           <div class="wf-ph pv-family__ph pv-family__ph--md"><span class="wf-ph__label">worek średni</span></div>
           <div class="wf-ph pv-family__ph pv-family__ph--sm"><span class="wf-ph__label">próbka</span></div>
+        </div>
+        <div class="pv-family">
+          <div class="wf-ph pv-family__ph pv-family__ph--lg"><span class="wf-ph__label">CARBOMAT Mata Uprawowa · rękaw 100 × 20 cm</span></div>
+          <div class="wf-ph pv-family__ph pv-family__ph--md"><span class="wf-ph__label">przekrój maty</span></div>
+          <div class="wf-ph pv-family__ph pv-family__ph--sm"><span class="wf-ph__label">granulat</span></div>
         </div>
         <div class="pv-family">
           <div class="wf-ph pv-family__ph pv-family__ph--lg"><span class="wf-ph__label">CARBOHUMIC · kanister</span></div>
@@ -360,7 +371,7 @@ main section[id], main article[id]{scroll-margin-top:calc(72px + var(--w-space-4
       <div class="wf-stack wf-stack--3 pv-reveal" style="max-width:680px;">
         <span class="wf-overline">Gama</span>
         <h2 class="wf-h2">Która rodzina jest dla Ciebie?</h2>
-        <p class="wf-lead wf-t-secondary">Trzy rodziny, jedna logika. Przełącz filtr, żeby zobaczyć, co pracuje w glebie, a co wzmacnia roślinę – pełne porównanie jest w tabeli niżej.</p>
+        <p class="wf-lead wf-t-secondary">Cztery rodziny, jedna logika. Przełącz filtr, żeby zobaczyć, co pracuje w glebie, a co wzmacnia roślinę – pełne porównanie jest w tabeli niżej.</p>
       </div>
 
       <div class="wf-cluster wf-gap-2" role="group" aria-label="Filtr gamy wg roli">
@@ -369,18 +380,31 @@ main section[id], main article[id]{scroll-margin-top:calc(72px + var(--w-space-4
         <button type="button" class="wf-btn wf-btn--secondary wf-btn--sm" data-gama-filter="wzmocnienie" aria-pressed="false">Na roślinę · wzmocnienie</button>
       </div>
 
-      <div class="wf-grid wf-grid--3" style="--wf-grid-min: 18rem;">
+      <div class="wf-grid wf-grid--2" style="--wf-grid-min: 18rem;">
         <article class="wf-card pv-gama-card" data-gama-role="baza"><div class="wf-card__body wf-stack wf-stack--3">
           <div class="wf-stack wf-stack--1">
             <span class="wf-overline wf-t-tertiary">Sypkie · doglebowe</span>
-            <h3 class="wf-h4">CARBOMAT</h3>
+            <h3 class="wf-h4">CARBOMAT ECO</h3>
           </div>
           <p class="wf-small wf-t-secondary">Surowy polski lignit. Jednorazowy wkład, który pracuje w glebie kilkanaście do ponad 20 lat.</p>
-          <p class="wf-small wf-t-secondary"><strong>Warianty:</strong> ECO (dodatek), ECO ściółka.</p>
+          <p class="wf-small wf-t-secondary"><strong>Warianty:</strong> dwie odmiany pH (dodatek do gleby) oraz CARBOMAT ECO Ściółka.</p>
           <p class="wf-inline wf-small wf-t-tertiary"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-stack-2"></use></svg> baza doglebowa · od 89 zł</p>
           <div class="wf-cluster wf-gap-2">
             <a class="wf-btn wf-btn--secondary wf-btn--sm" href="carbomat.html">Poznaj rodzinę</a>
             <a class="wf-btn wf-btn--link wf-btn--sm" href="sklep.html?grupa=carbomat">Zobacz w sklepie</a>
+          </div>
+        </div></article>
+        <article class="wf-card pv-gama-card" data-gama-role="baza"><div class="wf-card__body wf-stack wf-stack--3">
+          <div class="wf-stack wf-stack--1">
+            <span class="wf-overline wf-t-tertiary">Sypkie · uprawa bezglebowa</span>
+            <h3 class="wf-h4">CARBOMAT Mata Uprawowa</h3>
+          </div>
+          <p class="wf-small wf-t-secondary">Organiczna mata lignitowa do upraw bezglebowych – wieloletnia alternatywa dla wełny mineralnej i maty kokosowej. Stabilny rękaw uprawowy projektowany na wiele sezonów.</p>
+          <p class="wf-small wf-t-secondary"><strong>Format:</strong> rękaw 100 × 20 × 8 cm.</p>
+          <p class="wf-inline wf-small wf-t-tertiary"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-leaf"></use></svg> podłoże bezglebowe · sprzedaż od palety</p>
+          <div class="wf-cluster wf-gap-2">
+            <a class="wf-btn wf-btn--secondary wf-btn--sm" href="carbomat-mata.html">Poznaj produkt</a>
+            <a class="wf-btn wf-btn--link wf-btn--sm" href="kontakt.html">Zapytaj o ofertę</a>
           </div>
         </div></article>
         <article class="wf-card pv-gama-card" data-gama-role="baza wzmocnienie"><div class="wf-card__body wf-stack wf-stack--3">
@@ -425,7 +449,8 @@ main section[id], main article[id]{scroll-margin-top:calc(72px + var(--w-space-4
                 <tr><th scope="col">Rodzina</th><th scope="col">Forma</th><th scope="col">Rola</th><th scope="col">Aplikacja</th><th scope="col">pH</th><th scope="col">Gdzie</th><th scope="col" style="text-align:right;">Od</th></tr>
               </thead>
               <tbody>
-                <tr><td><strong>CARBOMAT</strong></td><td>sypki lignit</td><td>baza na lata</td><td>doglebowo</td><td>4,5–6,5</td><td>ogród, sad, jagodowe, podłoża</td><td style="text-align:right;">od 89 zł</td></tr>
+                <tr><td><strong>CARBOMAT ECO</strong></td><td>sypki lignit</td><td>baza na lata</td><td>doglebowo</td><td>4,5–6,5</td><td>ogród, sad, jagodowe, podłoża</td><td style="text-align:right;">od 89 zł</td></tr>
+                <tr><td><strong>CARBOMAT Mata Uprawowa</strong></td><td>mata lignitowa (podłoże bezglebowe)</td><td>podłoże do uprawy bezglebowej</td><td>rękaw pod rośliny</td><td>4,5 (bazowe)</td><td>szklarnie, uprawy kontenerowe</td><td style="text-align:right;">od palety</td></tr>
                 <tr><td><strong>CARBOHUMIC</strong></td><td>płyn</td><td>baza + wzmocnienie w sezonie</td><td>doglebowo i nalistnie</td><td>zasadowy roztwór</td><td>ogród, sad, plantacja, szkółka</td><td style="text-align:right;">od 149 zł</td></tr>
                 <tr><td><strong>CARBOMAT HUMIC</strong></td><td>sypki węgiel aktywowany</td><td>poprawa gleby + potas, podnosi pH</td><td>doglebowo</td><td>7–10</td><td>ogród działkowy i dom</td><td style="text-align:right;">od 26 zł</td></tr>
               </tbody>
@@ -762,8 +787,8 @@ main section[id], main article[id]{scroll-margin-top:calc(72px + var(--w-space-4
 
       <div class="wf-grid wf-grid--2" style="--wf-grid-min: 15rem;">
         <div class="pv-stat">
-          <span class="pv-num" data-count="60" data-final="~60%">~60%</span>
-          <span class="wf-small wf-t-secondary">mniej wody w doświadczeniu szklarniowym na pomidorze (Maroko): maty z lignitu vs podłoże kokosowe – materiał producenta.</span>
+          <span class="pv-num" data-count="14" data-final="~14%">~14%</span>
+          <span class="wf-small wf-t-secondary">mniej wody w doświadczeniu szklarniowym na pomidorze (Maroko): 7107 vs 8226 m³/ha na macie lignitowej vs kokosie – materiał producenta.</span>
         </div>
         <div class="pv-stat">
           <span class="pv-num" data-count="31" data-final="+31%">+31%</span>
@@ -926,7 +951,8 @@ main section[id], main article[id]{scroll-margin-top:calc(72px + var(--w-space-4
       </div>
       <nav class="wf-stack wf-stack--2" aria-label="Produkty"><p class="wf-overline">Produkty</p>
         <a class="wf-link--quiet" href="produkty.html">Nasze produkty</a>
-        <a class="wf-link--quiet" href="carbomat.html">CARBOMAT</a>
+        <a class="wf-link--quiet" href="carbomat.html">CARBOMAT ECO</a>
+        <a class="wf-link--quiet" href="carbomat-mata.html">CARBOMAT Mata Uprawowa</a>
         <a class="wf-link--quiet" href="carbohumic.html">CARBOHUMIC</a>
         <a class="wf-link--quiet" href="carbomat-humic.html">CARBOMAT HUMIC</a>
         <a class="wf-link--quiet" href="sklep.html">Sklep</a>

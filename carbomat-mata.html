@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CARBOMAT Mata Uprawowa – organiczne podłoże do upraw bezglebowych | Carbohort</title>
-<meta name="description" content="CARBOMAT Mata Uprawowa: organiczna mata lignitowa do upraw bezglebowych pod osłonami. Rękaw 100 × 20 × 8 cm, 8+ sezonów, bogata w humus – wieloletnia alternatywa dla wełny mineralnej i maty kokosowej. Badania SGGW. Sprzedaż od palety.">
+<meta name="description" content="CARBOMAT Mata Uprawowa: naturalne podłoże nowej generacji na bazie młodego węgla brunatnego i włókna kokosowego. Rękaw 100 × 20 × 8 cm (19 l), 6–8 cykli uprawowych, bogata w humus – wieloletnia alternatywa dla wełny mineralnej i maty kokosowej. Badania SGGW. Sprzedaż od palety.">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="wireframe.css">
 <link rel="stylesheet" href="cw.css">
@@ -153,6 +153,8 @@
   .cx-ways{grid-template-columns:1fr;}
 }
 @media (max-width:767px){
+  /* FIX 2026-07-19: długa nazwa produktu + CTA przepełniały subnav na 375 px (scrollWidth 385) – nazwa znika na mobile, jak wzorzec carbomat.html (tam chowany jest cx-subnav__price) */
+  .cx-subnav__name{display:none;}
   .cw2-hero{min-height:auto;}
   .cw2-hero h1{font-size:var(--w-font-h1-size);line-height:var(--w-font-h1-lh);}
   .cw2-hero .wf-lead{font-size:var(--w-font-body-size);}
@@ -230,7 +232,7 @@
             <div class="cw-prodbox">
               <span class="wf-overline wf-t-tertiary">Sypkie · uprawa bezglebowa</span>
               <a class="wf-link--quiet" href="carbomat-mata.html"><span class="wf-h5">CARBOMAT Mata Uprawowa</span></a>
-              <p class="wf-small wf-t-secondary">Organiczna mata lignitowa do upraw bezglebowych – wieloletnia alternatywa dla wełny mineralnej i maty kokosowej.</p>
+              <p class="wf-small wf-t-secondary">Naturalne podłoże nowej generacji do upraw bezglebowych – wieloletnia alternatywa dla wełny mineralnej i maty kokosowej.</p>
               <a class="wf-btn wf-btn--secondary wf-btn--sm" href="carbomat-mata.html">Poznaj produkt</a>
             </div>
             <div class="cw-prodbox">
@@ -242,7 +244,7 @@
             <div class="cw-prodbox">
               <span class="wf-overline wf-t-tertiary">Węgiel aktywowany · 3 w 1</span>
               <a class="wf-link--quiet" href="carbomat-humic.html"><span class="wf-h5">CARBOMAT HUMIC</span></a>
-              <p class="wf-small wf-t-secondary">Kondycjoner + potas + biostymulator; podnosi pH zakwaszonej gleby – do ogrodu i domu.</p>
+              <p class="wf-small wf-t-secondary">Kondycjoner + potas + biostymulator; podnosi pH zakwaszonej gleby – na pole i do ogrodu.</p>
               <a class="wf-btn wf-btn--secondary wf-btn--sm" href="carbomat-humic.html">Poznaj rodzinę</a>
             </div>
             <div class="cw-mega__needs">
@@ -367,16 +369,18 @@
     <div class="cw2-hero__content">
       <div class="wf-container wf-stack wf-stack--6">
         <span class="wf-overline wf-t-inverse cx-load" style="--i:0;">CARBOMAT · uprawa bezglebowa · szklarnie i tunele</span>
-        <h1 class="wf-display wf-t-inverse cx-load" style="--i:1;max-width:720px;">Organiczna mata lignitowa do upraw bezglebowych.</h1>
-        <p class="wf-lead wf-t-inverse cx-load" style="--i:2;max-width:600px;">Podłoże z węgla brunatnego bogate w humus – w odróżnieniu od inertnej wełny mineralnej i maty kokosowej samo dokarmia roślinę i buforuje warunki w strefie korzeni. Zaprojektowane na 8 i więcej sezonów, a po cyklu pracuje dalej jako polepszacz gleby.</p>
+        <!-- Hero wg „Produkty na stronę" 16.07. ⚠️ Skład 80% lignit + 20% włókno kokosowe (DOCX 16.07 + analiza „mieszanka węglowo-kokosowa" 2022) SPRZECZNY z wcześniejszym kanonem „100% lignit" (analiza 13 dokumentów, rozprawa SGGW) – do rozstrzygnięcia z Darkiem we wtorek, w tym atrybucja badań SGGW. -->
+        <h1 class="wf-display wf-t-inverse cx-load" style="--i:1;max-width:720px;">Nowa generacja mat uprawowych dla profesjonalistów.</h1>
+        <p class="wf-lead wf-t-inverse cx-load" style="--i:2;max-width:600px;">Naturalne podłoże nowej generacji, oparte na młodym węglu brunatnym i włóknie kokosowym. Dzięki wysokiej zawartości substancji organicznych i humusowych nie jest jedynie podporą dla korzeni – aktywnie współtworzy środowisko ich wzrostu i zachowuje właściwości przez wiele sezonów. Sprawdzona technologia uprawy: pomidor · ogórek · truskawka.</p>
         <div class="wf-cluster wf-gap-3 cx-load" style="--i:3;">
           <a class="wf-btn wf-btn--lg cw2-btn-solid-inverse" href="kontakt.html">Zapytaj o ofertę</a>
           <a class="wf-btn wf-btn--lg cw2-btn-outline-inverse" href="#dowod">Zobacz badania</a>
         </div>
         <div class="cm-quickfacts wf-t-inverse cx-load" style="--i:4;opacity:.92;">
-          <div class="cm-quickfacts__item"><span class="cm-quickfacts__num">100 × 20 × 8 cm</span><span class="wf-small" style="opacity:.8;">rękaw uprawowy</span></div>
-          <div class="cm-quickfacts__item"><span class="cm-quickfacts__num">8+ sezonów</span><span class="wf-small" style="opacity:.8;">żywotność podłoża</span></div>
-          <div class="cm-quickfacts__item"><span class="cm-quickfacts__num">pH 4,5</span><span class="wf-small" style="opacity:.8;">odczyn bazowy</span></div>
+          <div class="cm-quickfacts__item"><span class="cm-quickfacts__num">100 × 20 × 8 cm</span><span class="wf-small" style="opacity:.8;">rękaw uprawowy · 19 l</span></div>
+          <div class="cm-quickfacts__item"><span class="cm-quickfacts__num">6–8 cykli</span><span class="wf-small" style="opacity:.8;">bez straty w plonie</span></div>
+          <!-- ⚠️ pH 6,0–6,5 wg DOCX 16.07 (analiza bazowa WZO: 6,42); wcześniejsza karta/rekomendacja: 4,5 (zapewne czysty lignit) – do potwierdzenia -->
+          <div class="cm-quickfacts__item"><span class="cm-quickfacts__num">pH 6,0–6,5</span><span class="wf-small" style="opacity:.8;">odczyn podłoża</span></div>
           <div class="cm-quickfacts__item"><span class="cm-quickfacts__num">max 28°C</span><span class="wf-small" style="opacity:.8;">stabilna temperatura</span></div>
         </div>
         <span class="wf-small wf-t-inverse cx-load" style="--i:5;opacity:.75;">Produkt dla upraw profesjonalnych · sprzedaż od palety w górę.</span>
@@ -389,21 +393,21 @@
   <div class="cx-ticker" aria-label="Najważniejsze fakty o CARBOMAT Mata Uprawowa">
     <div class="cx-ticker__track">
       <ul class="cx-ticker__list">
-        <li>Rękaw 100 × 20 × 8 cm</li>
-        <li>8+ sezonów (claim producenta)</li>
-        <li>80–90% substancji organicznej</li>
+        <li>Rękaw 100 × 20 × 8 cm · 19 l</li>
+        <li>6–8 cykli uprawowych (doświadczenia producentów)</li>
+        <li>80% frakcje lignitu + 20% krótkie włókno kokosowe</li>
         <li>30–40% frakcji humusowych</li>
-        <li>pH bazowe 4,5</li>
+        <li>pH 6,0–6,5</li>
         <li>Temperatura podłoża max 28°C</li>
         <li>Ślad węglowy LCA 109 vs 3934 kg CO₂/t</li>
         <li>Patent EP 3 014 985</li>
       </ul>
       <ul class="cx-ticker__list" aria-hidden="true">
-        <li>Rękaw 100 × 20 × 8 cm</li>
-        <li>8+ sezonów (claim producenta)</li>
-        <li>80–90% substancji organicznej</li>
+        <li>Rękaw 100 × 20 × 8 cm · 19 l</li>
+        <li>6–8 cykli uprawowych (doświadczenia producentów)</li>
+        <li>80% frakcje lignitu + 20% krótkie włókno kokosowe</li>
         <li>30–40% frakcji humusowych</li>
-        <li>pH bazowe 4,5</li>
+        <li>pH 6,0–6,5</li>
         <li>Temperatura podłoża max 28°C</li>
         <li>Ślad węglowy LCA 109 vs 3934 kg CO₂/t</li>
         <li>Patent EP 3 014 985</li>
@@ -417,14 +421,14 @@
       <div class="wf-stack wf-stack--3 cx-reveal" style="max-width:720px;">
         <span class="wf-overline">W skrócie</span>
         <h2 class="wf-h2">Stabilny rękaw uprawowy, który zastępuje matę na jeden sezon inwestycją na lata.</h2>
-        <p class="wf-lead wf-t-secondary">CARBOMAT Mata Uprawowa to rękaw wypełniony frakcjonowanym lignitem – naturalną, w pełni biodegradowalną skałą organiczną. Trafia do szklarni i tuneli, w których rośliny uprawia się poza glebą: pomidor, ogórek, papryka, pomidor koktajlowy czy jagodowe w podłożu.</p>
+        <p class="wf-lead wf-t-secondary">CARBOMAT Mata Uprawowa to rękaw wypełniony frakcjonowanym lignitem (80%) z dodatkiem krótkiego włókna kokosowego (20%) – naturalnym, w pełni biodegradowalnym podłożem organicznym. Trafia do szklarni i tuneli, w których rośliny uprawia się poza glebą: pomidor, ogórek i truskawka; sprawdza się też w uprawach doniczkowych, np. malin.</p>
       </div>
 
       <div class="wf-grid wf-grid--3" style="--wf-grid-min: 15rem;">
         <div class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
           <span class="cm-facticon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-ruler-2"></use></svg></span>
           <span class="wf-h4 wf-w-bold">Stabilny format</span>
-          <span class="wf-small wf-t-secondary">Rękaw 100 × 20 × 8 cm. Granulat lignitu po zalaniu nie pęcznieje – utrzymuje objętość i przewidywalne środowisko dla korzeni. Waga: sucha ok. 11,5 kg, nasączona ok. 18 kg.</span>
+          <span class="wf-small wf-t-secondary">Rękaw 100 × 20 × 8 cm (19 l) w grubej, trwałej folii UV. Granulat lignitu po zalaniu nie pęcznieje – utrzymuje objętość i przewidywalne środowisko dla korzeni. Masa: sucha ok. 11,5 kg, uwodniona ok. 18 kg.</span>
         </div></div>
         <div class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
           <span class="cm-facticon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-leaf"></use></svg></span>
@@ -438,8 +442,9 @@
         </div></div>
         <div class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
           <span class="cm-facticon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-refresh"></use></svg></span>
-          <span class="wf-h4 wf-w-bold">8 i więcej sezonów</span>
-          <span class="wf-small wf-t-secondary">Zaprojektowana na 8+ sezonów wobec 3–4 cykli mat kokosowych. Wg opracowania producenta drugie i kolejne cykle bywają wydajniejsze niż pierwszy – granulat kumuluje składniki.</span>
+          <span class="wf-h4 wf-w-bold">Inwestycja na lata</span>
+          <!-- Żywotność wg DOCX 16.07: min. 5 sezonów; doświadczenia producentów 6–8 cykli; kokos 1–2 sezony (wcześniejsza analiza: 8+ i kokos 3–4 – ujednolicone do wersji Darka) -->
+          <span class="wf-small wf-t-secondary">Doświadczenia u producentów dowodzą skutecznej uprawy przez 6–8 kolejnych cykli – bez straty w plonie i bez oznak chorób odglebowych. Wg opracowania producenta drugie i kolejne cykle bywają wydajniejsze niż pierwszy.</span>
         </div></div>
         <div class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
           <span class="cm-facticon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-shield-check"></use></svg></span>
@@ -479,7 +484,7 @@
               <span class="wf-overline wf-t-tertiary cx-cascade" style="--i:0;">01 · Materiał</span>
               <h3 class="wf-h3 cx-cascade" style="--i:1;">Skała organiczna, a nie obojętny wypełniacz.</h3>
               <p class="wf-body wf-t-secondary wf-prose cx-cascade" style="--i:2;">Lignit to skała osadowa pochodzenia organicznego – zatrzymana na etapie trwałego humusu materia dawnych roślin. W przeciwieństwie do inertnej wełny mineralnej i maty kokosowej sam wnosi do strefy korzeni cenną organikę.</p>
-              <p class="wf-body wf-t-secondary wf-prose cx-cascade" style="--i:3;">W jego składzie są ligniny, woski i bituminy oraz kwasy huminowe i fulwowe. Materiał jest w pełni biodegradowalny.</p>
+              <p class="wf-body wf-t-secondary wf-prose cx-cascade" style="--i:3;">W jego składzie są ligniny, woski i bituminy oraz kwasy huminowe i fulwowe. W rękawie frakcje lignitu (80%) uzupełnia krótkie włókno kokosowe (20%), poprawiające strukturę podłoża. Materiał jest w pełni biodegradowalny.</p>
               <div class="cx-cascade" style="--i:4;">
                 <p class="cx-num__val" style="font-size:clamp(2.4rem,5vw,3.6rem);"><span data-count="80" data-final="80–90%">0</span></p>
                 <p class="wf-small wf-t-secondary">substancji organicznej w suchej masie (pozostałe 10–20% to popiół).</p>
@@ -534,7 +539,7 @@
             <div class="wf-stack wf-stack--4">
               <span class="wf-overline wf-t-tertiary cx-cascade" style="--i:0;">05 · Drugie życie i CO₂</span>
               <h3 class="wf-h3 cx-cascade" style="--i:1;">Po cyklu pracuje dalej – i ma niski ślad węglowy.</h3>
-              <p class="wf-body wf-t-secondary wf-prose cx-cascade" style="--i:2;">Po 8+ sezonach zużyty rękaw staje się wysokiej klasy polepszaczem organiczno-mineralnym o wartości odsprzedaży, a lignit rozsypany na polu wiąże CO₂ (sekwestracja) zamiast trafić na utylizację.</p>
+              <p class="wf-body wf-t-secondary wf-prose cx-cascade" style="--i:2;">Po 6–8 cyklach uprawowych zużyty rękaw staje się wysokiej klasy polepszaczem organiczno-mineralnym o wartości odsprzedaży, a lignit rozsypany na polu wiąże CO₂ (sekwestracja) zamiast trafić na utylizację.</p>
               <div class="cx-barchart cx-cascade" style="--i:3;" role="img" aria-label="Ślad węglowy gotowego produktu w kg CO2 na tonę: mata lignitowa 109, wełna mineralna 3934">
                 <div class="cx-bar"><span class="wf-small wf-w-semibold">Mata lignitowa</span><div class="cx-bar__track"><div class="cx-bar__fill" style="--bw:3%;"></div></div><span class="wf-small wf-t-secondary">109 kg CO₂/t</span></div>
                 <div class="cx-bar"><span class="wf-small">Wełna mineralna</span><div class="cx-bar__track"><div class="cx-bar__fill cx-bar__fill--light" style="--bw:100%;"></div></div><span class="wf-small wf-t-secondary">3934 kg CO₂/t</span></div>
@@ -563,7 +568,7 @@
     <div class="wf-container">
       <div class="wf-alert" role="status">
         <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-leaf"></use></svg></span>
-        <div><span class="wf-alert__title">Ta sama organika co CARBOMAT ECO.</span> <span class="wf-small wf-t-secondary">Mata to lignit w formie rękawa do upraw bezglebowych; <a class="wf-link" href="carbomat.html">CARBOMAT ECO</a> to ten sam surowiec do stosowania w gruncie i podłożach.</span></div>
+        <div><span class="wf-alert__title">Ta sama organika co CARBOMAT ECO.</span> <span class="wf-small wf-t-secondary">Bazą maty są frakcje tego samego lignitu (80% składu, uzupełnione krótkim włóknem kokosowym); <a class="wf-link" href="carbomat.html">CARBOMAT ECO</a> to ten surowiec do stosowania w gruncie i podłożach.</span></div>
       </div>
     </div>
   </section>
@@ -574,7 +579,8 @@
       <div class="wf-stack wf-stack--3" style="max-width:720px;">
         <span class="wf-overline">Co zastępujesz?</span>
         <h2 class="wf-h2">Mata lignitowa obok wełny mineralnej i kokosu.</h2>
-        <p class="wf-lead wf-t-secondary">Dwa najczęściej używane podłoża pod osłonami to wełna mineralna i mata kokosowa. Oba są inertne i zwykle jednosezonowe (kokos 3–4 cykle). Wybierz podłoże, z którego przechodzisz – pokażemy najważniejsze argumenty i podświetlimy właściwą kolumnę.</p>
+        <!-- Żywotność kokosu wg tabeli DOCX 16.07: „zwykle 1–2 sezony" (wcześniejsza analiza: 3–4 cykle) – do potwierdzenia we wtorek -->
+        <p class="wf-lead wf-t-secondary">Dwa najczęściej używane podłoża pod osłonami to wełna mineralna i mata kokosowa. Oba są inertne i zwykle jednosezonowe (kokos 1–2 sezony). Wybierz podłoże, z którego przechodzisz – pokażemy najważniejsze argumenty i podświetlimy właściwą kolumnę.</p>
       </div>
 
       <div class="cx-ways cx-reveal" role="group" aria-label="Wybierz podłoże, które zastępujesz">
@@ -589,7 +595,7 @@
           <span class="cm-facticon"><svg class="wf-icon" aria-hidden="true"><use href="#ti-leaf"></use></svg></span>
           <span class="wf-stack wf-stack--1">
             <span class="wf-h4">Zastępuję matę kokosową</span>
-            <span class="wf-small wf-t-secondary">tu grają ekonomia 8 sezonów, humus i bufor cieplno-wodny</span>
+            <span class="wf-small wf-t-secondary">tu grają ekonomia 6–8 cykli, humus i bufor cieplno-wodny</span>
           </span>
         </button>
       </div>
@@ -622,13 +628,13 @@
               <span class="wf-badge wf-badge--outline wf-inline"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-refresh"></use></svg> front ekonomiczny</span>
             </div>
             <dl class="cx-spec">
-              <div class="cx-spec__row"><dt>Żywotność</dt><dd>8+ sezonów wobec 3–4 cykli kokosu; wg opracowania producenta kolejne cykle bywają wydajniejsze.</dd></div>
+              <div class="cx-spec__row"><dt>Żywotność</dt><dd>6–8 cykli uprawowych (min. 5 sezonów) wobec 1–2 sezonów kokosu; wg opracowania producenta kolejne cykle bywają wydajniejsze.</dd></div>
               <div class="cx-spec__row"><dt>Charakter podłoża</dt><dd>Organiczne, bogate w humus – dokarmia roślinę; kokos jest inertny i żywi wyłącznie nawóz.</dd></div>
               <div class="cx-spec__row"><dt>Bufor cieplno-wodny</dt><dd>Temperatura do 28°C i stabilne EC; kokos jest zależny od pogody i podatny na skrajności.</dd></div>
               <div class="cx-spec__row"><dt>Przygotowanie</dt><dd>Jednorazowe moczenie 72 h; kokos wymaga wielokrotnego płukania z zasolenia.</dd></div>
               <div class="cx-spec__row"><dt>Po cyklu</dt><dd>Polepszacz gleby z wartością odsprzedaży zamiast odpadu organicznego do utylizacji.</dd></div>
             </dl>
-            <a class="wf-link--quiet wf-small wf-inline" href="#ekonomia"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg> Zobacz rachunek 8 sezonów</a>
+            <a class="wf-link--quiet wf-small wf-inline" href="#ekonomia"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-arrow-right"></use></svg> Zobacz rachunek wielu sezonów</a>
           </div>
         </article>
       </div>
@@ -683,21 +689,21 @@
               </tr>
               <tr>
                 <th scope="row">Gospodarka wodą</th>
-                <td class="cm-cell-mata">więcej cykli, mniej wody na raz; „pojemnik na wodę"</td>
+                <td class="cm-cell-mata">wysoka pojemność sorpcyjna – magazynuje wodę i składniki, większy margines bezpieczeństwa</td>
                 <td class="cm-col-wm">wymaga precyzyjnego sterowania</td>
                 <td class="cm-col-coco">podatna na przesuszenie przy awarii nawadniania</td>
               </tr>
               <tr>
                 <th scope="row">Choroby odglebowe i szkodniki</th>
-                <td class="cm-cell-mata">ryzyko znikome</td>
+                <td class="cm-cell-mata">ryzyko niskie, stabilne też w wieloletniej uprawie</td>
                 <td class="cm-col-wm">niskie (podłoże inertne)</td>
-                <td class="cm-col-coco">wysokie ryzyko</td>
+                <td class="cm-col-coco">wyższe ryzyko patogenów i szkodników</td>
               </tr>
               <tr>
                 <th scope="row">Żywotność</th>
-                <td class="cm-cell-mata">8+ sezonów, kolejne cykle często lepsze</td>
-                <td class="cm-col-wm">zwykle 1 sezon</td>
-                <td class="cm-col-coco">3–4 cykle</td>
+                <td class="cm-cell-mata">min. 5 sezonów (6–8 cykli u producentów), kolejne cykle często lepsze</td>
+                <td class="cm-col-wm">najczęściej 1, góra 2 sezony</td>
+                <td class="cm-col-coco">zwykle 1–2 sezony (zależnie od technologii)</td>
               </tr>
               <tr>
                 <th scope="row">Po zakończeniu cyklu</th>
@@ -785,13 +791,15 @@
               <p class="wf-body wf-t-secondary wf-prose">Rozprawa doktorska Radosława Łaźnego (Szkoła Główna Gospodarstwa Wiejskiego w Warszawie, promotor dr hab. Katarzyna Kowalczyk, prof. SGGW) porównała podłoże z węgla brunatnego z wełną mineralną w uprawie hydroponicznej ogórka. Wyniki opublikowano w pięciu recenzowanych czasopismach (Agronomy, Applied Sciences, Scientia Horticulturae).</p>
             </div>
             <div class="wf-stack wf-stack--4">
+              <!-- Liczby szczegółowe wg „Produkty na stronę" 16.07 (sekcja Dowód) -->
               <ul class="cw2-fn">
-                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Korzystny wpływ na wzrost, plonowanie i jakość owoców względem wełny mineralnej</li>
+                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Plon handlowy 6834 vs 6190 g z rośliny (+ponad 640 g); ~32 vs ~28 owoców handlowych na roślinie</li>
+                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Twardość owoców 63,6 vs 56,8 HPE i ekstrakt (TSS) 3,9 vs 3,6 °Brix – jędrniejsze, słodsze ogórki</li>
+                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Azotany niższe o ok. 50% (45,0 vs 89,9 mg/kg); wyższe Ca, S oraz Fe, Zn i B w tkankach</li>
+                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> W stresie o 12,3% mniejsze opadanie zawiązków; woda łatwo dostępna +55% w pierwszych 51 dniach, gęstość nasypowa +23%</li>
                 <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Ponowne użycie mat nie pogarsza wzrostu, plonu ani jakości – potwierdzona wielosezonowość</li>
-                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Owoce z lignitu: niższy ubytek masy w przechowywaniu, wyższe TSS i sucha masa, niższe azotany</li>
-                <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> Twardość owocu wyższa o ponad 10%; podłoże łagodzi stres wysokiego EC pożywki</li>
               </ul>
-              <p class="wf-caption wf-t-tertiary">Ocena sensoryczna: intensywniejszy świeży zapach, słodszy smak, bez obcych i gorzkich posmaków. Kluczowe liczby (luteina, β-karoten) – w bloku powyżej.</p>
+              <p class="wf-caption wf-t-tertiary">Ocena sensoryczna: intensywniejszy świeży zapach, słodszy smak, bez obcych i gorzkich posmaków. Kluczowe liczby (luteina +40%, β-karoten +33%, chlorofil +26–29%) – w bloku powyżej.</p>
             </div>
           </div>
         </div>
@@ -821,12 +829,17 @@
 
         <article class="wf-card wf-card--flush cx-reveal">
           <div class="wf-card__body wf-stack wf-stack--6">
-            <span class="wf-badge wf-badge--outline wf-inline"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg> Próba komercyjna · Maroko</span>
-            <h3 class="wf-h4">Pierwszy sezon na pomidorze: porównywalnie z kokosem, mniej wody</h3>
-            <p class="wf-body wf-t-secondary wf-prose">W próbie polowej w gospodarstwie Azura (pomidor koktajlowy, sezon 2023/24) mata lignitowa w pierwszym cyklu dała plon i jakość owoców porównywalne z matą kokosową (różnice nieistotne statystycznie), przy istotnie niższym zużyciu wody – ok. 14% (7107 vs 8226 m³/ha). Cukry (Brix) i masa owocu bez istotnej różnicy.</p>
+            <span class="wf-badge wf-badge--outline wf-inline"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg> Próba komercyjna · trudne warunki klimatyczne (Maroko)</span>
+            <h3 class="wf-h4">Uprawa w trudnym klimacie: porównywalnie z kokosem, wyraźnie mniej wody</h3>
+            <!-- Liczby wg „Produkty na stronę" 16.07 (sekcja Azura); Darek: podpiąć raport z Azury, zdjęcia i film z wizyty -->
+            <p class="wf-body wf-t-secondary wf-prose">W próbie polowej w gospodarstwie Azura (pomidor koktajlowy, sezon 2023/24) mata w pierwszym cyklu zużyła 7106,9 vs 8226,3 m³ wody na hektar – to oszczędność 1119,4 m³ (ponad 1,1 mln litrów) przy plonie niższym zaledwie o 4,8%. Udział owoców w optymalnym kalibrze: 56,3% vs 53,9%; ekstrakt 8,6 vs 8,5 °Brix; pH i EC pożywki oraz drenażu stabilne przez cały sezon.</p>
             <div class="wf-alert" role="status">
               <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-info-circle"></use></svg></span>
-              <div><span class="wf-alert__title">Uczciwie: to pierwszy cykl.</span> <span class="wf-small wf-t-secondary">Przewaga maty ujawnia się w wieloletniej amortyzacji (8+ sezonów), a nie w pojedynczym sezonie – tu wynik był porównywalny z kokosem.</span></div>
+              <div><span class="wf-alert__title">Uczciwie: to pierwszy cykl.</span> <span class="wf-small wf-t-secondary">Przewaga maty ujawnia się w wieloletniej amortyzacji (6–8 cykli), a nie w pojedynczym sezonie – tu wynik plonu był porównywalny z kokosem.</span></div>
+            </div>
+            <div class="wf-cluster wf-gap-3 wf-items-center">
+              <div class="wf-ph" aria-hidden="true" style="width:120px;aspect-ratio:16/10;"><span class="wf-ph__label">FOTO/WIDEO: wizyta w Azura</span></div>
+              <span class="wf-caption wf-t-tertiary">Raport z próby, zdjęcia i film z wizyty – do podpięcia (materiały CarboHort).</span>
             </div>
           </div>
         </article>
@@ -864,7 +877,7 @@
           <div class="cx-step__body">
             <span class="wf-overline wf-t-tertiary">Zalanie</span>
             <h3 class="wf-h5">Zalej matę czystą wodą</h3>
-            <p class="wf-small wf-t-secondary">Bez nawozów i kwasów, tak by woda wypełniła całą powierzchnię i przykryła podłoże.</p>
+            <p class="wf-small wf-t-secondary">Bez nawozów i kwasów, tak by woda wypełniła całe podłoże i przykryła jego powierzchnię (mata przyjmuje ok. 8 dm³). Nie wykonuj wcześniej otworów drenażowych ani nasadzeniowych – podłoże może wypływać wierzchem.</p>
           </div>
         </div>
         <div class="cx-step">
@@ -880,7 +893,7 @@
           <div class="cx-step__body">
             <span class="wf-overline wf-t-tertiary">Drenaż</span>
             <h3 class="wf-h5">Dopiero teraz zrób otwory</h3>
-            <p class="wf-small wf-t-secondary">Po 72 h wykonaj 2–3 otwory drenażowe: nacięcia 2–3 cm na dłuższych bokach rękawa.</p>
+            <p class="wf-small wf-t-secondary">Po 72 h wykonaj 2 skośne otwory drenażowe: nacięcia po 2–3 cm na dłuższych bokach rękawa.</p>
           </div>
         </div>
         <div class="cx-step">
@@ -896,10 +909,21 @@
           <div class="cx-step__body">
             <span class="wf-overline wf-t-tertiary">Fertygacja</span>
             <h3 class="wf-h5">Nawadniaj cyklami</h3>
-            <p class="wf-small wf-t-secondary">Przelew 15% w fazie budowy korzeni, 25–30% później. Wilgotność 30% do 3 tygodni po sadzeniu, potem min. 50% (nie przekraczaj 50%).</p>
+            <!-- ⚠️ max wilgotność: DOCX 16.07 „nie przekraczaj 60%"; rekomendacja techniczna z analizy 07-10: max 50% – przyjęto 60% (nowsze), do potwierdzenia. Poprzedni zapis „min. 50% (nie przekraczaj 50%)" był wewnętrznie sprzeczny. -->
+            <p class="wf-small wf-t-secondary">Przelew 15% w fazie budowy korzeni, 25–30% później. Wilgotność 30% do 3 tygodni po sadzeniu, potem min. 50% (nie przekraczaj 60%).</p>
           </div>
         </div>
       </div></article>
+
+      <div class="wf-card wf-card--flush cx-reveal">
+        <div class="wf-cluster wf-items-center wf-gap-4" style="padding:var(--w-space-4);flex-wrap:wrap;">
+          <div class="wf-ph" aria-hidden="true" style="width:180px;aspect-ratio:16/9;"><span class="wf-ph__label">WIDEO YT: przygotowanie maty krok po kroku</span></div>
+          <div class="wf-stack wf-stack--1" style="flex:1;min-width:220px;">
+            <span class="wf-w-semibold">Zobacz, jak przygotować matę</span>
+            <span class="wf-small wf-t-secondary">Film instruktażowy z kanału Carbohort – do podpięcia z YouTube.</span>
+          </div>
+        </div>
+      </div>
 
       <div class="wf-alert" role="status">
         <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-clock"></use></svg></span>
@@ -912,45 +936,53 @@
   <section class="wf-section wf-section--subtle" id="fertygacja">
     <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:720px;">
-        <span class="wf-overline">Fertygacja i skład</span>
-        <h2 class="wf-h2">Podłoże współpracuje z nawożeniem – i część pracy bierze na siebie.</h2>
-        <p class="wf-lead wf-t-secondary">Lignit ma własny profil składników i sam reguluje siarkę, żelazo oraz bor. Bilans pożywki układa się na podstawie analizy wody i koryguje z analizy drenażu.</p>
+        <span class="wf-overline">Skład pierwiastkowy</span>
+        <h2 class="wf-h2">Podłoże z własnym profilem składników – i część pracy bierze na siebie.</h2>
+        <p class="wf-lead wf-t-secondary">Mata ma własny profil składników i sama reguluje część gospodarki pokarmowej. Recepturę pożywki układa nasz agronom na podstawie analizy wody i koryguje z analizy drenażu.</p>
       </div>
 
+      <!-- Sekcja „pkt 05" wg maila Darka 14.07: skład pierwiastków z DWÓCH polskich analiz WZO (bazowa + po 5 latach); jeśli miejsce pozwoli – uzupełnić danymi z angielskiego raportu PCBC (surowiec CARBOMAT). Rozdział o nawożeniu celowo pominięty (Darek 16.07: „Całkowicie pominąłbym rozdział o nawożeniu. Tu musi być kontakt z naszym doradcą."); szczegóły 1. roku (pH pożywki 6,2–6,5, mniej Fe, bez siarczanów i boru, +30% Cu, +20% K, +20% P przez 3 tyg.) zostają w rekomendacji technicznej do zamówienia. -->
       <div class="wf-grid wf-grid--2" style="--wf-grid-min: 20rem;">
-        <div class="wf-card"><div class="wf-card__body wf-stack wf-stack--4">
-          <h3 class="wf-h4">Zalecenia nawozowe (1. rok)</h3>
-          <ul class="cw2-fn">
-            <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-droplet"></use></svg> <span>pH pożywki na wejściu <span class="wf-w-semibold">6,2–6,5</span></span></li>
-            <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> <span>Ogranicz żelazo (Fe)</span></li>
-            <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-x"></use></svg> <span>Nie stosuj nawozów siarczanowych ani boru</span></li>
-            <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-plus"></use></svg> <span>Zwiększ miedź o ok. 30%</span></li>
-            <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-plus"></use></svg> <span>Zwiększ potas o ok. 20%</span></li>
-            <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-plus"></use></svg> <span>Zwiększ fosfor o ok. 20% przez pierwsze 3 tygodnie po sadzeniu</span></li>
-          </ul>
-          <p class="wf-caption wf-t-tertiary">Częste, kontrolowane cykle regulują dostępność siarki, żelaza i boru wewnątrz rękawa.</p>
-        </div></div>
-
         <div class="wf-card wf-card--flush"><div class="wf-card__body wf-stack wf-stack--4">
-          <h3 class="wf-h4">Podstawowy skład podłoża</h3>
+          <h3 class="wf-h4">Analiza podłoża: wersja bazowa i po 5 latach uprawy pomidora</h3>
+          <p class="wf-small wf-t-secondary">Mata pracuje w czasie: akumuluje potas i azot azotanowy, oddaje roślinom wapń i żelazo, a pH obniża się do ~5. EC pozostaje stabilne.</p>
           <div class="cw-scrollx" tabindex="0">
             <table class="wf-table">
-              <thead><tr><th scope="col">Składnik</th><th scope="col" style="text-align:right;">Zawartość</th></tr></thead>
+              <thead><tr><th scope="col">Parametr</th><th scope="col" style="text-align:right;">Bazowa</th><th scope="col" style="text-align:right;">Po 5 latach</th></tr></thead>
               <tbody>
-                <tr><td>Wapń (Ca)</td><td style="text-align:right;">1300 mg/dm³</td></tr>
-                <tr><td>Żelazo (Fe)</td><td style="text-align:right;">800 mg/dm³</td></tr>
-                <tr><td>Siarka (S-SO₄)</td><td style="text-align:right;">600 mg/dm³</td></tr>
-                <tr><td>Magnez (Mg)</td><td style="text-align:right;">120 mg/dm³</td></tr>
-                <tr><td>Mangan (Mn)</td><td style="text-align:right;">41 mg/dm³</td></tr>
-                <tr><td>Azot amonowy (N-NH₄)</td><td style="text-align:right;">7,5 mg/dm³</td></tr>
-                <tr><td>Potas (K)</td><td style="text-align:right;">6 mg/dm³</td></tr>
-                <tr><td>Bor (B)</td><td style="text-align:right;">5 mg/dm³</td></tr>
-                <tr><td>Fosfor (P)</td><td style="text-align:right;">4 mg/dm³</td></tr>
-                <tr><td>Odczyn (pH)</td><td style="text-align:right;">4,5</td></tr>
+                <tr><td>Odczyn (pH)</td><td style="text-align:right;">6,42</td><td style="text-align:right;">4,98</td></tr>
+                <tr><td>EC (mS/cm)</td><td style="text-align:right;">0,58</td><td style="text-align:right;">0,55</td></tr>
+                <tr><td>Azot azotanowy (N-NO₃)</td><td style="text-align:right;">3</td><td style="text-align:right;">61</td></tr>
+                <tr><td>Azot amonowy (N-NH₄)</td><td style="text-align:right;">3,2</td><td style="text-align:right;">6,9</td></tr>
+                <tr><td>Fosfor (P)</td><td style="text-align:right;">107</td><td style="text-align:right;">92</td></tr>
+                <tr><td>Potas (K)</td><td style="text-align:right;">156</td><td style="text-align:right;">495</td></tr>
+                <tr><td>Wapń (Ca)</td><td style="text-align:right;">3260</td><td style="text-align:right;">580</td></tr>
+                <tr><td>Magnez (Mg)</td><td style="text-align:right;">153</td><td style="text-align:right;">101</td></tr>
+                <tr><td>Siarka (S-SO₄)</td><td style="text-align:right;">162</td><td style="text-align:right;">81</td></tr>
+                <tr><td>Żelazo (Fe)</td><td style="text-align:right;">409,0</td><td style="text-align:right;">212,9</td></tr>
+                <tr><td>Mangan (Mn)</td><td style="text-align:right;">38,8</td><td style="text-align:right;">12,1</td></tr>
+                <tr><td>Cynk (Zn)</td><td style="text-align:right;">6,6</td><td style="text-align:right;">5,4</td></tr>
+                <tr><td>Miedź (Cu)</td><td style="text-align:right;">0,6</td><td style="text-align:right;">0,9</td></tr>
+                <tr><td>Bor (B)</td><td style="text-align:right;">2,8</td><td style="text-align:right;">1,6</td></tr>
+                <tr><td>Chlorki (Cl)</td><td style="text-align:right;">74</td><td style="text-align:right;">36</td></tr>
               </tbody>
             </table>
           </div>
-          <p class="wf-caption wf-t-tertiary">Skład podstawowy wg karty produktu. Frakcje 1–20 mm; EC podłoża max 3–3,5.</p>
+          <p class="wf-caption wf-t-tertiary">Wartości w mg/dm³. Analizy Laboratorium Analiz Ogrodniczych WZO w Pleszewie: podłoże bazowe (2022) i po 5 latach uprawy pomidora (2024). Frakcje 1–20 mm; EC podłoża max 3–3,5.</p>
+        </div></div>
+
+        <div class="wf-card"><div class="wf-card__body wf-stack wf-stack--4">
+          <h3 class="wf-h4">Pożywka? To praca dla naszego agronoma.</h3>
+          <p class="wf-body wf-t-secondary wf-prose">W celu sporządzenia optymalnej pożywki dla Twojej uprawy skontaktuj się z naszym agronomem. Każde zamówienie obejmuje pełną rekomendację techniczną z zaleceniami na pierwszy rok i kolejne cykle – dopasowaną do wody, uprawy i technologii w Twoim obiekcie.</p>
+          <ul class="cw2-fn">
+            <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> <span>Receptura pożywki na bazie analizy Twojej wody</span></li>
+            <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> <span>Korekty w sezonie na podstawie analizy drenażu</span></li>
+            <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-check"></use></svg> <span>Podłoże samo reguluje część składników – uwzględniamy to w bilansie</span></li>
+          </ul>
+          <div class="wf-cluster wf-gap-3 wf-items-center">
+            <a class="wf-btn wf-btn--primary" href="kontakt.html">Skontaktuj się z agronomem</a>
+            <button type="button" class="wf-btn wf-btn--link" data-jurek-open>Zapytaj dr Jurka</button>
+          </div>
         </div></div>
       </div>
     </div>
@@ -962,7 +994,7 @@
       <div class="wf-stack wf-stack--3" style="max-width:720px;">
         <span class="wf-overline">Sezon po sezonie</span>
         <h2 class="wf-h2">Jeden rękaw, wiele sezonów – i drugie życie na końcu.</h2>
-        <p class="wf-lead wf-t-secondary">W odróżnieniu od podłoży jednosezonowych mata pracuje przez 8 i więcej cykli. Wg opracowania producenta kolejne cykle bywają wydajniejsze, bo granulat lignitu kumuluje składniki, a po zakończeniu pracy rękaw nie staje się odpadem.</p>
+        <p class="wf-lead wf-t-secondary">W odróżnieniu od podłoży jednosezonowych mata pracuje przez 6–8 cykli uprawowych (co najmniej 5 sezonów). Wg opracowania producenta kolejne cykle bywają wydajniejsze, bo granulat lignitu kumuluje składniki, a po zakończeniu pracy rękaw nie staje się odpadem.</p>
       </div>
 
       <div class="cx-seq cx-reveal" data-seq>
@@ -976,7 +1008,7 @@
           <span class="cx-seq__dot" aria-hidden="true"></span>
           <span class="wf-overline wf-t-tertiary">Sezony 1–2</span>
           <h3 class="wf-h5">Pierwsze cykle</h3>
-          <p class="wf-small wf-t-secondary">Pełna uprawa pod osłonami. W 1. roku korekta nawożenia (pH 6,2–6,5, mniej Fe, bez siarczanów i boru).</p>
+          <p class="wf-small wf-t-secondary">Pełna uprawa pod osłonami. Pierwszy rok to okres stabilizacji maty – nawożenie prowadź wg rekomendacji technicznej od naszego agronoma.</p>
         </div>
         <div class="cx-seq__node">
           <span class="cx-seq__dot" aria-hidden="true"></span>
@@ -988,7 +1020,7 @@
           <span class="cx-seq__dot" aria-hidden="true"></span>
           <span class="wf-overline wf-t-tertiary">Sezony 6–8</span>
           <h3 class="wf-h5">Pełna amortyzacja</h3>
-          <p class="wf-small wf-t-secondary">Jedna inwestycja rozłożona na 8+ sezonów zamiast corocznej wymiany podłoża.</p>
+          <p class="wf-small wf-t-secondary">Jedna inwestycja rozłożona na 6–8 cykli uprawowych zamiast corocznej wymiany podłoża.</p>
         </div>
         <div class="cx-seq__node">
           <span class="cx-seq__dot" aria-hidden="true"></span>
@@ -1000,7 +1032,7 @@
 
       <div class="wf-alert" role="status">
         <span class="wf-alert__icon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-refresh"></use></svg></span>
-        <div><span class="wf-alert__title">8+ sezonów to claim producenta.</span> <span class="wf-small wf-t-secondary">Wielosezonowość (ponowne użycie mat bez utraty plonu i jakości) potwierdziły też niezależne badania SGGW – szczegóły w sekcji <a class="wf-link" href="#dowod">Dowód</a>.</span></div>
+        <div><span class="wf-alert__title">6–8 cykli to doświadczenia producentów.</span> <span class="wf-small wf-t-secondary">Wielosezonowość (ponowne użycie mat bez utraty plonu i jakości) potwierdziły też niezależne badania SGGW – szczegóły w sekcji <a class="wf-link" href="#dowod">Dowód</a>.</span></div>
       </div>
     </div>
   </section>
@@ -1010,25 +1042,36 @@
     <div class="wf-container wf-stack wf-stack--8">
       <div class="wf-stack wf-stack--3" style="max-width:720px;">
         <span class="wf-overline">Ekonomia</span>
-        <h2 class="wf-h2">Wyższy koszt na starcie, niższy koszt na rok.</h2>
-        <p class="wf-lead wf-t-secondary">Cena zakupu maty lignitowej jest wyższa niż podłoży jednosezonowych, ale rozkłada się na 8 i więcej sezonów – a na końcu materiał zamienia się z kosztu utylizacji w produkt do odsprzedaży.</p>
+        <h2 class="wf-h2">Dlaczego mata kosztuje mniej, niż myślisz.</h2>
+        <p class="wf-lead wf-t-secondary">Cena zakupu to tylko część kosztów prowadzenia uprawy. O rzeczywistych oszczędnościach decyduje cały cykl życia podłoża – rozłożony na co najmniej 5 lat użytkowania.</p>
       </div>
 
+      <!-- 5 punktów TCO wg „Produkty na stronę" 16.07 („Dlaczego Carbomat kosztuje mniej, niż myślisz?") -->
       <div class="wf-grid wf-grid--3" style="--wf-grid-min: 15rem;">
         <div class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
           <span class="cm-facticon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-refresh"></use></svg></span>
-          <span class="wf-h4 wf-w-bold">8+ sezonów równej jakości</span>
-          <span class="wf-small wf-t-secondary">Jedna inwestycja zamiast corocznej wymiany podłoża. Wg opracowania producenta drugie i kolejne cykle bywają wydajniejsze, bo granulat kumuluje składniki mineralne.</span>
+          <span class="wf-h4 wf-w-bold">Płacisz raz – korzystasz przez lata</span>
+          <span class="wf-small wf-t-secondary">Mata może być użytkowana przez co najmniej 5 lat (6–8 cykli u producentów). Jeden zakup zamiast corocznej wymiany podłoża i znacznie niższe koszty transportu w całym okresie.</span>
+        </div></div>
+        <div class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
+          <span class="cm-facticon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-clock"></use></svg></span>
+          <span class="wf-h4 wf-w-bold">Mniej pracy, niższa robocizna</span>
+          <span class="wf-small wf-t-secondary">Przygotowanie i rozłożenie mat wykonujesz tylko raz. Bez corocznego usuwania zużytego podłoża, rozładunku nowych mat i ponownego montażu – mniej godzin pracy w gospodarstwie.</span>
         </div></div>
         <div class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
           <span class="cm-facticon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-droplet"></use></svg></span>
-          <span class="wf-h4 wf-w-bold">Niższe koszty operacyjne</span>
-          <span class="wf-small wf-t-secondary">Organiczne dokarmianie pozwala ograniczyć część nawożenia i ochrony; podłoże samo reguluje siarkę, żelazo i bor. W próbie komercyjnej niższe też zużycie wody.</span>
+          <span class="wf-h4 wf-w-bold">Mniejsze zużycie wody i nawozów</span>
+          <span class="wf-small wf-t-secondary">Sorpcja lignitu magazynuje wodę i składniki pokarmowe – możliwe jest ograniczenie zużycia wody i efektywniejsze wykorzystanie nawozów mineralnych. W próbie komercyjnej ok. 14% mniej wody.</span>
+        </div></div>
+        <div class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
+          <span class="cm-facticon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-shield-check"></use></svg></span>
+          <span class="wf-h4 wf-w-bold">Brak dezynfekcji między sezonami</span>
+          <span class="wf-small wf-t-secondary">Naturalne właściwości lignitu sprzyjają stabilnemu środowisku biologicznemu w strefie korzeni – nie ma konieczności dezynfekowania mat pomiędzy kolejnymi cyklami uprawowymi.</span>
         </div></div>
         <div class="wf-card"><div class="wf-card__body wf-stack wf-stack--3">
           <span class="cm-facticon"><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-coin"></use></svg></span>
-          <span class="wf-h4 wf-w-bold">Przychód po cyklu</span>
-          <span class="wf-small wf-t-secondary">Zużyta mata to wysokiej klasy polepszacz organiczno-mineralny dla producentów gruntowych – ma wartość odsprzedaży zamiast kosztu utylizacji, a rozsypana na polu wiąże CO₂.</span>
+          <span class="wf-h4 wf-w-bold">Podłoże, które zachowuje wartość</span>
+          <span class="wf-small wf-t-secondary">Po zakończeniu użytkowania mata nie staje się odpadem: to wartościowy polepszacz gleby z możliwością odsprzedaży rolnikom, szkółkom, firmom zieleni, sadownikom – albo bezpośrednio nam.</span>
         </div></div>
       </div>
 
@@ -1045,7 +1088,7 @@
       <div class="wf-stack wf-stack--4">
         <span class="wf-overline">Dla kogo</span>
         <h2 class="wf-h2">Uprawy bezglebowe pod osłonami.</h2>
-        <p class="wf-body wf-prose">CARBOMAT Mata Uprawowa jest przeznaczona do profesjonalnej uprawy hydroponicznej i kontenerowej w szklarniach oraz tunelach: pomidor, ogórek, papryka, pomidor koktajlowy, a także jagodowe uprawiane w podłożu. Produkt sprzedajemy od palety w górę.</p>
+        <p class="wf-body wf-prose">CARBOMAT Mata Uprawowa jest przeznaczona do profesjonalnej uprawy hydroponicznej i kontenerowej w szklarniach oraz tunelach – sprawdzona technologia: pomidor, ogórek i truskawka. Sprawdza się również w uprawach doniczkowych, np. malin. Produkt sprzedajemy od palety w górę.</p>
         <ul class="cw2-fn">
           <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-seeding"></use></svg> Producenci warzyw pod osłonami przechodzący z wełny mineralnej lub kokosu</li>
           <li><svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-seeding"></use></svg> Gospodarstwa szukające niższego śladu węglowego i mniej odpadu po podłożu</li>
@@ -1075,7 +1118,7 @@
             <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
           </button>
           <div class="wf-accordion__panel" id="faq-1" role="region" aria-labelledby="faqh-1">
-            <p class="wf-body wf-t-secondary">Wełna mineralna i kokos to podłoża inertne – rośliny żywią się wyłącznie tym, co poda kroplówka. Mata lignitowa jest organiczna i bogata w humus, więc sama dodatkowo dokarmia roślinę, buforuje temperaturę i gospodarkę wodną. Do tego jest wieloletnia (8+ sezonów), a po cyklu staje się polepszaczem gleby.</p>
+            <p class="wf-body wf-t-secondary">Wełna mineralna i kokos to podłoża inertne – rośliny żywią się wyłącznie tym, co poda kroplówka. Mata CARBOMAT jest organiczna i bogata w humus, więc sama dodatkowo dokarmia roślinę, buforuje temperaturę i gospodarkę wodną. Do tego jest wieloletnia (min. 5 sezonów, 6–8 cykli u producentów), a po cyklu staje się polepszaczem gleby.</p>
           </div>
         </div>
         <div class="wf-accordion__item">
@@ -1084,7 +1127,7 @@
             <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
           </button>
           <div class="wf-accordion__panel" id="faq-2" role="region" aria-labelledby="faqh-2" hidden>
-            <p class="wf-body wf-t-secondary">Wg opracowania producenta 8 i więcej sezonów, wobec 3–4 cykli mat kokosowych. Co istotne, drugie i kolejne cykle bywają wydajniejsze niż pierwszy, ponieważ granulat lignitu kumuluje składniki. Ponowne użycie mat, bez negatywnego wpływu na plon i jakość, potwierdziły też niezależne badania SGGW.</p>
+            <p class="wf-body wf-t-secondary">Doświadczenia u producentów dowodzą skutecznej uprawy przez 6–8 kolejnych cykli uprawowych – bez straty w plonie i bez oznak chorób odglebowych (maty projektowane na min. 5 sezonów, wobec 1–2 sezonów mat kokosowych). Co istotne, drugie i kolejne cykle bywają wydajniejsze niż pierwszy, ponieważ granulat lignitu kumuluje składniki. Ponowne użycie mat, bez negatywnego wpływu na plon i jakość, potwierdziły też niezależne badania SGGW.</p>
           </div>
         </div>
         <div class="wf-accordion__item">
@@ -1093,7 +1136,7 @@
             <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
           </button>
           <div class="wf-accordion__panel" id="faq-3" role="region" aria-labelledby="faqh-3" hidden>
-            <p class="wf-body wf-t-secondary">Tak. Matę zalewa się czystą wodą i moczy przez 72 godziny, dopiero potem wykonuje 2–3 otwory drenażowe (nacięcia 2–3 cm), a rośliny sadzi dobę później. To warunek konieczny dla kontroli wilgotności. Pełną rekomendację techniczną dołączamy do zamówienia.</p>
+            <p class="wf-body wf-t-secondary">Tak. Matę zalewa się czystą wodą (przyjmuje ok. 8 dm³) i moczy przez 72 godziny, dopiero potem wykonuje 2 skośne otwory drenażowe (nacięcia po 2–3 cm), a rośliny sadzi dobę później. To warunek konieczny dla kontroli wilgotności. Pełną rekomendację techniczną dołączamy do zamówienia.</p>
           </div>
         </div>
         <div class="wf-accordion__item">
@@ -1102,7 +1145,8 @@
             <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
           </button>
           <div class="wf-accordion__panel" id="faq-4" role="region" aria-labelledby="faqh-4" hidden>
-            <p class="wf-body wf-t-secondary">W pierwszym roku tak: pH pożywki 6,2–6,5, ograniczone żelazo, bez nawozów siarczanowych i boru, więcej miedzi (~30%), potasu (~20%) i fosforu (~20% przez pierwsze 3 tygodnie). Podłoże samo reguluje siarkę, żelazo i bor. Bilans układa się na podstawie analizy wody i drenażu.</p>
+            <!-- Szczegóły nawożenia celowo zdjęte ze strony (Darek 16.07: kontakt z doradcą); pełne zalecenia 1. roku w rekomendacji technicznej -->
+            <p class="wf-body wf-t-secondary">W pierwszym roku tak – to okres stabilizacji maty, a podłoże samo reguluje część składników. Szczegółową recepturę pożywki i korekty przygotowuje nasz agronom na podstawie analizy wody i drenażu; pełną rekomendację techniczną dołączamy do każdego zamówienia.</p>
           </div>
         </div>
         <div class="wf-accordion__item">
@@ -1129,7 +1173,17 @@
             <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
           </button>
           <div class="wf-accordion__panel" id="faq-7" role="region" aria-labelledby="faqh-7" hidden>
-            <p class="wf-body wf-t-secondary">To ten sam surowiec – frakcjonowany lignit – w dwóch zastosowaniach. Mata Uprawowa to gotowy rękaw do upraw bezglebowych pod osłonami (hydroponika, uprawa kontenerowa), a <a class="wf-link" href="carbomat.html">CARBOMAT ECO</a> to sypki dodatek doglebowy i do podłoży. Co więcej, zużyta mata po cyklu staje się polepszaczem stosowanym doglebowo – domyka obieg.</p>
+            <p class="wf-body wf-t-secondary">To ta sama baza – frakcjonowany lignit – w dwóch zastosowaniach. Mata Uprawowa to gotowy rękaw do upraw bezglebowych pod osłonami (80% frakcji lignitu + 20% krótkiego włókna kokosowego), a <a class="wf-link" href="carbomat.html">CARBOMAT ECO</a> to sypki dodatek doglebowy i do podłoży. Co więcej, zużyta mata po cyklu staje się polepszaczem stosowanym doglebowo – domyka obieg.</p>
+          </div>
+        </div>
+        <!-- Pytanie-zalążek z „Produkty na stronę" 16.07 -->
+        <div class="wf-accordion__item">
+          <button class="wf-accordion__trigger wf-w-medium" aria-expanded="false" aria-controls="faq-8" id="faqh-8">
+            Czy mogę wykorzystać matę w swoim ogrodzie?
+            <svg class="wf-icon wf-icon--sm" aria-hidden="true"><use href="#ti-chevron-down"></use></svg>
+          </button>
+          <div class="wf-accordion__panel" id="faq-8" role="region" aria-labelledby="faqh-8" hidden>
+            <p class="wf-body wf-t-secondary">Mata jest przeznaczona do profesjonalnej uprawy hydroponicznej i kontenerowej pod osłonami, ale sprawdza się również w uprawach doniczkowych, np. malin. Pamiętaj jednak, że zamówienia realizujemy od palety w górę – do ogrodu i domu zwykle lepszym wyborem będzie sypki <a class="wf-link" href="carbomat.html">CARBOMAT ECO</a>.</p>
           </div>
         </div>
       </div>

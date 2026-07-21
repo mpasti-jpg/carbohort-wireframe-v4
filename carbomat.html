@@ -415,7 +415,8 @@
       <a class="cx-subnav__link" href="#faq" data-spy="faq">FAQ</a>
     </div>
     <div class="cx-subnav__buy">
-      <span class="wf-small wf-t-secondary cx-subnav__price">od <span class="wf-w-bold wf-t-primary">79 zł</span></span>
+      <!-- Ceny realne brutto od Darka (AC #30867, 21.07) – zastępują robocze 89/79 zł -->
+      <span class="wf-small wf-t-secondary cx-subnav__price">od <span class="wf-w-bold wf-t-primary">43 zł</span></span>
       <a class="wf-btn wf-btn--primary wf-btn--sm" href="sklep.html?grupa=carbomat">Kup w sklepie</a>
     </div>
   </div>
@@ -476,7 +477,31 @@
             </div>
             <div class="cx-quick__cell">
               <span class="wf-caption wf-t-tertiary">Cena</span>
-              <span class="wf-small wf-w-semibold"><span data-hv="eco">od 89 zł · worek 20 l</span><span data-hv="sciolka">od 79 zł · worek 20 l</span></span>
+              <span class="wf-small wf-w-semibold"><span data-hv="eco">od 43 zł · worek 20 l</span><span data-hv="sciolka">od 43 zł · worek 20 l</span></span>
+            </div>
+          </div>
+          <!-- Tabela technikaliów w hero wg uwagi Darka (dokument 16.07 + doprecyzowanie z rozmowy 21.07): pełny zestaw parametrów na produktach SUCHYCH. Wspólna dla obu odmian (ten sam surowiec); źródła: badanie akredytowane PCBC S.A. 2022 + karta produktu (substancje humusowe „do ~70%" wg materiału producenta – zależne od pokładu). -->
+          <div class="wf-card wf-card--flush">
+            <div class="wf-card__body" style="padding-block:var(--w-space-3) 0;"><span class="wf-overline wf-t-tertiary">Parametry produktu · w suchej masie</span></div>
+            <table class="wf-table">
+              <tbody>
+                <tr><th scope="row">Odczyn (pH)</th><td style="text-align:right;">4,5–5,0 · 6,0–6,5 <span class="wf-t-tertiary">(dwie odmiany)</span></td></tr>
+                <tr><th scope="row">Sucha masa</th><td style="text-align:right;">~87%</td></tr>
+                <tr><th scope="row">Substancje humusowe</th><td style="text-align:right;">do ~70% <span class="wf-t-tertiary">(zależnie od pokładu)</span></td></tr>
+                <tr><th scope="row">Materia organiczna</th><td style="text-align:right;">~92%</td></tr>
+                <tr><th scope="row">Węgiel organiczny</th><td style="text-align:right;">~51%</td></tr>
+                <tr><th scope="row">Azot (N)</th><td style="text-align:right;">~0,11%</td></tr>
+                <tr><th scope="row">Potas (K₂O)</th><td style="text-align:right;">~0,6%</td></tr>
+                <tr><th scope="row">Fosfor (P₂O₅)</th><td style="text-align:right;">~0,5%</td></tr>
+              </tbody>
+            </table>
+            <div class="wf-card__body wf-stack wf-stack--2" style="padding-block:var(--w-space-3);">
+              <p class="wf-caption wf-t-tertiary">Materia organiczna i węgiel w suchej masie; badanie akredytowanego laboratorium PCBC S.A. (2022) i karta produktu.</p>
+              <!-- ⚠️ realne PDF-y (raport PCBC + karta produktu) do podpięcia -->
+              <div class="wf-cluster wf-gap-2">
+                <a class="wf-btn wf-btn--secondary wf-btn--sm" href="centrum-wiedzy.html#magazyn">Aktualna analiza (PDF)</a>
+                <a class="wf-btn wf-btn--link wf-btn--sm" href="centrum-wiedzy.html#magazyn">Pobierz kartę produktu</a>
+              </div>
             </div>
           </div>
         </div>
@@ -566,14 +591,16 @@
               <div class="cx-spec__row"><dt>Aplikacja</dt><dd>wymieszaj z glebą lub stwórz własną mieszankę podłoża</dd></div>
               <div class="cx-spec__row"><dt>Gdzie najlepiej</dt><dd>każda gleba o niskiej zawartości materii organicznej lub wymagająca poprawy struktury; uprawy doniczkowe</dd></div>
               <div class="cx-spec__row"><dt>pH</dt><dd data-ph-target>dla roślin kwasolubnych – borówka, wrzosowate, różaneczniki, azalie</dd></div>
+              <!-- Frakcje POTWIERDZONE (Darek, AC #30867, 21.07); kierunek asortymentowy: najdrobniejsza 0,1–2 mm docelowo tylko w odmianie o niskim pH („musimy wyzbywać się pyłu") – nie publikujemy do czasu potwierdzenia oferty -->
               <div class="cx-spec__row"><dt>Frakcje</dt><dd>0,1–2 mm · 2–4 mm · 4–8 mm</dd></div>
             </dl>
             <div class="wf-stack wf-stack--2">
               <span class="wf-overline wf-t-tertiary">Opakowania i ceny</span>
               <div class="cx-price">
-                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">worek 20 l</a><span class="wf-w-semibold">89 zł</span></div>
-                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">big bag 1000 l</a><span class="wf-w-semibold">1490 zł</span></div>
-                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">big bag 1500 l</a><span class="wf-w-semibold">1990 zł</span></div>
+                <!-- Ceny brutto od Darka (AC #30867): worek 43 zł (oba pH); big bagi – niższa cena = odmiana pH 4,5–5,0, wyższa = 6,0–6,5 -->
+                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">worek 20 l</a><span class="wf-w-semibold">43 zł</span></div>
+                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">big bag 1000 l</a><span class="wf-w-semibold">600–650 zł</span></div>
+                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">big bag 1500 l</a><span class="wf-w-semibold">800–850 zł</span></div>
               </div>
             </div>
             <div class="wf-cluster wf-gap-3 wf-items-center">
@@ -618,9 +645,10 @@
             <div class="wf-stack wf-stack--2">
               <span class="wf-overline wf-t-tertiary">Opakowania i ceny</span>
               <div class="cx-price">
-                <div class="cx-price__row"><span><a class="wf-link" href="sklep.html?grupa=carbomat">worek 20 l</a><span class="wf-badge wf-badge--outline">nowość</span></span><span class="wf-w-semibold">79 zł</span></div>
-                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">big bag 1000 l</a><span class="wf-w-semibold">1290 zł</span></div>
-                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">big bag 1500 l</a><span class="wf-w-semibold">1690 zł</span></div>
+                <!-- Ceny brutto od Darka (AC #30867): Ściółka „odpowiednio jak dla pH 4" -->
+                <div class="cx-price__row"><span><a class="wf-link" href="sklep.html?grupa=carbomat">worek 20 l</a><span class="wf-badge wf-badge--outline">nowość</span></span><span class="wf-w-semibold">43 zł</span></div>
+                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">big bag 1000 l</a><span class="wf-w-semibold">600 zł</span></div>
+                <div class="cx-price__row"><a class="wf-link" href="sklep.html?grupa=carbomat">big bag 1500 l</a><span class="wf-w-semibold">800 zł</span></div>
               </div>
             </div>
             <div class="wf-cluster wf-gap-3 wf-items-center">
@@ -819,7 +847,8 @@
           <h3 class="wf-h4">CARBOMAT ECO – dodatek do gleby</h3>
           <div class="cx-step"><span class="cx-step__no">01</span><p class="wf-body"><span class="wf-w-semibold">Powierzchniowo:</span> wymieszaj z glebą lub innymi składnikami – 10–15% objętości warstwy ornej lub całego przygotowanego podłoża.</p></div>
           <div class="cx-step"><span class="cx-step__no">02</span><p class="wf-body"><span class="wf-w-semibold">Frakcję dobieraj do gleby:</span> lekkie, piaszczyste – drobniejsza; ciężkie, gliniaste – grubsza.</p></div>
-          <div class="cx-step"><span class="cx-step__no">03</span><p class="wf-body"><span class="wf-w-semibold">Punktowo:</span> pod rozsadę lub goły korzeń przy sadzeniu, przemieszaj z glebą. Małe jednoroczne (pomidor, papryka, ogórek) ok. 100–200 ml, drzewa sadownicze 3–5 l.</p></div>
+          <!-- Progi punktowe doprecyzowane przez Darka (AC #30867, 21.07): średnia półka 1–3 l, górna 3–8 l jako starter -->
+          <div class="cx-step"><span class="cx-step__no">03</span><p class="wf-body"><span class="wf-w-semibold">Punktowo:</span> pod rozsadę lub goły korzeń przy sadzeniu, przemieszaj z glebą. Małe jednoroczne (pomidor, papryka, ogórek) ok. 100–200 ml, krzewy i byliny 1–3 l, drzewa sadownicze 3–8 l na start.</p></div>
           <p class="wf-small wf-t-secondary">Uprawy doniczkowe: 10–20% objętości gotowej mieszanki podłoża albo wartościowy drenaż na spodzie doniczki (warstwa ok. 5 cm). Im więcej wartościowego podłoża przygotujesz, tym bujniej rozrośnie się korzeń.</p>
         </div></article>
 
@@ -868,7 +897,9 @@
             <div class="cx-dcalc__field" data-calc-only="punkt" hidden>
               <span class="wf-overline wf-t-tertiary">Rodzaj roślin</span>
               <div class="wf-segmented" role="group" aria-label="Rodzaj roślin do sadzenia punktowego">
+                <!-- Progi punktowe wg Darka (AC #30867, 21.07): jednoroczne 100–200 ml · krzewy/byliny 1–3 l · drzewa (starter) 3–8 l -->
                 <button type="button" class="wf-btn wf-btn--sm" data-calc-typ="jednoroczne" aria-pressed="true">Jednoroczne (pomidor, papryka)</button>
+                <button type="button" class="wf-btn wf-btn--sm" data-calc-typ="krzewy" aria-pressed="false">Krzewy i byliny</button>
                 <button type="button" class="wf-btn wf-btn--sm" data-calc-typ="drzewa" aria-pressed="false">Drzewa sadownicze</button>
               </div>
             </div>
@@ -1393,11 +1424,13 @@
         min = Number(lit.value) * 0.10; max = Number(lit.value) * 0.20;
         basisTxt = "Liczymy 10–20% objętości gotowej mieszanki podłoża.";
       } else {
-        var per = state.typ === "drzewa" ? [3, 5] : [0.1, 0.2];
+        var per = state.typ === "drzewa" ? [3, 8] : state.typ === "krzewy" ? [1, 3] : [0.1, 0.2];
         min = Number(n.value) * per[0]; max = Number(n.value) * per[1];
         basisTxt = state.typ === "drzewa"
-          ? "Liczymy 3–5 l na drzewo sadownicze, do przemieszania z glebą w dołku."
-          : "Liczymy 100–200 ml na roślinę jednoroczną (pomidor, papryka, ogórek).";
+          ? "Liczymy 3–8 l na drzewo sadownicze (starter), do przemieszania z glebą w dołku."
+          : state.typ === "krzewy"
+            ? "Liczymy 1–3 l na krzew lub bylinę, do przemieszania z glebą w dołku."
+            : "Liczymy 100–200 ml na roślinę jednoroczną (pomidor, papryka, ogórek).";
       }
       if (basis) basis.textContent = basisTxt;
       if (result) {
